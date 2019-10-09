@@ -1,0 +1,673 @@
+<!--
+Copyright (c) CLMS. All rights reserved.
+Licensed under the AGPL-3.0 license. See LICENSE file in the project root for full license information.-->
+
+<Application DateCreated="09/13/2019" Model_Name="app" Model_Description="" Version="0.2.0" Comments="" OptionalLibraries="">
+  <Name>DSS2_SynchromodalityCapacityOptimisation</Name>
+  <Theme>LiteTheme</Theme>
+  <AllowAdminToSetPasswords>false</AllowAdminToSetPasswords>
+  <Description>
+  </Description>
+  <AuthenticationType>Forms</AuthenticationType>
+  <Authorization>
+    <Roles>
+      <Role Name="Administrator" Description="Administrator" Permissions="ManageUsers;ManageRoles;ManagePermissions;ManageOperations;ManageSettings;ManageApplicationData" />
+    </Roles>
+    <Permissions>
+      <Permission Name="ManageUsers" Description="Can Manage Users" PermanentId="764650520" />
+      <Permission Name="ManageRoles" Description="Can Manage Roles" PermanentId="592647620" />
+      <Permission Name="ManagePermissions" Description="Can Manage Permissions" PermanentId="898003211" />
+      <Permission Name="ManageOperations" Description="Can Manage Operations" PermanentId="719339385" />
+      <Permission Name="ManageSettings" Description="Can Manage Settings" PermanentId="1881828570" />
+      <Permission Name="ManageApplicationData" Description="Can Manage Application Data" PermanentId="1385935426" />
+      <Permission Name="CustomerSelectionAndAdmin_Add" Description="CustomerSelectionAndAdmin_Add" PermanentId="1107507761" />
+    </Permissions>
+  </Authorization>
+  <Globalization DefaultLocale="en-us" DefaultRegionalFormatting="en-us">
+    <Locales>
+      <Locale LCID="1033" LCString="en-us" LCDescription="English-United States" />
+      <Locale LCID="1032" LCString="el" LCDescription="Greek" />
+    </Locales>
+    <Resources>
+      <Res Type="S" Key="RES_SITE_ApplicationTitle" en-us="DSS2_SynchromodalityCapacityOptimisation" el="DSS2_SynchromodalityCapacityOptimisation" />
+      <Res Type="S" Key="RES_SITE_ApplicationDescription" />
+      <Res Type="S" Key="RES_SITE_WindowTitle" en-us="DSS2_SynchromodalityCapacityOptimisation" el="DSS2_SynchromodalityCapacityOptimisation" />
+      <Res Type="S" Key="RES_SITE_PREFS_CancelButtonText" en-us="Cancel" el="Ακύρωση" />
+      <Res Type="S" Key="RES_SITE_PREFS_OKButtonText" en-us="OK" el="OK" />
+      <Res Type="S" Key="RES_SITE_Changesnotsaved" en-us="Unsaved changes" el="Μη Αποθηκευμένες Αλλαγές" />
+      <Res Type="S" Key="RES_SITE_SessionExpiredErrorMessage" en-us="Your session has expired. Any changes have been ignored." el="Η περίοδος σύνδεσής σας έχει λήξει." />
+      <Res Type="S" Key="RES_SITE_SessionRefreshMessage" en-us="Your session is about to expire.&lt;/br&gt;&lt;/br&gt;Click the button below to refresh it." el="&gt;Η περίοδος σύνδεσής σας θα λήξει σύντομα.&lt;/br&gt;&lt;/br&gt;Κάντε κλικ στο παρακάτω πλήκτρο για να την ανανεώσετε." />
+      <Res Type="S" Key="RES_SITE_SessionRefreshedMessage" en-us="Your session has been successfully refreshed!" el="Η περίοδος σύνδεσής σας ανανεώθηκε επιτυχώς!" />
+      <Res Type="S" Key="RES_SITE_ExitConfirmation" en-us="Exit Confirmation" el="Επιβεβαίωση Εξόδου" />
+      <Res Type="S" Key="RES_SITE_ExitConfirmationMessage" en-us="There is unsaved information on this page that will be lost.&lt;/br&gt;&lt;/br&gt;Are you sure you want to exit?" el="Υπάρχουν μη αποθηκευμένα δεδομένα σε αυτή τη σελίδα που θα χαθούν.&lt;/br&gt;&lt;/br&gt;Είστε σίγουροι ότι θέλετε να εξέλθετε;" />
+      <Res Type="S" Key="RES_SITE_AreYouSure" en-us="Are you sure ?" el="Είστε σίγουροι;" />
+      <Res Type="S" Key="RES_SITE_Confirm" en-us="Please Confirm" el="Παρακαλώ επιβεβαιώστε" />
+      <Res Type="S" Key="RES_SITE_CloseChildList" en-us="Close" el="Κλείσιμο" />
+      <Res Type="S" Key="RES_SITE_Exit" en-us="OK" el="OK" />
+      <Res Type="S" Key="RES_SITE_NullValue" en-us="(empty)" el="(κενό)" />
+      <Res Type="S" Key="RES_SITE_POPUP_BLOCKED_TITLE" en-us="Attachment Download Blocked!" el="Μπλοκαρίστηκε η Μεταφόρτωση του Αρχείου!" />
+      <Res Type="S" Key="RES_SITE_POPUP_BLOCKED_MESSAGE" en-us="Your browser does not allow popups.&lt;br/&gt;Please, disable your Popup Blocker,&lt;br/&gt;or add this site to your exceptions list." el="Ο διαφυλλιστής σας δεν επιτρέπει αναδυόμενα παράθυρα.&lt;br/&gt;Παρακαλούμε, απενεργοποιήστε τον Popup Blocker σας&lt;br/&gt;ή προσθέστε τη σελίδα αυτή στην λίστα των εξαιρέσεών του." />
+      <Res Type="S" Key="RES_SITE_StaleObjectStateExceptionTitle" en-us="Stale Data" el="Παλαιά Δεδομένα" />
+      <Res Type="S" Key="RES_SITE_StaleObjectStateExceptionMessage" en-us="Somebody already committed modifications to the data you are about to commit. You have been working with stale data.Please, refresh your page in order to restart with fresh data." el="Κάποιος ήδη έχει αλλάξει τα δεδομένα που θέλετε να αποστείλετε. Δουλεύατε με παλαιά δεδομένα.Παρακαλούμε, ανανεώστε τη σελίδα σας προκειμένου να εργαστείτε με νέα δεδομένα." />
+      <Res Type="S" Key="RES_CONTROLLER_ACTION_TimeoutErrorTitle" en-us="Timeout" el="Λήξη Χρονικού Ορίου" />
+      <Res Type="S" Key="RES_CONTROLLER_ACTION_TimeoutErrorMessage" en-us="The running operation has timed out." el="Λήξη χρονικού ορίου κατά την εκέλεση της λειτουργίας." />
+      <Res Type="S" Key="RES_CONTROLLER_ACTION_AbortErrorTitle" en-us="Abort" el="Διακοπή" />
+      <Res Type="S" Key="RES_CONTROLLER_ACTION_AbortErrorMessage" en-us="The running operation has been aborted." el="Η τρέχουσα λειτουργία διακόπηκε." />
+      <Res Type="S" Key="RES_CONTROLLER_ACTION_GenericErrorTitle" en-us="Error" el="Σφάλμα" />
+      <Res Type="S" Key="RES_CONTROLLER_ACTION_GenericErrorMessage" en-us="Caught an unknown error, while communicating with the Server." el="Παρουσιάστηκε ένα άγνωστο σφάλμα κατά την επικοινωνία με τον Εξυπηρετητή." />
+      <Res Type="S" Key="RES_CONTROLLER_ACTION_ParserErrorTitle" en-us="Parser Error" el="Σφάλμα Parser" />
+      <Res Type="S" Key="RES_CONTROLLER_ACTION_ParserErrorMessage" en-us="Caught a Parser Error." el="Παρουσιάστηκε σφάλμα κατά την ανάλυση των δεδομένων." />
+      <Res Type="S" Key="RES_BO_PrimaryKeyNotSet" en-us="{0}'s PrimaryKey:[{1}] value was not set!" el="{0}' Πρωτεύον Κλειδί:[{1}] δεν έχει τιμή!" />
+      <Res Type="S" Key="RES_BO_CannotDeleteNewObject" en-us="Cannot delete a new [{0}] object!" el="Δεν μπορεί να διαγραφή νέο [{0}] αντικείμενο!" />
+      <Res Type="S" Key="RES_BO_UpdateFailedDueToConcurrency" en-us="Object could not be updated. Another user has modified it!" el="Το αντικείμενο δεν μπορεί να ενημερωθεί. Κάποιος άλλος χρήστης το τροποποίησε!" />
+      <Res Type="S" Key="RES_BO_DeleteFailedDueToConcurrency" en-us="Object could not be deleted. Another user has modified it!" el="Object could not be deleted. Another user has modified it!" />
+      <Res Type="S" Key="RES_BO_Overflow" en-us="The value specified for field [{1}] of [{0}] exceeds the maximum allowed size." el="The value specified for field [{1}] of [{0}] exceeds the maximum allowed size." />
+      <Res Type="S" Key="RES_BO_InvalidPassword" en-us="The Password you entered is invalid. The Password needs to:&lt;br/&gt;" el="The Password you entered is invalid. The Password needs to:&lt;br/&gt;" />
+      <Res Type="S" Key="RES_BO_InvalidPassword_CapitalLettersRequired" en-us="&amp;nbsp;&amp;nbsp;Include capital letters.&lt;br/&gt;" el="&amp;nbsp;&amp;nbsp;Include capital letters.&lt;br/&gt;" />
+      <Res Type="S" Key="RES_BO_InvalidPassword_MinPasswordLength" en-us="&amp;nbsp;&amp;nbsp;Be at least {0} characters long.&lt;br/&gt;" el="&amp;nbsp;&amp;nbsp;Be at least {0} characters long.&lt;br/&gt;" />
+      <Res Type="S" Key="RES_BO_InvalidPassword_MinRequiredNumericDigits" en-us="&amp;nbsp;&amp;nbsp;Include at least {0} numeric digits.&lt;br/&gt;" el="&amp;nbsp;&amp;nbsp;Include at least {0} numeric digits.&lt;br/&gt;" />
+      <Res Type="S" Key="RES_BO_InvalidPassword_MinRequiredNonAlphanumeric" en-us="&amp;nbsp;&amp;nbsp;Include at least {0} non-alphanumeric characters.&lt;br/&gt;" el="&amp;nbsp;&amp;nbsp;Include at least {0} non-alphanumeric characters.&lt;br/&gt;" />
+      <Res Type="S" Key="RES_BO_NewPass_And_OldPass_MustNotMatch" en-us="The new password cannot be the same as the old one." el="The new password cannot be the same as the old one." />
+      <Res Type="S" Key="RES_BO_BR_InvalidEmail" en-us="This is not a valid email address." el="This is not a valid email address." />
+      <Res Type="S" Key="RES_LIST_ERROR_ErrorTitle" en-us="Error Occured!" el="Προέκυψε Σφάλμα!" />
+      <Res Type="S" Key="RES_LIST_ERROR_CannotRemoveLastView" en-us="Cannot remove the last View! Try modifying it." el="Δεν επιτρέπεται να αφαιρεθεί και ο τελευταίος τρόπος προβολής. Επεξεργαστείτε τον." />
+      <Res Type="S" Key="RES_LIST_TOOLBAR_ExportButtonTooltip" en-us="Export List" el="Εξαγωγή Λίστας" />
+      <Res Type="S" Key="RES_LIST_TOOLBAR_FilterButtonTooltip" en-us="Filter List" el="Φιλτράρισμα Λίστας" />
+      <Res Type="S" Key="RES_LIST_TOOLBAR_PreferencesButtonTooltip" en-us="Change List Preferences" el="Αλλαγή προτιμήσεων" />
+      <Res Type="S" Key="RES_LIST_TOOLBAR_RefreshButtonTooltip" en-us="Refresh List" el="Ανανέωση Λίστας" />
+      <Res Type="S" Key="RES_LIST_TOOLBAR_RefreshResetButtonTooltip" en-us="Reset List" el="Επαναφορά αρχικής κατάστασης της Λίστας" />
+      <Res Type="S" Key="RES_LIST_PAGER_PageSize" en-us="Show rows:" el="Προβολή γραμμών:" />
+      <Res Type="S" Key="RES_LIST_PAGER_Page" en-us="Page:" el="Σελίδα:" />
+      <Res Type="S" Key="RES_LIST_PAGER_Of" en-us="of" el="από" />
+      <Res Type="S" Key="RES_LIST_PAGER_FirstPage" en-us="First Page" el="Πρώτη Σελίδα" />
+      <Res Type="S" Key="RES_LIST_PAGER_PreviousPage" en-us="Previous Page" el="Προηγούμενη Σελίδα" />
+      <Res Type="S" Key="RES_LIST_PAGER_NextPage" en-us="Next Page" el="Επόμενη Σελίδα" />
+      <Res Type="S" Key="RES_LIST_PAGER_LastPage" en-us="Last Page" el="Τελευταία Σελίδα" />
+      <Res Type="S" Key="RES_LIST_PAGER_TotalRecords" en-us="Total Records:" el="Σύνολο γραμμών:" />
+      <Res Type="S" Key="RES_LIST_AGGREGATE_Summation" en-us="Total" el="Σύνολο" />
+      <Res Type="S" Key="RES_LIST_AGGREGATE_Average" en-us="Average" el="Μέση τιμή" />
+      <Res Type="S" Key="RES_LIST_AGGREGATE_Count" en-us="Count" el="Πλήθος:" />
+      <Res Type="S" Key="RES_LIST_PAGER_PageAggregateTooltip" en-us="Page {0} : {1}" el="Σελίδα {0} : {1}" />
+      <Res Type="S" Key="RES_LIST_PAGER_GrandAggregateTooltip" en-us="List {0} : {1}" el="Λίστα {0} : {1}" />
+      <Res Type="S" Key="RES_LIST_EXPORT_DialogTitle" en-us="Export Properties" el="Εξαγωγή Ρυθμίσεων" />
+      <Res Type="S" Key="RES_LIST_EXPORT_ExportRange_CurrentPage" en-us="Current Page" el="Τρέχουσα σελίδα" />
+      <Res Type="S" Key="RES_LIST_EXPORT_ExportRange_Top100Pages" en-us="Top 100 Records" el="Πρώτες 100 Εγγραφές" />
+      <Res Type="S" Key="RES_LIST_EXPORT_ExportRange_AllPages_10000_Restriction" en-us="All Pages (First 10000 Records)" el="Όλες οι σελίδες (Πρώτες 10.000 Εγγραφές)" />
+      <Res Type="S" Key="RES_LIST_EXPORT_ExportRange_AllPages" en-us="All Pages" el="Όλες οι σελίδες" />
+      <Res Type="S" Key="RES_LIST_EXPORT_PrintRange" en-us="Print Range" el="Εκτύπωση Εύρους" />
+      <Res Type="S" Key="RES_LIST_EXPORT_IncludeGridLines" en-us="Include Grid Lines" el="Εμφάνιση Γραμμών Πλέγματος" />
+      <Res Type="S" Key="RES_LIST_EXPORT_ExportOK" en-us="Export" el="Εξαγωγή" />
+      <Res Type="S" Key="RES_LIST_EXPORT_ExportCancel" en-us="Cancel" el="Ακύρωση" />
+      <Res Type="S" Key="RES_LIST_FILTERS_DialogTitle" en-us="Filters" el="Φίλτρα Λίστας" />
+      <Res Type="S" Key="RES_LIST_FILTERS_RowOperator_Header" en-us="Row Operator" el="Τύπος φίλτρου" />
+      <Res Type="S" Key="RES_LIST_FILTERS_RowOperatorTypes_None" en-us="[None]" el="[Κανένα]" />
+      <Res Type="S" Key="RES_LIST_FILTERS_RowOperatorTypes_And" en-us="And" el="Και" />
+      <Res Type="S" Key="RES_LIST_FILTERS_RowOperatorTypes_Or" en-us="Or" el="Ή" />
+      <Res Type="S" Key="RES_LIST_FILTERS_Column_Header" en-us="Column" el="Στήλη" />
+      <Res Type="S" Key="RES_LIST_FILTERS_Column_None" en-us="[None]" el="[Καμία]" />
+      <Res Type="S" Key="RES_LIST_FILTERS_Operators_Header" en-us="Operator" el="Τύπος Φίλτρου" />
+      <Res Type="S" Key="RES_LIST_FILTERS_Operators_None" en-us="None" el="Κανένα" />
+      <Res Type="S" Key="RES_LIST_FILTERS_Operators_EqualTo" en-us="Equal To" el="Ίσο με" />
+      <Res Type="S" Key="RES_LIST_FILTERS_Operators_NotEqualTo" en-us="Not Equal To" el="Δεν είναι Ίσο με" />
+      <Res Type="S" Key="RES_LIST_FILTERS_Operators_LessThan" en-us="Less Than" el="Μικρότερο Από" />
+      <Res Type="S" Key="RES_LIST_FILTERS_Operators_LessThanOrEqualTo" en-us="Less Than Or Equal To" el="Μικρότερο Ή Ίσο με" />
+      <Res Type="S" Key="RES_LIST_FILTERS_Operators_GreaterThan" en-us="Greater Than" el="Μεγαλύτερο από" />
+      <Res Type="S" Key="RES_LIST_FILTERS_Operators_GreaterThanOrEqualTo" en-us="Greater Than Or Equal To" el="Μεγαλύτερο Ή Ίσο με" />
+      <Res Type="S" Key="RES_LIST_FILTERS_Operators_Like" en-us="Like" el="Παρόμοιο με" />
+      <Res Type="S" Key="RES_LIST_FILTERS_Operators_IsNull" en-us="Is Null" el="Είναι Κενό" />
+      <Res Type="S" Key="RES_LIST_FILTERS_Operators_NotNull" en-us="Is Not Null" el="Δεν είναι Κενό" />
+      <Res Type="S" Key="RES_LIST_FILTERS_Operators_HasΝοValue" en-us="Has No Value" el="Χωρίς τιμή" />
+      <Res Type="S" Key="RES_LIST_FILTERS_SelectAll" en-us="Select All" el="Επιλογή Όλων" />
+      <Res Type="S" Key="RES_LIST_FILTERS_FilterValue_Header" en-us="Criteria" el="Κριτήρια" />
+      <Res Type="S" Key="RES_LIST_FILTERS_AddFilter" en-us="Add Filter" el="Προσθήκη φίλτρου" />
+      <Res Type="S" Key="RES_LIST_FILTERS_FilterOK" en-us="Apply Filter(s)" el="Εφαρμογή Φίλτρων" />
+      <Res Type="S" Key="RES_LIST_FILTERS_FilterCancel" en-us="Cancel" el="Ακύρωση" />
+      <Res Type="S" Key="RES_LIST_PREFERENCES_DialogTitle" en-us="Preferences" el="Προτιμήσεις Λίστας" />
+      <Res Type="S" Key="RES_LIST_PREFERENCES_Column_Header" en-us="List Column" el="Στήλη" />
+      <Res Type="S" Key="RES_LIST_PREFERENCES_Visible" en-us="Visible" el="Ορατή" />
+      <Res Type="S" Key="RES_LIST_PREFERENCES_Sorting" en-us="Sorting" el="Ταξινόμηση" />
+      <Res Type="S" Key="RES_LIST_PREFERENCES_SortingType_None" en-us="[None]" el="[Καμία]" />
+      <Res Type="S" Key="RES_LIST_PREFERENCES_SortingType_ASC" en-us="Ascending" el="Αύξουσα" />
+      <Res Type="S" Key="RES_LIST_PREFERENCES_SortingType_DESC" en-us="Descending" el="Φθίνουσα" />
+      <Res Type="S" Key="RES_LIST_PREFERENCES_SortOrder" en-us="Sort Order" el="Σειρά φίλτρου" />
+      <Res Type="S" Key="RES_LIST_PREFERENCES_MoveUp" en-us="Up" el="Πάνω" />
+      <Res Type="S" Key="RES_LIST_PREFERENCES_MoveDown" en-us="Down" el="Κάτω" />
+      <Res Type="S" Key="RES_LIST_PREFERENCES_PreferencesOK" en-us="Apply" el="Εφαρμογή" />
+      <Res Type="S" Key="RES_LIST_PREFERENCES_PreferencesCancel" en-us="Cancel" el="Ακύρωση" />
+      <Res Type="S" Key="RES_LIST_SelectCheckBox_Tooltip" en-us="Select me" el="Επιλογή" />
+      <Res Type="S" Key="RES_LIST_SelectAllCheckBox_Tooltip" en-us="Select all rows in the page" el="Επιλογή όλων των γραμμών στη Σελίδα" />
+      <Res Type="S" Key="RES_LIST_TOOLBAR_MoreActionsButton_Text" en-us="More Actions" el="Περισσότερες ενέργειες" />
+      <Res Type="S" Key="RES_LISTFORM_SUCCESS_SuccessMessage" en-us="Action completed succesfully!" el="Η ενέργεια ολοκληρώθηκε με επιτυχία!" />
+      <Res Type="S" Key="RES_LISTFORM_SUCCESS_SuccessTitle" en-us="Succesfull Action" el="Επιτυχής ολοκλήρωση" />
+      <Res Type="S" Key="RES_LIST_PAGER_SelectedRecords" en-us="Selected Records:" el="Επιλεγμένες γραμμές:" />
+      <Res Type="S" Key="RES_LISTFORM_NORESULTS_NoResults" en-us="No records found." el="Κανένα αποτέλεσμα." />
+      <Res Type="S" Key="RES_LIST_ERROR_UseOnlyEqualLike" en-us="Cannot apply operator to this column. Only &lt;b&gt;Equal To&lt;/b&gt;, &lt;b&gt;Not Equal To&lt;/b&gt; and &lt;b&gt;Like&lt;/b&gt; can be used." el="Δεν μπορεί να εφαρμοστεί ο επιλεγμένος τύπος σε αυτό το φίλτρο. Μόνο οι τύποι &lt;b&gt;Ίσο με&lt;/b&gt;, &lt;b&gt;Δεν είναι ίσο με&lt;/b&gt; και &lt;b&gt;Παρόμοιο&lt;/b&gt; μπορούν να χρησιμοποιηθούν." />
+      <Res Type="S" Key="RES_LIST_ERROR_MultipleNavigationActions" en-us="Cannot perform multiple navigation actions!" el="Δεν είναι δυνατό να εκτελεσθούν πολλαπλές μεταφορές σε άλλες σελίδες!" />
+      <Res Type="S" Key="RES_LIST_ShowOnlyGroups_Expand" en-us="Expand bottom level groups" el="Εμφάνιση όλων των ομάδων και των γραμμών" />
+      <Res Type="S" Key="RES_LIST_ShowOnlyGroups_Collapse" en-us="Collapse bottom level groups" el="Απόκρυψη γραμμών και εμφάνιση μόνο ομάδων" />
+      <Res Type="S" Key="RES_LIST_FILTERS_NoFilterDefined" en-us="No Filters defined." el="Δεν έχει οριστεί κανένα φίλτρο." />
+      <Res Type="S" Key="RES_LIST_EXPORT_ExportOnlyGroups" en-us="Export only Group data" el="Εξαγωγή μόνο των ομάδων" />
+      <Res Type="S" Key="RES_LIST_EXPORT_ExportTo" en-us="Export Type: " el="Εξαγωγή σε" />
+      <Res Type="S" Key="RES_LIST_VIEWS_RemovePrompt" en-us="Are you sure you wish to remove this view?" el="Θέλετε σίγουρα να διαγράψετε αυτή τη προβολή?" />
+      <Res Type="S" Key="RES_LIST_VIEWS_SaveHeader" en-us="Save Current View" el="Αποθήκευση προβολής" />
+      <Res Type="S" Key="RES_LIST_VIEWS_Name" en-us="View Name:" el="Όνομα προβολής:" />
+      <Res Type="S" Key="RES_LIST_VIEWS_Ok" en-us="OK" el="Αποθήκευση" />
+      <Res Type="S" Key="RES_LIST_VIEWS_Cancel" en-us="Cancel" el="Ακύρωση" />
+      <Res Type="S" Key="RES_LIST_VIEWS_MakeDefault" en-us="Make this the default view" el="Να γίνει ο προεπιλεγμένος τρόπος προβολής" />
+      <Res Type="S" Key="RES_LIST_VIEWS_Remove" en-us="Delete selected view" el="Διαγραφή προβολής" />
+      <Res Type="S" Key="RES_LIST_VIEWS_Save" en-us="Save current view" el="Αποθήκευση προβολής" />
+      <Res Type="S" Key="RES_LIST_PAGER_Items" en-us="records" el="Εγγραφές" />
+      <Res Type="S" Key="RES_LIST_PAGER_PerPage" en-us="per page" el="Ανά Σελίδα" />
+      <Res Type="S" Key="RES_LIST_PAGE_Pages" en-us="pages" el="Σελίδες" />
+      <Res Type="S" Key="RES_LIST_PREFERENCES_Rearrange" en-us="Rearrange" el="Αναδιάταξη" />
+      <Res Type="S" Key="RES_LIST_TOOLBAR_HideQuickFilters" en-us="Hide Quick Filters" el="Απόκρυψη Φίλτρων" />
+      <Res Type="S" Key="RES_LIST_TOOLBAR_PredefinedView" en-us="Predefined View" el="Προκαθορισμένη Προβολή" />
+      <Res Type="S" Key="RES_LIST_TOOLBAR_Search" en-us="Search" el="Αναζήτηση" />
+      <Res Type="S" Key="RES_LIST_TOOLBAR_ShowQuickFilters" en-us="Show Quick Filters" el="Φίλτρα" />
+      <Res Type="S" Key="RES_LIST_VIEWS_IsDefault" en-us="IsDefault" el="Είναι η αρχική προβολή" />
+      <Res Type="S" Key="RES_LISTFORM_FiltersApplied" en-us="Clear All Filters" el="Καθαρισμός" />
+      <Res Type="S" Key="RES_LIST_AGGREGATORS_GrandAverage" en-us="Grand Average:" el="Μέσος Όρος: " />
+      <Res Type="S" Key="RES_LIST_AGGREGATORS_GrandCount" en-us="Count:" el="Πλήθος: " />
+      <Res Type="S" Key="RES_LIST_AGGREGATORS_GrandTotal" en-us="Total:" el="Σύνολο:" />
+      <Res Type="S" Key="RES_LIST_AGGREGATORS_PageAverage" en-us="Page Average:" el="Μέσος Όρος Σελίδας:" />
+      <Res Type="S" Key="RES_LIST_AGGREGATORS_PageCount" en-us="Page Count:" el="Πλήθος Σελίδας:" />
+      <Res Type="S" Key="RES_LIST_AGGREGATORS_PageTotal" en-us="Page Total:" el="Σύνολο Σελίδας:" />
+      <Res Type="S" Key="RES_LIST_TOOLBAR_GroupingOrder" en-us="Grouping Order" el="Σειρά Ομαδοποίησης" />
+      <Res Type="S" Key="RES_LIST_TOOLBAR_Page" en-us="page" el="Σελίδα" />
+      <Res Type="S" Key="RES_LIST_SortASC_Tooltip" en-us="Click To Sort Ascending" el="Κλικ για Αύξουσα Ταξινόμιση" />
+      <Res Type="S" Key="RES_LIST_SortDESC_Tooltip" en-us="Click To Sort Descending" el="Κλικ για Φθίνουσα Ταξινόμιση" />
+      <Res Type="S" Key="RES_LIST_UnSort_Tooltip" en-us="Click To Unsort" el="Κλικ για Ακύρωση Ταξινόμισης" />
+      <Res Type="S" Key="RES_LIST_FILTERS_Operators_Range" en-us="Range" el="Εύρος" />
+      <Res Type="S" Key="RES_LIST_FILTERS_Operators_HasNoValue" en-us="Has No Value" el="Δεν έχει τιμή" />
+      <Res Type="S" Key="RES_LIST_FILTERS_Operators_HasValue" en-us="Has Value" el="Με τιμή" />
+      <Res Type="S" Key="RES_LIST_AGGREGATORS_CalculateAverage" en-us="Calculate Average" el="Μέσος Όρος" />
+      <Res Type="S" Key="RES_LIST_AGGREGATORS_CalculateCount" en-us="Calculate Count" el="Πλήθος" />
+      <Res Type="S" Key="RES_LIST_AGGREGATORS_CalculateSum" en-us="Calculate Sum" el="Σύνολο" />
+      <Res Type="S" Key="RES_LIST_TOOLBAR_CommonActions" en-us="Actions" el="Ενέργειες" />
+      <Res Type="S" Key="RES_LIST_MoveColumnLeft_Tooltip" en-us="Move Column Left" el="Μετακίνηση στήλης αριστερά" />
+      <Res Type="S" Key="RES_LIST_MoveColumnRight_Tooltip" en-us="Move Column Right" el="Μετακίνηση στήλης δεξιά" />
+      <Res Type="S" Key="RES_LIST_PREFERENCES_Order" en-us="Order" el="Σειρά" />
+      <Res Type="S" Key="RES_LIST_FILTERS_False" en-us="False" el="Ψευδής" />
+      <Res Type="S" Key="RES_LIST_FILTERS_True" en-us="True" el="Αληθής" />
+      <Res Type="S" Key="RES_LIST_FILTERS_Apply" en-us="Apply" el="Εφαρμογή" />
+      <Res Type="S" Key="RES_LIST_FILTERS_ClearAll" en-us="Clear All" el="Καθαρισμός" />
+      <Res Type="S" Key="RES_LIST_RequiredFiltersMissingMessage" en-us="Please fill in all required list filters" el="Παρακαλώ συμπληρώστε τα απαραίτητα φίλτρα" />
+      <Res Type="S" Key="RES_LIST_RequiredFiltersMissingTitle" en-us="Empty filters" el="Κενά πεδία φίλτρων" />
+      <Res Type="S" Key="RES_LIST_FILTERS_ApplyQuickFilter" en-us="Apply Filter" el="Εφαρμογή" />
+      <Res Type="S" Key="RES_LIST_FILTERS_ClearQuickFilter" en-us="Clear Filter" el="Καθαρισμός φίλτρου" />
+      <Res Type="S" Key="RES_LISTFORM_SubGroups" en-us="Sub Groups" el="Υποομάδες" />
+      <Res Type="S" Key="RES_LIST_EXPORT_FileName" en-us="Filename" el="Όνομα αρχείου" />
+      <Res Type="S" Key="RES_LIST_EXPORT_PortraitOrientation" en-us="PDF Portrait orientation" el="Κάθετη διάταξη" />
+      <Res Type="S" Key="RES_LIST_EXPORT_SumHeader" en-us="SUM" el="Άθροισμα" />
+      <Res Type="S" Key="RES_LIST_EXPORT_AverageHeader" en-us="AVG" el="Μ. Όρος" />
+      <Res Type="S" Key="RES_LIST_EXPORT_Visible" en-us="Visible" el="Ορατό" />
+      <Res Type="S" Key="RES_LIST_EXPORT_Column" en-us="Column" el="Στήλη" />
+      <Res Type="S" Key="RES_LIST_EXPORT_DisplayColumns" en-us="Display Columns" el="Εμφάνιση στηλών" />
+      <Res Type="S" Key="RES_LIST_EXPORT_GroupColor" en-us="Group Lines Color" el="Χρώμα γραμμών ομάδων" />
+      <Res Type="S" Key="RES_LIST_EXPORT_HeaderColor" en-us="Header Lines Color" el="Χρώμα γραμμής επικεφαλίδας" />
+      <Res Type="S" Key="RES_LIST_EXPORT_EvenColor" en-us="Even Lines Color" el="Χρώμα ζυγών γραμμών" />
+      <Res Type="S" Key="RES_LIST_EXPORT_OddColor" en-us="Odd Lines Color" el="Χρώμα μονών γραμμών" />
+      <Res Type="S" Key="RES_LIST_EXPORT_AggregateColor" en-us="Aggregate Lines Color" el="Χρώμα γραμμών Συναρτήσεων" />
+      <Res Type="S" Key="RES_LIST_EXPORT_CountHeader" en-us="Count" el="Πλήθος" />
+      <Res Type="S" Key="RES_LIST_EXPORT_TotalNonGroupCount" en-us="Total items Count" el="Συνολικό πλήθος" />
+      <Res Type="S" Key="RES_LISTFORM_GetGroupsClosed" en-us="Group data only" el="Μόνο ομάδες (χωρίς εγγραφές)" />
+      <Res Type="S" Key="RES_LISTFORM_DisplayGroupItems" en-us="Group Records List" el="Λίστα εγγραφών Ομάδας" />
+      <Res Type="S" Key="RES_LISTFORM_PrevStateTooltip" en-us="Back to Groups" el="Επιστροφή στις Ομάδες" />
+      <Res Type="S" Key="RES_LIST_AGGREGATORS_ClearAll" en-us="Clear Aggregators" el="Καθαρισμός Υπολογισμών" />
+      <Res Type="S" Key="RES_LIST_Import_DownloadCsv" en-us="Download CSV Template" el="Λήψη πρώτυπου αρχείου CSV" />
+      <Res Type="S" Key="RES_LIST_Import_Import" en-us="Import" el="Εισαγωγή δεδομένων" />
+      <Res Type="S" Key="RES_LIST_Import_UploadCsv" en-us="Import from CSV File" el="Εισαγωγή δεδομένων από αρχείο CSV" />
+      <Res Type="S" Key="RES_LIST_Import_ErrorDescription" en-us="Description" el="Περιγραφή" />
+      <Res Type="S" Key="RES_LIST_Import_ErrorDetails" en-us="Error Details" el="Λεπτομέρειες Σφαλμάτων" />
+      <Res Type="S" Key="RES_LIST_Import_ErrorMessage" en-us="Message" el="Μήνυμα" />
+      <Res Type="S" Key="RES_LIST_Import_FailedRecords" en-us="Failed Records" el="Εγγραφές που απέτυχαν" />
+      <Res Type="S" Key="RES_LIST_Import_ImportedRecords" en-us="Imported Records" el="Εγγραφές που έγιναν" />
+      <Res Type="S" Key="RES_LIST_Import_ImportResults" en-us="Import Results" el="Αποτελέσματα Εισαγωγής" />
+      <Res Type="S" Key="RES_LIST_Import_RowNumber" en-us="File Line" el="Γραμμή Αρχείου" />
+      <Res Type="S" Key="RES_LIST_Import_PreferedEncoding" en-us="*Prefered encoding: UTF-8" el="*Προτεινόμενη κωδικοποίηση: UTF-8" />
+      <Res Type="S" Key="RES_LIST_VIEWS_Delete" en-us="Delete" el="Διαγραφή" />
+      <Res Type="S" Key="RES_LIST_TOOLBAR_ResetConfrmation" en-us="Reset will reset any changes you have made to the list. Are you sure you want to continue?" el="Επαναφέροντας τη λίστα στην αρχική κατάσταση θα χάσετε όποιες αλλαγές έχετε κάνει. Θέλετε να συνεχίσετε?" />
+      <Res Type="S" Key="RES_LIST_VIEWS_MakeDefaultConfirmation" en-us="Set current view as default?" el="Θέλετε να ορίσετε αυτή την προβολή ως προεπιλεγμένη?" />
+      <Res Type="S" Key="RES_LIST_VIEWS_Overwrite" en-us="Overwrite View?" el="Αντικατάσταση της υπάρχουσας προβολής?" />
+      <Res Type="S" Key="RES_LIST_VIEWS_NameAlert" en-us="Please enter a name" el="Παρακαλώ εισάγετε ένα όνομα προβολής" />
+      <Res Type="S" Key="RES_LIST_DeselectAllRecordsPromptText" en-us="Unselect All" el="Αποεπιλογή Όλων" />
+      <Res Type="S" Key="RES_LIST_DeselectAllPageRecordsText" en-us="Unselect All Page Rows" el="Αποεπιλογή Όλων στην Σελίδα" />
+      <Res Type="S" Key="RES_DATALIST_Actions" en-us="Actions" el="Ενέργειες" />
+      <Res Type="S" Key="RES_DATALIST_SelectionActions" en-us="Selection Actions" el="Ενέργειες Επιλογής" />
+      <Res Type="S" Key="RES_DATALIST_ClearSearch" en-us="Clear" el="Καθαρισμός" />
+      <Res Type="S" Key="RES_DATALIST_Search" en-us="Search" el="Αναζήτηση" />
+      <Res Type="S" Key="RES_DATALIST_NoResults" en-us="No records found" el="Κανένα αποτέλεσμα" />
+      <Res Type="S" Key="RES_DATALIST_Info" en-us="Showing _START_ to _END_ of _TOTAL_ records" el="Εμφάνιση _START_ έως _END_ από _TOTAL_ εγγραφές" />
+      <Res Type="S" Key="RES_DATALIST_PageSize" en-us="Page size: _MENU_" el="Μέγεθος σελίδας: _MENU_" />
+      <Res Type="S" Key="RES_DATALIST_Records" en-us="records" el="εγγραφές" />
+      <Res Type="S" Key="RES_DATALIST_All" en-us="Όλες" el="Όλες" />
+      <Res Type="S" Key="RES_DATALIST_Loading" en-us="Loading..." el="Φόρτωση..." />
+      <Res Type="S" Key="RES_DATALIST_Processing" en-us="Processing..." el="Επεξεργασία..." />
+      <Res Type="S" Key="RES_DATALIST_PAGER_First" en-us="First" el="Πρώτη" />
+      <Res Type="S" Key="RES_DATALIST_PAGER_Last" en-us="Last" el="Τελευταία" />
+      <Res Type="S" Key="RES_DATALIST_PAGER_Next" en-us="Next" el="Επόμενη" />
+      <Res Type="S" Key="RES_DATALIST_PAGER_Previous" en-us="Previous" el="Προηγούμενη" />
+      <Res Type="S" Key="RES_DATALIST_FILTERS_True" en-us="True" el="Αληθής" />
+      <Res Type="S" Key="RES_DATALIST_FILTERS_False" en-us="False" el="Ψευδής" />
+      <Res Type="S" Key="RES_DATALIST_AGGREGATORS_CalculateAverage" en-us="Calculate Average" el="Μέσος Όρος" />
+      <Res Type="S" Key="RES_DATALIST_AGGREGATORS_CalculateCount" en-us="Calculate Count" el="Πλήθος" />
+      <Res Type="S" Key="RES_DATALIST_AGGREGATORS_CalculateSum" en-us="Calculate Sum" el="Σύνολο" />
+      <Res Type="S" Key="RES_DATALIST_BUTTONS_ColumnVisibility" en-us="Column Visibility" el="Ορατότητα Στηλών" />
+      <Res Type="S" Key="RES_DATALIST_BUTTONS_Copy" en-us="Copy" el="Αντιγραφή" />
+      <Res Type="S" Key="RES_DATALIST_BUTTONS_CopyTitle" en-us="Copy to clipboard" el="Αντιγραφή στο πρόχειρο" />
+      <Res Type="S" Key="RES_DATALIST_BUTTONS_CopySuccessSingle" en-us="Copied one row to clipboard" el="Αντιγράφηκε μια εγγραφή στο πρόχειρο" />
+      <Res Type="S" Key="RES_DATALIST_BUTTONS_CopySuccessMulti" en-us="Copied %d rows to clipboard" el="Αντιγράφηκαν %d εγγραφές στο πρόχειρο" />
+      <Res Type="S" Key="RES_DATALIST_AGGREGATORS_GrandAverage" en-us="Grand Average:" el="Μέσος Όρος: " />
+      <Res Type="S" Key="RES_DATALIST_AGGREGATORS_GrandCount" en-us="Count:" el="Πλήθος: " />
+      <Res Type="S" Key="RES_DATALIST_AGGREGATORS_GrandTotal" en-us="Total:" el="Σύνολο:" />
+      <Res Type="S" Key="RES_DATALIST_AGGREGATORS_PageAverage" en-us="Page Average:" el="Μέσος Όρος Σελίδας:" />
+      <Res Type="S" Key="RES_DATALIST_AGGREGATORS_PageCount" en-us="Page Count:" el="Πλήθος Σελίδας:" />
+      <Res Type="S" Key="RES_DATALIST_AGGREGATORS_PageTotal" en-us="Page Total:" el="Σύνολο Σελίδας:" />
+      <Res Type="S" Key="RES_DATALIST_SelectAllRecordsText" en-us="Select All" el="Επιλογή όλων" />
+      <Res Type="S" Key="RES_DATALIST_SelectAllPageRecordsText" en-us="Select all rows in the page" el="Επιλογή όλων στην σελίδα" />
+      <Res Type="S" Key="RES_DATALIST_DeselectAllRecordsText" en-us="Deselect All" el="Αποεπιλογή όλων" />
+      <Res Type="S" Key="RES_DATALIST_DeselectAllPageRecordsText" en-us="Deselect all rows in the page" el="Αποεπιλογή όλων στην σελίδα" />
+      <Res Type="S" Key="RES_DATALIST_ExportTitle" en-us="Page title" el="Τίτλος σελίδας" />
+      <Res Type="S" Key="RES_DATALIST_OneRowSelected" en-us="One row selected" el="Μία εγγραφή επιλεγμένη" />
+      <Res Type="S" Key="RES_DATALIST_MulitpleRowsSelected" en-us="%d rows selected" el="%d εγγραφές επιλεγμένες" />
+      <Res Type="S" Key="RES_DATALIST_EXPORT_DialogTitle" en-us="Export Properties" el="Εξαγωγή Ρυθμίσεων" />
+      <Res Type="S" Key="RES_DATALIST_EXPORT_ExportRange_CurrentPage" en-us="Current Page" el="Τρέχουσα σελίδα" />
+      <Res Type="S" Key="RES_DATALIST_EXPORT_ExportRange_Top100Pages" en-us="Top 100 Records" el="Πρώτες 100 Εγγραφές" />
+      <Res Type="S" Key="RES_DATALIST_EXPORT_ExportRange_AllPages_10000_Restriction" en-us="All Pages (First 10000 Records)" el="Όλες οι σελίδες (Πρώτες 10.000 Εγγραφές)" />
+      <Res Type="S" Key="RES_DATALIST_EXPORT_ExportRange_AllPages" en-us="All Pages" el="Όλες οι σελίδες" />
+      <Res Type="S" Key="RES_DATALIST_EXPORT_PrintRange" en-us="Print Range" el="Εκτύπωση Εύρους" />
+      <Res Type="S" Key="RES_DATALIST_EXPORT_IncludeGridLines" en-us="Include Grid Lines" el="Εμφάνιση Γραμμών Πλέγματος" />
+      <Res Type="S" Key="RES_DATALIST_EXPORT_ExportOK" en-us="Export" el="Εξαγωγή" />
+      <Res Type="S" Key="RES_DATALIST_EXPORT_ExportCancel" en-us="Cancel" el="Ακύρωση" />
+      <Res Type="S" Key="RES_DATALIST_EXPORT_ExportOnlyGroups" en-us="Export only Group data" el="Εξαγωγή μόνο των ομάδων" />
+      <Res Type="S" Key="RES_DATALIST_EXPORT_ExportTo" en-us="Export Type: " el="Εξαγωγή σε" />
+      <Res Type="S" Key="RES_DATALIST_EXPORT_FileName" en-us="Filename" el="Όνομα αρχείου" />
+      <Res Type="S" Key="RES_DATALIST_EXPORT_PortraitOrientation" en-us="PDF Portrait orientation" el="Κάθετη διάταξη" />
+      <Res Type="S" Key="RES_DATALIST_EXPORT_SumHeader" en-us="SUM" el="Άθροισμα" />
+      <Res Type="S" Key="RES_DATALIST_EXPORT_AverageHeader" en-us="AVG" el="Μ. Όρος" />
+      <Res Type="S" Key="RES_DATALIST_EXPORT_Visible" en-us="Visible" el="Ορατό" />
+      <Res Type="S" Key="RES_DATALIST_EXPORT_Column" en-us="Column" el="Στήλη" />
+      <Res Type="S" Key="RES_DATALIST_EXPORT_DisplayColumns" en-us="Display Columns" el="Εμφάνιση στηλών" />
+      <Res Type="S" Key="RES_DATALIST_EXPORT_GroupColor" en-us="Group Lines Color" el="Χρώμα γραμμών ομάδων" />
+      <Res Type="S" Key="RES_DATALIST_EXPORT_HeaderColor" en-us="Header Lines Color" el="Χρώμα γραμμής επικεφαλίδας" />
+      <Res Type="S" Key="RES_DATALIST_EXPORT_EvenColor" en-us="Even Lines Color" el="Χρώμα ζυγών γραμμών" />
+      <Res Type="S" Key="RES_DATALIST_EXPORT_OddColor" en-us="Odd Lines Color" el="Χρώμα μονών γραμμών" />
+      <Res Type="S" Key="RES_DATALIST_EXPORT_AggregateColor" en-us="Aggregate Lines Color" el="Χρώμα γραμμών Συναρτήσεων" />
+      <Res Type="S" Key="RES_DATALIST_EXPORT_CountHeader" en-us="Count" el="Πλήθος" />
+      <Res Type="S" Key="RES_DATALIST_EXPORT_TotalNonGroupCount" en-us="Total items Count" el="Συνολικό πλήθος" />
+      <Res Type="S" Key="RES_DATALIST_Grouping" en-us="Grouping" el="Ομαδοποίηση" />
+      <Res Type="S" Key="RES_DATALIST_GroupingOrder" en-us="Grouping Order" el="Σειρά Ομαδοποίησης" />
+      <Res Type="S" Key="RES_DATALIST_Column" en-us="Column" el="Στήλη" />
+      <Res Type="S" Key="RES_DATALIST_GetGroupsClosed" en-us="Group data only" el="Μόνο ομάδες (χωρίς εγγραφές)" />
+      <Res Type="S" Key="RES_DATALIST_MergedGroupLevels" en-us="Merged Grouping" el="Συγχωνευμένη ομαδοποιήση" />
+      <Res Type="S" Key="RES_DATALIST_VIEWS_ViewName" en-us="Current View Name" el="Όνομα Τρέχουσας" />
+      <Res Type="S" Key="RES_DATALIST_VIEWS_View" en-us="View" el="Προβολή" />
+      <Res Type="S" Key="RES_DATALIST_VIEWS_Views" en-us="Views" el="Προβολές" />
+      <Res Type="S" Key="RES_DATALIST_VIEWS_DeleteView" en-us="Delete" el="Διαγραφή" />
+      <Res Type="S" Key="RES_DATALIST_VIEWS_SaveView" en-us="Save Current" el="Αποθήκευση Τρέχουσας" />
+      <Res Type="S" Key="RES_DATALIST_VIEWS_InvalidViewName" en-us="Invalid View Name!" el="Μη έγκυρο Προβολής!" />
+      <Res Type="S" Key="RES_DATALIST_VIEWS_IsViewDefault" en-us="Is Default" el="Προεπιλεγμένη" />
+      <Res Type="S" Key="RES_DATALIST_VIEWS_DeleteConfirmation" en-us="Delete View?" el="Διαγραφή Προβολής;" />
+      <Res Type="S" Key="RES_DATALIST_QuickFilters" en-us="Show/Hide quick filters" el="Εμφάνιση/Απόκρυψη σύντομων φίλτρων" />
+      <Res Type="S" Key="RES_DATALIST_Import" en-us="Import" el="Εισαγωγή Δεδομένων" />
+      <Res Type="S" Key="RES_DATALIST_DownloadImportTemplate" en-us="Download CSV Template" el="Λήψη CSV αρχείου υποδείγματος" />
+      <Res Type="S" Key="RES_DATALIST_UploadImportFile" en-us="Upload CSV File" el="Ανέβασμα αρχείου δεδομένων" />
+      <Res Type="S" Key="RES_DATALIST_ImportDataEncoding" en-us="*Prefered encoding: UTF-8" el="*Προτεινόμενη κωδικοποίηση: UTF-8" />
+      <Res Type="S" Key="RES_DATALIST_ImportResult" en-us="Import Result" el="Αποτέλεσμα Εισαγωγής" />
+      <Res Type="S" Key="RES_DATALIST_ImportResultSuccess" en-us="Imported" el="Εισήχθησαν" />
+      <Res Type="S" Key="RES_DATALIST_ImportResultErrors" en-us="Errors" el="Απέτυχαν" />
+      <Res Type="S" Key="RES_DATALIST_ImportResultErrorList" en-us="Error List" el="Λίστα Σφαλμάτων" />
+      <Res Type="S" Key="RES_DATALIST_QuickFilters" en-us="Toggle Quick Filters" el="Εμφάνιση/Απόκρυψη σύντομων φίλτρων" />
+      <Res Type="S" Key="RES_DATALIST_MaxSelectedRowsLimitationTitle" en-us="Selected rows limit reached" el="Όριο μέγιστου αριθμού επιλεγμένων εγγραφών" />
+      <Res Type="S" Key="RES_DATALIST_MaxSelectedRowsLimitationMessage" en-us="You cannot select more than %d rows" el="Δε μπορείτε να επιλέξετε περισσότερες από %d εγγραφές" />
+      <Res Type="S" Key="RES_DATALIST_Refresh" en-us="Refresh List" el="Ανανέωση λίστας" />
+      <Res Type="S" Key="RES_DATALIST_Reset" en-us="Reset List" el="Επαναφορά λίστας" />
+      <Res Type="S" Key="RES_DATALIST_FILTERS_Ok" en-us="OK" el="OK" />
+      <Res Type="S" Key="RES_DATALIST_FILTERS_Cancel" en-us="Cancel" el="Άκυρο" />
+      <Res Type="S" Key="RES_DATALIST_FILTERS_ClearAll" en-us="Clear All" el="Καθαρισμός όλων" />
+      <Res Type="S" Key="RES_DATALIST_FILTERS_RequiredFiltersMissingMessage" en-us="Please fill in all required list filters" el="Παρακαλώ συμπληρώστε τα πεδία που λείπουν" />
+      <Res Type="S" Key="RES_DATALIST_FILTERS_DialogTitle" en-us="Filters" el="Φίλτρα" />
+      <Res Type="S" Key="RES_DATALIST_FILTERS_AddFilter" en-us="Add Filter" el="Προσθήκη φίλτρου" />
+      <Res Type="S" Key="RES_DATALIST_FILTERS_Operators_Header" en-us="Operator" el="Τύπος φίλτρου" />
+      <Res Type="S" Key="RES_DATALIST_FILTERS_FilterValue_Header" en-us="Criteria" el="Κριτήρια" />
+      <Res Type="S" Key="RES_DATALIST_FILTERS_RowOperator_Header" en-us="Row Operator" el="Λογικός τελεστής" />
+      <Res Type="S" Key="RES_DATALIST_FILTERS_RowOperatorTypes_Or" en-us="Or" el="Ή" />
+      <Res Type="S" Key="RES_DATALIST_FILTERS_RowOperatorTypes_And" en-us="And" el="Και" />
+      <Res Type="S" Key="RES_DATALIST_FILTERS_Operators_HasNoValue" en-us="Has no value" el="Δεν έχει τιμή" />
+      <Res Type="S" Key="RES_DATALIST_FILTERS_Operators_HasValue" en-us="Has value" el="Έχει τιμή" />
+      <Res Type="S" Key="RES_DATALIST_FILTERS_Operators_Range" en-us="Between" el="Μεταξύ" />
+      <Res Type="S" Key="RES_DATALIST_FILTERS_Operators_EqualTo" en-us="Equal to" el="Ίσο με" />
+      <Res Type="S" Key="RES_DATALIST_FILTERS_Operators_Like" en-us="Like" el="Μοιάζει με" />
+      <Res Type="S" Key="RES_DATALIST_FILTERS_Operators_NotEqualTo" en-us="Not equal to" el="Όχι ίσο με" />
+      <Res Type="S" Key="RES_DATALIST_FILTERS_Operators_GreaterThan" en-us="Greater than" el="Μεγαλύτερο από" />
+      <Res Type="S" Key="RES_DATALIST_FILTERS_Operators_GreaterThanOrEqualTo" en-us="Greater than or equal to" el="Μεγαλύτερο ή ίσο με" />
+      <Res Type="S" Key="RES_DATALIST_FILTERS_Operators_LessThan" en-us="Less than" el="Μικρότερο από" />
+      <Res Type="S" Key="RES_DATALIST_FILTERS_Operators_LessThanOrEqualTo" en-us="Less than or equal to" el="Μικρότερο ή ίσο με" />
+      <Res Type="S" Key="RES_DATALIST_VIEWS_ActiveView" en-us="Active view" el="Ενεργή προβολή" />
+      <Res Type="S" Key="RES_DATALIST_EXPORTV2_Totals" en-us="Totals" el="Σύνολα" />
+      <Res Type="S" Key="RES_DATALIST_EXPORTV2_Aggregator_Count" en-us="Count" el="Πλήθος" />
+      <Res Type="S" Key="RES_DATALIST_EXPORTV2_Aggregator_Sum" en-us="Sum" el="Άθροισμα" />
+      <Res Type="S" Key="RES_DATALIST_EXPORTV2_Aggregator_Average" en-us="Average" el="Μέσος Όρος" />
+      <Res Type="S" Key="RES_DATALIST_EXPORTV2_Aggregator_TotalCount" en-us="Total Count" el="Συνολικό Πλήθος" />
+      <Res Type="S" Key="RES_DATALIST_EXPORTV2_Aggregator_TotalSum" en-us="Total Sum" el="Συνολικό Άθροισμα" />
+      <Res Type="S" Key="RES_DATALIST_EXPORTV2_Aggregator_TotalAverage" en-us="Total Average" el="Συνολικός Μέσος Όρος" />
+      <Res Type="S" Key="RES_WEBFORM_PAGER_Records" en-us="Records" el="Εγγραφές" />
+      <Res Type="S" Key="RES_WEBFORM_PAGER_To" en-us="to" el="έως" />
+      <Res Type="S" Key="RES_WEBFORM_PAGER_FirstPage" en-us="First Page" el="Πρώτη Σελίδα" />
+      <Res Type="S" Key="RES_WEBFORM_PAGER_PreviousPage" en-us="Previous Page" el="Προηγούμενη Σελίδα" />
+      <Res Type="S" Key="RES_WEBFORM_PAGER_NextPage" en-us="Next Page" el="Επόμενη Σελίδα" />
+      <Res Type="S" Key="RES_WEBFORM_PAGER_LastPage" en-us="Last Page" el="Τελευταία Σελίδα" />
+      <Res Type="S" Key="RES_WEBFORM_PAGER_TotalRecords" en-us="Total Records" el="Συνολικές Εγγραφές" />
+      <Res Type="S" Key="RES_WEBFORM_PAGER_RecordsPerPage" en-us="Recs/Page" el="Εγγραφες / Σελίδα" />
+      <Res Type="S" Key="RES_WEBFORM_GRID_AddRow" en-us="Add Row " el="Προσθήκη Γραμμής" />
+      <Res Type="S" Key="RES_WEBFORM_GRID_DeleteRow" en-us="Delete Row" el="Διαγραφή Γραμμής" />
+      <Res Type="S" Key="RES_WEBFORM_GRID_NoData" en-us="No Records" el="Δεν υπάρχουν εγγραφές" />
+      <Res Type="S" Key="RES_WEBFORM_GRID_NoMatches" en-us="No matches found." el="Δεν βρέθηκαν αποτελέσματα." />
+      <Res Type="S" Key="RES_WEBFORM_GRID_NoMoreMatches" en-us="Search has been completed. Would you like to start over?" el="Η αναζήτηση ολοκληρώθηκε. Θέλετε να γίνει επανέναρξη;" />
+      <Res Type="S" Key="RES_WEBFORM_GRID_Result" en-us="Result" el="Αποτέλεσμα" />
+      <Res Type="S" Key="RES_WEBFORM_GRID_From" en-us="from" el="από" />
+      <Res Type="S" Key="RES_WEBFORM_FIELD_Required" en-us="Field is required!" el="Το πεδίο είναι υποχρεωτικό!" />
+      <Res Type="S" Key="RES_WEBFORM_FIELD_RequiredMissing" en-us="Required Fields are missing!" el="Υποχρεωτικά πεδία δεν εχουν τιμές!" />
+      <Res Type="S" Key="RES_WEBFORM_ERROR_ErrorTitle" en-us="Error Occured" el="Παρουσιάστηκε σφάλμα" />
+      <Res Type="S" Key="RES_WEBFORM_SUCCESS_SuccessTitle" en-us="Succesfull Action" el="Επιτυχημένη ενέργεια" />
+      <Res Type="S" Key="RES_WEBFORM_SUCCESS_SuccessMessage" en-us="Action completed succesfully!" el="Η ενέργεια ολοκληρώθηκε με επιτυχία!" />
+      <Res Type="S" Key="RES_WEBFORM_DirtyMessage" en-us="There's still unsaved data on the page" el="Υπάρχουν μη αποθηκευμένα δεδομένα στη σελίδα" />
+      <Res Type="S" Key="RES_WEBFORM_NoAction" en-us="No valid Action was requested of the form!" el="Δεν ζητήθηκε καμία έγκυρη ενέργεια να εκτελεστεί!" />
+      <Res Type="S" Key="RES_WEBFORM_NotAuthorizedAction" en-us="You are not authorized to perform the requested Action [{0}]!" el="Δεν είστε εξουσιοδοτημένοι να εκτελέσετε την ενέργεια [{0}]!" />
+      <Res Type="S" Key="RES_WEBFORM_FieldOverflow" en-us="The value specified exceeds the maximum allowed size." el="Η τιμή υπερβαίνει το μέγιστο επιτρεπόμενο όριο." />
+      <Res Type="S" Key="RES_WEBFORM_UNAUTHORIZED_PageTitle" en-us="Unauthorized Access" el="Μη εξουσιοδοτημένη πρόσβαση" />
+      <Res Type="S" Key="RES_WEBFORM_DeleteFailedDueToIntegrity" en-us="[{0}] with identifier:[{1}] could not be deleted because it is being used (referential integrity)." el="[{0}] με κωδικό: [{1}] δεν μπορεί να διαγραφεί γιατί χρησιμοποιείται (referential integrity)." />
+      <Res Type="S" Key="RES_WEBFORM_ObjectWithIdNotFound" en-us="{0} with id:[{1}] was not found!" el="{0} με id: [{1}] δεν βρέθηκε!" />
+      <Res Type="S" Key="RES_WEBFORM_ObjectNotFound" en-us="The object was not found!" el="Το αντικείμενο δεν βρέθηκε!" />
+      <Res Type="S" Key="RES_WEBFORM_QuickFilters" en-us="Quick Filter" el="Σύντομα Φίλτρα" />
+      <Res Type="S" Key="RES_WEBFORM_NoRecordsFound_MessageTitle" en-us="No Records" el="Δεν υπάρχουν εγγραφές" />
+      <Res Type="S" Key="RES_WEBFORM_FIELD_RequiredMissingTitle" en-us="Required Fields Missing" el="Υποχρεωτικά πεδία λείπουν!" />
+      <Res Type="S" Key="RES_WEBFORM_FIELD_InvalidBindingsTitle" en-us="Invalid Data in Fields" el="Λανθασμένες τιμές σε πεδία" />
+      <Res Type="S" Key="RES_WEBFORM_GenericErrorTitle" en-us="Error" el="Σφάλμα" />
+      <Res Type="S" Key="RES_WEBFORM_GenericErrorDescription" en-us="An unexpected error occured. If error persists, contanct an Administrator." el="Προέκυψε ένα μη αναμενόμενο σφάλμα. Αν το σφάλμα συνεχίσει να προκύπτει, επικοινωνήστε με έναν Διαχειριστή." />
+      <Res Type="S" Key="RES_WEBFORM_GenericConfirmationQuestion" en-us="Are you sure?" el="Είστε Σίγουροι?" />
+      <Res Type="S" Key="RES_WEBFORM_GenericFormatError" en-us="Input string was not in a correct format" el="Η συμβολοσειρά που εισαγάγατε δεν έχει σωστή μορφή" />
+      <Res Type="S" Key="RES_WEBFORM_dv_Title" en-us="Validation" el="Επικύρωση" />
+      <Res Type="S" Key="RES_CHECKBOX_FALSE" en-us="No" el="Οχι" />
+      <Res Type="S" Key="RES_CHECKBOX_TRUE" en-us="Yes" el="Ναι" />
+      <Res Type="S" Key="RES_WEBFORM_VALIDATIONS_Error" en-us="Error" el="Σφάλμα" />
+      <Res Type="S" Key="RES_WEBFORM_VALIDATIONS_Ignore" en-us="Ignore" el="Αγνόηση" />
+      <Res Type="S" Key="RES_WEBFORM_VALIDATIONS_IgnoreAll" en-us="Ignore all" el="Αγνόηση όλων" />
+      <Res Type="S" Key="RES_WEBFORM_VALIDATIONS_Information" en-us="Information" el="Πληροφορία" />
+      <Res Type="S" Key="RES_WEBFORM_VALIDATIONS_Messages" en-us="Validation Messages" el="Μηνύματα" />
+      <Res Type="S" Key="RES_WEBFORM_VALIDATIONS_RequireYourAttention" en-us="items require your attention" el="αντικείμενα απαιτούν την προσοχή σας" />
+      <Res Type="S" Key="RES_WEBFORM_VALIDATIONS_ShowIgnoredWarnings" en-us="Show ignored warnings" el="Αγνοημένες προειδοποιήσεις" />
+      <Res Type="S" Key="RES_WEBFORM_VALIDATIONS_Warning" en-us="Warning" el="Προειδοποίηση" />
+      <Res Type="S" Key="RES_WEBFORM_VALIDATIONS_Cancel" en-us="Cancel" el="Επιστροφή" />
+      <Res Type="S" Key="RES_WEBFORM_VALIDATIONS_Proceed" en-us="Proceed" el="Συνέχεια" />
+      <Res Type="S" Key="RES_WEBFORM_VALIDATIONS_RequireYourAttentionSingular" en-us="An item requires your attention" el="Ένα αντικείμενο απαιτεί την προσοχή σας" />
+      <Res Type="S" Key="RES_WEBFORM_VALIDATIONS_WarningConfirmation" en-us="Form has some warnings. Proceed?" el="Η φόρμα έχει προειδοποιήσεις. Συνέχεια;" />
+      <Res Type="S" Key="RES_WEBFORM_REQUIRED_Legend" en-us="Required Fields" el="Υποχρεωτικά Πεδία" />
+      <Res Type="S" Key="RES_WEBFORM_FileUploadTitle" en-us="File Upload" el="Ανέβασμα Αρχείου" />
+      <Res Type="S" Key="RES_WEBFORM_FileUploadSuccess" en-us="File was successfully uploaded" el="Το αρχείο ανέβηκε επιτυχώς" />
+      <Res Type="S" Key="RES_WEBFORM_FileUploadError" en-us="An error occured while uploading file" el="Το ανέβασμα του αρχείου απέτυχε" />
+      <Res Type="S" Key="RES_WEBFORM_FileNotFound" en-us="The requested file was not found" el="Το αρχείο που ζητήσατε δεν βρέθηκε" />
+      <Res Type="S" Key="RES_WEBFORM_FileUploadLoading" en-us="Uploading file..." el="Ανέβασμα αρχείου..." />
+      <Res Type="S" Key="RES_WEBFORM_LoadingMessage" en-us="Your request is being processed..." el="Το αίτημά σας επεξεργάζεται..." />
+      <Res Type="S" Key="RES_WEBFORM_Picklist_ClearAllConfirmation" en-us="Are you sure you want to clear your selection?" el="Είστε σίγουροι ότι θέλετε να καθαρίσετε την επιλογή σας;" />
+      <Res Type="S" Key="RES_AUTH_ERROR_TITLE" en-us="Authentication Error" el="Σφάλμα Ταυτοποίησης" />
+      <Res Type="S" Key="RES_AUTH_ERROR_SUBTITLE" en-us="An error occured while creating Application User" el="Προέκειψε σφάλμα κατά τη δημιουργία του Χρήστη" />
+      <Res Type="S" Key="RES_AUTH_ERROR_FOOTER" en-us="Please contact an Administrator" el="Παρακαλώ επικοινωνήστε με έναν Διαχειριστή" />
+      <Res Type="S" Key="RES_AUTH_NOT_CREATED" en-us="Application User was not created. Username:" el="Ο Χρήστης δεν δημιουργήθηκε. Όνομα Χρήστη:" />
+      <Res Type="S" Key="RES_SECURITY_ERROR_TITLE" en-us="Security Exception" el="Σφάλμα Ασφάλειας" />
+      <Res Type="S" Key="RES_SECURITY_ERROR_SUBTITLE" en-us="Security Error" el="Σφάλμα Ασφάλειας" />
+      <Res Type="S" Key="RES_SECURITY_ERROR_FOOTER" en-us="If error persists, please contact an Administrator" el="Αν το σφάλμα συνεχίσει, παρακαλώ επικοινωνήστε με έναν Διαχειριστή" />
+      <Res Type="C" Key="RES_SITE_HeaderText" en-us="StartPages" el="StartPages" />
+      <Res Type="C" Key="RES_SITE_FooterTextLeft" en-us="Copyright © 2015" el="Copyright © 2017" />
+      <Res Type="C" Key="RES_SITE_FooterTextRight" en-us="CLMS UK" el="CLMS UK" />
+    </Resources>
+  </Globalization>
+  <DefaultPages>
+    <Default>
+      <ControllerAction ControllerType="WebForm" Controller="HomePage" Action="Render" TargetFrame="_self" OnCloseModalDialogAction="" OnUnauthorized="HIDE" ModalSize="">
+        <Parameters />
+      </ControllerAction>
+    </Default>
+    <Error>
+      <ControllerAction ControllerType="WebForm" Controller="ErrorPage" Action="Render" TargetFrame="_self" OnCloseModalDialogAction="" OnUnauthorized="HIDE" ModalSize="">
+        <Parameters />
+      </ControllerAction>
+    </Error>
+    <Unauthorized>
+      <ControllerAction ControllerType="WebForm" Controller="Unauthorized" Action="Render" TargetFrame="_self" OnCloseModalDialogAction="" OnUnauthorized="HIDE" ModalSize="">
+        <Parameters />
+      </ControllerAction>
+    </Unauthorized>
+    <NotFound>
+      <ControllerAction ControllerType="WebForm" Controller="NotFoundPage" Action="Render" TargetFrame="_self" OnCloseModalDialogAction="" OnUnauthorized="HIDE" ModalSize="">
+        <Parameters />
+      </ControllerAction>
+    </NotFound>
+    <SignIn>
+      <ControllerAction ControllerType="WebForm" Controller="SignInPage" Action="Load" TargetFrame="_self" OnCloseModalDialogAction="" OnUnauthorized="HIDE" ModalSize="">
+        <Parameters />
+      </ControllerAction>
+    </SignIn>
+    <FirstAdminSetup>
+      <ControllerAction ControllerType="WebForm" Controller="FirstAdminSetup" Action="Render" TargetFrame="_self" OnCloseModalDialogAction="" OnUnauthorized="HIDE" ModalSize="">
+        <Parameters />
+      </ControllerAction>
+    </FirstAdminSetup>
+    <ThemePreview>
+      <ControllerAction ControllerType="WebForm" Controller="" Action="" TargetFrame="_self" OnCloseModalDialogAction="" OnUnauthorized="HIDE" ModalSize="POPUP">
+        <Parameters />
+      </ControllerAction>
+    </ThemePreview>
+  </DefaultPages>
+  <ImplementationStrategy Id="MVP">
+    <Settings />
+  </ImplementationStrategy>
+  <Events>
+    <Event Name="OrderForecastCalculationProgressUpdate" IsSystemic="false" ExecuteInParallelContext="true">
+      <Context>
+        <Input Name="Username" Type="string" />
+        <Input Name="ProgressMessage" Type="string" />
+        <Input Name="Progress" Type="int" />
+      </Context>
+      <Handler>static function void onOrderForecastCalculationProgressUpdate(
+  string Username,
+  string ProgressMessage,
+  int Progress
+)
+{
+  DebugLib.Logger.WriteInfoLine(string.Format("User {0}, calculation progress: {1}, %: {2}", Username, ProgressMessage, Progress));
+}</Handler>
+    </Event>
+    <Event Name="OrderCalculationStarted" IsSystemic="false" ExecuteInParallelContext="true">
+      <Context>
+        <Input Name="orderForecastId" Type="int" />
+        <Input Name="user" Type="string" />
+      </Context>
+      <Handler>static function void onOrderCalculationStarted(
+  int orderForecastId,
+  string user
+)
+{
+  DebugLib.Logger.WriteInfoLine("onOrderCalculationStarted was fired.");
+  
+  ThreadLib.Thread.RunAsync(a =&gt; {
+    bool withErrors = false;
+    string errorDesc = "";
+    Exception exc;
+    try {
+      Domain.OrderForecastDetails.CalculateOrderProposal(true, orderForecastId, user);
+    }
+    catch Exception x {
+      withErrors = true;
+      errorDesc = x.Message;
+      exc = x;
+    }
+    
+    Events.OrderCalculationEnded.Raise(user, withErrors, errorDesc, exc);
+  });
+
+}</Handler>
+    </Event>
+    <Event Name="OrderCalculationEnded" IsSystemic="false" ExecuteInParallelContext="true">
+      <Context>
+        <Input Name="user" Type="string" />
+        <Input Name="withErrors" Type="bool" />
+        <Input Name="errorDesc" Type="string" />
+        <Input Name="exc" Type="Exception" />
+      </Context>
+      <Handler>static function void onOrderCalculationEnded(
+  string user,
+  bool withErrors,
+  string errorDesc,
+  Exception exc
+)
+{
+
+}</Handler>
+    </Event>
+    <Event Name="AppNotificationCreated" IsSystemic="false" ExecuteInParallelContext="true">
+      <Context />
+      <Handler>static function void onAppNotificationCreated()
+{
+
+}</Handler>
+    </Event>
+    <Event Name="OnOrderReceive" IsSystemic="false" ExecuteInParallelContext="true">
+      <Context>
+        <Input Name="orderId" Type="int" />
+        <Input Name="origin" Type="string" />
+        <Input Name="destination" Type="string" />
+        <Input Name="ra" Type="string" />
+        <Input Name="roles" Type="Array[string]" />
+      </Context>
+      <Handler>static function void onOnOrderReceive(
+  int orderId,
+  string origin,
+  string destination,
+  string ra,
+  Array[string] roles
+)
+{
+}</Handler>
+    </Event>
+    <Event Name="UpdateDatasets" IsSystemic="false" ExecuteInParallelContext="true">
+      <Context>
+        <Input Name="orderId" Type="int" />
+        <Input Name="roles" Type="Array[string]" />
+      </Context>
+      <Handler>static function void onUpdateDatasets(
+  int orderId,
+  Array[string] roles
+)
+{
+
+}</Handler>
+    </Event>
+    <Event Name="OnGPSReceive" IsSystemic="false" ExecuteInParallelContext="true">
+      <Context>
+        <Input Name="truckId" Type="string" />
+        <Input Name="lat" Type="string" />
+        <Input Name="lng" Type="string" />
+      </Context>
+      <Handler>
+      </Handler>
+    </Event>
+    <Event Name="OnNTUARecommendationReceive" IsSystemic="false" ExecuteInParallelContext="true">
+      <Context>
+        <Input Name="order_id" Type="string" />
+        <Input Name="trucks_recommended" Type="string" />
+        <Input Name="roles" Type="Array[string]" />
+      </Context>
+      <Handler>static function void Handle(
+  string order_id,
+  string trucks_recommended,
+  Array[string] roles
+)
+{
+
+}</Handler>
+    </Event>
+    <Event Name="OnETAReceived" IsSystemic="false" ExecuteInParallelContext="true">
+      <Context>
+        <Input Name="truck_license_plate" Type="string" />
+        <Input Name="eta" Type="DateTime" />
+        <Input Name="order_id" Type="int" />
+      </Context>
+      <Handler>
+      </Handler>
+    </Event>
+    <Event Name="OnCO2Received" IsSystemic="false" ExecuteInParallelContext="true">
+      <Context>
+        <Input Name="truck_license_plate" Type="string" />
+        <Input Name="co2" Type="string" />
+      </Context>
+      <Handler>
+      </Handler>
+    </Event>
+    <Event Name="OrderStarted" IsSystemic="false" ExecuteInParallelContext="true">
+      <Context>
+        <Input Name="order_id" Type="int" />
+        <Input Name="plate_number" Type="string" />
+      </Context>
+      <Handler>static function void onOrderStarted(
+  int order_id,
+  string plate_number
+)
+{
+  
+}</Handler>
+    </Event>
+    <Event Name="OrderFinished" IsSystemic="false" ExecuteInParallelContext="true">
+      <Context>
+        <Input Name="order_id" Type="int" />
+      </Context>
+      <Handler>static function void onOrderFinished(
+  int order_id
+)
+{
+
+}</Handler>
+    </Event>
+    <Event Name="SaveOrder" IsSystemic="false" ExecuteInParallelContext="true">
+      <Context>
+        <Input Name="order_id" Type="int" />
+        <Input Name="roles" Type="Array[string]" />
+      </Context>
+      <Handler>static function void onSaveOrder(
+  int order_id,
+  Array[string] roles
+)
+{
+
+}</Handler>
+    </Event>
+  </Events>
+  <Settings>
+    <Setting Name="EmailHostAddress" Value="" Description="" IsPassword="False" IsSystemic="True" />
+    <Setting Name="EmailPassword" Value="" Description="" IsPassword="True" IsSystemic="True" />
+    <Setting Name="EmailUsername" Value="" Description="" IsPassword="False" IsSystemic="True" />
+    <Setting Name="EmailFromAccount" Value="" Description="" IsPassword="False" IsSystemic="True" />
+    <Setting Name="EmailPort" Value="" Description="" IsPassword="False" IsSystemic="True" />
+    <Setting Name="IMAPhost" Value="" Description="" IsPassword="False" IsSystemic="True" />
+    <Setting Name="IMAPport" Value="" Description="" IsPassword="False" IsSystemic="True" />
+    <Setting Name="IMAPenableSSL" Value="" Description="" IsPassword="False" IsSystemic="True" />
+    <Setting Name="IMAPusername" Value="" Description="" IsPassword="False" IsSystemic="True" />
+    <Setting Name="IMAPpassword" Value="" Description="" IsPassword="True" IsSystemic="True" />
+    <Setting Name="ApplicationCacheExpiration" Value="30" Description="Application cache expiration in seconds" IsPassword="False" IsSystemic="True" />
+    <Setting Name="EnableAuditTrail" Value="true" Description="" IsPassword="False" IsSystemic="True" />
+    <Setting Name="SQLQueryTimeoutInSeconds" Value="30" Description="" IsPassword="False" IsSystemic="True" />
+    <Setting Name="SessionTimeoutInMinutes" Value="20" Description="" IsPassword="False" IsSystemic="True" />
+    <Setting Name="EnableCors" Value="false" Description="" IsPassword="False" IsSystemic="True" />
+    <Setting Name="AllowAnonymousFileDownload" Value="false" Description="" IsPassword="False" IsSystemic="True" />
+    <Setting Name="AllowMultipleSessionsPerUser" Value="true" Description="" IsPassword="False" IsSystemic="True" />
+    <Setting Name="MaxRequestLengthInKB" Value="51200" Description="" IsPassword="False" IsSystemic="True" />
+  </Settings>
+  <Tags />
+  <Controls />
+  <EncryptionStrategies />
+  <CachingOptions CachePerUser="false" OperationIsCached="false" OverrideDefaultCachingSettings="false" UseCustomExpirationMethod="false" ExpirationDays="0" ExpirationHours="0" ExpirationMinutes="3" ExpirationSeconds="0" ExpirationMilliseconds="0" CacheMode="None">
+  </CachingOptions>
+  <SoftwareLicenseOptions LicenseName="MIT license" LicenseDescription="Copyright {{YEAR}} {{OWNER}}&#xA;&#xA;Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the &quot;Software&quot;), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:&#xA;&#xA;The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.&#xA;&#xA;THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE." OwnerCompany="CLMS" />
+  <ExternalLoginProviderInfo GoogleClientId="" GoogleClientSecret="" FacebookAppId="" FacebookAppSecret="" GoogleEnabled="false" FacebookEnabled="false" />
+  <OSAuthenticationOptions LoginUserClass="" />
+</Application>

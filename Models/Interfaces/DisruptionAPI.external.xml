@@ -1,0 +1,40 @@
+<!--
+Copyright (c) CLMS. All rights reserved.
+Licensed under the AGPL-3.0 license. See LICENSE file in the project root for full license information.-->
+
+<ExternalApi DateCreated="" Model_Name="DisruptionAPI" Model_Description="" Version="">
+  <Endpoint TransportType="HTTP" ProtocolType="REST">
+    <Security SecurityType="None" />
+    <Class Name="TrucksRecommended" OriginalName="TrucksRecommended" Description="" Namespace="" BaseClass="" IsEnum="false">
+      <Attribute Name="order_id" OriginalName="" Description="" Datatype="string" Length="0" IsPrimary="false" OriginalDataType="" />
+      <Attribute Name="trucks_recommended" OriginalName="" Description="" Datatype="Array[string]" Length="0" IsPrimary="false" OriginalDataType="" />
+    </Class>
+    <Operation Name="Disrupt" Description="" Datatype="void" OriginalName="" ClientType="" IsStatic="false" AccessLog="false" Verb="POST" Text="" ContentType="JSON" Route="/disruption" Notes="" UserDefinedUrlMethod="true">
+      <Parameters>
+        <Parameter Name="order_id" DataType="string" IsRef="False" IsOut="False" DefaultValue="" Notes="" Type="QueryParameter" Alias="" />
+      </Parameters>
+      <Headers />
+      <GetUrlMethod>return null;</GetUrlMethod>
+      <CachingOptions CachePerUser="false" OperationIsCached="false" OverrideDefaultCachingSettings="false" UseCustomExpirationMethod="false" ExpirationDays="0" ExpirationHours="0" ExpirationMinutes="3" ExpirationSeconds="0" ExpirationMilliseconds="0" CacheMode="None">function TimeSpan Expiration(
+	string order_id
+)
+{ 
+	 return CommonLib.Utilities.CreateTimeSpan(0, 1, 0); 
+}</CachingOptions>
+    </Operation>
+    <Operation Name="Continue" Description="" Datatype="void" OriginalName="" ClientType="" IsStatic="false" AccessLog="false" Verb="POST" Text="" ContentType="JSON" Route="/continue" Notes="" UserDefinedUrlMethod="true">
+      <Parameters>
+        <Parameter Name="order_id" DataType="string" IsRef="False" IsOut="False" DefaultValue="" Notes="" Type="QueryParameter" Alias="" />
+      </Parameters>
+      <Headers />
+      <GetUrlMethod>return null;</GetUrlMethod>
+      <CachingOptions CachePerUser="false" OperationIsCached="false" OverrideDefaultCachingSettings="false" UseCustomExpirationMethod="false" ExpirationDays="0" ExpirationHours="0" ExpirationMinutes="3" ExpirationSeconds="0" ExpirationMilliseconds="0" CacheMode="None">function TimeSpan Expiration(
+	string order_id
+)
+{ 
+	 return CommonLib.Utilities.CreateTimeSpan(0, 1, 0); 
+}</CachingOptions>
+    </Operation>
+  </Endpoint>
+  <RestEndpointDetails BaseUrl="http://localhost" IgnoringNullFields="false" />
+</ExternalApi>

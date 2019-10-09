@@ -1,0 +1,70 @@
+<!--
+Copyright (c) CLMS. All rights reserved.
+Licensed under the AGPL-3.0 license. See LICENSE file in the project root for full license information.-->
+
+<BusinessObject Model_Name="XPackML" Model_Description="" Model_Creator="">
+  <Associations />
+  <Classes>
+    <Class ModelName="XPackML" Name="XPackLog" ShadowModel="" ShadowClass="" Description="" Stereotype="Class" PK="Id" ConcurencyControl="false" AutoAssignPrimaryKey="false" IdGeneratorType="HiLoGenerator" IsPersisted="false" IsStatic="false" BaseClass="" BaseClasses="" BaseModel="">
+      <DiagramInfo IsExpanded="true" Width="227.109375" Height="262" Top="44" Left="361" />
+      <Attributes>
+        <Attribute Name="Id" IsValueClass="false" Description="" DataType="int" BaseInfo="" Length="100" Precision="8" Scale="2" InitValue="" IsRequired="false" IsInherited="false" Persisted="false" IsEncrypted="false" IsStatic="false" ReadOnly="false" IsExternal="false" CustomValidation="" IsCreditCard="false" IsURL="false" IsEmail="false" MinLength="0" MaxLength="100" MinValue="" MaxValue="" Getter="" Setter="" />
+        <Attribute Name="Probability" IsValueClass="false" Description="" DataType="float" BaseInfo="" Length="100" Precision="8" Scale="2" InitValue="" IsRequired="false" IsInherited="false" Persisted="false" IsEncrypted="false" IsStatic="false" ReadOnly="false" IsExternal="false" CustomValidation="" IsCreditCard="false" IsURL="false" IsEmail="false" MinLength="0" MaxLength="100" MinValue="" MaxValue="" Getter="" Setter="" />
+        <Attribute Name="RecordScore" IsValueClass="false" Description="" DataType="float" BaseInfo="" Length="100" Precision="8" Scale="2" InitValue="" IsRequired="false" IsInherited="false" Persisted="false" IsEncrypted="false" IsStatic="false" ReadOnly="false" IsExternal="false" CustomValidation="" IsCreditCard="false" IsURL="false" IsEmail="false" MinLength="0" MaxLength="100" MinValue="" MaxValue="" Getter="" Setter="" />
+        <Attribute Name="InitialRecordScore" IsValueClass="false" Description="" DataType="float" BaseInfo="" Length="100" Precision="8" Scale="2" InitValue="" IsRequired="false" IsInherited="false" Persisted="false" IsEncrypted="false" IsStatic="false" ReadOnly="false" IsExternal="false" CustomValidation="" IsCreditCard="false" IsURL="false" IsEmail="false" MinLength="0" MaxLength="100" MinValue="" MaxValue="" Getter="" Setter="" />
+        <Attribute Name="PartitionFieldValue" IsValueClass="false" Description="" DataType="string" BaseInfo="" Length="100" Precision="8" Scale="2" InitValue="" IsRequired="false" IsInherited="false" Persisted="false" IsEncrypted="false" IsStatic="false" ReadOnly="false" IsExternal="false" CustomValidation="" IsCreditCard="false" IsURL="false" IsEmail="false" MinLength="0" MaxLength="100" MinValue="" MaxValue="" Getter="" Setter="" />
+        <Attribute Name="Timestamp" IsValueClass="false" Description="" DataType="decimal" BaseInfo="" Length="100" Precision="8" Scale="2" InitValue="" IsRequired="false" IsInherited="false" Persisted="false" IsEncrypted="false" IsStatic="false" ReadOnly="false" IsExternal="false" CustomValidation="" IsCreditCard="false" IsURL="false" IsEmail="false" MinLength="0" MaxLength="100" MinValue="" MaxValue="" Getter="" Setter="" />
+        <Attribute Name="Typical" IsValueClass="false" Description="" DataType="float" BaseInfo="" Length="100" Precision="8" Scale="2" InitValue="" IsRequired="false" IsInherited="false" Persisted="false" IsEncrypted="false" IsStatic="false" ReadOnly="false" IsExternal="false" CustomValidation="" IsCreditCard="false" IsURL="false" IsEmail="false" MinLength="0" MaxLength="100" MinValue="" MaxValue="" Getter="" Setter="" />
+        <Attribute Name="Actual" IsValueClass="false" Description="" DataType="float" BaseInfo="" Length="100" Precision="8" Scale="2" InitValue="" IsRequired="false" IsInherited="false" Persisted="false" IsEncrypted="false" IsStatic="false" ReadOnly="false" IsExternal="false" CustomValidation="" IsCreditCard="false" IsURL="false" IsEmail="false" MinLength="0" MaxLength="100" MinValue="" MaxValue="" Getter="" Setter="" />
+      </Attributes>
+      <Operations>
+        <Operation Name="Transform" Description="" Syntax="" RuleType="Default" EventName="" ApplyToAttribute="" BaseInfo="" IsStatic="true" IsInherited="false" IsExternal="false">static function Collection[Domain.XPackLog] Transform(Collection[Interfaces.XPackML.XPackMLRoot] logs)
+{
+	Collection[Domain.XPackLog] buckets;
+    foreach (Interfaces.XPackML.XPackMLRoot: bucket in logs) {
+		Domain.XPackLog log;
+		
+		log.InitialRecordScore = bucket.source.initial_record_score;
+		log.Actual = bucket.source.actual.Get(0);
+		log.PartitionFieldValue = bucket.source.partition_field_value;
+		log.Probability = bucket.source.probability;
+		log.RecordScore = bucket.source.record_score;
+		log.Timestamp = bucket.source.timestamp;
+		log.Typical = bucket.source.typical.Get(0);
+		buckets.Add(log);
+    }
+    return buckets;
+}</Operation>
+        <Operation Name="GetRecordRequest" Description="" Syntax="" RuleType="Default" EventName="" ApplyToAttribute="" BaseInfo="" IsStatic="true" IsInherited="false" IsExternal="false">static function Interfaces.XPackML.RecordRequest GetRecordRequest()
+{
+	Interfaces.XPackML.RecordRequest req;
+	Interfaces.XPackML.QueryOperation query;
+	Interfaces.XPackML.BoolOperation boolOp;
+	
+	Interfaces.XPackML.MustOperation mustOp;
+	Interfaces.XPackML.QueryString queryString;
+	queryString.analyze_wildcard = true;
+	queryString.query = "+result_type:\"record\"";
+	mustOp.query_string = queryString;
+	boolOp.must = mustOp;
+	
+	Interfaces.XPackML.Filter filter;
+	Interfaces.XPackML.Range range;
+	Interfaces.XPackML.Timestamp timestamp;
+	timestamp.gte = "now-1y";
+	timestamp.lte = "now";
+	range.timestamp = timestamp;
+	filter.range = range;
+	boolOp.filter = filter;
+	
+	query.Bool = boolOp;
+	
+	req.query = query;
+	
+	return req;
+}</Operation>
+      </Operations>
+    </Class>
+  </Classes>
+  <Resources />
+</BusinessObject>

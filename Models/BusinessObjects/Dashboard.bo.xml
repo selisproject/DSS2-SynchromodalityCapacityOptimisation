@@ -1,0 +1,1453 @@
+<!--
+Copyright (c) CLMS. All rights reserved.
+Licensed under the AGPL-3.0 license. See LICENSE file in the project root for full license information.-->
+
+<BusinessObject Model_Name="Dashboard" Model_Description="" Model_Creator="">
+  <Associations>
+    <Association ModelName="Dashboard" Class1="Dashboard" Class2="Statistics" Role1="Dashboard" Role2="Statistics" Multiplicity1="ZeroOrOne" Multiplicity2="Many" Navigable1="false" Navigable2="true" IsExternal="false" Persisted="true" OrderByProperty1="" OrderByDirection1="Asc" OrderByProperty2="" OrderByDirection2="Asc" OnDelete1="Dissasociate" OnDelete2="Dissasociate" IsShadow="false" IsInherited="false">
+      <DiagramInfo Edge1="Right" Edge2="Left" Percent1="0.28888888888888886" Percent2="0.29260450160771706" Path="M 571 87 L 610 87 L 610 220 L 642 220" />
+    </Association>
+    <Association ModelName="Dashboard" Class1="Statistics" Class2="Warehouse" Role1="Statistics" Role2="Warehouse" Multiplicity1="Many" Multiplicity2="ZeroOrOne" Navigable1="false" Navigable2="true" IsExternal="false" Persisted="true" OrderByProperty1="" OrderByDirection1="Asc" OrderByProperty2="" OrderByDirection2="Asc" OnDelete1="Dissasociate" OnDelete2="Dissasociate" IsShadow="false" IsInherited="false">
+      <DiagramInfo Edge1="Bottom" Edge2="Top" Percent1="0.14039383736353434" Percent2="0.6374664793768356" Path="M 685 660 L 685 680 L 520 680 L 520 360 L 320 360 L 320 396" />
+    </Association>
+    <Association ModelName="Dashboard" Class1="Statistics" Class2="Item" Role1="Statistics" Role2="Item" Multiplicity1="Many" Multiplicity2="ZeroOrOne" Navigable1="false" Navigable2="true" IsExternal="false" Persisted="true" OrderByProperty1="" OrderByDirection1="Asc" OrderByProperty2="" OrderByDirection2="Asc" OnDelete1="Dissasociate" OnDelete2="Dissasociate" IsShadow="false" IsInherited="false">
+      <DiagramInfo Edge1="Right" Edge2="Top" Percent1="0.27491961414790994" Percent2="0.5435824436536181" Path="M 948 209 L 1000 209 L 1000 50 L 1223 50 L 1223 84" />
+    </Association>
+    <Association ModelName="Dashboard" Class1="Statistics" Class2="Supplier" Role1="Statistics" Role2="Supplier" Multiplicity1="Many" Multiplicity2="ZeroOrOne" Navigable1="false" Navigable2="true" IsExternal="false" Persisted="true" OrderByProperty1="" OrderByDirection1="Asc" OrderByProperty2="" OrderByDirection2="Asc" OnDelete1="Dissasociate" OnDelete2="Dissasociate" IsShadow="false" IsInherited="false">
+      <DiagramInfo Edge1="Left" Edge2="Right" Percent1="0.5" Percent2="0.5" Path="M 642 349 L 600 349 L 600 910 L 970 910 L 970 767 L 952 767" />
+    </Association>
+    <Association ModelName="Sale" Class1="Sales" Class2="Warehouse" Role1="Sales" Role2="Warehouse" Multiplicity1="ZeroOrOne" Multiplicity2="ZeroOrOne" Navigable1="false" Navigable2="true" IsExternal="true" Persisted="true" OrderByProperty1="" OrderByDirection1="Asc" OrderByProperty2="" OrderByDirection2="Asc" OnDelete1="Dissasociate" OnDelete2="Dissasociate" IsShadow="false" IsInherited="false">
+      <DiagramInfo Edge1="Left" Edge2="Top" Percent1="0.6421052631578947" Percent2="0.456300568773532" Path="M 182 166 L 110 166 L 110 425" />
+    </Association>
+    <Association ModelName="StockOnHand" Class1="StockOnHand" Class2="Warehouse" Role1="StockOnHand" Role2="Warehouse" Multiplicity1="ZeroOrOne" Multiplicity2="ZeroOrOne" Navigable1="false" Navigable2="true" IsExternal="true" Persisted="true" OrderByProperty1="" OrderByDirection1="Asc" OrderByProperty2="" OrderByDirection2="Asc" OnDelete1="Dissasociate" OnDelete2="Dissasociate" IsShadow="false" IsInherited="false">
+      <DiagramInfo Edge1="Left" Edge2="Right" Percent1="0.2523364485981308" Percent2="0.18333333333333332" Path="M 440 111 L 390 111 L 390 81 L 342 81" />
+    </Association>
+    <Association ModelName="Forecast" Class1="DeliverySchedule" Class2="Warehouse" Role1="DeliverySchedules" Role2="Warehouse" Multiplicity1="Many" Multiplicity2="ZeroOrOne" Navigable1="false" Navigable2="true" IsExternal="true" Persisted="true" OrderByProperty1="" OrderByDirection1="Asc" OrderByProperty2="" OrderByDirection2="Asc" OnDelete1="Dissasociate" OnDelete2="Dissasociate" IsShadow="false" IsInherited="false">
+      <DiagramInfo Edge1="Right" Edge2="Left" Percent1="0.45794392523364486" Percent2="0.5" Path="M 695 182 L 750 182 L 750 162 L 801 162" />
+    </Association>
+    <Association ModelName="Agreement" Class1="Agreement" Class2="Warehouse" Role1="Agreements" Role2="Warehouses" Multiplicity1="Many" Multiplicity2="Many" Navigable1="false" Navigable2="true" IsExternal="true" Persisted="true" OrderByProperty1="" OrderByDirection1="Asc" OrderByProperty2="" OrderByDirection2="Asc" OnDelete1="Dissasociate" OnDelete2="Dissasociate" IsShadow="false" IsInherited="false">
+      <DiagramInfo Edge1="Bottom" Edge2="Top" Percent1="0.5429447852760736" Percent2="0.3383801970680125" Path="M 653 456 L 653 480 L 666 480 L 666 501" />
+    </Association>
+    <Association ModelName="OrderProposal" Class1="OrderForecastDetails" Class2="Warehouse" Role1="ReplenishmentCycle" Role2="Warehouse" Multiplicity1="ZeroOrOne" Multiplicity2="ZeroOrOne" Navigable1="false" Navigable2="true" IsExternal="true" Persisted="true" OrderByProperty1="" OrderByDirection1="Asc" OrderByProperty2="" OrderByDirection2="Asc" OnDelete1="Dissasociate" OnDelete2="Dissasociate" IsShadow="false" IsInherited="false">
+      <DiagramInfo Edge1="Right" Edge2="Left" Percent1="0.5076335877862596" Percent2="0.5388888888888889" Path="M 182 1185 L 182 1356" />
+    </Association>
+    <Association ModelName="OrderForecastDashboard" Class1="OrderForecastStatistic" Class2="Warehouse" Role1="OrderForecastStatistics" Role2="Warehouse" Multiplicity1="Many" Multiplicity2="ZeroOrOne" Navigable1="false" Navigable2="true" IsExternal="true" Persisted="true" OrderByProperty1="" OrderByDirection1="Asc" OrderByProperty2="" OrderByDirection2="Asc" OnDelete1="Dissasociate" OnDelete2="Dissasociate" IsShadow="false" IsInherited="false">
+      <DiagramInfo Edge1="Bottom" Edge2="Top" Percent1="0.8126984126984127" Percent2="0.2153328526796443" Path="M 625 255 L 625 113" />
+    </Association>
+    <Association ModelName="Notification" Class1="Warehouse" Class2="Notification" Role1="Warehouse" Role2="Notification" Multiplicity1="ZeroOrOne" Multiplicity2="ZeroOrOne" Navigable1="true" Navigable2="false" IsExternal="true" Persisted="true" OrderByProperty1="" OrderByDirection1="Asc" OrderByProperty2="" OrderByDirection2="Asc" OnDelete1="Dissasociate" OnDelete2="Dissasociate" IsShadow="false" IsInherited="false">
+      <DiagramInfo Edge1="Right" Edge2="Left" Percent1="0.18333333333333332" Percent2="0.5610687022900763" Path="M 246 305 L 340 305 L 340 318 L 433 318" />
+    </Association>
+    <Association ModelName="SLA" Class1="SLALeadTime" Class2="Warehouse" Role1="SLALeadTimes" Role2="Warehouse" Multiplicity1="Many" Multiplicity2="ZeroOrOne" Navigable1="false" Navigable2="true" IsExternal="true" Persisted="true" OrderByProperty1="" OrderByDirection1="Asc" OrderByProperty2="" OrderByDirection2="Asc" OnDelete1="Dissasociate" OnDelete2="Dissasociate" IsShadow="false" IsInherited="false">
+      <DiagramInfo Edge1="Left" Edge2="Right" Percent1="0.39655172413793105" Percent2="0.3333333333333333" Path="M 353 193 L 320 193 L 320 206 L 302 206" />
+    </Association>
+    <Association ModelName="SLA" Class1="SLADelivery" Class2="Warehouse" Role1="SLADelivery" Role2="Warehouse" Multiplicity1="ZeroOrOne" Multiplicity2="ZeroOrOne" Navigable1="false" Navigable2="true" IsExternal="true" Persisted="true" OrderByProperty1="" OrderByDirection1="Asc" OrderByProperty2="" OrderByDirection2="Asc" OnDelete1="Dissasociate" OnDelete2="Dissasociate" IsShadow="false" IsInherited="false">
+      <DiagramInfo Edge1="Left" Edge2="Bottom" Percent1="0.8592814371257484" Percent2="0.8908185416932703" Path="M 845 440 L 670 440 L 670 430 L 275 430 L 275 300" />
+    </Association>
+    <Association ModelName="SLA" Class1="Platform" Class2="Warehouse" Role1="Platform" Role2="Warehouse" Multiplicity1="Many" Multiplicity2="ZeroOrOne" Navigable1="false" Navigable2="true" IsExternal="true" Persisted="true" OrderByProperty1="" OrderByDirection1="Asc" OrderByProperty2="" OrderByDirection2="Asc" OnDelete1="Dissasociate" OnDelete2="Dissasociate" IsShadow="false" IsInherited="false">
+      <DiagramInfo Edge1="Left" Edge2="Bottom" Percent1="0.14122137404580154" Percent2="0.4903588302898736" Path="M 812 543 L 730 543 L 730 430 L 178 430 L 178 300" />
+    </Association>
+    <Association ModelName="StockLevelKPI" Class1="Stats" Class2="Warehouse" Role1="Stats" Role2="Warehouse" Multiplicity1="Many" Multiplicity2="ZeroOrOne" Navigable1="false" Navigable2="true" IsExternal="true" Persisted="true" OrderByProperty1="" OrderByDirection1="Asc" OrderByProperty2="" OrderByDirection2="Asc" OnDelete1="Dissasociate" OnDelete2="Dissasociate" IsShadow="false" IsInherited="false">
+      <DiagramInfo Edge1="Left" Edge2="Top" Percent1="0.5252100840336135" Percent2="0.7702684830048935" Path="M 558 239 L 410 239 L 410 305" />
+    </Association>
+    <Association ModelName="PastOrder" Class1="PastOrder" Class2="Warehouse" Role1="PastOrders" Role2="Warehouse" Multiplicity1="Many" Multiplicity2="ZeroOrOne" Navigable1="true" Navigable2="true" IsExternal="true" Persisted="true" OrderByProperty1="" OrderByDirection1="Asc" OrderByProperty2="" OrderByDirection2="Asc" OnDelete1="Dissasociate" OnDelete2="Dissasociate" IsShadow="false" IsInherited="false">
+      <DiagramInfo Edge1="Left" Edge2="Right" Percent1="0.4405594405594406" Percent2="0.52" Path="M 450 151 L 410 151 L 410 128 L 370 128" />
+    </Association>
+    <Association ModelName="TransportUnCap" Class1="TransportUnCap" Class2="Warehouse" Role1="TransportUnCap" Role2="Warehouse" Multiplicity1="Many" Multiplicity2="ZeroOrOne" Navigable1="false" Navigable2="true" IsExternal="true" Persisted="true" OrderByProperty1="" OrderByDirection1="Asc" OrderByProperty2="" OrderByDirection2="Asc" OnDelete1="Dissasociate" OnDelete2="Dissasociate" IsShadow="false" IsInherited="false">
+      <DiagramInfo Edge1="Left" Edge2="Right" Percent1="0.6176470588235294" Percent2="0.4" Path="M 422 208 L 380 208 L 380 179 L 335 179" />
+    </Association>
+    <Association ModelName="InventoryItem" Class1="InventoryItem" Class2="Warehouse" Role1="InventoryItems" Role2="Warehouse" Multiplicity1="Many" Multiplicity2="ZeroOrOne" Navigable1="false" Navigable2="true" IsExternal="true" Persisted="true" OrderByProperty1="" OrderByDirection1="Asc" OrderByProperty2="" OrderByDirection2="Asc" OnDelete1="Dissasociate" OnDelete2="Dissasociate" IsShadow="false" IsInherited="false">
+      <DiagramInfo Edge1="Right" Edge2="Left" Percent1="0.6495327102803738" Percent2="0.36" Path="M 757 197 L 810 197 L 810 131 L 852 131" />
+    </Association>
+    <Association ModelName="Item" Class1="Item" Class2="SupplierCapacity" Role1="Item" Role2="SupplierCapacities" Multiplicity1="ZeroOrOne" Multiplicity2="Many" Navigable1="true" Navigable2="true" IsExternal="true" Persisted="true" OrderByProperty1="" OrderByDirection1="Asc" OrderByProperty2="" OrderByDirection2="Asc" OnDelete1="Dissasociate" OnDelete2="Dissasociate" IsShadow="false" IsInherited="false">
+      <DiagramInfo Edge1="Right" Edge2="Left" Percent1="0.5290322580645161" Percent2="0.24299065420560748" Path="M 705 561 L 840 561 L 840 396 L 970 396" />
+    </Association>
+    <Association ModelName="Item" Class1="Item" Class2="Supplier" Role1="Items" Role2="Supplier" Multiplicity1="Many" Multiplicity2="ZeroOrOne" Navigable1="false" Navigable2="true" IsExternal="true" Persisted="true" OrderByProperty1="" OrderByDirection1="Asc" OrderByProperty2="" OrderByDirection2="Asc" OnDelete1="Dissasociate" OnDelete2="Dissasociate" IsShadow="false" IsInherited="false">
+      <DiagramInfo Edge1="Right" Edge2="Left" Percent1="0.9317180616740088" Percent2="0.42" Path="M 705 873 L 860 873 L 860 655 L 983 655" />
+    </Association>
+    <Association ModelName="Item" Class1="Item" Class2="BusinessUnit" Role1="Item" Role2="BusinessUnit" Multiplicity1="ZeroOrOne" Multiplicity2="ZeroOrOne" Navigable1="false" Navigable2="true" IsExternal="true" Persisted="true" OrderByProperty1="" OrderByDirection1="Asc" OrderByProperty2="" OrderByDirection2="Asc" OnDelete1="Dissasociate" OnDelete2="Dissasociate" IsShadow="false" IsInherited="false">
+      <DiagramInfo Edge1="Left" Edge2="Bottom" Percent1="0.1277533039647577" Percent2="0.5221238938053098" Path="M 376 271 L 224 271 L 224 67" />
+    </Association>
+    <Association ModelName="Item" Class1="Item" Class2="Category" Role1="Item" Role2="Category" Multiplicity1="ZeroOrOne" Multiplicity2="ZeroOrOne" Navigable1="false" Navigable2="true" IsExternal="true" Persisted="true" OrderByProperty1="" OrderByDirection1="Asc" OrderByProperty2="" OrderByDirection2="Asc" OnDelete1="Dissasociate" OnDelete2="Dissasociate" IsShadow="false" IsInherited="false">
+      <DiagramInfo Edge1="Top" Edge2="Bottom" Percent1="0.225" Percent2="0.2509505703422053" Path="M 441 190 L 441 67" />
+    </Association>
+    <Association ModelName="Item" Class1="Item" Class2="SubCategory" Role1="Item" Role2="SubCategory" Multiplicity1="ZeroOrOne" Multiplicity2="ZeroOrOne" Navigable1="false" Navigable2="true" IsExternal="true" Persisted="true" OrderByProperty1="" OrderByDirection1="Asc" OrderByProperty2="" OrderByDirection2="Asc" OnDelete1="Dissasociate" OnDelete2="Dissasociate" IsShadow="false" IsInherited="false">
+      <DiagramInfo Edge1="Top" Edge2="Bottom" Percent1="0.803125" Percent2="0.10762331838565023" Path="M 632 190 L 632 120 L 720 120 L 720 69" />
+    </Association>
+    <Association ModelName="Item" Class1="Item" Class2="BaseUnit" Role1="Item" Role2="BaseUnit" Multiplicity1="ZeroOrOne" Multiplicity2="ZeroOrOne" Navigable1="false" Navigable2="true" IsExternal="true" Persisted="true" OrderByProperty1="" OrderByDirection1="Asc" OrderByProperty2="" OrderByDirection2="Asc" OnDelete1="Dissasociate" OnDelete2="Dissasociate" IsShadow="false" IsInherited="false">
+      <DiagramInfo Edge1="Right" Edge2="Bottom" Percent1="0.14757709251101322" Percent2="0.2717948717948718" Path="M 705 290 L 1019 290 L 1019 70" />
+    </Association>
+    <Association ModelName="Sale" Class1="Item" Class2="Sales" Role1="Item" Role2="ItemsForecast" Multiplicity1="ZeroOrOne" Multiplicity2="Many" Navigable1="true" Navigable2="true" IsExternal="true" Persisted="true" OrderByProperty1="" OrderByDirection1="Asc" OrderByProperty2="" OrderByDirection2="Asc" OnDelete1="Dissasociate" OnDelete2="Dissasociate" IsShadow="false" IsInherited="false">
+      <DiagramInfo Edge1="Top" Edge2="Bottom" Percent1="0.6111998296603854" Percent2="0.45049272641952137" Path="M 349 322 L 349 270 L 273 270 L 273 234" />
+    </Association>
+    <Association ModelName="StockOnHand" Class1="Item" Class2="StockOnHand" Role1="Item" Role2="StocksOnHand" Multiplicity1="ZeroOrOne" Multiplicity2="Many" Navigable1="true" Navigable2="true" IsExternal="true" Persisted="true" OrderByProperty1="" OrderByDirection1="Asc" OrderByProperty2="" OrderByDirection2="Asc" OnDelete1="Dissasociate" OnDelete2="Dissasociate" IsShadow="false" IsInherited="false">
+      <DiagramInfo Edge1="Left" Edge2="Right" Percent1="0.23404255319148937" Percent2="0.3177570093457944" Path="M 806 217 L 760 217 L 760 123 L 718 123" />
+    </Association>
+    <Association ModelName="Forecast" Class1="DeliverySchedule" Class2="Item" Role1="DeliverySchedules" Role2="Item" Multiplicity1="Many" Multiplicity2="ZeroOrOne" Navigable1="true" Navigable2="true" IsExternal="true" Persisted="true" OrderByProperty1="" OrderByDirection1="Asc" OrderByProperty2="" OrderByDirection2="Asc" OnDelete1="Dissasociate" OnDelete2="Dissasociate" IsShadow="false" IsInherited="false">
+      <DiagramInfo Edge1="Left" Edge2="Right" Percent1="0.9392523364485982" Percent2="0.28" Path="M 463 309 L 420 309 L 420 258 L 392 258" />
+    </Association>
+    <Association ModelName="MinimumQuantity" Class1="MinimumQuantity" Class2="Item" Role1="MinimumQuantity" Role2="Item" Multiplicity1="ZeroOrOne" Multiplicity2="ZeroOrOne" Navigable1="true" Navigable2="true" IsExternal="true" Persisted="true" OrderByProperty1="" OrderByDirection1="Asc" OrderByProperty2="" OrderByDirection2="Asc" OnDelete1="Dissasociate" OnDelete2="Dissasociate" IsShadow="false" IsInherited="false">
+      <DiagramInfo Edge1="Left" Edge2="Right" Percent1="0.5631578947368421" Percent2="0.5" Path="M 438.570007324219 149 L 337.259002685547 149" />
+    </Association>
+    <Association ModelName="Agreement" Class1="Agreement" Class2="Item" Role1="Agreements" Role2="Items" Multiplicity1="Many" Multiplicity2="Many" Navigable1="true" Navigable2="true" IsExternal="true" Persisted="true" OrderByProperty1="" OrderByDirection1="Asc" OrderByProperty2="" OrderByDirection2="Asc" OnDelete1="Dissasociate" OnDelete2="Dissasociate" IsShadow="false" IsInherited="false">
+      <DiagramInfo Edge1="Right" Edge2="Left" Percent1="0.3532934131736527" Percent2="0.7" Path="M 812 191 L 840 191 L 840 470 L 884 470" />
+    </Association>
+    <Association ModelName="OrderProposal" Class1="OrderForecastDetails" Class2="Item" Role1="ReplenishmentCycle" Role2="Item" Multiplicity1="ZeroOrOne" Multiplicity2="ZeroOrOne" Navigable1="false" Navigable2="true" IsExternal="true" Persisted="true" OrderByProperty1="" OrderByDirection1="Asc" OrderByProperty2="" OrderByDirection2="Asc" OnDelete1="Dissasociate" OnDelete2="Dissasociate" IsShadow="false" IsInherited="false">
+      <DiagramInfo Edge1="Left" Edge2="Top" Percent1="0.3473282442748092" Percent2="0.9028164201688876" Path="M 363 749 L 410 749 L 410 713 L 451 713" />
+    </Association>
+    <Association ModelName="OrderProposal" Class1="ItemParameter" Class2="Item" Role1="ItemCriterion" Role2="Item" Multiplicity1="ZeroOrOne" Multiplicity2="ZeroOrOne" Navigable1="false" Navigable2="true" IsExternal="true" Persisted="true" OrderByProperty1="" OrderByDirection1="Asc" OrderByProperty2="" OrderByDirection2="Asc" OnDelete1="Dissasociate" OnDelete2="Dissasociate" IsShadow="false" IsInherited="false">
+      <DiagramInfo Edge1="Bottom" Edge2="Top" Percent1="0.4287771585999624" Percent2="0.6711587738445478" Path="M 667 568 L 667 688" />
+    </Association>
+    <Association ModelName="OrderForecastDashboard" Class1="OrderForecastStatistic" Class2="Item" Role1="OrderForecastStatistics" Role2="Item" Multiplicity1="Many" Multiplicity2="ZeroOrOne" Navigable1="false" Navigable2="true" IsExternal="true" Persisted="true" OrderByProperty1="" OrderByDirection1="Asc" OrderByProperty2="" OrderByDirection2="Asc" OnDelete1="Dissasociate" OnDelete2="Dissasociate" IsShadow="false" IsInherited="false">
+      <DiagramInfo Edge1="Bottom" Edge2="Top" Percent1="0.5079365079365079" Percent2="0.4373505149607068" Path="M 693.06201171875 496.069000244141 L 693.06201171875 555.996200561523" />
+    </Association>
+    <Association ModelName="Notification" Class1="Item" Class2="Notification" Role1="Item" Role2="Notifications" Multiplicity1="ZeroOrOne" Multiplicity2="Many" Navigable1="true" Navigable2="true" IsExternal="true" Persisted="true" OrderByProperty1="" OrderByDirection1="Asc" OrderByProperty2="" OrderByDirection2="Asc" OnDelete1="Dissasociate" OnDelete2="Dissasociate" IsShadow="false" IsInherited="false">
+      <DiagramInfo Edge1="Left" Edge2="Right" Percent1="0.1694915254237288" Percent2="0.24766355140186916" Path="M 820 215 L 780 215 L 780 220 L 736 220" />
+    </Association>
+    <Association ModelName="ItemWaste" Class1="WasteOld" Class2="Item" Role1="WasteOld" Role2="Item" Multiplicity1="ZeroOrOne" Multiplicity2="ZeroOrOne" Navigable1="false" Navigable2="true" IsExternal="true" Persisted="true" OrderByProperty1="" OrderByDirection1="Asc" OrderByProperty2="" OrderByDirection2="Asc" OnDelete1="Dissasociate" OnDelete2="Dissasociate" IsShadow="false" IsInherited="false">
+      <DiagramInfo Edge1="Right" Edge2="Left" Percent1="0.44656488549618323" Percent2="0.54" Path="M 597 179 L 714 179" />
+    </Association>
+    <Association ModelName="SLA" Class1="Item" Class2="SLALeadTime" Role1="Item" Role2="SLALeadTimes" Multiplicity1="ZeroOrOne" Multiplicity2="Many" Navigable1="true" Navigable2="true" IsExternal="true" Persisted="true" OrderByProperty1="" OrderByDirection1="Asc" OrderByProperty2="" OrderByDirection2="Asc" OnDelete1="Dissasociate" OnDelete2="Dissasociate" IsShadow="false" IsInherited="false">
+      <DiagramInfo Edge1="Top" Edge2="Bottom" Percent1="0.2624103089764241" Percent2="0.449329834763492" Path="M 484 460 L 484 406" />
+    </Association>
+    <Association ModelName="SLA" Class1="Item" Class2="SLADelivery" Role1="Item" Role2="SLADeliveries" Multiplicity1="ZeroOrOne" Multiplicity2="Many" Navigable1="true" Navigable2="true" IsExternal="true" Persisted="true" OrderByProperty1="" OrderByDirection1="Asc" OrderByProperty2="" OrderByDirection2="Asc" OnDelete1="Dissasociate" OnDelete2="Dissasociate" IsShadow="false" IsInherited="false">
+      <DiagramInfo Edge1="Top" Edge2="Left" Percent1="0.8465856396739395" Percent2="0.7657342657342657" Path="M 649 490 L 750 490 L 750 470 L 830 470 L 830 483 L 845 483" />
+    </Association>
+    <Association ModelName="SLA" Class1="Item" Class2="Platform" Role1="Item" Role2="Platform" Multiplicity1="ZeroOrOne" Multiplicity2="ZeroOrOne" Navigable1="true" Navigable2="false" IsExternal="true" Persisted="true" OrderByProperty1="" OrderByDirection1="Asc" OrderByProperty2="" OrderByDirection2="Asc" OnDelete1="Dissasociate" OnDelete2="Dissasociate" IsShadow="false" IsInherited="false">
+      <DiagramInfo Edge1="Right" Edge2="Left" Percent1="0.4666666666666667" Percent2="0.3598130841121495" Path="M 649 676 L 730 676 L 730 648 L 812 648" />
+    </Association>
+    <Association ModelName="SLA" Class1="SLAStatistics" Class2="Item" Role1="SLAStatistics" Role2="Item" Multiplicity1="Many" Multiplicity2="ZeroOrOne" Navigable1="false" Navigable2="true" IsExternal="true" Persisted="true" OrderByProperty1="" OrderByDirection1="Asc" OrderByProperty2="" OrderByDirection2="Asc" OnDelete1="Dissasociate" OnDelete2="Dissasociate" IsShadow="false" IsInherited="false">
+      <DiagramInfo Edge1="Right" Edge2="Left" Percent1="0.30526315789473685" Percent2="0.15934065934065933" Path="M 248 593 L 280 593 L 280 637 L 320 637" />
+    </Association>
+    <Association ModelName="StockLevelKPI" Class1="Stats" Class2="Item" Role1="Stats" Role2="Item" Multiplicity1="Many" Multiplicity2="ZeroOrOne" Navigable1="false" Navigable2="true" IsExternal="true" Persisted="true" OrderByProperty1="" OrderByDirection1="Asc" OrderByProperty2="" OrderByDirection2="Asc" OnDelete1="Dissasociate" OnDelete2="Dissasociate" IsShadow="false" IsInherited="false">
+      <DiagramInfo Edge1="Right" Edge2="Top" Percent1="0.3067226890756303" Percent2="0.21242739298091473" Path="M 780 188 L 930 188 L 930 220 L 977 220 L 977 283" />
+    </Association>
+    <Association ModelName="PastOrder" Class1="PastOrder" Class2="Item" Role1="PastOrders" Role2="Item" Multiplicity1="Many" Multiplicity2="ZeroOrOne" Navigable1="true" Navigable2="true" IsExternal="true" Persisted="true" OrderByProperty1="" OrderByDirection1="Asc" OrderByProperty2="" OrderByDirection2="Asc" OnDelete1="Dissasociate" OnDelete2="Dissasociate" IsShadow="false" IsInherited="false">
+      <DiagramInfo Edge1="Bottom" Edge2="Top" Percent1="0.4975845410628019" Percent2="0.45297017620930347" Path="M 555 325 L 555 370 L 576 370 L 576 411" />
+    </Association>
+    <Association ModelName="InventoryItem" Class1="InventoryItem" Class2="Item" Role1="InventoryItems" Role2="Item" Multiplicity1="Many" Multiplicity2="ZeroOrOne" Navigable1="true" Navigable2="true" IsExternal="true" Persisted="true" OrderByProperty1="" OrderByDirection1="Asc" OrderByProperty2="" OrderByDirection2="Asc" OnDelete1="Dissasociate" OnDelete2="Dissasociate" IsShadow="false" IsInherited="false">
+      <DiagramInfo Edge1="Left" Edge2="Right" Percent1="0.5233644859813084" Percent2="0.52" Path="M 553 170 L 480 170 L 480 158 L 413 158" />
+    </Association>
+    <Association ModelName="Company" Class1="Company" Class2="Contact" Role1="Company" Role2="Contacts" Multiplicity1="ZeroOrOne" Multiplicity2="Many" Navigable1="true" Navigable2="true" IsExternal="true" Persisted="true" OrderByProperty1="" OrderByDirection1="Asc" OrderByProperty2="" OrderByDirection2="Asc" OnDelete1="Dissasociate" OnDelete2="Dissasociate" IsShadow="false" IsInherited="true">
+      <DiagramInfo Edge1="Right" Edge2="Left" Percent1="0.3388888888888889" Percent2="0.30952381089412356" Path="M 601 153 L 650 153 L 650 273 L 712 273" />
+    </Association>
+    <Association ModelName="Supplier" Class1="Supplier" Class2="BusinessUnit" Role1="Supplier" Role2="BusinessUnit" Multiplicity1="ZeroOrOne" Multiplicity2="ZeroOrOne" Navigable1="true" Navigable2="true" IsExternal="true" Persisted="true" OrderByProperty1="" OrderByDirection1="Asc" OrderByProperty2="" OrderByDirection2="Asc" OnDelete1="Dissasociate" OnDelete2="Dissasociate" IsShadow="false" IsInherited="false">
+      <DiagramInfo Edge1="Right" Edge2="Left" Percent1="0.5333333333333333" Percent2="0.3523809523809524" Path="M 680 201 L 780 201 L 780 128 L 865 128" />
+    </Association>
+    <Association ModelName="Item" Class1="SupplierCapacity" Class2="Supplier" Role1="SupplierCapacities" Role2="Supplier" Multiplicity1="Many" Multiplicity2="ZeroOrOne" Navigable1="false" Navigable2="true" IsExternal="true" Persisted="true" OrderByProperty1="" OrderByDirection1="Asc" OrderByProperty2="" OrderByDirection2="Asc" OnDelete1="Dissasociate" OnDelete2="Dissasociate" IsShadow="false" IsInherited="false">
+      <DiagramInfo Edge1="Bottom" Edge2="Top" Percent1="0.5602948920484465" Percent2="0.3694983879433156" Path="M 1104 559 L 1104 600 L 1057 600 L 1057 638" />
+    </Association>
+    <Association ModelName="Forecast" Class1="DeliverySchedule" Class2="Supplier" Role1="DeliverySchedules" Role2="Supplier" Multiplicity1="Many" Multiplicity2="ZeroOrOne" Navigable1="false" Navigable2="true" IsExternal="true" Persisted="true" OrderByProperty1="" OrderByDirection1="Asc" OrderByProperty2="" OrderByDirection2="Asc" OnDelete1="Dissasociate" OnDelete2="Dissasociate" IsShadow="false" IsInherited="false">
+      <DiagramInfo Edge1="Left" Edge2="Right" Percent1="0.4789915966386555" Percent2="0.52" Path="M 463 189 L 390 189 L 390 167 L 261 167" />
+    </Association>
+    <Association ModelName="MinimumQuantity" Class1="MinimumQuantity" Class2="Supplier" Role1="MinimumQuantity" Role2="Supplier" Multiplicity1="ZeroOrOne" Multiplicity2="ZeroOrOne" Navigable1="false" Navigable2="true" IsExternal="true" Persisted="true" OrderByProperty1="" OrderByDirection1="Asc" OrderByProperty2="" OrderByDirection2="Asc" OnDelete1="Dissasociate" OnDelete2="Dissasociate" IsShadow="false" IsInherited="false">
+      <DiagramInfo Edge1="Right" Edge2="Left" Percent1="0.4263157894736842" Percent2="0.5" Path="M 669.195007324219 123 L 806.065002441406 123" />
+    </Association>
+    <Association ModelName="Agreement" Class1="Agreement" Class2="Supplier" Role1="Agreements" Role2="Supplier" Multiplicity1="Many" Multiplicity2="ZeroOrOne" Navigable1="false" Navigable2="true" IsExternal="true" Persisted="true" OrderByProperty1="" OrderByDirection1="Asc" OrderByProperty2="" OrderByDirection2="Asc" OnDelete1="Dissasociate" OnDelete2="Dissasociate" IsShadow="false" IsInherited="false">
+      <DiagramInfo Edge1="Left" Edge2="Right" Percent1="0.21787709497206703" Percent2="0.44" Path="M 473 137 L 430 137 L 430 108 L 377 108" />
+    </Association>
+  </Associations>
+  <Classes>
+    <Class ModelName="Dashboard" Name="Dashboard" ShadowModel="" ShadowClass="" Description="" Stereotype="Class" PK="Id" ConcurencyControl="true" AutoAssignPrimaryKey="true" IdGeneratorType="HiLoGenerator" IsPersisted="true" IsStatic="false" BaseClass="" BaseClasses="" BaseModel="">
+      <DiagramInfo IsExpanded="true" Width="221.4375" Height="180" Top="35" Left="350" />
+      <Attributes>
+        <Attribute Name="Id" IsValueClass="false" Description="" DataType="int" BaseInfo="" Length="100" Precision="8" Scale="2" InitValue="" IsRequired="false" IsInherited="false" Persisted="true" IsEncrypted="false" IsStatic="false" ReadOnly="false" IsExternal="false" CustomValidation="" IsCreditCard="false" IsURL="false" IsEmail="false" MinLength="0" MaxLength="100" MinValue="" MaxValue="" Getter="" Setter="" />
+      </Attributes>
+      <Operations />
+    </Class>
+    <Class ModelName="Dashboard" Name="Statistics" ShadowModel="" ShadowClass="" Description="" Stereotype="Class" PK="Id" ConcurencyControl="true" AutoAssignPrimaryKey="true" IdGeneratorType="HiLoGenerator" IsPersisted="true" IsStatic="false" BaseClass="" BaseClasses="" BaseModel="">
+      <DiagramInfo IsExpanded="true" Width="306.28125" Height="622" Top="38" Left="642" />
+      <Attributes>
+        <Attribute Name="Id" IsValueClass="false" Description="" DataType="int" BaseInfo="" Length="100" Precision="8" Scale="2" InitValue="" IsRequired="false" IsInherited="false" Persisted="true" IsEncrypted="false" IsStatic="false" ReadOnly="false" IsExternal="false" CustomValidation="" IsCreditCard="false" IsURL="false" IsEmail="false" MinLength="0" MaxLength="100" MinValue="" MaxValue="" Getter="" Setter="" />
+        <Attribute Name="TotalUnits" IsValueClass="false" Description="" DataType="int" BaseInfo="" Length="100" Precision="8" Scale="2" InitValue="" IsRequired="false" IsInherited="false" Persisted="true" IsEncrypted="false" IsStatic="false" ReadOnly="false" IsExternal="false" CustomValidation="" IsCreditCard="false" IsURL="false" IsEmail="false" MinLength="0" MaxLength="100" MinValue="" MaxValue="" Getter="" Setter="" />
+        <Attribute Name="Description" IsValueClass="false" Description="" DataType="string" BaseInfo="" Length="100" Precision="8" Scale="2" InitValue="" IsRequired="false" IsInherited="false" Persisted="true" IsEncrypted="false" IsStatic="false" ReadOnly="false" IsExternal="false" CustomValidation="" IsCreditCard="false" IsURL="false" IsEmail="false" MinLength="0" MaxLength="100" MinValue="" MaxValue="" Getter="" Setter="" />
+        <Attribute Name="Result" IsValueClass="false" Description="" DataType="int" BaseInfo="" Length="100" Precision="8" Scale="2" InitValue="" IsRequired="false" IsInherited="false" Persisted="true" IsEncrypted="false" IsStatic="false" ReadOnly="false" IsExternal="false" CustomValidation="" IsCreditCard="false" IsURL="false" IsEmail="false" MinLength="0" MaxLength="100" MinValue="" MaxValue="" Getter="" Setter="" />
+        <Attribute Name="LeadTime" IsValueClass="false" Description="" DataType="int" BaseInfo="" Length="100" Precision="8" Scale="2" InitValue="" IsRequired="false" IsInherited="false" Persisted="true" IsEncrypted="false" IsStatic="false" ReadOnly="false" IsExternal="false" CustomValidation="" IsCreditCard="false" IsURL="false" IsEmail="false" MinLength="0" MaxLength="100" MinValue="" MaxValue="" Getter="" Setter="" />
+        <Attribute Name="WeekDay" IsValueClass="false" Description="" DataType="string" BaseInfo="" Length="100" Precision="8" Scale="2" InitValue="" IsRequired="false" IsInherited="false" Persisted="true" IsEncrypted="false" IsStatic="false" ReadOnly="false" IsExternal="false" CustomValidation="" IsCreditCard="false" IsURL="false" IsEmail="false" MinLength="0" MaxLength="100" MinValue="" MaxValue="" Getter="" Setter="" />
+        <Attribute Name="StockOnHandDate" IsValueClass="false" Description="" DataType="DateTime" BaseInfo="" Length="100" Precision="8" Scale="2" InitValue="" IsRequired="false" IsInherited="false" Persisted="true" IsEncrypted="false" IsStatic="false" ReadOnly="false" IsExternal="false" CustomValidation="" IsCreditCard="false" IsURL="false" IsEmail="false" MinLength="0" MaxLength="100" MinValue="" MaxValue="" Getter="" Setter="" />
+        <Attribute Name="StockOnHand" IsValueClass="false" Description="" DataType="int" BaseInfo="" Length="100" Precision="8" Scale="2" InitValue="" IsRequired="false" IsInherited="false" Persisted="true" IsEncrypted="false" IsStatic="false" ReadOnly="false" IsExternal="false" CustomValidation="" IsCreditCard="false" IsURL="false" IsEmail="false" MinLength="0" MaxLength="100" MinValue="" MaxValue="" Getter="" Setter="" />
+        <Attribute Name="OrderQuantity" IsValueClass="false" Description="" DataType="int" BaseInfo="" Length="100" Precision="8" Scale="2" InitValue="" IsRequired="false" IsInherited="false" Persisted="true" IsEncrypted="false" IsStatic="false" ReadOnly="false" IsExternal="false" CustomValidation="" IsCreditCard="false" IsURL="false" IsEmail="false" MinLength="0" MaxLength="100" MinValue="" MaxValue="" Getter="" Setter="" />
+        <Attribute Name="SalesQuantity" IsValueClass="false" Description="" DataType="int" BaseInfo="" Length="100" Precision="8" Scale="2" InitValue="" IsRequired="false" IsInherited="false" Persisted="true" IsEncrypted="false" IsStatic="false" ReadOnly="false" IsExternal="false" CustomValidation="" IsCreditCard="false" IsURL="false" IsEmail="false" MinLength="0" MaxLength="100" MinValue="" MaxValue="" Getter="" Setter="" />
+        <Attribute Name="QuantitySalesForecast" IsValueClass="false" Description="" DataType="int" BaseInfo="" Length="100" Precision="8" Scale="2" InitValue="" IsRequired="false" IsInherited="false" Persisted="true" IsEncrypted="false" IsStatic="false" ReadOnly="false" IsExternal="false" CustomValidation="" IsCreditCard="false" IsURL="false" IsEmail="false" MinLength="0" MaxLength="100" MinValue="" MaxValue="" Getter="" Setter="" />
+        <Attribute Name="StockOnHandDateFormatted" IsValueClass="false" Description="" DataType="string" BaseInfo="" Length="100" Precision="8" Scale="2" InitValue="" IsRequired="false" IsInherited="false" Persisted="true" IsEncrypted="false" IsStatic="false" ReadOnly="false" IsExternal="false" CustomValidation="" IsCreditCard="false" IsURL="false" IsEmail="false" MinLength="0" MaxLength="100" MinValue="" MaxValue="" Getter="" Setter="" />
+        <Attribute Name="SupplierStock" IsValueClass="false" Description="" DataType="int" BaseInfo="" Length="100" Precision="8" Scale="2" InitValue="" IsRequired="false" IsInherited="false" Persisted="true" IsEncrypted="false" IsStatic="false" ReadOnly="false" IsExternal="false" CustomValidation="" IsCreditCard="false" IsURL="false" IsEmail="false" MinLength="0" MaxLength="100" MinValue="" MaxValue="" Getter="" Setter="" />
+        <Attribute Name="QuantitySum" IsValueClass="false" Description="" DataType="int" BaseInfo="" Length="100" Precision="8" Scale="2" InitValue="" IsRequired="false" IsInherited="false" Persisted="true" IsEncrypted="false" IsStatic="false" ReadOnly="false" IsExternal="false" CustomValidation="" IsCreditCard="false" IsURL="false" IsEmail="false" MinLength="0" MaxLength="100" MinValue="" MaxValue="" Getter="" Setter="" />
+        <Attribute Name="SalesForecastDate" IsValueClass="false" Description="" DataType="DateTime" BaseInfo="" Length="100" Precision="8" Scale="2" InitValue="" IsRequired="false" IsInherited="false" Persisted="true" IsEncrypted="false" IsStatic="false" ReadOnly="false" IsExternal="false" CustomValidation="" IsCreditCard="false" IsURL="false" IsEmail="false" MinLength="0" MaxLength="100" MinValue="" MaxValue="" Getter="" Setter="" />
+        <Attribute Name="SalesForecastDateFormatted" IsValueClass="false" Description="" DataType="string" BaseInfo="" Length="100" Precision="8" Scale="2" InitValue="" IsRequired="false" IsInherited="false" Persisted="true" IsEncrypted="false" IsStatic="false" ReadOnly="false" IsExternal="false" CustomValidation="" IsCreditCard="false" IsURL="false" IsEmail="false" MinLength="0" MaxLength="100" MinValue="" MaxValue="" Getter="" Setter="" />
+        <Attribute Name="Threshold" IsValueClass="false" Description="" DataType="decimal" BaseInfo="" Length="100" Precision="8" Scale="2" InitValue="" IsRequired="false" IsInherited="false" Persisted="true" IsEncrypted="false" IsStatic="false" ReadOnly="false" IsExternal="false" CustomValidation="" IsCreditCard="false" IsURL="false" IsEmail="false" MinLength="0" MaxLength="100" MinValue="" MaxValue="" Getter="" Setter="" />
+        <Attribute Name="OrderDate" IsValueClass="false" Description="" DataType="DateTime" BaseInfo="" Length="100" Precision="8" Scale="2" InitValue="" IsRequired="false" IsInherited="false" Persisted="true" IsEncrypted="false" IsStatic="false" ReadOnly="false" IsExternal="false" CustomValidation="" IsCreditCard="false" IsURL="false" IsEmail="false" MinLength="0" MaxLength="100" MinValue="" MaxValue="" Getter="" Setter="" />
+        <Attribute Name="OrderDateFormatted" IsValueClass="false" Description="" DataType="string" BaseInfo="" Length="100" Precision="8" Scale="2" InitValue="" IsRequired="false" IsInherited="false" Persisted="true" IsEncrypted="false" IsStatic="false" ReadOnly="false" IsExternal="false" CustomValidation="" IsCreditCard="false" IsURL="false" IsEmail="false" MinLength="0" MaxLength="100" MinValue="" MaxValue="" Getter="" Setter="" />
+        <Attribute Name="RealOrderQuantity" IsValueClass="false" Description="" DataType="int" BaseInfo="" Length="100" Precision="8" Scale="2" InitValue="" IsRequired="false" IsInherited="false" Persisted="true" IsEncrypted="false" IsStatic="false" ReadOnly="false" IsExternal="false" CustomValidation="" IsCreditCard="false" IsURL="false" IsEmail="false" MinLength="0" MaxLength="100" MinValue="" MaxValue="" Getter="" Setter="" />
+      </Attributes>
+      <Operations>
+        <Operation Name="CalculateFullStatistics" Description="" Syntax="" RuleType="Default" EventName="" ApplyToAttribute="" BaseInfo="" IsStatic="true" IsInherited="false" IsExternal="false">static function Collection[Domain.Statistics] CalculateFullStatistics(
+    Domain.OrderForecast orderForecast,
+	Collection[int] warehouseIds,
+	Collection[string] SKUs,
+	Collection[int] businessUnitIds,
+	Collection[int] categoryIds,
+	Collection[int] subCategoryIds,
+	Collection[int] baseUnitIds,
+	Collection[int] supplierIds,
+	DateTime fromDate,
+	DateTime toDate,
+	Domain.Supplier supplier,
+	string flowType
+)
+{
+	
+
+	Collection[Domain.Statistics] stats;
+
+	if(orderForecast == null) {
+	    return stats;
+	}
+    
+    // refresh object, otherwise strange 'lazy initialization error. no session...'
+    orderForecast.Refresh();
+	
+	Collection[int] emptyIDs;
+	Collection[string] emptySKUs;
+	
+    if(warehouseIds == null) {
+        warehouseIds = emptyIDs;
+    }
+    if(SKUs == null) {
+        SKUs = emptySKUs;
+    }
+    if(businessUnitIds == null) {
+        businessUnitIds = emptyIDs;
+    }
+    if(categoryIds == null) {
+        categoryIds = emptyIDs;
+    }
+    if(subCategoryIds == null) {
+        subCategoryIds = emptyIDs;
+    }
+    if(baseUnitIds == null) {
+        baseUnitIds = emptyIDs;
+    }
+    if(supplierIds == null) {
+        supplierIds = emptyIDs;
+    }
+
+	Collection[Domain.OrderForecastDetails] filteredDetails;
+	Collection[Domain.PastOrder] allPastOrders = Domain.PastOrder.GetAll();
+	Collection[Domain.PastOrder] filteredPastOrders;
+
+	//In case logged user is the Administrator
+	if (supplier == null) {
+		
+		
+//	var searchingOrderFDetails = orderForecast.OrderForecastDetails.Where(b=&gt; b.RecommendedOrderDate != null &amp;&amp; b.Item.SubCategory != null);
+
+//	DebugLib.Logger.WriteInfoLine("subcat: " + subCategoryIds.Length);
+
+	filteredDetails
+		= orderForecast.OrderForecastDetails
+			.Where(a =&gt;
+				(SKUs.Length == 0 || SKUs.Contains(a.Item.SKU))
+				&amp;&amp;
+				(businessUnitIds.Length == 0 || businessUnitIds.Contains(a.Item.BusinessUnit.Id))
+				&amp;&amp;
+				(categoryIds.Length == 0 || categoryIds.Contains(a.Item.Category.Id))
+				&amp;&amp;
+				(subCategoryIds.Length == 0 || (a.Item.SubCategory != null &amp;&amp; subCategoryIds.Contains(a.Item.SubCategory.Id)))
+				&amp;&amp;
+				(baseUnitIds.Length == 0 || (baseUnitIds.Contains(a.Item.SubCategory.Id)))
+				&amp;&amp;
+				(supplierIds.Length == 0 || supplierIds.Contains(a.Item.Supplier.Id))
+				&amp;&amp;
+				(warehouseIds.Length == 0 || warehouseIds.Contains(a.Warehouse.Id))
+				&amp;&amp;
+                (fromDate == null || a.RecommendedOrderDate.Date &gt;= fromDate.Date)
+                &amp;&amp; 
+                (toDate == null || a.RecommendedOrderDate.Date &lt;= toDate.Date)
+                &amp;&amp;
+                (string.IsNullOrWhiteSpace(flowType) || flowType == a.Warehouse.FlowType)
+			);
+			
+	
+	//Adding Past Orders to Chart
+	filteredPastOrders = allPastOrders.Where(a =&gt;
+				(SKUs.Length == 0 || SKUs.Contains(a.Item.SKU))
+				&amp;&amp;
+				(businessUnitIds.Length == 0 || businessUnitIds.Contains(a.Item.BusinessUnit.Id))
+				&amp;&amp;
+				(categoryIds.Length == 0 || categoryIds.Contains(a.Item.Category.Id))
+				&amp;&amp;
+				(subCategoryIds.Length == 0 || (a.Item.SubCategory != null &amp;&amp; subCategoryIds.Contains(a.Item.SubCategory.Id)))
+				&amp;&amp;
+				(baseUnitIds.Length == 0 || baseUnitIds.Contains(a.Item.SubCategory.Id))
+				&amp;&amp;
+				(supplierIds.Length == 0 || supplierIds.Contains(a.Item.Supplier.Id))
+				&amp;&amp;
+				(warehouseIds.Length == 0 || warehouseIds.Contains(a.Warehouse.Id))
+				&amp;&amp;
+                (fromDate == null || a.WrittenDate.Date &gt;= fromDate.Date)
+                &amp;&amp; 
+                (toDate == null || a.WrittenDate.Date &lt;= toDate.Date)
+				&amp;&amp;
+                (string.IsNullOrWhiteSpace(flowType) || flowType == a.Warehouse.FlowType)
+			);
+			
+
+	}
+	else {
+		DebugLib.Logger.WriteInfoLine("Supplier is: " + supplier.Name);
+		DebugLib.Logger.WriteInfoLine("---- OrderForecastDetails: " + orderForecast.OrderForecastDetails.Length);
+		
+		filteredDetails
+		= orderForecast.OrderForecastDetails
+			.Where(a =&gt;
+				(SKUs.Length == 0 || SKUs.Contains(a.Item.SKU))
+				&amp;&amp;
+				(a.Item.Supplier.Id == supplier.Id)
+				&amp;&amp;
+				(warehouseIds.Length == 0 || warehouseIds.Contains(a.Warehouse.Id))
+				&amp;&amp;
+                (fromDate == null || a.RecommendedOrderDate.Date &gt;= fromDate.Date)
+                &amp;&amp; 
+                (toDate == null || a.RecommendedOrderDate.Date &lt;= toDate.Date)
+                &amp;&amp;
+                (string.IsNullOrWhiteSpace(flowType) || flowType == a.Warehouse.FlowType)
+			);
+			
+		filteredPastOrders = allPastOrders.Where(a =&gt;
+				(SKUs.Length == 0 || SKUs.Contains(a.Item.SKU))
+				&amp;&amp;
+				(a.Item.Supplier.Id == supplier.Id)
+				&amp;&amp;
+				(warehouseIds.Length == 0 || warehouseIds.Contains(a.Warehouse.Id))
+				&amp;&amp;
+                (fromDate == null || a.WrittenDate.Date &gt;= fromDate.Date)
+                &amp;&amp; 
+                (toDate == null || a.WrittenDate.Date &lt;= toDate.Date)
+                &amp;&amp;
+                (string.IsNullOrWhiteSpace(flowType) || flowType == a.Warehouse.FlowType)
+			);	
+
+	}
+	
+	DebugLib.Logger.WriteInfoLine("----- filteredDetails: " + filteredDetails.Length);
+
+	var uniqueItemSKUs = filteredDetails.Select(a =&gt; a.Item.SKU).Distinct();
+	
+	//If I have selected an Item, and I do not have order forecast details, unique items
+	//will be 0, then the above calculation of filteredSalesDetails, will return everything!
+	
+//	DebugLib.Logger.WriteInfoLine("---- filteredDetails: " + filteredDetails.Length);
+//	DebugLib.Logger.WriteInfoLine("---- uniqueItemSKUs: " + uniqueItemSKUs.Length);
+//	DebugLib.Logger.WriteInfoLine("---- skus: " + SKUs.Length);
+	
+	Collection[Domain.SalesForecastDetails] filteredSalesDetails;
+	
+	filteredSalesDetails
+		= orderForecast.SalesForecast.SalesForecastDetails
+			.Where(a =&gt;
+				(uniqueItemSKUs.Length == 0 || uniqueItemSKUs.Contains(a.Item.SKU))
+				&amp;&amp;
+				(warehouseIds.Length == 0 || warehouseIds.Contains(a.Warehouse.Id))
+				&amp;&amp;
+                (fromDate == null || a.ForecastDate.Date &gt;= fromDate.Date)
+                &amp;&amp; 
+                (toDate == null || a.ForecastDate.Date &lt;= toDate.Date)
+			);
+	
+	//unique items=0 but I have selected some SKUs	
+	if (uniqueItemSKUs.Length == 0 &amp;&amp; SKUs.Length != 0) {
+		filteredSalesDetails
+		= orderForecast.SalesForecast.SalesForecastDetails
+			.Where(a =&gt;
+				(SKUs.Contains(a.Item.SKU))
+				&amp;&amp;
+				(warehouseIds.Length == 0 || warehouseIds.Contains(a.Warehouse.Id))
+				&amp;&amp;
+                (fromDate == null || a.ForecastDate.Date &gt;= fromDate.Date)
+                &amp;&amp; 
+                (toDate == null || a.ForecastDate.Date &lt;= toDate.Date)
+			);
+	}
+	
+	
+//	DebugLib.Logger.WriteInfoLine("---- filteredSalesDetails: " + filteredSalesDetails.Length);
+	
+	// Create Statistics per day
+	var uniqueDates = filteredDetails.Select(a =&gt; a.RecommendedOrderDate.Date).Distinct().OrderBy(a=&gt;a);
+	
+	DebugLib.Logger.WriteInfoLine("** uniqueDates: " + uniqueDates.Length);
+	
+	//This was because we had sales without order forecast details
+//	if supplierIds.Contains(4) {
+//		uniqueDates = filteredSalesDetails.Select(a=&gt; a.ForecastDate.Date).Distinct().OrderBy(a=&gt;a);
+//	}
+//	
+
+	if (uniqueDates == null || uniqueDates.Length == 0 || uniqueDates.Length &lt; 20) {
+		
+		//TODO: check if we have sales only
+		var salesUniqueDays = filteredSalesDetails.Select(a=&gt; a.ForecastDate.Date).Distinct().OrderBy(a=&gt; a);
+		
+		if (salesUniqueDays == null) {
+			return stats;
+		}
+		
+		//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+//		DebugLib.Logger.WriteInfoLine("** salesUniqueDays: " + salesUniqueDays.Length);
+//		DebugLib.Logger.WriteInfoLine("** filteredSalesDetails: " + salesUniqueDays.Length);
+		
+		//If I have sales but not orders
+		if (salesUniqueDays != null || salesUniqueDays.Length != 0) {
+			
+			
+			//Find the items that we need to show sales for ???????''''
+
+			
+//			uniqueItemSKUs = SKUs.Distinct(); //WRONG
+//			
+//			filteredSalesDetails
+//		= orderForecast.SalesForecast.SalesForecastDetails
+//			.Where(a =&gt;
+//				(uniqueItemSKUs.Length == 0 || uniqueItemSKUs.Contains(a.Item.SKU))
+//				&amp;&amp;
+//				(warehouseIds.Length == 0 || warehouseIds.Contains(a.Warehouse.Id))
+//				&amp;&amp;
+//                (fromDate == null || a.ForecastDate.Date &gt;= fromDate.Date)
+//                &amp;&amp; 
+//                (toDate == null || a.ForecastDate.Date &lt;= toDate.Date)
+//			);
+//			
+//			DebugLib.Logger.WriteInfoLine("---- filteredSalesDetails: -------- " + filteredSalesDetails.Length);
+
+
+			var salesStartDate = salesUniqueDays.First();
+			var salesEndDate = salesUniqueDays.Last();
+			
+			var allSupplierCapacitiesForCriteriaSales
+				= Domain.SupplierCapacity
+			.Find(a=&gt; 
+				uniqueItemSKUs.Contains(a.Item.SKU) 
+				&amp;&amp; a.DateOfStockUpdate.Date &gt;= salesStartDate
+				&amp;&amp; a.DateOfStockUpdate.Date &lt;= salesEndDate
+			);
+			
+		var uniqueWarehouseIdsSales = filteredDetails.Select(a =&gt; a.Warehouse.Id).Distinct();
+
+		//TODO: Should have GroupBy here!
+		int runningStockSales = 0;
+//		foreach string sku in uniqueItemSKUs {
+//			foreach int wid in uniqueWarehouseIdsSales {
+//			    var firstForecastDetailSales = filteredDetails.Where(a=&gt;a.Item.SKU == sku &amp;&amp; a.Warehouse.Id == wid).First();
+//			    if(firstForecastDetailSales != null) {
+//					runningStockSales = runningStockSales + firstForecastDetailSales.InitialStockLevel;
+//				}
+//			}
+//		}
+
+		
+		foreach DateTime date in salesUniqueDays
+		{
+			Domain.Statistics stat;
+			stat.OrderDate = date;
+			stat.OrderDateFormatted = date.ToString("dd/MM");
+			stat.StockOnHandDate = date;
+			stat.StockOnHandDateFormatted = date.ToString("dd/MM");
+	
+			var forecastDetailsForDaySales = filteredDetails.Where(a=&gt;a.RecommendedOrderDate.Date == date);
+			var salesForecastDetailsForDaySales = filteredSalesDetails.Where(a=&gt;a.ForecastDate.Date == date);
+			var pastOrdersForDaySales = filteredPastOrders.Where(a=&gt; a.WrittenDate.Date == date);
+			
+			if supplierIds.Contains(4) &amp;&amp; supplierIds.Length == 1 {
+				salesForecastDetailsForDaySales = salesForecastDetailsForDaySales.Where(a=&gt; a.Item.Supplier.Id == 4);
+	//		DebugLib.Logger.WriteInfoLine("$$$ " + salesForecastDetailsForDay.Length + " day: " + date + " sum: " + salesForecastDetailsForDay.Sum(a=&gt;a.Units));
+		}
+		
+		DebugLib.Logger.WriteInfoLine("** salesForecastDetailsForDaySales: " + salesForecastDetailsForDaySales.Length);
+		
+		
+		foreach Domain.SalesForecastDetails s in salesForecastDetailsForDaySales {
+//			DebugLib.Logger.WriteInfoLine("** " + s.Units + ", Id: " + s.Id);	
+
+			
+		}
+		
+		
+			//Do we need this?
+			int quantity = forecastDetailsForDaySales.Sum(a=&gt;a.Quantity) as int;
+			stat.TotalUnits = quantity as int;
+			
+			
+//			DebugLib.Logger.WriteInfoLine("*** " + quantity);
+	
+			// Stocks
+			var itemsForTheDay = forecastDetailsForDaySales.Select(a =&gt; a.Item).Distinct();
+			
+			int daysInflow = forecastDetailsForDaySales.Sum(a=&gt;a.Quantity as int);
+			int daysOutflow = salesForecastDetailsForDaySales.Sum(a=&gt;a.Units);
+	
+			int supplierStock = 0;
+			int supCounter = 0;
+	//		DebugLib.Logger.WriteInfoLine("itemsForTheDay LENGTH: " + itemsForTheDay.Length);
+			foreach Domain.Item i in itemsForTheDay {
+			    // this would cause unneeded N+1. It is better to prefetch in this particular situation as above
+				// stock = stock + i.SupplierCapacities.Where(a =&gt; a.DateOfStockUpdate.Date == date).Select(a=&gt;a.Stock);
+	
+			    // TODO: Add production plan
+			    
+			    Collection[Domain.SupplierCapacity] capacitiesForTheDay; //= allSupplierCapacitiesForCriteriaSales.Where(a=&gt; a.Item == i &amp;&amp; a.DateOfStockUpdate.Date == date);
+			    
+			    if (supplier != null) {
+			    	capacitiesForTheDay = allSupplierCapacitiesForCriteriaSales.Where(a=&gt; a.Item == i &amp;&amp; a.Supplier == supplier &amp;&amp; a.DateOfStockUpdate.Date == date);
+			    }
+			    else {
+			    	capacitiesForTheDay = allSupplierCapacitiesForCriteriaSales.Where(a=&gt; a.Item == i &amp;&amp; a.DateOfStockUpdate.Date == date);
+			    }
+				supplierStock = supplierStock + capacitiesForTheDay.Sum(a=&gt;a.Stock);
+				stat.Item = i;
+	
+				if i.Supplier.Code == supplier.Code {
+					supCounter = supCounter + 1;
+				}
+			}
+	
+			if supplier != null {
+				stat.Supplier = supplier;
+			}
+	
+			stat.SupplierStock = supplierStock;
+			stat.OrderQuantity = daysInflow;
+			stat.SalesQuantity = salesForecastDetailsForDaySales.Sum(a=&gt;a.Units);//daysOutflow;
+//			DebugLib.Logger.WriteInfoLine("Sales quantity: " + stat.SalesQuantity);
+			stat.RealOrderQuantity = pastOrdersForDaySales.Sum(a=&gt; a.QuantityOrdered);
+			
+			stat.StockOnHand = runningStockSales;
+			runningStockSales = runningStockSales + daysInflow - daysOutflow;
+	
+			stats.Add(stat);
+			salesForecastDetailsForDaySales.Clear();
+			
+		}	
+		DebugLib.Logger.WriteInfoLine("****************************** 1 STATS: " + stats.Length);
+			
+		return stats;
+			
+			
+		//////////////////////////////////////	
+			
+		}
+		DebugLib.Logger.WriteInfoLine("****************************** 2 STATS: " + stats.Length);	
+		return stats;
+	}
+	
+	var startDate = uniqueDates.First();
+	var endDate = uniqueDates.Last();
+	
+	// Prefetch all needed capacities in one go. Avoids multiple trips to the database.
+	var allSupplierCapacitiesForCriteria 
+		= Domain.SupplierCapacity
+			.Find(a=&gt; 
+				uniqueItemSKUs.Contains(a.Item.SKU) 
+				&amp;&amp; a.DateOfStockUpdate.Date &gt;= startDate
+				&amp;&amp; a.DateOfStockUpdate.Date &lt;= endDate
+			);
+	
+	// Prefetch all needed stock levels entries in one go. Avoids multiple trips to the database.
+//	var initialStockLevels
+//		= Domain.StockOnHand
+//			.Find(a=&gt; 
+//				uniqueItemSKUs.Contains(a.Item.SKU) 
+//				&amp;&amp; a.StockOnHandDate.Date == orderForecast.StartDate.Date
+//			);
+
+	var uniqueWarehouseIds = filteredDetails.Select(a =&gt; a.Warehouse.Id).Distinct();
+
+	// TODO: Should have GroupBy here!
+	int runningStock = 0;
+	foreach string sku in uniqueItemSKUs {
+		foreach int wid in uniqueWarehouseIds {
+		    var firstForecastDetail = filteredDetails.Where(a=&gt;a.Item.SKU == sku &amp;&amp; a.Warehouse.Id == wid).First();
+		    if(firstForecastDetail != null) {
+				runningStock = runningStock + firstForecastDetail.InitialStockLevel;
+			}
+		}
+	}
+
+	foreach DateTime date in uniqueDates
+	{
+		Domain.Statistics stat;
+		stat.OrderDate = date;
+		stat.OrderDateFormatted = date.ToString("dd/MM");
+		stat.StockOnHandDate = date;
+		stat.StockOnHandDateFormatted = date.ToString("dd/MM");
+
+		var forecastDetailsForDay = filteredDetails.Where(a=&gt;a.RecommendedOrderDate.Date == date);
+		var salesForecastDetailsForDay = filteredSalesDetails.Where(a=&gt;a.ForecastDate.Date == date);
+		var pastOrdersForDay = filteredPastOrders.Where(a=&gt; a.WrittenDate.Date == date);
+		
+		if supplierIds.Contains(4) &amp;&amp; supplierIds.Length == 1 {
+			salesForecastDetailsForDay = salesForecastDetailsForDay.Where(a=&gt; a.Item.Supplier.Id == 4);
+//		DebugLib.Logger.WriteInfoLine("$$$ " + salesForecastDetailsForDay.Length + " day: " + date + " sum: " + salesForecastDetailsForDay.Sum(a=&gt;a.Units));
+	}
+	
+		//Do we need this?
+		int quantity = forecastDetailsForDay.Sum(a=&gt;a.Quantity) as int;
+		stat.TotalUnits = quantity as int;
+
+		// Stocks
+		var itemsForTheDay = forecastDetailsForDay.Select(a =&gt; a.Item).Distinct();
+		
+		int daysInflow = forecastDetailsForDay.Sum(a=&gt;a.Quantity as int);
+		int daysOutflow = salesForecastDetailsForDay.Sum(a=&gt;a.Units);
+
+		int supplierStock = 0;
+		int supCounter = 0;
+//		DebugLib.Logger.WriteInfoLine("itemsForTheDay LENGTH: " + itemsForTheDay.Length);
+		foreach Domain.Item i in itemsForTheDay {
+		    // this would cause unneeded N+1. It is better to prefetch in this particular situation as above
+			// stock = stock + i.SupplierCapacities.Where(a =&gt; a.DateOfStockUpdate.Date == date).Select(a=&gt;a.Stock);
+
+		    // TODO: Add production plan
+		    
+		    Collection[Domain.SupplierCapacity] capacitiesForTheDay; //= allSupplierCapacitiesForCriteria.Where(a=&gt; a.Item == i &amp;&amp; a.DateOfStockUpdate.Date == date);
+		    
+		    if (supplier != null) {
+		    	capacitiesForTheDay = allSupplierCapacitiesForCriteria.Where(a=&gt; a.Item == i &amp;&amp; a.Supplier == supplier &amp;&amp; a.DateOfStockUpdate.Date == date);
+		    }
+		    else {
+		    	capacitiesForTheDay = allSupplierCapacitiesForCriteria.Where(a=&gt; a.Item == i &amp;&amp; a.DateOfStockUpdate.Date == date);
+		    }
+			supplierStock = supplierStock + capacitiesForTheDay.Sum(a=&gt;a.DailyProduction);
+			stat.Item = i;
+
+			if i.Supplier.Code == supplier.Code {
+				supCounter = supCounter + 1;
+			}
+		}
+
+		if supplier != null {
+			stat.Supplier = supplier;
+		}
+
+		stat.SupplierStock = supplierStock;
+		stat.OrderQuantity = daysInflow;
+		stat.SalesQuantity = daysOutflow;
+		stat.RealOrderQuantity = pastOrdersForDay.Sum(a=&gt; a.QuantityOrdered);
+		
+		stat.StockOnHand = runningStock;
+		runningStock = runningStock + daysInflow - daysOutflow;
+
+		stats.Add(stat);
+		salesForecastDetailsForDay.Clear();
+		
+	}
+	
+	// In case we have sales but not orders
+
+	DebugLib.Logger.WriteInfoLine("****************************** STATS: " + stats.Length);
+	return stats;
+}</Operation>
+        <Operation Name="FindTotalUnitsForSKU" Description="" Syntax="" RuleType="Default" EventName="" ApplyToAttribute="" BaseInfo="" IsStatic="true" IsInherited="false" IsExternal="false">static function Collection[Domain.Statistics] FindTotalUnitsForSKU()
+{
+	
+	Collection[Domain.Statistics] stats;
+	
+	int total;
+	Collection[Domain.Item] items;
+	
+	var wharehouses = Domain.StockOnHand.GetAll().Select(s =&gt; s.Warehouse).Distinct();
+	
+	for int i = 0; i &lt; wharehouses.Length; i + 1 {
+	    Domain.Statistics stat;
+		var wh = wharehouses.Get(i);
+		
+		stat.TotalUnits = Domain.StockOnHand.GetAll().Where(s =&gt; s.Warehouse == wh).Sum(s =&gt; s.Units);
+		stat.Description = wh.Description;
+		stat.Warehouse = wh;
+		stats.Add(stat);
+	}
+
+//	foreach Domain.Item: item in Domain.Item.GetAll() {
+//	    foreach Domain.StockOnHand: stock in item.StocksOnHand {
+//	    	total = total + stock.Units;
+//	    	Domain.Statistics stat;
+//	    	stat.TotalUnits = total;
+//	    	stat.Warehouse = stock.Warehouse;
+//	    	stat.Item = item;
+//	    	stats.Add(stat);
+//	    }
+//		
+//	}
+
+	
+	return stats;
+}</Operation>
+        <Operation Name="TotalForEachSKU" Description="" Syntax="" RuleType="Default" EventName="" ApplyToAttribute="" BaseInfo="" IsStatic="true" IsInherited="false" IsExternal="false">static function Collection[Domain.Statistics] TotalForEachSKU(int warehouse)
+{	
+	Collection[Domain.Statistics] stats;
+	int total;
+	DebugLib.Logger.WriteWarnLine("warehouse: " + warehouse);
+//	foreach Domain.Item: item in Domain.Item.GetAll() {
+//	    foreach Domain.StockOnHand: stock in item.StocksOnHand.Where(a=&gt; a.Warehouse.Id == warehouse) {
+//	    	total = total + stock.Units;
+//	    	Domain.Statistics stat;
+//	    	stat.TotalUnits = total;
+//	    	stat.Warehouse = stock.Warehouse;
+//	    	stat.Item = item;
+//	    	stat.Description = item.SKU;
+//	    	stats.Add(stat);
+//	    }
+//	}
+
+	var items = Domain.StockOnHand.GetAll().Where(a=&gt; a.Warehouse.Id == warehouse).Select(b=&gt; b.Item).Distinct();
+	
+	for int i = 0; i &lt; items.Length; i + 1 {
+	    Domain.Statistics stat;
+		var aa = items.Get(i);
+		
+		stat.TotalUnits = Domain.StockOnHand.GetAll().Where(s =&gt; s.Item == aa &amp;&amp; s.Warehouse.Id == warehouse).Sum(s =&gt; s.Units);
+		
+		stat.Description = aa.SKU;
+		stats.Add(stat);
+	}
+
+	
+	DebugLib.Logger.WriteWarnLine("STATS: " + stats.Length);
+	return stats;
+}</Operation>
+        <Operation Name="GetForecastedStockLevel" Description="" Syntax="" RuleType="Default" EventName="" ApplyToAttribute="" BaseInfo="" IsStatic="true" IsInherited="false" IsExternal="false">static function Collection[Domain.Statistics] GetForecastedStockLevel(
+	string sku,
+	DateTime fromDate,
+	DateTime toDate,
+	int locId,
+	Domain.BusinessUnit businessUnit,
+	Domain.Category category,
+	Domain.SubCategory subCategory,
+	Domain.BaseUnit baseUnit
+)
+{
+
+	Collection[Domain.Statistics] stats;
+	Collection[Domain.Item] items;
+	Domain.Item foundItem;
+
+
+	if string.IsNullOrEmpty(sku){
+	    
+//	    items = Domain.Item.Find(a=&gt; ( businessUnit != null &amp;&amp; a.BusinessUnit == businessUnit )
+//	    			&amp;&amp; (category != null &amp;&amp;  a.Category == category ) &amp;&amp; (subCategory !=null &amp;&amp; a.SubCategory == subCategory) 
+//	    			&amp;&amp; (baseUnit != null &amp;&amp; a.BaseUnit == baseUnit) );
+
+			    items = Domain.Item.Find(a=&gt; 
+	    							(businessUnit==null? true : a.BusinessUnit == businessUnit) 
+	    							 &amp;&amp;
+	    							(category==null? true : a.Category==category) 
+	    							 &amp;&amp;
+	    							(subCategory==null? true : a.SubCategory==subCategory) 
+	    							 &amp;&amp;
+	    							(baseUnit==null? true : a.BaseUnit == baseUnit)
+	    						);
+	    
+	}
+	else {
+		try {
+			foundItem = Domain.Item.GetByKey(sku);
+		}
+		catch Exception x {
+			
+		}
+		if foundItem !=null {
+		    items.Add(foundItem);
+		}
+	}
+
+    foreach Domain.Item i in items {
+        Collection[Domain.StockOnHand] stOH;
+        //if all warehouses
+        if(locId == 444){
+            stOH = i.StocksOnHand.Where(a=&gt; a.StockOnHandDate.Date &gt; fromDate.Date  &amp;&amp; a.StockOnHandDate.Date &lt; toDate.Date);
+        }else{
+            stOH = i.StocksOnHand.Where(a=&gt; a.StockOnHandDate.Date &gt; fromDate.Date  &amp;&amp; a.StockOnHandDate.Date &lt; toDate.Date &amp;&amp; a.Warehouse.Id == locId);
+        }
+        
+    	foreach Domain.StockOnHand s in stOH {
+    		bool newRow = false;
+    		if (stats.Where(b=&gt; b.StockOnHandDate.Date == s.StockOnHandDate.Date).Length &gt; 0) {
+    		    continue;
+    		}
+    		Domain.Statistics stat = stats.First(b=&gt;b.SalesForecastDate.Date == s.StockOnHandDate.Date);
+    		if(stat == null){
+    		    newRow = true;
+    		    stat = Domain.Statistics.Create();
+    		}
+		
+    		stat.TotalUnits = stat.TotalUnits + s.Units; //!!
+    		
+    		Domain.OrderForecastDetails ord = Domain.OrderForecastDetails.Find(a=&gt; a.SalesForecastDate.Date == s.StockOnHandDate.Date).First(); //!here first
+    		//stat.TotalUnits = stat.TotalUnits - ord.RoundQuantity;
+    		
+    		stat.SalesForecastDate = s.StockOnHandDate;
+    		stat.SalesForecastDateFormatted = s.StockOnHandDate.ToString("MMMM dd, yyyy");
+    		//update row is automatically so if not new row, no need to add to statistics (then we would have duplicates entries)
+    		if(newRow){
+    			stats.Add(stat);
+    		}
+    	}
+    }
+    
+	if stats.Length &gt; 0 {
+		stats = stats.OrderBy(a=&gt; a.SalesForecastDate);    
+	}
+	
+	return stats;
+
+
+}</Operation>
+        <Operation Name="CurrentStockLevel" Description="" Syntax="" RuleType="Default" EventName="" ApplyToAttribute="" BaseInfo="" IsStatic="true" IsInherited="false" IsExternal="false">static function Collection[Domain.Statistics] CurrentStockLevel(
+    string sku,
+    DateTime fromDate ,
+    DateTime toDate,
+    int locId,
+    Domain.BusinessUnit businessUnit,
+    Domain.Category category,
+    Domain.SubCategory subCategory,
+    Domain.BaseUnit baseUnit)
+{
+////    	DebugLib.Logger.WriteWarnLine("i am here");
+//	decimal result;  
+//	Collection[Domain.Statistics] stats;
+//	Collection[Domain.Item] items;
+//	Domain.Item foundItem;
+//
+//
+//	if string.IsNullOrEmpty(sku){
+//	    
+//	    items = Domain.Item.Find(a=&gt;a.BusinessUnit == businessUnit 
+//	    			&amp;&amp; a.Category == category &amp;&amp; a.SubCategory == subCategory &amp;&amp; a.BaseUnit == baseUnit);
+//	    
+////	    items = Domain.Item.Find(a=&gt; 
+////	    							(businessUnit==null? true : a.BusinessUnit == businessUnit) 
+////	    							 &amp;&amp;
+////	    							(category==null? true : a.Category==category) 
+////	    							 &amp;&amp;
+////	    							(subCategory==null? true : a.SubCategory==subCategory) 
+////	    							 &amp;&amp;
+////	    							(baseUnit==null? true : a.BaseUnit == baseUnit)
+////	    						);
+//	}else {
+//		try {
+//			foundItem = Domain.Item.GetByKey(sku);
+//		}
+//		catch Exception x {
+//			
+//		}
+//		if foundItem !=null {
+//		    items.Add(foundItem);
+//		}
+//	}
+//    DebugLib.Logger.WriteWarnLine("imtes length : " +items.Length);
+//	if items.Length &gt; 1 {
+//	    
+//	    foreach Domain.Item i in items {
+//	        Collection[Domain.StockOnHand] stOH;
+//	        if(locId == 4){
+//	            stOH = i.StocksOnHand.Where(a=&gt; a.StockOnHandDate.Date &gt; fromDate.Date  &amp;&amp; a.StockOnHandDate.Date &lt; toDate.Date);
+//	        }else{
+//	            stOH = i.StocksOnHand.Where(a=&gt; a.StockOnHandDate.Date &gt; fromDate.Date  &amp;&amp; a.StockOnHandDate.Date &lt; toDate.Date &amp;&amp; a.Warehouse.Id == locId);
+//	        }
+//	        
+//	    	foreach Domain.StockOnHand s in stOH {
+//	    		
+//	    		if (stats.Where(b=&gt; b.StockOnHandDate.Date == s.StockOnHandDate).Length &gt; 0) {
+//	    		    continue;
+//	    		}
+//	    		Domain.Statistics stat = stats.First(b=&gt;b.StockOnHandDate == s.StockOnHandDate);
+//	    		if(stat == null){
+//	    		    stat = Domain.Statistics.Create();
+//	    		}else{
+//	    			stats.Remove(stat);    
+//	    		}
+//    		
+//	    		stat.TotalUnits = stat.TotalUnits + s.Units;
+//	    		stat.SalesForecastDate = s.StockOnHandDate;
+//	    		stat.SalesForecastDateFormatted = s.StockOnHandDate.ToString("MMMM dd, yyyy");
+//	    		stats.Add(stat);
+//	    	}
+//	    }
+//	    
+//	    
+//	}
+//	else {
+//	    
+//
+//	    foreach Domain.StockOnHand: stock in foundItem.StocksOnHand.Where(a=&gt;a.StockOnHandDate.Date &gt; fromDate.Date &amp;&amp; a.StockOnHandDate.Date &lt; toDate.Date){
+//	    	if(stats.Where(a=&gt;a.StockOnHandDate.Date == stock.StockOnHandDate).Length &gt; 0){
+//	    		continue;
+//	    	}
+//	    	Domain.Statistics stat;
+//	    	//Domain.StockOnHand stockOnHand = Domain.StockOnHand.Find(a=&gt;a.Item == foundItem &amp;&amp; a.Warehouse.Id == locId).First();
+//	    	int stock2 = 0;
+//	    	if(stock.Warehouse.Id == locId){
+//	    	    stock2 = stock.Units;
+////	    	    DebugLib.Logger.WriteWarnLine("stock " + stock);
+//	    	}
+//	    	else{
+//	    	    continue;
+//	    	}
+//	    	stat.TotalUnits = stock2 as int;
+//			stat.Description = foundItem.Description.Substring(0, 15);
+//			stat.SalesForecastDate = stock.StockOnHandDate;
+//			stat.SalesForecastDateFormatted = stock.StockOnHandDate.ToString("MMMM dd, yyyy");
+//			stat.Threshold = 3200;
+//			stats.Add(stat);
+////			DebugLib.Logger.WriteWarnLine("result " + stat.Result);
+//	    }
+//	 }
+//	if stats.Length &gt; 0 {
+//		stats = stats.OrderBy(a=&gt; a.SalesForecastDate);    
+//	}
+//	
+//	return stats;
+
+
+	
+	Collection[Domain.Statistics] stats;
+	Collection[Domain.Item] items;
+	Domain.Item foundItem;
+
+
+	if string.IsNullOrEmpty(sku){
+	    
+//	    items = Domain.Item.Find(a=&gt; ( businessUnit != null &amp;&amp; a.BusinessUnit == businessUnit )
+//	    			&amp;&amp; (category != null &amp;&amp;  a.Category == category ) &amp;&amp; (subCategory !=null &amp;&amp; a.SubCategory == subCategory) 
+//	    			&amp;&amp; (baseUnit != null &amp;&amp; a.BaseUnit == baseUnit) );
+
+			    items = Domain.Item.Find(a=&gt; 
+	    							(businessUnit==null? true : a.BusinessUnit == businessUnit) 
+	    							 &amp;&amp;
+	    							(category==null? true : a.Category==category) 
+	    							 &amp;&amp;
+	    							(subCategory==null? true : a.SubCategory==subCategory) 
+	    							 &amp;&amp;
+	    							(baseUnit==null? true : a.BaseUnit == baseUnit)
+	    						);
+	    
+	}else {
+		try {
+			foundItem = Domain.Item.GetByKey(sku);
+		}
+		catch Exception x {
+			
+		}
+		if foundItem !=null {
+		    items.Add(foundItem);
+		}
+	}
+
+    foreach Domain.Item i in items {
+        Collection[Domain.StockOnHand] stOH;
+        //if all warehouses
+        if(locId == 444){
+            stOH = i.StocksOnHand.Where(a=&gt; a.StockOnHandDate.Date &gt;= fromDate.Date  &amp;&amp; a.StockOnHandDate.Date &lt;= toDate.Date);
+        }else{
+            stOH = i.StocksOnHand.Where(a=&gt; a.StockOnHandDate.Date &gt;= fromDate.Date  &amp;&amp; a.StockOnHandDate.Date &lt;= toDate.Date &amp;&amp; a.Warehouse.Id == locId);
+        }
+        
+    	foreach Domain.StockOnHand s in stOH {
+    		bool newRow = false;
+    		if (stats.Where(b=&gt; b.StockOnHandDate.Date == s.StockOnHandDate.Date).Length &gt; 0) {
+    		    continue;
+    		}
+    		Domain.Statistics stat = stats.First(b=&gt;b.SalesForecastDate.Date == s.StockOnHandDate.Date);
+    		if(stat == null){
+    		    newRow = true;
+    		    stat = Domain.Statistics.Create();
+    		}
+		
+    		stat.TotalUnits = stat.TotalUnits + s.Units;
+    		stat.SalesForecastDate = s.StockOnHandDate;
+    		stat.SalesForecastDateFormatted = s.StockOnHandDate.ToString("dd/MM/yyyy");
+    		//update row is automatically so if not new row, no need to add to statistics (then we would have duplicates entries)
+    		if(newRow){
+    			stats.Add(stat);
+    		}
+    	}
+    }
+    
+	if stats.Length &gt; 0 {
+		stats = stats.OrderBy(a=&gt; a.SalesForecastDate);    
+	}
+	
+	return stats;
+
+
+}</Operation>
+        <Operation Name="LeadTimeWeekDay" Description="" Syntax="" RuleType="Default" EventName="" ApplyToAttribute="" BaseInfo="" IsStatic="true" IsInherited="false" IsExternal="false">static function Collection[Domain.Statistics] LeadTimeWeekDay(string sku, int locId)
+{
+	Collection[Domain.Statistics] stats;
+	string weekDay;
+	int dayNo;
+	
+	if string.IsNullOrEmpty(sku) || locId == null {
+	    return stats;
+	} 
+	    Domain.Item item = Domain.Item.GetByKey(sku);
+
+
+//	foreach Domain.DeliverySchedule: del in item.DeliverySchedules.Where(a=&gt; a.Warehouse.Id == locId){
+//		Domain.Statistics stat;
+//		stat.LeadTime = del.LeadTime;
+//		switch del.Weekday {
+//			case 1:
+//				stat.WeekDay = "Sunday";
+//			case 2:
+//			    stat.WeekDay = "Monday";
+//			case 3:
+//			    stat.WeekDay = "Tuesday";
+//			case 4:
+//			    stat.WeekDay = "Wednesday";
+//			case 5:
+//			    stat.WeekDay = "Thursday";
+//			case 6:
+//			    stat.WeekDay = "Friday";
+//			case 7:
+//			    stat.WeekDay = "Saturday";
+//}
+		
+//		stat.Warehouse = del.Warehouse;
+//		stats.Add(stat);
+//	}
+	
+	return stats;
+}</Operation>
+        <Operation Name="OrderForecastVsSupCapacityNew" Description="" Syntax="" RuleType="Default" EventName="" ApplyToAttribute="" BaseInfo="" IsStatic="true" IsInherited="false" IsExternal="false">static function Collection[Domain.Statistics] OrderForecastVsSupCapacityNew(
+    Domain.OrderForecast orderForecast,
+	Collection[int] warehouseIds,
+	Collection[string] SKUs,
+	Collection[int] businessUnitIds,
+	Collection[int] categoryIds,
+	Collection[int] subCategoryIds,
+	Collection[int] baseUnitIds,
+	Collection[int] supplierIds
+)
+{
+	Collection[Domain.Statistics] stats;
+	
+	var filteredDetails
+		= orderForecast.OrderForecastDetails
+			.Where(a =&gt;
+				(SKUs.Length == 0 || SKUs.Contains(a.Item.SKU))
+				&amp;&amp;
+				(businessUnitIds.Length == 0 || businessUnitIds.Contains(a.Item.BusinessUnit.Id))
+				&amp;&amp;
+				(categoryIds.Length == 0 || categoryIds.Contains(a.Item.Category.Id))
+				&amp;&amp;
+				(subCategoryIds.Length == 0 || subCategoryIds.Contains(a.Item.SubCategory.Id))
+				&amp;&amp;
+				(baseUnitIds.Length == 0 || baseUnitIds.Contains(a.Item.SubCategory.Id))
+				&amp;&amp;
+				(supplierIds.Length == 0 || supplierIds.Contains(a.Item.Supplier.Id))
+				&amp;&amp;
+				(warehouseIds.Length == 0 || warehouseIds.Contains(a.Warehouse.Id))
+			);
+	
+	// Create Statistics per day
+	var uniqueDates = filteredDetails.Select(a =&gt; a.RecommendedOrderDate.Date).Distinct().OrderBy(a=&gt;a);
+	var uniqueItemSKUs = filteredDetails.Select(a =&gt; a.Item.SKU).Distinct();
+	
+	var startDate = uniqueDates.First();
+	var endDate = uniqueDates.Last();
+	
+	// Prefetch all needed capacities in one go. Avoids multiple trips to the database.
+	var allSupplierCapacitiesForCriteria 
+		= Domain.SupplierCapacity
+			.Find(a=&gt; 
+				uniqueItemSKUs.Contains(a.Item.SKU) 
+				&amp;&amp; a.DateOfStockUpdate.Date &gt;= startDate
+				&amp;&amp; a.DateOfStockUpdate.Date &lt;= endDate
+			);
+
+	foreach DateTime date in uniqueDates
+	{
+		Domain.Statistics stat;
+		stat.OrderDate = date;
+		stat.OrderDateFormatted = date.ToString("dd/MM/yyyy");
+
+		var forecastDetailsForDay = filteredDetails.Where(a =&gt; a.RecommendedOrderDate.Date == date);
+
+		int quantity = forecastDetailsForDay.Sum(a=&gt;a.Quantity) as int;
+		stat.TotalUnits = quantity as int;
+		
+		// Maybe we should include sth regarding the Sales forecast here. But what and how...?
+		//e.g.: stat.TotalUnitsToBeSoldFromThisOrder = 0 ;
+		
+		// Stocks
+		var itemsForTheDay = forecastDetailsForDay.Select(a =&gt; a.Item).Distinct();
+		
+		int stock = 0;
+		foreach Domain.Item i in itemsForTheDay {
+		    // this would cause unneeded N+1. It is better to prefetch in this particular situation as above
+			// stock = stock + i.SupplierCapacities.Where(a =&gt; a.DateOfStockUpdate.Date == date).Select(a=&gt;a.Stock);
+			
+		    // TODO: Add production plan
+			var capacitiesForTheDay = allSupplierCapacitiesForCriteria.Where(a=&gt; a.Item == i &amp;&amp; a.DateOfStockUpdate.Date == date);
+			stock = stock + capacitiesForTheDay.Sum(a=&gt;a.Stock);
+		}
+		
+		// handl4
+		stat.Supplier = null;
+		stat.SupplierStock = stock;
+		
+		stats.Add(stat);
+	}
+	
+	DebugLib.Logger.WriteInfoLine(" stats length "+ stats.Length);
+
+	return stats;
+}</Operation>
+        <Operation Name="OrderForecastVsSupCapacity" Description="" Syntax="" RuleType="Default" EventName="" ApplyToAttribute="" BaseInfo="" IsStatic="true" IsInherited="false" IsExternal="false">static function Collection[Domain.Statistics] OrderForecastVsSupCapacity(
+	int warehouseId,
+	string SKU,
+	Domain.BusinessUnit businessUnit,
+	Domain.Category category,
+	Domain.SubCategory subCategory,
+	Domain.BaseUnit baseUnit,
+	Domain.Supplier supplier
+)
+{
+	Collection[Domain.Statistics] stats;
+	Collection[Domain.Item] items;
+	Domain.Item foundItem;
+	
+	if warehouseId == null || warehouseId == 0 {
+	    DebugLib.Logger.WriteErrorLine("warehouseId == null!!!!");
+	    return stats;
+	}
+	else {
+		DebugLib.Logger.WriteInfoLine("warehouseId!!**** ==  " + warehouseId);
+	}
+	
+	if string.IsNullOrEmpty(SKU){
+	    DebugLib.Logger.WriteInfoLine("SKU == null");
+	    
+	    items = Domain.Item.Find(a=&gt; 
+	    							(businessUnit==null? true : a.BusinessUnit == businessUnit) 
+	    							 &amp;&amp;
+	    							(category==null? true : a.Category==category) 
+	    							 &amp;&amp;
+	    							(subCategory==null? true : a.SubCategory==subCategory) 
+	    							 &amp;&amp;
+	    							(baseUnit==null? true : a.BaseUnit == baseUnit)
+	    						);
+	    DebugLib.Logger.WriteInfoLine("Length of items: " + items.Length.ToString());
+	    foreach Domain.Item it in items {
+	    	DebugLib.Logger.WriteInfoLine(" item: " + it.SKU);	
+	    }
+	    
+
+	}else {
+		try {
+		    //Client sent Item.Supplier as null, so nHibernate took it from cache and was fetched as null
+		    //so we clear pending changes
+		    CommonLib.DataContext.Clear();
+			foundItem = Domain.Item.GetByKey(SKU);
+			 DebugLib.Logger.WriteInfoLine("NEMO FoundItem: " + (foundItem.Supplier == null));
+		}
+		catch Exception x {
+			
+		}
+		if foundItem !=null {
+		    DebugLib.Logger.WriteInfoLine("FoundItem: " + foundItem.SKU);
+		    items.Add(foundItem);
+		}
+	}
+
+	if items.Length &gt; 1 {
+	    DebugLib.Logger.WriteInfoLine("Items length: " + items.Length);
+	    Collection[Domain.OrderForecastDetails] commonOrderProposalDates = Domain.OrderForecastDetails.Find(a=&gt; items.Contains(a.Item)); //Order proposals of items
+	    commonOrderProposalDates = commonOrderProposalDates.OrderBy(a=&gt; a.RecommendedOrderDate);
+	    int sumOp=0;
+
+	    Collection[DateTime] dates;
+	    foreach Domain.OrderForecastDetails oPropp in commonOrderProposalDates {
+	        DebugLib.Logger.WriteInfoLine("Dates length: " + dates.Length);
+	    	if !dates.Contains(oPropp.RecommendedOrderDate.Date) {
+	    	    DebugLib.Logger.WriteInfoLine("New date: " + oPropp.RecommendedOrderDate.ToString());
+	    		dates.Add(oPropp.RecommendedOrderDate.Date);
+	    	}
+	    }
+	    
+	    foreach DateTime d in dates {
+	    	commonOrderProposalDates = commonOrderProposalDates.Where(a=&gt; a.RecommendedOrderDate.Date == d);
+	    	sumOp = commonOrderProposalDates.Sum(a=&gt; a.Quantity) as int;
+	    	DebugLib.Logger.WriteInfoLine("SUM: " + sumOp + " for date: " + d.ToString());
+	    	Domain.Statistics stat;
+	    	stat.OrderDate = d;
+	    	stat.OrderDateFormatted = d.ToString("dd/MM/yyyy");
+	    	stat.TotalUnits = sumOp;
+	    	stats.Add(stat);
+	    	sumOp = 0;
+	    	commonOrderProposalDates = Domain.OrderForecastDetails.Find(a=&gt; items.Contains(a.Item)); 
+	    }
+	    
+	}
+	else {
+		if foundItem.Supplier.Code == "12480" {
+	        Collection[Domain.OrderForecastDetails] orders;
+
+			foreach Domain.SupplierCapacity: cap in foundItem.SupplierCapacities.Where(a=&gt; a.Supplier.Code == "12480") {
+			    if (warehouseId != 444) {
+	            	orders = Domain.OrderForecastDetails.Find(c=&gt;c.RecommendedOrderDate == cap.DateOfStockUpdate &amp;&amp; c.Item == cap.Item &amp;&amp; c.Warehouse.Id == warehouseId);
+	        	}
+	        	else {
+	        	    orders = Domain.OrderForecastDetails.Find(d=&gt;d.RecommendedOrderDate == cap.DateOfStockUpdate &amp;&amp; d.Item == cap.Item);
+	        	}
+	
+				Domain.Statistics stat;
+				stat.Supplier = Domain.Supplier.Find(a=&gt; a.Code == "12480").First();
+				stat.SupplierStock = cap.Stock as int;
+				stat.OrderDate = cap.DateOfStockUpdate;
+				stat.OrderDateFormatted = cap.DateOfStockUpdate.ToString("dd/MM/yyyy");
+				stats.Add(stat);
+	
+				if(orders.Length == 0){
+				    continue;
+				}
+				
+				int quantity = orders.Sum(a=&gt;a.Quantity) as int;
+				stat.TotalUnits = quantity as int;
+			}
+		}
+		else {
+		    DebugLib.Logger.WriteInfoLine("***");
+		    Collection[Domain.OrderForecastDetails] orders;
+		    if(warehouseId != 444){
+		    	 orders = Domain.OrderForecastDetails.Find(a=&gt; a.Item == foundItem &amp;&amp; a.Warehouse.Id == warehouseId);    
+		    }
+		    else{
+		        orders = Domain.OrderForecastDetails.Find(a=&gt; a.Item == foundItem);    
+		    }
+		    
+			foreach Domain.OrderForecastDetails orderProposal in orders {
+				Domain.Statistics stat;
+				stat.Supplier = Domain.Supplier.Find(a=&gt; a.Code == foundItem.Supplier.Code).First();
+				stat.SupplierStock = 0;
+				stat.OrderDate = orderProposal.RecommendedOrderDate;
+				stat.OrderDateFormatted = orderProposal.RecommendedOrderDate.ToString("dd/MM/yyyy");
+				stats.Add(stat);
+				
+				if(orders.Length == 0){
+				    continue;
+				}
+				
+				int quantity = orderProposal.Quantity as int;
+				stat.TotalUnits = quantity as int;
+			}
+		}
+	}
+
+	DebugLib.Logger.WriteWarnLine(" stats length "+ stats.Length);
+
+	stats = stats.OrderBy(a=&gt; a.StockOnHandDate);
+	return stats;
+}</Operation>
+        <Operation Name="StockSKU" Description="" Syntax="" RuleType="Default" EventName="" ApplyToAttribute="" BaseInfo="" IsStatic="true" IsInherited="false" IsExternal="false">static function Collection[Domain.Statistics] StockSKU(
+    int warehouseId,
+    string SKU,
+    Domain.BusinessUnit businessUnit,
+    Domain.Category category,
+    Domain.SubCategory subCategory,
+    Domain.BaseUnit baseUnit
+    )
+{
+	Collection[Domain.Statistics] stats;
+	Collection[Domain.Item] items;
+	Domain.Item foundItem;
+	
+	if warehouseId == null || warehouseId == 0 {
+	    DebugLib.Logger.WriteErrorLine("warehouseId == null");
+	    return stats;
+	} 
+	
+	if string.IsNullOrEmpty(SKU){
+	    DebugLib.Logger.WriteInfoLine("SKU == null");
+	    
+	    items = Domain.Item.Find(a=&gt; 
+	    							(businessUnit==null? true : a.BusinessUnit == businessUnit) 
+	    							 &amp;&amp;
+	    							(category==null? true : a.Category==category) 
+	    							 &amp;&amp;
+	    							(subCategory==null? true : a.SubCategory==subCategory) 
+	    							 &amp;&amp;
+	    							(baseUnit==null? true : a.BaseUnit == baseUnit)
+	    						);
+
+
+//	items = Domain.Item.Find(a=&gt; ( businessUnit != null &amp;&amp; a.BusinessUnit == businessUnit )
+//	    			&amp;&amp; (category != null &amp;&amp;  a.Category == category ) &amp;&amp; (subCategory !=null &amp;&amp; a.SubCategory == subCategory) 
+//	    			&amp;&amp; (baseUnit != null &amp;&amp; a.BaseUnit == baseUnit) );
+//	    DebugLib.Logger.WriteErrorLine("Items length  "+ items.Length.ToString());
+	}else {
+		try {
+			foundItem = Domain.Item.GetByKey(SKU);
+		}
+		catch Exception x {
+			
+		}
+		if foundItem !=null {
+		    items.Add(foundItem);
+		}
+	}
+
+	foreach Domain.Item item in items {
+//	DebugLib.Logger.WriteErrorLine("foreach Item  ");
+
+	    //for Vitacress
+	    
+	    if item.Supplier.Code == "12480" {
+	        Collection[Domain.OrderForecastDetails] orders;
+
+
+			foreach Domain.SupplierCapacity: cap in item.SupplierCapacities.Where(a=&gt; a.Supplier.Code == "12480") {
+			    if (warehouseId != 4) {
+	            	orders = Domain.OrderForecastDetails.Find(a=&gt;a.SalesForecastDate == cap.DateOfStockUpdate &amp;&amp; a.Item == cap.Item &amp;&amp; a.Warehouse.Id == warehouseId);
+	        	}
+	        	else {
+	        	    orders = Domain.OrderForecastDetails.Find(a=&gt;a.SalesForecastDate == cap.DateOfStockUpdate &amp;&amp; a.Item == cap.Item);
+	        	}
+	
+				Domain.Statistics stat;
+				stat.Supplier = Domain.Supplier.Find(a=&gt; a.Code == "12480").First();
+				stat.SupplierStock = cap.Stock as int;
+				stat.StockOnHandDate = cap.DateOfStockUpdate;
+				stat.StockOnHandDateFormatted = cap.DateOfStockUpdate.ToString("MMMM dd, yyyy");
+				stats.Add(stat);
+	
+				if(orders.Length == 0){
+				    continue;
+				}
+				
+				int quantity = orders.Sum(a=&gt;a.Quantity) as int;
+				stat.QuantitySalesForecast = quantity as int;
+			}
+		}
+		else {
+		    Collection[Domain.OrderForecastDetails] orders;
+		    if(warehouseId != 4){
+		    	 orders = Domain.OrderForecastDetails.Find(a=&gt; a.Item == item &amp;&amp; a.Warehouse.Id == warehouseId);    
+		    }
+		    else{
+		        orders = Domain.OrderForecastDetails.Find(a=&gt; a.Item == item);    
+		    }
+		    
+			foreach Domain.OrderForecastDetails orderProposal in orders {
+				Domain.Statistics stat;
+				stat.Supplier = Domain.Supplier.Find(a=&gt; a.Code == item.Supplier.Code).First();
+				stat.SupplierStock = 0;
+				stat.StockOnHandDate = orderProposal.RecommendedOrderDate;
+				stat.StockOnHandDateFormatted = orderProposal.RecommendedOrderDate.ToString("MMMM dd, yyyy");
+				stats.Add(stat);
+				
+				if(orders.Length == 0){
+				    continue;
+				}
+				
+				int quantity = orderProposal.Quantity as int;
+				stat.QuantitySalesForecast = quantity as int;
+			}
+		}
+
+}
+	DebugLib.Logger.WriteWarnLine(" stats length "+ stats.Length);
+
+	
+	
+	stats = stats.OrderBy(a=&gt; a.StockOnHandDate);
+	return stats;
+}</Operation>
+      </Operations>
+    </Class>
+    <Class ModelName="Warehouse" Name="Warehouse" ShadowModel="Warehouse" ShadowClass="Warehouse" Description="" Stereotype="Class" PK="Id" ConcurencyControl="true" AutoAssignPrimaryKey="true" IdGeneratorType="HiLoGenerator" IsPersisted="true" IsStatic="false" BaseClass="" BaseClasses="" BaseModel="">
+      <DiagramInfo IsExpanded="true" Width="244.71875" Height="210" Top="396" Left="164" />
+      <Attributes>
+        <Attribute Name="Id" IsValueClass="false" Description="" DataType="int" BaseInfo="" Length="100" Precision="8" Scale="2" InitValue="" IsRequired="false" IsInherited="false" Persisted="true" IsEncrypted="false" IsStatic="false" ReadOnly="false" IsExternal="false" CustomValidation="" IsCreditCard="false" IsURL="false" IsEmail="false" MinLength="0" MaxLength="100" MinValue="" MaxValue="" Getter="" Setter="" />
+        <Attribute Name="Code" IsValueClass="false" Description="" DataType="string" BaseInfo="" Length="100" Precision="8" Scale="2" InitValue="" IsRequired="false" IsInherited="false" Persisted="true" IsEncrypted="false" IsStatic="false" ReadOnly="false" IsExternal="false" CustomValidation="" IsCreditCard="false" IsURL="false" IsEmail="false" MinLength="0" MaxLength="100" MinValue="" MaxValue="" Getter="" Setter="" />
+        <Attribute Name="Description" IsValueClass="false" Description="" DataType="string" BaseInfo="" Length="100" Precision="8" Scale="2" InitValue="" IsRequired="false" IsInherited="false" Persisted="true" IsEncrypted="false" IsStatic="false" ReadOnly="false" IsExternal="false" CustomValidation="" IsCreditCard="false" IsURL="false" IsEmail="false" MinLength="0" MaxLength="100" MinValue="" MaxValue="" Getter="" Setter="" />
+        <Attribute Name="FlowType" IsValueClass="false" Description="" DataType="string" BaseInfo="" Length="100" Precision="8" Scale="2" InitValue="" IsRequired="false" IsInherited="false" Persisted="true" IsEncrypted="false" IsStatic="false" ReadOnly="false" IsExternal="false" CustomValidation="" IsCreditCard="false" IsURL="false" IsEmail="false" MinLength="0" MaxLength="100" MinValue="" MaxValue="" Getter="" Setter="" />
+      </Attributes>
+      <Operations />
+    </Class>
+    <Class ModelName="Item" Name="Item" ShadowModel="Item" ShadowClass="Item" Description="" Stereotype="Class" PK="SKU" ConcurencyControl="true" AutoAssignPrimaryKey="false" IdGeneratorType="HiLoGenerator" IsPersisted="true" IsStatic="false" BaseClass="" BaseClasses="" BaseModel="">
+      <DiagramInfo IsExpanded="true" Width="329.296875" Height="762" Top="84" Left="1044" />
+      <Attributes>
+        <Attribute Name="SKU" IsValueClass="false" Description="" DataType="string" BaseInfo="" Length="100" Precision="8" Scale="2" InitValue="" IsRequired="false" IsInherited="false" Persisted="true" IsEncrypted="false" IsStatic="false" ReadOnly="false" IsExternal="false" CustomValidation="" IsCreditCard="false" IsURL="false" IsEmail="false" MinLength="0" MaxLength="100" MinValue="" MaxValue="" Getter="" Setter="" />
+        <Attribute Name="Description" IsValueClass="false" Description="" DataType="string" BaseInfo="" Length="100" Precision="8" Scale="2" InitValue="" IsRequired="false" IsInherited="false" Persisted="true" IsEncrypted="false" IsStatic="false" ReadOnly="false" IsExternal="false" CustomValidation="" IsCreditCard="false" IsURL="false" IsEmail="false" MinLength="0" MaxLength="100" MinValue="" MaxValue="" Getter="" Setter="" />
+        <Attribute Name="UPC" IsValueClass="false" Description="" DataType="string" BaseInfo="" Length="100" Precision="8" Scale="2" InitValue="" IsRequired="false" IsInherited="false" Persisted="true" IsEncrypted="false" IsStatic="false" ReadOnly="false" IsExternal="false" CustomValidation="" IsCreditCard="false" IsURL="false" IsEmail="false" MinLength="0" MaxLength="100" MinValue="" MaxValue="" Getter="" Setter="" />
+        <Attribute Name="AvgDailyDemand" IsValueClass="false" Description="" DataType="decimal" BaseInfo="" Length="100" Precision="8" Scale="2" InitValue="" IsRequired="false" IsInherited="false" Persisted="true" IsEncrypted="false" IsStatic="false" ReadOnly="false" IsExternal="false" CustomValidation="" IsCreditCard="false" IsURL="false" IsEmail="false" MinLength="0" MaxLength="100" MinValue="" MaxValue="" Getter="" Setter="" />
+        <Attribute Name="CoverageDays" IsValueClass="false" Description="" DataType="int" BaseInfo="" Length="100" Precision="8" Scale="2" InitValue="1" IsRequired="false" IsInherited="false" Persisted="false" IsEncrypted="false" IsStatic="false" ReadOnly="false" IsExternal="false" CustomValidation="" IsCreditCard="false" IsURL="false" IsEmail="false" MinLength="0" MaxLength="100" MinValue="" MaxValue="" Getter="" Setter="" />
+        <Attribute Name="PalletSize" IsValueClass="false" Description="" DataType="int" BaseInfo="" Length="100" Precision="8" Scale="2" InitValue="" IsRequired="false" IsInherited="false" Persisted="true" IsEncrypted="false" IsStatic="false" ReadOnly="false" IsExternal="false" CustomValidation="" IsCreditCard="false" IsURL="false" IsEmail="false" MinLength="0" MaxLength="100" MinValue="" MaxValue="" Getter="" Setter="" />
+        <Attribute Name="SupplierPackSize" IsValueClass="false" Description="" DataType="int" BaseInfo="" Length="100" Precision="8" Scale="2" InitValue="" IsRequired="false" IsInherited="false" Persisted="true" IsEncrypted="false" IsStatic="false" ReadOnly="false" IsExternal="false" CustomValidation="" IsCreditCard="false" IsURL="false" IsEmail="false" MinLength="0" MaxLength="100" MinValue="" MaxValue="" Getter="" Setter="" />
+        <Attribute Name="InnerPackSize" IsValueClass="false" Description="" DataType="int" BaseInfo="" Length="100" Precision="8" Scale="2" InitValue="" IsRequired="false" IsInherited="false" Persisted="true" IsEncrypted="false" IsStatic="false" ReadOnly="false" IsExternal="false" CustomValidation="" IsCreditCard="false" IsURL="false" IsEmail="false" MinLength="0" MaxLength="100" MinValue="" MaxValue="" Getter="" Setter="" />
+        <Attribute Name="PalletType" IsValueClass="false" Description="" DataType="string" BaseInfo="" Length="100" Precision="8" Scale="2" InitValue="" IsRequired="false" IsInherited="false" Persisted="true" IsEncrypted="false" IsStatic="false" ReadOnly="false" IsExternal="false" CustomValidation="" IsCreditCard="false" IsURL="false" IsEmail="false" MinLength="0" MaxLength="100" MinValue="" MaxValue="" Getter="" Setter="" />
+        <Attribute Name="PalTI" IsValueClass="false" Description="" DataType="int" BaseInfo="" Length="100" Precision="8" Scale="2" InitValue="" IsRequired="false" IsInherited="false" Persisted="true" IsEncrypted="false" IsStatic="false" ReadOnly="false" IsExternal="false" CustomValidation="" IsCreditCard="false" IsURL="false" IsEmail="false" MinLength="0" MaxLength="100" MinValue="" MaxValue="" Getter="" Setter="" />
+        <Attribute Name="PalHI" IsValueClass="false" Description="" DataType="int" BaseInfo="" Length="100" Precision="8" Scale="2" InitValue="" IsRequired="false" IsInherited="false" Persisted="true" IsEncrypted="false" IsStatic="false" ReadOnly="false" IsExternal="false" CustomValidation="" IsCreditCard="false" IsURL="false" IsEmail="false" MinLength="0" MaxLength="100" MinValue="" MaxValue="" Getter="" Setter="" />
+        <Attribute Name="UOM" IsValueClass="false" Description="" DataType="string" BaseInfo="" Length="100" Precision="8" Scale="2" InitValue="" IsRequired="false" IsInherited="false" Persisted="true" IsEncrypted="false" IsStatic="false" ReadOnly="false" IsExternal="false" CustomValidation="" IsCreditCard="false" IsURL="false" IsEmail="false" MinLength="0" MaxLength="100" MinValue="" MaxValue="" Getter="" Setter="" />
+      </Attributes>
+      <Operations>
+        <Operation Name="Exists" Description="" Syntax="" RuleType="Default" EventName="" ApplyToAttribute="" BaseInfo="" IsStatic="false" IsInherited="false" IsExternal="true">function bool Exists()
+{
+	if Domain.Item.Find(a=&gt; a.SKU == this.SKU).Length &gt; 0 {
+	    return true;
+	}
+	return false;
+}</Operation>
+        <Operation Name="GetUnitsOfStock" Description="" Syntax="" RuleType="Default" EventName="" ApplyToAttribute="" BaseInfo="" IsStatic="true" IsInherited="false" IsExternal="true">static function int GetUnitsOfStock(Domain.StockOnHand stock) 
+{
+    //WHY AM I HERE ?????
+    var lastStock = Domain.StockOnHand.Find(a=&gt; a.StockOnHandDate.Date &lt; stock.StockOnHandDate.Date).OrderByDescending(b=&gt;b.StockOnHandDate.Date).First();
+    
+    if(lastStock == null){
+    	return 0;
+    }
+	int LastPastStock = lastStock.Units;
+	
+	var salesforecast = Domain.SalesForecastDetails.Find(s=&gt; s.ForecastDate.Date == stock.StockOnHandDate.Date 
+	&amp;&amp; stock.Warehouse == s.Warehouse &amp;&amp; s.Item == stock.Item).First();
+    
+    if(salesforecast == null){
+    	return 0;
+    }
+	
+	int salesForecastUnits = salesforecast.Units;
+	
+	return (LastPastStock - salesForecastUnits); //+ Received Stock
+}</Operation>
+        <Operation Name="ItemsInSelectedForecast" Description="" Syntax="" RuleType="Default" EventName="" ApplyToAttribute="" BaseInfo="" IsStatic="true" IsInherited="false" IsExternal="true">static function Collection[Domain.Item] ItemsInSelectedForecast(Domain.OrderForecast selectedOrderForecast) 
+{
+	Collection[Domain.Item] items;
+	if (selectedOrderForecast == null) {
+		return items;
+	}
+	
+	selectedOrderForecast.Refresh();
+	
+	var itemParams = selectedOrderForecast.ItemParameters;
+	
+	foreach Domain.ItemParameter i in itemParams {
+		items.Add(i.Item);
+	}
+	
+	return items;
+}</Operation>
+      </Operations>
+    </Class>
+    <Class ModelName="Supplier" Name="Supplier" ShadowModel="Supplier" ShadowClass="Supplier" Description="" Stereotype="Class" PK="Id" ConcurencyControl="true" AutoAssignPrimaryKey="true" IdGeneratorType="HiLoGenerator" IsPersisted="true" IsStatic="false" BaseClass="Company" BaseClasses="Company" BaseModel="Company">
+      <DiagramInfo IsExpanded="true" Width="204.640625" Height="230" Top="652" Left="748" />
+      <Attributes>
+        <Attribute Name="Id" IsValueClass="false" Description="" DataType="int" BaseInfo="Company:Company" Length="100" Precision="8" Scale="2" InitValue="" IsRequired="false" IsInherited="true" Persisted="true" IsEncrypted="false" IsStatic="false" ReadOnly="false" IsExternal="false" CustomValidation="" IsCreditCard="false" IsURL="false" IsEmail="false" MinLength="0" MaxLength="100" MinValue="" MaxValue="" Getter="" Setter="" />
+        <Attribute Name="Code" IsValueClass="false" Description="" DataType="string" BaseInfo="Company:Company" Length="100" Precision="8" Scale="2" InitValue="" IsRequired="false" IsInherited="true" Persisted="true" IsEncrypted="false" IsStatic="false" ReadOnly="false" IsExternal="false" CustomValidation="" IsCreditCard="false" IsURL="false" IsEmail="false" MinLength="0" MaxLength="100" MinValue="" MaxValue="" Getter="" Setter="" />
+        <Attribute Name="Name" IsValueClass="false" Description="" DataType="string" BaseInfo="Company:Company" Length="100" Precision="8" Scale="2" InitValue="" IsRequired="false" IsInherited="true" Persisted="true" IsEncrypted="false" IsStatic="false" ReadOnly="false" IsExternal="false" CustomValidation="" IsCreditCard="false" IsURL="false" IsEmail="false" MinLength="0" MaxLength="100" MinValue="" MaxValue="" Getter="" Setter="" />
+      </Attributes>
+      <Operations />
+    </Class>
+  </Classes>
+  <Resources />
+</BusinessObject>

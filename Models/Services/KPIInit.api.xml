@@ -1,0 +1,20 @@
+<!--
+Copyright (c) CLMS. All rights reserved.
+Licensed under the AGPL-3.0 license. See LICENSE file in the project root for full license information.-->
+
+<ExposedApi DateCreated="" Model_Name="KPIInit" Model_Description="" Version="0.1.0">
+  <Operations>
+    <Operation Verb="Get" Path="InitKPIs" ReturnDataType="void" Name="InitKPIs" Description="" AllowAnonymousUsers="True" AllowAllAuthenticated="True" EnableAccessLog="True" ResponseSample="" RequestSample="" AllowPermisssions="" ApplicationTags="">
+      <Parameters />
+      <Code>function void InitKPIs()
+{
+	Domain.OrderStatistics.Initialize();
+}</Code>
+      <CachingOptions CachePerUser="false" OperationIsCached="false" OverrideDefaultCachingSettings="false" UseCustomExpirationMethod="false" ExpirationDays="0" ExpirationHours="0" ExpirationMinutes="3" ExpirationSeconds="0" ExpirationMilliseconds="0" CacheMode="None">function TimeSpan Expiration()
+{ 
+	 return CommonLib.Utilities.CreateTimeSpan(0, 1, 0); 
+}</CachingOptions>
+    </Operation>
+  </Operations>
+  <DataContracts />
+</ExposedApi>

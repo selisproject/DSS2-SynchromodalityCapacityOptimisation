@@ -1,0 +1,66 @@
+<!--
+Copyright (c) CLMS. All rights reserved.
+Licensed under the AGPL-3.0 license. See LICENSE file in the project root for full license information.-->
+
+<ExternalApi DateCreated="" Model_Name="LocalPubSub" Model_Description="" Version="">
+  <Endpoint TransportType="HTTP" ProtocolType="REST">
+    <Security SecurityType="None" />
+    <Class Name="LocalPubSubSubscribeRoot" OriginalName="LocalPubSubRoot" Description="" Namespace="" BaseClass="" IsEnum="false">
+      <Attribute Name="key" OriginalName="" Description="" Datatype="string" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="type" OriginalName="" Description="" Datatype="string" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="val" OriginalName="" Description="" Datatype="string" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+    </Class>
+    <Class Name="SubRoot" OriginalName="" Description="" Namespace="" BaseClass="" IsEnum="false">
+      <Attribute Name="authHash" OriginalName="" Description="" Datatype="string" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="subscriptionId" OriginalName="" Description="" Datatype="string" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="data" OriginalName="" Description="" Datatype="Array[Interfaces.LocalPubSub.SubRule]" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+    </Class>
+    <Class Name="SubRule" OriginalName="" Description="" Namespace="" BaseClass="" IsEnum="false">
+      <Attribute Name="key" OriginalName="" Description="" Datatype="string" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="val" OriginalName="" Description="" Datatype="int" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="type" OriginalName="" Description="" Datatype="string" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="op" OriginalName="" Description="" Datatype="string" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+    </Class>
+    <Class Name="SubscribeResult" OriginalName="" Description="" Namespace="" BaseClass="" IsEnum="false">
+      <Attribute Name="host" OriginalName="host" Description="" Datatype="string" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="port" OriginalName="port" Description="" Datatype="int" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+    </Class>
+    <Class Name="Publication" OriginalName="Publication" Description="" Namespace="" BaseClass="" IsEnum="false">
+      <Attribute Name="publication" OriginalName="" Description="" Datatype="Array[Interfaces.LocalPubSub.PubMessage]" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+    </Class>
+    <Class Name="PubMessage" OriginalName="" Description="" Namespace="" BaseClass="" IsEnum="false">
+      <Attribute Name="key" OriginalName="" Description="" Datatype="string" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="val" OriginalName="" Description="" Datatype="string" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="type" OriginalName="" Description="" Datatype="string" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+    </Class>
+    <Operation Name="Publish" Description="" Datatype="decimal" OriginalName="" ClientType="" IsStatic="false" AccessLog="false" Verb="POST" Text="function string GetUrl()&#xA;{&#xA;return &quot;publish&quot;;&#xA;&#xA;}" ContentType="JSON" Route="" Notes="" UserDefinedUrlMethod="true">
+      <Parameters>
+        <Parameter Name="publication" DataType="Interfaces.LocalPubSub.Publication" IsRef="False" IsOut="False" DefaultValue="" Notes="" Type="RequestBody" Alias="" />
+      </Parameters>
+      <Headers />
+      <GetUrlMethod>return "publish";</GetUrlMethod>
+      <CachingOptions CachePerUser="false" OperationIsCached="false" OverrideDefaultCachingSettings="false" UseCustomExpirationMethod="false" ExpirationDays="0" ExpirationHours="0" ExpirationMinutes="3" ExpirationSeconds="0" ExpirationMilliseconds="0" CacheMode="None">function TimeSpan Expiration(
+	Interfaces.LocalPubSub.Publication publication,
+	decimal response
+)
+{ 
+	 return CommonLib.Utilities.CreateTimeSpan(0, 1, 0); 
+}</CachingOptions>
+    </Operation>
+    <Operation Name="Subscribe" Description="" Datatype="Interfaces.LocalPubSub.SubscribeResult" OriginalName="" ClientType="" IsStatic="false" AccessLog="false" Verb="POST" Text="function string GetUrl(string auth)&#xA;{&#xA;	return &quot;subscribe&quot;;&#xA;}" ContentType="JSON" Route="" Notes="" UserDefinedUrlMethod="true">
+      <Parameters>
+        <Parameter Name="subRules" DataType="Interfaces.LocalPubSub.SubRoot" IsRef="False" IsOut="False" DefaultValue="" Notes="" Type="RequestBody" Alias="" />
+      </Parameters>
+      <Headers />
+      <GetUrlMethod>return "subscribe";</GetUrlMethod>
+      <CachingOptions CachePerUser="false" OperationIsCached="false" OverrideDefaultCachingSettings="false" UseCustomExpirationMethod="false" ExpirationDays="0" ExpirationHours="0" ExpirationMinutes="3" ExpirationSeconds="0" ExpirationMilliseconds="0" CacheMode="None">function TimeSpan Expiration(
+	Interfaces.LocalPubSub.SubRoot subRules,
+	Interfaces.LocalPubSub.SubscribeResult response
+)
+{ 
+	 return CommonLib.Utilities.CreateTimeSpan(0, 1, 0); 
+}</CachingOptions>
+    </Operation>
+  </Endpoint>
+  <RestEndpointDetails BaseUrl="http://selis-gw.cslab.ece.ntua.gr:20003/" IgnoringNullFields="false" />
+</ExternalApi>

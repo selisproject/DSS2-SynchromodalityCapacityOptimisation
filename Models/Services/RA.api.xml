@@ -1,0 +1,292 @@
+<!--
+Copyright (c) CLMS. All rights reserved.
+Licensed under the AGPL-3.0 license. See LICENSE file in the project root for full license information.-->
+
+<ExposedApi DateCreated="" Model_Name="RA" Model_Description="" Version="0.1.0">
+  <Operations>
+    <Operation Verb="Get" Path="GetRA" ReturnDataType="Domain.RegionalAgentUser" Name="GetRA" Description="" AllowAnonymousUsers="True" AllowAllAuthenticated="True" EnableAccessLog="True" ResponseSample="" RequestSample="" AllowPermisssions="" ApplicationTags="">
+      <Parameters>
+        <Parameter DataType="string" Required="True" Name="raname" Description="" />
+      </Parameters>
+      <Code>function Domain.RegionalAgentUser GetRA(string raname)
+{
+	Domain.RegionalAgentUser rauser = Domain.RegionalAgentUser.Find(us =&gt; us.UserName == raname).First();
+	return rauser;
+}</Code>
+      <CachingOptions CachePerUser="false" OperationIsCached="false" OverrideDefaultCachingSettings="false" UseCustomExpirationMethod="false" ExpirationDays="0" ExpirationHours="0" ExpirationMinutes="3" ExpirationSeconds="0" ExpirationMilliseconds="0" CacheMode="None">function TimeSpan Expiration(
+	string raname,
+	Domain.RegionalAgentUser response
+)
+{ 
+	 return CommonLib.Utilities.CreateTimeSpan(0, 1, 0); 
+}</CachingOptions>
+    </Operation>
+    <Operation Verb="Get" Path="GetOrderWMS" ReturnDataType="Domain.OrderWMS" Name="GetOrderWMS" Description="" AllowAnonymousUsers="True" AllowAllAuthenticated="True" EnableAccessLog="True" ResponseSample="" RequestSample="" AllowPermisssions="" ApplicationTags="">
+      <Parameters>
+        <Parameter DataType="int" Required="True" Name="id" Description="" />
+      </Parameters>
+      <Code>function Domain.OrderWMS GetOrderWMS(int id)
+{
+	return Domain.OrderWMS.GetByKey(id);
+}</Code>
+      <CachingOptions CachePerUser="false" OperationIsCached="false" OverrideDefaultCachingSettings="false" UseCustomExpirationMethod="false" ExpirationDays="0" ExpirationHours="0" ExpirationMinutes="3" ExpirationSeconds="0" ExpirationMilliseconds="0" CacheMode="None">function TimeSpan Expiration(
+	int id,
+	Domain.OrderWMS response
+)
+{ 
+	 return CommonLib.Utilities.CreateTimeSpan(0, 1, 0); 
+}</CachingOptions>
+    </Operation>
+    <Operation Verb="Post" Path="SaveOrder" ReturnDataType="void" Name="SaveOrder" Description="" AllowAnonymousUsers="True" AllowAllAuthenticated="True" EnableAccessLog="True" ResponseSample="" RequestSample="" AllowPermisssions="" ApplicationTags="">
+      <Parameters>
+        <Parameter DataType="Domain.OrderWMS" Required="True" Name="order" Description="" />
+      </Parameters>
+      <Code>function void SaveOrder(Domain.OrderWMS order)
+{
+	order.Save();
+}</Code>
+      <CachingOptions CachePerUser="false" OperationIsCached="false" OverrideDefaultCachingSettings="false" UseCustomExpirationMethod="false" ExpirationDays="0" ExpirationHours="0" ExpirationMinutes="3" ExpirationSeconds="0" ExpirationMilliseconds="0" CacheMode="None">function TimeSpan Expiration(
+	Domain.OrderWMS order
+)
+{ 
+	 return CommonLib.Utilities.CreateTimeSpan(0, 1, 0); 
+}</CachingOptions>
+    </Operation>
+    <Operation Verb="Get" Path="GetTruckDriver" ReturnDataType="Domain.TruckDriver" Name="GetTruckDriver" Description="" AllowAnonymousUsers="True" AllowAllAuthenticated="True" EnableAccessLog="True" ResponseSample="" RequestSample="" AllowPermisssions="" ApplicationTags="">
+      <Parameters>
+        <Parameter DataType="string" Required="True" Name="username" Description="" />
+      </Parameters>
+      <Code>function Domain.TruckDriver GetTruckDriver(string username)
+{
+	return Domain.TruckDriver.Find(truck =&gt; truck.UserName == username).First();
+}</Code>
+      <CachingOptions CachePerUser="false" OperationIsCached="false" OverrideDefaultCachingSettings="false" UseCustomExpirationMethod="false" ExpirationDays="0" ExpirationHours="0" ExpirationMinutes="3" ExpirationSeconds="0" ExpirationMilliseconds="0" CacheMode="None">function TimeSpan Expiration()
+{ 
+	 return CommonLib.Utilities.CreateTimeSpan(0, 1, 0); 
+}</CachingOptions>
+    </Operation>
+    <Operation Verb="Get" Path="GetAllOrderWMS" ReturnDataType="Collection[Domain.OrderWMS]" Name="GetAllOrderWMS" Description="" AllowAnonymousUsers="True" AllowAllAuthenticated="True" EnableAccessLog="True" ResponseSample="" RequestSample="" AllowPermisssions="" ApplicationTags="">
+      <Parameters />
+      <Code>function Collection[Domain.OrderWMS] GetAllOrderWMS()
+{
+	return Domain.OrderWMS.GetAll();
+}</Code>
+      <CachingOptions CachePerUser="false" OperationIsCached="false" OverrideDefaultCachingSettings="false" UseCustomExpirationMethod="false" ExpirationDays="0" ExpirationHours="0" ExpirationMinutes="3" ExpirationSeconds="0" ExpirationMilliseconds="0" CacheMode="None">function TimeSpan Expiration(
+	Collection[Domain.OrderWMS] response
+)
+{ 
+	 return CommonLib.Utilities.CreateTimeSpan(0, 1, 0); 
+}</CachingOptions>
+    </Operation>
+    <Operation Verb="Get" Path="GetOrderByTruck" ReturnDataType="Collection[Domain.OrderWMS]" Name="GetOrderByTruck" Description="" AllowAnonymousUsers="True" AllowAllAuthenticated="True" EnableAccessLog="True" ResponseSample="" RequestSample="" AllowPermisssions="" ApplicationTags="">
+      <Parameters>
+        <Parameter DataType="string" Required="True" Name="plateNumber" Description="" />
+      </Parameters>
+      <Code>function Collection[Domain.OrderWMS] GetOrderByTruck(string plateNumber)
+{
+	return Domain.OrderWMS.Find(order =&gt; order.Truck == plateNumber);
+}</Code>
+      <CachingOptions CachePerUser="false" OperationIsCached="false" OverrideDefaultCachingSettings="false" UseCustomExpirationMethod="false" ExpirationDays="0" ExpirationHours="0" ExpirationMinutes="3" ExpirationSeconds="0" ExpirationMilliseconds="0" CacheMode="None">function TimeSpan Expiration(
+	string plateNumber,
+	Collection[Domain.OrderWMS] response
+)
+{ 
+	 return CommonLib.Utilities.CreateTimeSpan(0, 1, 0); 
+}</CachingOptions>
+    </Operation>
+    <Operation Verb="Get" Path="GetOrderByAgency" ReturnDataType="Collection[Domain.OrderWMS]" Name="GetOrderByAgency" Description="" AllowAnonymousUsers="True" AllowAllAuthenticated="True" EnableAccessLog="True" ResponseSample="" RequestSample="" AllowPermisssions="" ApplicationTags="">
+      <Parameters>
+        <Parameter DataType="string" Required="True" Name="agencyCode" Description="" />
+      </Parameters>
+      <Code>function Collection[Domain.OrderWMS] GetOrderByAgency(string agencyCode)
+{
+	return 	Domain.OrderWMS.Find(ord =&gt; ord.OrdAgencyCode == agencyCode);
+
+}</Code>
+      <CachingOptions CachePerUser="false" OperationIsCached="false" OverrideDefaultCachingSettings="false" UseCustomExpirationMethod="false" ExpirationDays="0" ExpirationHours="0" ExpirationMinutes="3" ExpirationSeconds="0" ExpirationMilliseconds="0" CacheMode="None">function TimeSpan Expiration()
+{ 
+	 return CommonLib.Utilities.CreateTimeSpan(0, 1, 0); 
+}</CachingOptions>
+    </Operation>
+  </Operations>
+  <DataContracts>
+    <DataContract Name="" Class="Domain.GeoArea" BaseClass="">
+      <Members>
+        <Member Name="Id" DataType="int" Checked="True" />
+        <Member Name="Area" DataType="string" Checked="True" />
+        <Member Name="PostalCode" DataType="string" Checked="True" />
+        <Member Name="County" DataType="string" Checked="True" />
+      </Members>
+    </DataContract>
+    <DataContract Name="" Class="Domain.GeoCoordinates" BaseClass="">
+      <Members>
+        <Member Name="Id" DataType="int" Checked="True" />
+        <Member Name="Latitude" DataType="float" Checked="True" />
+        <Member Name="Longitude" DataType="float" Checked="True" />
+      </Members>
+    </DataContract>
+    <DataContract Name="" Class="Domain.OrderWMS" BaseClass="">
+      <Members>
+        <Member Name="Id" DataType="int" Checked="True" />
+        <Member Name="OrdID" DataType="int" Checked="True" />
+        <Member Name="OrdOrderID_Remote" DataType="int" Checked="True" />
+        <Member Name="OrdOrderExternalCode" DataType="string" Checked="True" />
+        <Member Name="OrdOrderDescr" DataType="string" Checked="True" />
+        <Member Name="OrdRegDateTime" DataType="DateTime" Checked="True" />
+        <Member Name="OrdDateTime" DataType="DateTime" Checked="True" />
+        <Member Name="OrdDeliveryDateTime" DataType="DateTime" Checked="True" />
+        <Member Name="OrdDepositorCode" DataType="string" Checked="True" />
+        <Member Name="OrdDepositorFullName" DataType="string" Checked="True" />
+        <Member Name="OrdCustomerCode" DataType="string" Checked="True" />
+        <Member Name="OrdCustomerFullName" DataType="string" Checked="True" />
+        <Member Name="OrdStatus" DataType="int" Checked="True" />
+        <Member Name="OrdMemo" DataType="string" Checked="True" />
+        <Member Name="OrdPurpose" DataType="string" Checked="True" />
+        <Member Name="OrdDeliveryValue" DataType="float" Checked="True" />
+        <Member Name="OrdDeliveryNotes" DataType="string" Checked="True" />
+        <Member Name="OrdIsReturn" DataType="int" Checked="True" />
+        <Member Name="OrdPrdTypeDescr" DataType="string" Checked="True" />
+        <Member Name="OrdWrhRoutingCode" DataType="string" Checked="True" />
+        <Member Name="OrdDlsId" DataType="int" Checked="True" />
+        <Member Name="OrdDlsDescr" DataType="string" Checked="True" />
+        <Member Name="OrdDlsAddress" DataType="string" Checked="True" />
+        <Member Name="OrdDlsZipCode" DataType="string" Checked="True" />
+        <Member Name="OrdDlsCity" DataType="string" Checked="True" />
+        <Member Name="OrdDlsArea" DataType="string" Checked="True" />
+        <Member Name="OrdRoutingStatus" DataType="int" Checked="True" />
+        <Member Name="OrdLfdWeight" DataType="float" Checked="True" />
+        <Member Name="OrdLfdVol" DataType="float" Checked="True" />
+        <Member Name="OrdLfdCtn" DataType="int" Checked="True" />
+        <Member Name="OrdLfdBar" DataType="int" Checked="True" />
+        <Member Name="OrdLfdPalEuro" DataType="int" Checked="True" />
+        <Member Name="OrdLfdPalInd" DataType="int" Checked="True" />
+        <Member Name="OrdLfdPalElsa" DataType="int" Checked="True" />
+        <Member Name="OrdLfdParOU" DataType="int" Checked="True" />
+        <Member Name="OrdLfdVar" DataType="int" Checked="True" />
+        <Member Name="OrdVoucherDateTime" DataType="DateTime" Checked="True" />
+        <Member Name="OrdVoucherNumber" DataType="string" Checked="True" />
+        <Member Name="OrdVoucherSeries" DataType="string" Checked="True" />
+        <Member Name="OrdVoucherId" DataType="int" Checked="True" />
+        <Member Name="OrdAgencyCode" DataType="string" Checked="True" />
+        <Member Name="OrdAgencyDescr" DataType="string" Checked="True" />
+        <Member Name="OrdAgencyAddress" DataType="string" Checked="True" />
+        <Member Name="OrdTelRouteId" DataType="long" Checked="True" />
+        <Member Name="OrdVchPlateNr" DataType="string" Checked="True" />
+        <Member Name="OrdVchRouteNr" DataType="int" Checked="True" />
+        <Member Name="OrdVhrDate" DataType="DateTime" Checked="True" />
+        <Member Name="OrdVhrID" DataType="long" Checked="True" />
+        <Member Name="OrdLastUpdateDateTime" DataType="DateTime" Checked="True" />
+        <Member Name="OrdReadyForLoading" DataType="int" Checked="True" />
+        <Member Name="OrdStatusString" DataType="string" Checked="True" />
+        <Member Name="Polyline" DataType="string" Checked="True" />
+        <Member Name="Warehouse" DataType="string" Checked="True" />
+        <Member Name="Truck" DataType="string" Checked="True" />
+        <Member Name="WarehouseAddress" DataType="string" Checked="True" />
+        <Member Name="ETA" DataType="string" Checked="True" />
+        <Member Name="ATA" DataType="DateTime" Checked="True" />
+        <Member Name="DestLat" DataType="float" Checked="True" />
+        <Member Name="DestLong" DataType="float" Checked="True" />
+        <Member Name="COE" DataType="float" Checked="True" />
+      </Members>
+    </DataContract>
+    <DataContract Name="" Class="Domain.RegionalAgent" BaseClass="">
+      <Members>
+        <Member Name="Id" DataType="int" Checked="True" />
+        <Member Name="AgencyCode" DataType="string" Checked="True" />
+        <Member Name="AgencyDescription" DataType="string" Checked="True" />
+        <Member Name="AgencyAddress" DataType="string" Checked="True" />
+        <Member Name="IsSelected" DataType="bool" Checked="True" />
+        <Member Name="WarehousesSupport" DataType="Collection[Domain.Warehouse]" Checked="True" />
+        <Member Name="AddressCoordinates" DataType="Domain.GeoCoordinates" Checked="True" />
+        <Member Name="AreaSupport" DataType="Collection[Domain.GeoArea]" Checked="True" />
+        <Member Name="Trucks" DataType="Collection[Domain.Truck]" Checked="True" />
+        <Member Name="RAUsers" DataType="Collection[Domain.RegionalAgentUser]" Checked="False" />
+        <Member Name="WorkContract" DataType="Collection[Domain.WorkContract]" Checked="False" />
+        <Member Name="ScheduledRouteTemplates" DataType="Collection[Domain.ScheduledRouteTemplate]" Checked="False" />
+        <Member Name="Rating" DataType="int" Checked="False" />
+      </Members>
+    </DataContract>
+    <DataContract Name="" Class="Domain.RegionalAgentUser" BaseClass="ApplicationUser">
+      <Members>
+        <Member Name="UserName" DataType="string" Checked="True" />
+        <Member Name="PasswordHash" DataType="string" Checked="False" />
+        <Member Name="SecurityStamp" DataType="string" Checked="False" />
+        <Member Name="EmailConfirmed" DataType="bool" Checked="True" />
+        <Member Name="LockoutEnabled" DataType="bool" Checked="True" />
+        <Member Name="PhoneNumberConfirmed" DataType="bool" Checked="True" />
+        <Member Name="TwoFactorEnabled" DataType="bool" Checked="True" />
+        <Member Name="AccessFailedCount" DataType="int" Checked="True" />
+        <Member Name="Name" DataType="string" Checked="True" />
+        <Member Name="Email" DataType="string" Checked="True" />
+        <Member Name="PhoneNumber" DataType="string" Checked="True" />
+        <Member Name="LockoutEndDate" DataType="DateTime" Checked="True" />
+        <Member Name="RegionalAgent" DataType="Domain.RegionalAgent" Checked="True" />
+      </Members>
+    </DataContract>
+    <DataContract Name="" Class="Domain.ScheduledRouteTemplate" BaseClass="">
+      <Members>
+        <Member Name="Id" DataType="int" Checked="True" />
+        <Member Name="Origin" DataType="string" Checked="True" />
+        <Member Name="Destination" DataType="string" Checked="True" />
+        <Member Name="DaysOfWeek" DataType="string" Checked="True" />
+        <Member Name="PricePerPallet" DataType="decimal" Checked="True" />
+        <Member Name="PricePerKilogram" DataType="decimal" Checked="True" />
+        <Member Name="PricePerCubicMeter" DataType="decimal" Checked="True" />
+        <Member Name="EffectiveFrom" DataType="DateTime" Checked="True" />
+        <Member Name="EffectiveTo" DataType="DateTime" Checked="True" />
+        <Member Name="TypeOfGoods" DataType="Domain.TruckContent" Checked="False" />
+        <Member Name="Owner" DataType="Domain.RegionalAgent" Checked="False" />
+        <Member Name="TotalAvailableCapacityKG" DataType="decimal" Checked="False" />
+        <Member Name="AvailableCapacityLaden" DataType="int" Checked="False" />
+        <Member Name="CreatedOn" DataType="DateTime" Checked="False" />
+        <Member Name="Frequency" DataType="Domain.RouteFrequency" Checked="False" />
+        <Member Name="IsPrivate" DataType="bool" Checked="False" />
+        <Member Name="TotalAvailableCapacityLaden" DataType="int" Checked="False" />
+        <Member Name="TotalAvailableCapacityM3" DataType="decimal" Checked="False" />
+        <Member Name="AvailableCapacityKG" DataType="decimal" Checked="False" />
+        <Member Name="AvailableCapacityM3" DataType="decimal" Checked="False" />
+        <Member Name="VisibleTo" DataType="Collection[Domain.LSP]" Checked="False" />
+        <Member Name="FixedPrice" DataType="int" Checked="False" />
+      </Members>
+    </DataContract>
+    <DataContract Name="" Class="Domain.Truck" BaseClass="">
+      <Members>
+        <Member Name="Id" DataType="int" Checked="True" />
+        <Member Name="PlateNumber" DataType="string" Checked="True" />
+        <Member Name="Type" DataType="string" Checked="True" />
+        <Member Name="Content" DataType="Domain.TruckContent" Checked="True" />
+        <Member Name="CurrentLocation" DataType="Domain.GeoCoordinates" Checked="True" />
+        <Member Name="RegionalAgent" DataType="Domain.RegionalAgent" Checked="True" />
+        <Member Name="TruckDriver" DataType="Domain.TruckDriver" Checked="True" />
+      </Members>
+    </DataContract>
+    <DataContract Name="" Class="Domain.TruckDriver" BaseClass="ApplicationUser">
+      <Members>
+        <Member Name="UserName" DataType="string" Checked="True" />
+        <Member Name="PasswordHash" DataType="string" Checked="True" />
+        <Member Name="SecurityStamp" DataType="string" Checked="True" />
+        <Member Name="EmailConfirmed" DataType="bool" Checked="True" />
+        <Member Name="LockoutEnabled" DataType="bool" Checked="True" />
+        <Member Name="PhoneNumberConfirmed" DataType="bool" Checked="True" />
+        <Member Name="TwoFactorEnabled" DataType="bool" Checked="True" />
+        <Member Name="AccessFailedCount" DataType="int" Checked="True" />
+        <Member Name="Name" DataType="string" Checked="True" />
+        <Member Name="Email" DataType="string" Checked="True" />
+        <Member Name="PhoneNumber" DataType="string" Checked="True" />
+        <Member Name="LockoutEndDate" DataType="DateTime" Checked="True" />
+        <Member Name="Truck" DataType="Domain.Truck" Checked="True" />
+      </Members>
+    </DataContract>
+    <DataContract Name="" Class="Domain.Warehouse" BaseClass="">
+      <Members>
+        <Member Name="Id" DataType="int" Checked="True" />
+        <Member Name="Description" DataType="string" Checked="True" />
+        <Member Name="Title" DataType="string" Checked="True" />
+        <Member Name="Address" DataType="string" Checked="True" />
+        <Member Name="Telephone" DataType="string" Checked="True" />
+        <Member Name="GeoCoordinates" DataType="Domain.GeoCoordinates" Checked="True" />
+        <Member Name="RegionalAgentsService" DataType="Collection[Domain.RegionalAgent]" Checked="False" />
+      </Members>
+    </DataContract>
+  </DataContracts>
+</ExposedApi>

@@ -1,0 +1,32 @@
+.sign-in-panel {
+    max-width: 460px;
+    padding: 20px;
+    margin: 0px auto;
+    margin-top: 200px;
+    margin-bottom: 30px !important;
+}
+
+.error-code-label {
+    font-size: 46px !important;
+}
+
+.sign-in-panel .sign-in-form-group {
+    margin-right: 0px;
+    margin-bottom: 15px;
+}
+
+.sign-in-panel .sign-in-row {
+    padding-bottom: 10px!important;
+    padding-left: 0px!important;
+    padding-right: 0px!important;
+}
+
+.sign-in-panel .sign-in-form-label {
+    font-size: 14px;
+}
+
+.sign-in-panel-masterpage {
+    max-width: 350px;
+    margin: 0px auto;
+    text-align: center;
+}

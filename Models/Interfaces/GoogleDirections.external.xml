@@ -1,0 +1,78 @@
+<!--
+Copyright (c) CLMS. All rights reserved.
+Licensed under the AGPL-3.0 license. See LICENSE file in the project root for full license information.-->
+
+<ExternalApi DateCreated="" Model_Name="GoogleDirections" Model_Description="" Version="">
+  <Endpoint TransportType="HTTP" ProtocolType="REST">
+    <Security SecurityType="None" />
+    <Class Name="DirectionsResponse" OriginalName="DirectionResponse" Description="" Namespace="" BaseClass="" IsEnum="false">
+      <Attribute Name="status" OriginalName="" Description="" Datatype="string" Length="0" IsPrimary="false" OriginalDataType="" />
+      <Attribute Name="geocoded_waypoints" OriginalName="" Description="" Datatype="Array[Interfaces.GoogleDirections.Geocoded_waypoints]" Length="0" IsPrimary="false" OriginalDataType="" />
+      <Attribute Name="Routes" OriginalName="" Description="" Datatype="Array[Interfaces.GoogleDirections.Route]" Length="0" IsPrimary="false" OriginalDataType="" />
+    </Class>
+    <Class Name="Geocoded_waypoints" OriginalName="" Description="" Namespace="" BaseClass="" IsEnum="false">
+      <Attribute Name="geocoder_status" OriginalName="" Description="" Datatype="string" Length="0" IsPrimary="false" OriginalDataType="" />
+      <Attribute Name="place_id" OriginalName="" Description="" Datatype="string" Length="0" IsPrimary="false" OriginalDataType="" />
+      <Attribute Name="types" OriginalName="" Description="" Datatype="Collection[string]" Length="0" IsPrimary="false" OriginalDataType="" />
+    </Class>
+    <Class Name="Route" OriginalName="Route" Description="" Namespace="" BaseClass="" IsEnum="false">
+      <Attribute Name="summary" OriginalName="" Description="" Datatype="string" Length="0" IsPrimary="false" OriginalDataType="" />
+      <Attribute Name="legs" OriginalName="" Description="" Datatype="Array[Interfaces.GoogleDirections.Leg]" Length="0" IsPrimary="false" OriginalDataType="" />
+      <Attribute Name="duration" OriginalName="" Description="" Datatype="Interfaces.GoogleDirections.Duration" Length="0" IsPrimary="false" OriginalDataType="" />
+      <Attribute Name="distance" OriginalName="" Description="" Datatype="Interfaces.GoogleDirections.Distance" Length="0" IsPrimary="false" OriginalDataType="" />
+      <Attribute Name="start_location" OriginalName="" Description="" Datatype="Interfaces.GoogleDirections.Location" Length="0" IsPrimary="false" OriginalDataType="" />
+      <Attribute Name="end_location" OriginalName="" Description="" Datatype="Interfaces.GoogleDirections.Location" Length="0" IsPrimary="false" OriginalDataType="" />
+      <Attribute Name="start_address" OriginalName="" Description="" Datatype="string" Length="0" IsPrimary="false" OriginalDataType="" />
+      <Attribute Name="end_address" OriginalName="" Description="" Datatype="string" Length="0" IsPrimary="false" OriginalDataType="" />
+      <Attribute Name="copyrights" OriginalName="" Description="" Datatype="string" Length="0" IsPrimary="false" OriginalDataType="" />
+      <Attribute Name="overview_polyline" OriginalName="" Description="" Datatype="Interfaces.GoogleDirections.Polyline" Length="0" IsPrimary="false" OriginalDataType="" />
+      <Attribute Name="waypoint_order" OriginalName="" Description="" Datatype="Collection[int]" Length="0" IsPrimary="false" OriginalDataType="" />
+      <Attribute Name="bounds" OriginalName="" Description="" Datatype="Interfaces.GoogleDirections.Bound" Length="0" IsPrimary="false" OriginalDataType="" />
+      <Attribute Name="Warnings" OriginalName="" Description="" Datatype="Array[string]" Length="0" IsPrimary="false" OriginalDataType="" />
+    </Class>
+    <Class Name="Leg" OriginalName="" Description="" Namespace="" BaseClass="" IsEnum="false">
+      <Attribute Name="steps" OriginalName="" Description="" Datatype="Array[Interfaces.GoogleDirections.Step]" Length="0" IsPrimary="false" OriginalDataType="" />
+    </Class>
+    <Class Name="Step" OriginalName="" Description="" Namespace="" BaseClass="" IsEnum="false">
+      <Attribute Name="travel_mode" OriginalName="" Description="" Datatype="string" Length="0" IsPrimary="false" OriginalDataType="" />
+      <Attribute Name="start_location" OriginalName="" Description="" Datatype="Interfaces.GoogleDirections.Location" Length="0" IsPrimary="false" OriginalDataType="" />
+      <Attribute Name="end_location" OriginalName="" Description="" Datatype="Interfaces.GoogleDirections.Location" Length="0" IsPrimary="false" OriginalDataType="" />
+      <Attribute Name="polyline" OriginalName="" Description="" Datatype="Interfaces.GoogleDirections.Polyline" Length="0" IsPrimary="false" OriginalDataType="" />
+      <Attribute Name="duration" OriginalName="" Description="" Datatype="Interfaces.GoogleDirections.Duration" Length="0" IsPrimary="false" OriginalDataType="" />
+      <Attribute Name="html_instructions" OriginalName="" Description="" Datatype="string" Length="0" IsPrimary="false" OriginalDataType="" />
+      <Attribute Name="distance" OriginalName="" Description="" Datatype="Interfaces.GoogleDirections.Distance" Length="0" IsPrimary="false" OriginalDataType="" />
+    </Class>
+    <Class Name="Location" OriginalName="" Description="" Namespace="" BaseClass="" IsEnum="false">
+      <Attribute Name="lat" OriginalName="" Description="" Datatype="float" Length="0" IsPrimary="false" OriginalDataType="" />
+      <Attribute Name="lng" OriginalName="" Description="" Datatype="float" Length="0" IsPrimary="false" OriginalDataType="" />
+    </Class>
+    <Class Name="Polyline" OriginalName="" Description="" Namespace="" BaseClass="" IsEnum="false">
+      <Attribute Name="points" OriginalName="" Description="" Datatype="string" Length="0" IsPrimary="false" OriginalDataType="" />
+    </Class>
+    <Class Name="Duration" OriginalName="" Description="" Namespace="" BaseClass="" IsEnum="false">
+      <Attribute Name="text" OriginalName="" Description="" Datatype="string" Length="0" IsPrimary="false" OriginalDataType="" />
+      <Attribute Name="value" OriginalName="" Description="" Datatype="int" Length="0" IsPrimary="false" OriginalDataType="" />
+    </Class>
+    <Class Name="Distance" OriginalName="" Description="" Namespace="" BaseClass="" IsEnum="false">
+      <Attribute Name="text" OriginalName="" Description="" Datatype="string" Length="0" IsPrimary="false" OriginalDataType="" />
+      <Attribute Name="value" OriginalName="" Description="" Datatype="string" Length="0" IsPrimary="false" OriginalDataType="" />
+    </Class>
+    <Class Name="Bound" OriginalName="" Description="" Namespace="" BaseClass="" IsEnum="false">
+      <Attribute Name="southwest" OriginalName="" Description="" Datatype="Interfaces.GoogleDirections.Location" Length="0" IsPrimary="false" OriginalDataType="" />
+      <Attribute Name="northeast" OriginalName="" Description="" Datatype="Interfaces.GoogleDirections.Location" Length="0" IsPrimary="false" OriginalDataType="" />
+    </Class>
+    <Operation Name="Directions" Description="" Datatype="Interfaces.GoogleDirections.DirectionsResponse" OriginalName="" ClientType="" IsStatic="false" Verb="GET" Text="" ContentType="JSON" Route="" Notes="" UserDefinedUrlMethod="true">
+      <Parameters>
+        <Parameter Name="originLat" DataType="float" IsRef="False" IsOut="False" DefaultValue="" Notes="" Type="UriPart" />
+        <Parameter Name="originLong" DataType="float" IsRef="False" IsOut="False" DefaultValue="" Notes="" Type="UriPart" />
+        <Parameter Name="destinationLat" DataType="float" IsRef="False" IsOut="False" DefaultValue="" Notes="" Type="UriPart" />
+        <Parameter Name="destinationLong" DataType="float" IsRef="False" IsOut="False" DefaultValue="" Notes="" Type="UriPart" />
+      </Parameters>
+      <Headers />
+      <GetUrlMethod>
+return "json?origin="+originLat + "," + originLong + "&amp;destination=" + destinationLat + "," + destinationLong + "&amp;key=AIzaSyDn7jvEi9-m-NbaNj8vJjggUCAq7-43hMM";
+</GetUrlMethod>
+    </Operation>
+  </Endpoint>
+  <RestEndpointDetails BaseUrl="https://maps.googleapis.com/maps/api/directions/" />
+</ExternalApi>

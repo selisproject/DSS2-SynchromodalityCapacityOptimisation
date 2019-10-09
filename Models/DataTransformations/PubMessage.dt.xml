@@ -1,0 +1,64 @@
+<!--
+Copyright (c) CLMS. All rights reserved.
+Licensed under the AGPL-3.0 license. See LICENSE file in the project root for full license information.-->
+
+<DataTransformation DateCreated="" Model_Name="PubMessage" Model_Description="" Version="">
+  <Transformation Name="PubMessage_To_PubMessage" LeftToRightPostProcess="false" RightToLeftPostProcess="false" LeftToRightPreProcess="false" RightToLeftPreProcess="false">
+    <Left>
+      <Struct Name="PubMessage" PropertyName="" ParentModel="" ParentModelId="0" DataType="Domain.PubMessage" OriginalDataType="Domain.PubMessage" IsPrimitive="false" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Left" Path="PubMessage" IsEnum="false">
+        <Attributes>
+          <Struct Name="key" PropertyName="key" ParentModel="" ParentModelId="0" DataType="string" OriginalDataType="string" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Left" Path="PubMessage.key" IsEnum="false" />
+          <Struct Name="val" PropertyName="val" ParentModel="" ParentModelId="0" DataType="string" OriginalDataType="string" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Left" Path="PubMessage.val" IsEnum="false" />
+          <Struct Name="type" PropertyName="type" ParentModel="" ParentModelId="0" DataType="string" OriginalDataType="string" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Left" Path="PubMessage.type" IsEnum="false" />
+        </Attributes>
+      </Struct>
+    </Left>
+    <Right>
+      <Struct Name="PubMessage" PropertyName="" ParentModel="LocalPubSub" ParentModelId="0" DataType="Interfaces.LocalPubSub.PubMessage" OriginalDataType="Interfaces.LocalPubSub.PubMessage" IsPrimitive="false" IsCollection="false" Hidden="false" ModelType="ExternalApi" Side="Right" Path="PubMessage" IsEnum="false">
+        <Attributes>
+          <Struct Name="key" PropertyName="key" ParentModel="LocalPubSub" ParentModelId="0" DataType="string" OriginalDataType="string" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="ExternalApi" Side="Right" Path="PubMessage.key" IsEnum="false" />
+          <Struct Name="val" PropertyName="val" ParentModel="LocalPubSub" ParentModelId="0" DataType="string" OriginalDataType="string" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="ExternalApi" Side="Right" Path="PubMessage.val" IsEnum="false" />
+          <Struct Name="type" PropertyName="type" ParentModel="LocalPubSub" ParentModelId="0" DataType="string" OriginalDataType="string" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="ExternalApi" Side="Right" Path="PubMessage.type" IsEnum="false" />
+        </Attributes>
+      </Struct>
+    </Right>
+    <Mappings>
+      <Mapping DetailedTransformation="" FromWizzard="false" MappingMode="Both">
+        <LeftToRight>
+          <Implementation IsAutoMapped="true">
+          </Implementation>
+        </LeftToRight>
+        <RightToLeft>
+          <Implementation IsAutoMapped="true">
+          </Implementation>
+        </RightToLeft>
+        <LeftItems Items="PubMessage.key" />
+        <RightItems Items="PubMessage.key" />
+      </Mapping>
+      <Mapping DetailedTransformation="" FromWizzard="false" MappingMode="Both">
+        <LeftToRight>
+          <Implementation IsAutoMapped="true">
+          </Implementation>
+        </LeftToRight>
+        <RightToLeft>
+          <Implementation IsAutoMapped="true">
+          </Implementation>
+        </RightToLeft>
+        <LeftItems Items="PubMessage.val" />
+        <RightItems Items="PubMessage.val" />
+      </Mapping>
+      <Mapping DetailedTransformation="" FromWizzard="false" MappingMode="Both">
+        <LeftToRight>
+          <Implementation IsAutoMapped="true">
+          </Implementation>
+        </LeftToRight>
+        <RightToLeft>
+          <Implementation IsAutoMapped="true">
+          </Implementation>
+        </RightToLeft>
+        <LeftItems Items="PubMessage.type" />
+        <RightItems Items="PubMessage.type" />
+      </Mapping>
+    </Mappings>
+  </Transformation>
+</DataTransformation>

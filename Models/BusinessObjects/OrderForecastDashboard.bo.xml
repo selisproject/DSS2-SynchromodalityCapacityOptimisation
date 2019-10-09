@@ -1,0 +1,222 @@
+<!--
+Copyright (c) CLMS. All rights reserved.
+Licensed under the AGPL-3.0 license. See LICENSE file in the project root for full license information.-->
+
+<BusinessObject Model_Name="OrderForecastDashboard" Model_Description="" Model_Creator="">
+  <Associations>
+    <Association ModelName="OrderForecastDashboard" Class1="OrderForecastStatistic" Class2="Item" Role1="OrderForecastStatistics" Role2="Item" Multiplicity1="Many" Multiplicity2="ZeroOrOne" Navigable1="false" Navigable2="true" IsExternal="false" Persisted="true" OrderByProperty1="" OrderByDirection1="Asc" OrderByProperty2="" OrderByDirection2="Asc" OnDelete1="Dissasociate" OnDelete2="Dissasociate" IsShadow="false" IsInherited="false">
+      <DiagramInfo Edge1="Bottom" Edge2="Top" Percent1="0.8770970586520522" Percent2="0.1038475967035061" Path="M 693.06201171875 496.069000244141 L 693.06201171875 555.996200561523" />
+    </Association>
+    <Association ModelName="OrderForecastDashboard" Class1="OrderFDashboard" Class2="OrderForecastStatistic" Role1="Dashboard" Role2="OrderForecastStatistics" Multiplicity1="ZeroOrOne" Multiplicity2="Many" Navigable1="false" Navigable2="true" IsExternal="false" Persisted="true" OrderByProperty1="" OrderByDirection1="Asc" OrderByProperty2="" OrderByDirection2="Asc" OnDelete1="Dissasociate" OnDelete2="Dissasociate" IsShadow="false" IsInherited="false">
+      <DiagramInfo Edge1="Right" Edge2="Left" Percent1="0.3055555555555556" Percent2="0.7791666666666667" Path="M 398.115997314453 442 L 458.082000732422 442" />
+    </Association>
+    <Association ModelName="OrderForecastDashboard" Class1="OrderForecastStatistic" Class2="Warehouse" Role1="OrderForecastStatistics" Role2="Warehouse" Multiplicity1="Many" Multiplicity2="ZeroOrOne" Navigable1="false" Navigable2="true" IsExternal="false" Persisted="true" OrderByProperty1="" OrderByDirection1="Asc" OrderByProperty2="" OrderByDirection2="Asc" OnDelete1="Dissasociate" OnDelete2="Dissasociate" IsShadow="false" IsInherited="false">
+      <DiagramInfo Edge1="Top" Edge2="Bottom" Percent1="0.6231343283582089" Percent2="0.4139344262295082" Path="M 625 255 L 625 113" />
+    </Association>
+    <Association ModelName="Item" Class1="Item" Class2="SupplierCapacity" Role1="Item" Role2="SupplierCapacities" Multiplicity1="ZeroOrOne" Multiplicity2="Many" Navigable1="true" Navigable2="true" IsExternal="true" Persisted="true" OrderByProperty1="" OrderByDirection1="Asc" OrderByProperty2="" OrderByDirection2="Asc" OnDelete1="Dissasociate" OnDelete2="Dissasociate" IsShadow="false" IsInherited="false">
+      <DiagramInfo Edge1="Right" Edge2="Left" Percent1="0.5057034220532319" Percent2="0.2383177570093458" Path="M 705 467 L 840 467 L 840 396 L 970 396" />
+    </Association>
+    <Association ModelName="Item" Class1="Item" Class2="Supplier" Role1="Items" Role2="Supplier" Multiplicity1="Many" Multiplicity2="ZeroOrOne" Navigable1="false" Navigable2="true" IsExternal="true" Persisted="true" OrderByProperty1="" OrderByDirection1="Asc" OrderByProperty2="" OrderByDirection2="Asc" OnDelete1="Dissasociate" OnDelete2="Dissasociate" IsShadow="false" IsInherited="false">
+      <DiagramInfo Edge1="Right" Edge2="Left" Percent1="0.9277566539923955" Percent2="0.42" Path="M 705 699 L 840 699 L 840 655 L 983 655" />
+    </Association>
+    <Association ModelName="Item" Class1="Item" Class2="BusinessUnit" Role1="Item" Role2="BusinessUnit" Multiplicity1="ZeroOrOne" Multiplicity2="ZeroOrOne" Navigable1="false" Navigable2="true" IsExternal="true" Persisted="true" OrderByProperty1="" OrderByDirection1="Asc" OrderByProperty2="" OrderByDirection2="Asc" OnDelete1="Dissasociate" OnDelete2="Dissasociate" IsShadow="false" IsInherited="false">
+      <DiagramInfo Edge1="Left" Edge2="Bottom" Percent1="0.12547528517110265" Percent2="0.5185482790946833" Path="M 376 256 L 224 256 L 224 67" />
+    </Association>
+    <Association ModelName="Item" Class1="Item" Class2="Category" Role1="Item" Role2="Category" Multiplicity1="ZeroOrOne" Multiplicity2="ZeroOrOne" Navigable1="false" Navigable2="true" IsExternal="true" Persisted="true" OrderByProperty1="" OrderByDirection1="Asc" OrderByProperty2="" OrderByDirection2="Asc" OnDelete1="Dissasociate" OnDelete2="Dissasociate" IsShadow="false" IsInherited="false">
+      <DiagramInfo Edge1="Top" Edge2="Bottom" Percent1="0.2127659574468085" Percent2="0.23768351418789532" Path="M 444 190 L 444 67" />
+    </Association>
+    <Association ModelName="Item" Class1="Item" Class2="SubCategory" Role1="Item" Role2="SubCategory" Multiplicity1="ZeroOrOne" Multiplicity2="ZeroOrOne" Navigable1="false" Navigable2="true" IsExternal="true" Persisted="true" OrderByProperty1="" OrderByDirection1="Asc" OrderByProperty2="" OrderByDirection2="Asc" OnDelete1="Dissasociate" OnDelete2="Dissasociate" IsShadow="false" IsInherited="false">
+      <DiagramInfo Edge1="Top" Edge2="Bottom" Percent1="0.7933130699088146" Percent2="0.10436200570729719" Path="M 635 190 L 635 120 L 720 120 L 720 69" />
+    </Association>
+    <Association ModelName="Item" Class1="Item" Class2="BaseUnit" Role1="Item" Role2="BaseUnit" Multiplicity1="ZeroOrOne" Multiplicity2="ZeroOrOne" Navigable1="false" Navigable2="true" IsExternal="true" Persisted="true" OrderByProperty1="" OrderByDirection1="Asc" OrderByProperty2="" OrderByDirection2="Asc" OnDelete1="Dissasociate" OnDelete2="Dissasociate" IsShadow="false" IsInherited="false">
+      <DiagramInfo Edge1="Right" Edge2="Bottom" Percent1="0.1444866920152091" Percent2="0.26672840935401715" Path="M 705 268 L 1019 268 L 1019 70" />
+    </Association>
+    <Association ModelName="Sale" Class1="Item" Class2="Sales" Role1="Item" Role2="ItemsForecast" Multiplicity1="ZeroOrOne" Multiplicity2="Many" Navigable1="true" Navigable2="true" IsExternal="true" Persisted="true" OrderByProperty1="" OrderByDirection1="Asc" OrderByProperty2="" OrderByDirection2="Asc" OnDelete1="Dissasociate" OnDelete2="Dissasociate" IsShadow="false" IsInherited="false">
+      <DiagramInfo Edge1="Top" Edge2="Bottom" Percent1="0.6111998296603854" Percent2="0.45049272641952137" Path="M 350 322 L 350 270 L 273 270 L 273 234" />
+    </Association>
+    <Association ModelName="StockOnHand" Class1="Item" Class2="StockOnHand" Role1="Item" Role2="StocksOnHand" Multiplicity1="ZeroOrOne" Multiplicity2="Many" Navigable1="true" Navigable2="true" IsExternal="true" Persisted="true" OrderByProperty1="" OrderByDirection1="Asc" OrderByProperty2="" OrderByDirection2="Asc" OnDelete1="Dissasociate" OnDelete2="Dissasociate" IsShadow="false" IsInherited="false">
+      <DiagramInfo Edge1="Left" Edge2="Right" Percent1="0.23333333333333334" Percent2="0.3177570093457944" Path="M 806 163 L 760 163 L 760 123 L 709 123" />
+    </Association>
+    <Association ModelName="Forecast" Class1="DeliverySchedule" Class2="Item" Role1="DeliverySchedules" Role2="Item" Multiplicity1="Many" Multiplicity2="ZeroOrOne" Navigable1="true" Navigable2="true" IsExternal="true" Persisted="true" OrderByProperty1="" OrderByDirection1="Asc" OrderByProperty2="" OrderByDirection2="Asc" OnDelete1="Dissasociate" OnDelete2="Dissasociate" IsShadow="false" IsInherited="false">
+      <DiagramInfo Edge1="Left" Edge2="Right" Percent1="0.9392523364485982" Percent2="0.27450980392156865" Path="M 463 287 L 420 287 L 420 258 L 383 258" />
+    </Association>
+    <Association ModelName="MinimumQuantity" Class1="MinimumQuantity" Class2="Item" Role1="MinimumQuantity" Role2="Item" Multiplicity1="ZeroOrOne" Multiplicity2="ZeroOrOne" Navigable1="true" Navigable2="true" IsExternal="true" Persisted="true" OrderByProperty1="" OrderByDirection1="Asc" OrderByProperty2="" OrderByDirection2="Asc" OnDelete1="Dissasociate" OnDelete2="Dissasociate" IsShadow="false" IsInherited="false">
+      <DiagramInfo Edge1="Left" Edge2="Right" Percent1="0.5631578947368421" Percent2="0.5" Path="M 438.570007324219 149 L 337.259002685547 149" />
+    </Association>
+    <Association ModelName="Agreement" Class1="Agreement" Class2="Item" Role1="Agreements" Role2="Items" Multiplicity1="Many" Multiplicity2="Many" Navigable1="true" Navigable2="true" IsExternal="true" Persisted="true" OrderByProperty1="" OrderByDirection1="Asc" OrderByProperty2="" OrderByDirection2="Asc" OnDelete1="Dissasociate" OnDelete2="Dissasociate" IsShadow="false" IsInherited="false">
+      <DiagramInfo Edge1="Right" Edge2="Left" Percent1="0.3532934131736527" Percent2="0.696969696969697" Path="M 812 191 L 840 191 L 840 470 L 884 470" />
+    </Association>
+    <Association ModelName="OrderProposal" Class1="OrderForecastDetails" Class2="Item" Role1="ReplenishmentCycle" Role2="Item" Multiplicity1="ZeroOrOne" Multiplicity2="ZeroOrOne" Navigable1="false" Navigable2="true" IsExternal="true" Persisted="true" OrderByProperty1="" OrderByDirection1="Asc" OrderByProperty2="" OrderByDirection2="Asc" OnDelete1="Dissasociate" OnDelete2="Dissasociate" IsShadow="false" IsInherited="false">
+      <DiagramInfo Edge1="Left" Edge2="Top" Percent1="0.34444444444444444" Percent2="0.9" Path="M 548 346 L 480 346 L 480 145 L 420 145" />
+    </Association>
+    <Association ModelName="Dashboard" Class1="Statistics" Class2="Item" Role1="Statistics" Role2="Item" Multiplicity1="Many" Multiplicity2="ZeroOrOne" Navigable1="false" Navigable2="true" IsExternal="true" Persisted="true" OrderByProperty1="" OrderByDirection1="Asc" OrderByProperty2="" OrderByDirection2="Asc" OnDelete1="Dissasociate" OnDelete2="Dissasociate" IsShadow="false" IsInherited="false">
+      <DiagramInfo Edge1="Right" Edge2="Top" Percent1="0.2972027972027972" Percent2="0.5748035339483575" Path="M 950 184 L 1000 184 L 1000 50 L 1226 50 L 1226 84" />
+    </Association>
+    <Association ModelName="Notification" Class1="Item" Class2="Notification" Role1="Item" Role2="Notifications" Multiplicity1="ZeroOrOne" Multiplicity2="Many" Navigable1="true" Navigable2="true" IsExternal="true" Persisted="true" OrderByProperty1="" OrderByDirection1="Asc" OrderByProperty2="" OrderByDirection2="Asc" OnDelete1="Dissasociate" OnDelete2="Dissasociate" IsShadow="false" IsInherited="false">
+      <DiagramInfo Edge1="Left" Edge2="Right" Percent1="0.1694915254237288" Percent2="0.24045801526717558" Path="M 610 208 L 560 208" />
+    </Association>
+    <Association ModelName="SLA" Class1="Item" Class2="SLALeadTime" Role1="Item" Role2="SLALeadTimes" Multiplicity1="ZeroOrOne" Multiplicity2="Many" Navigable1="true" Navigable2="true" IsExternal="true" Persisted="true" OrderByProperty1="" OrderByDirection1="Asc" OrderByProperty2="" OrderByDirection2="Asc" OnDelete1="Dissasociate" OnDelete2="Dissasociate" IsShadow="false" IsInherited="false">
+      <DiagramInfo Edge1="Top" Edge2="Bottom" Percent1="0.261174907468919" Percent2="0.4372623574144487" Path="M 406 460 L 406 430 L 468 430 L 468 406" />
+    </Association>
+    <Association ModelName="SLA" Class1="Item" Class2="SLADelivery" Role1="Item" Role2="SLADeliveries" Multiplicity1="ZeroOrOne" Multiplicity2="Many" Navigable1="true" Navigable2="true" IsExternal="true" Persisted="true" OrderByProperty1="" OrderByDirection1="Asc" OrderByProperty2="" OrderByDirection2="Asc" OnDelete1="Dissasociate" OnDelete2="Dissasociate" IsShadow="false" IsInherited="false">
+      <DiagramInfo Edge1="Top" Edge2="Left" Percent1="0.841226155452216" Percent2="0.7657342657342657" Path="M 597 460 L 597 420 L 720 420 L 720 372 L 845 372" />
+    </Association>
+    <Association ModelName="SLA" Class1="Item" Class2="Platform" Role1="Item" Role2="Platform" Multiplicity1="ZeroOrOne" Multiplicity2="ZeroOrOne" Navigable1="true" Navigable2="false" IsExternal="true" Persisted="true" OrderByProperty1="" OrderByDirection1="Asc" OrderByProperty2="" OrderByDirection2="Asc" OnDelete1="Dissasociate" OnDelete2="Dissasociate" IsShadow="false" IsInherited="false">
+      <DiagramInfo Edge1="Right" Edge2="Left" Percent1="0.4652014652014652" Percent2="0.3598130841121495" Path="M 649 714 L 730 714 L 730 583 L 812 583" />
+    </Association>
+    <Association ModelName="SLA" Class1="SLAStatistics" Class2="Item" Role1="SLAStatistics" Role2="Item" Multiplicity1="Many" Multiplicity2="ZeroOrOne" Navigable1="false" Navigable2="true" IsExternal="true" Persisted="true" OrderByProperty1="" OrderByDirection1="Asc" OrderByProperty2="" OrderByDirection2="Asc" OnDelete1="Dissasociate" OnDelete2="Dissasociate" IsShadow="false" IsInherited="false">
+      <DiagramInfo Edge1="Right" Edge2="Left" Percent1="0.30526315789473685" Percent2="0.15934065934065933" Path="M 251 547 L 320 547" />
+    </Association>
+    <Association ModelName="StockLevelKPI" Class1="Stats" Class2="Item" Role1="Stats" Role2="Item" Multiplicity1="Many" Multiplicity2="ZeroOrOne" Navigable1="false" Navigable2="true" IsExternal="true" Persisted="true" OrderByProperty1="" OrderByDirection1="Asc" OrderByProperty2="" OrderByDirection2="Asc" OnDelete1="Dissasociate" OnDelete2="Dissasociate" IsShadow="false" IsInherited="false">
+      <DiagramInfo Edge1="Right" Edge2="Top" Percent1="0.3025210084033613" Percent2="0.2066869300911854" Path="M 778 249 L 978 249 L 978 283" />
+    </Association>
+    <Association ModelName="PastOrder" Class1="PastOrder" Class2="Item" Role1="PastOrders" Role2="Item" Multiplicity1="Many" Multiplicity2="ZeroOrOne" Navigable1="true" Navigable2="true" IsExternal="true" Persisted="true" OrderByProperty1="" OrderByDirection1="Asc" OrderByProperty2="" OrderByDirection2="Asc" OnDelete1="Dissasociate" OnDelete2="Dissasociate" IsShadow="false" IsInherited="false">
+      <DiagramInfo Edge1="Bottom" Edge2="Top" Percent1="0.49578820697954273" Percent2="0.45297017620930347" Path="M 553 301 L 553 360 L 572 360 L 572 411" />
+    </Association>
+    <Association ModelName="Sale" Class1="Sales" Class2="Warehouse" Role1="Sales" Role2="Warehouse" Multiplicity1="ZeroOrOne" Multiplicity2="ZeroOrOne" Navigable1="false" Navigable2="true" IsExternal="true" Persisted="true" OrderByProperty1="" OrderByDirection1="Asc" OrderByProperty2="" OrderByDirection2="Asc" OnDelete1="Dissasociate" OnDelete2="Dissasociate" IsShadow="false" IsInherited="false">
+      <DiagramInfo Edge1="Left" Edge2="Top" Percent1="0.6421052631578947" Percent2="0.456300568773532" Path="M 182 166 L 110 166 L 110 425" />
+    </Association>
+    <Association ModelName="StockOnHand" Class1="StockOnHand" Class2="Warehouse" Role1="StockOnHand" Role2="Warehouse" Multiplicity1="ZeroOrOne" Multiplicity2="ZeroOrOne" Navigable1="false" Navigable2="true" IsExternal="true" Persisted="true" OrderByProperty1="" OrderByDirection1="Asc" OrderByProperty2="" OrderByDirection2="Asc" OnDelete1="Dissasociate" OnDelete2="Dissasociate" IsShadow="false" IsInherited="false">
+      <DiagramInfo Edge1="Left" Edge2="Right" Percent1="0.2523364485981308" Percent2="0.18333333333333332" Path="M 440 111 L 380 111 L 380 81 L 334 81" />
+    </Association>
+    <Association ModelName="Forecast" Class1="DeliverySchedule" Class2="Warehouse" Role1="DeliverySchedules" Role2="Warehouse" Multiplicity1="Many" Multiplicity2="ZeroOrOne" Navigable1="false" Navigable2="true" IsExternal="true" Persisted="true" OrderByProperty1="" OrderByDirection1="Asc" OrderByProperty2="" OrderByDirection2="Asc" OnDelete1="Dissasociate" OnDelete2="Dissasociate" IsShadow="false" IsInherited="false">
+      <DiagramInfo Edge1="Right" Edge2="Left" Percent1="0.45794392523364486" Percent2="0.5" Path="M 689 172 L 750 172 L 750 162 L 801 162" />
+    </Association>
+    <Association ModelName="Agreement" Class1="Agreement" Class2="Warehouse" Role1="Agreements" Role2="Warehouses" Multiplicity1="Many" Multiplicity2="Many" Navigable1="false" Navigable2="true" IsExternal="true" Persisted="true" OrderByProperty1="" OrderByDirection1="Asc" OrderByProperty2="" OrderByDirection2="Asc" OnDelete1="Dissasociate" OnDelete2="Dissasociate" IsShadow="false" IsInherited="false">
+      <DiagramInfo Edge1="Bottom" Edge2="Top" Percent1="0.5414137551976294" Percent2="0.3383801970680125" Path="M 653 456 L 653 480 L 666 480 L 666 501" />
+    </Association>
+    <Association ModelName="OrderProposal" Class1="OrderForecastDetails" Class2="Warehouse" Role1="ReplenishmentCycle" Role2="Warehouse" Multiplicity1="ZeroOrOne" Multiplicity2="ZeroOrOne" Navigable1="false" Navigable2="true" IsExternal="true" Persisted="true" OrderByProperty1="" OrderByDirection1="Asc" OrderByProperty2="" OrderByDirection2="Asc" OnDelete1="Dissasociate" OnDelete2="Dissasociate" IsShadow="false" IsInherited="false">
+      <DiagramInfo Edge1="Right" Edge2="Left" Percent1="0.5055555555555555" Percent2="0.5388888888888889" Path="M 829 99 L 920 99 L 920 100 L 1008 100" />
+    </Association>
+    <Association ModelName="Dashboard" Class1="Statistics" Class2="Warehouse" Role1="Statistics" Role2="Warehouse" Multiplicity1="Many" Multiplicity2="ZeroOrOne" Navigable1="false" Navigable2="true" IsExternal="true" Persisted="true" OrderByProperty1="" OrderByDirection1="Asc" OrderByProperty2="" OrderByDirection2="Asc" OnDelete1="Dissasociate" OnDelete2="Dissasociate" IsShadow="false" IsInherited="false">
+      <DiagramInfo Edge1="Bottom" Edge2="Top" Percent1="0.18269230769230768" Percent2="0.6562525034046303" Path="M 689 564 L 689 580 L 520 580 L 520 360 L 321 360 L 321 396" />
+    </Association>
+    <Association ModelName="Notification" Class1="Warehouse" Class2="Notification" Role1="Warehouse" Role2="Notification" Multiplicity1="ZeroOrOne" Multiplicity2="ZeroOrOne" Navigable1="true" Navigable2="false" IsExternal="true" Persisted="true" OrderByProperty1="" OrderByDirection1="Asc" OrderByProperty2="" OrderByDirection2="Asc" OnDelete1="Dissasociate" OnDelete2="Dissasociate" IsShadow="false" IsInherited="false">
+      <DiagramInfo Edge1="Right" Edge2="Left" Percent1="0.18333333333333332" Percent2="0.5610687022900763" Path="M 245 293 L 324 293" />
+    </Association>
+    <Association ModelName="SLA" Class1="SLALeadTime" Class2="Warehouse" Role1="SLALeadTimes" Role2="Warehouse" Multiplicity1="Many" Multiplicity2="ZeroOrOne" Navigable1="false" Navigable2="true" IsExternal="true" Persisted="true" OrderByProperty1="" OrderByDirection1="Asc" OrderByProperty2="" OrderByDirection2="Asc" OnDelete1="Dissasociate" OnDelete2="Dissasociate" IsShadow="false" IsInherited="false">
+      <DiagramInfo Edge1="Left" Edge2="Right" Percent1="0.39655172413793105" Percent2="0.3333333333333333" Path="M 353 161 L 320 161 L 320 152 L 302 152" />
+    </Association>
+    <Association ModelName="StockLevelKPI" Class1="Stats" Class2="Warehouse" Role1="Stats" Role2="Warehouse" Multiplicity1="Many" Multiplicity2="ZeroOrOne" Navigable1="false" Navigable2="true" IsExternal="true" Persisted="true" OrderByProperty1="" OrderByDirection1="Asc" OrderByProperty2="" OrderByDirection2="Asc" OnDelete1="Dissasociate" OnDelete2="Dissasociate" IsShadow="false" IsInherited="false">
+      <DiagramInfo Edge1="Left" Edge2="Top" Percent1="0.5210084033613446" Percent2="0.7581967213114754" Path="M 553 301 L 490 301 L 490 270 L 412 270 L 412 305" />
+    </Association>
+    <Association ModelName="PastOrder" Class1="PastOrder" Class2="Warehouse" Role1="PastOrders" Role2="Warehouse" Multiplicity1="Many" Multiplicity2="ZeroOrOne" Navigable1="true" Navigable2="true" IsExternal="true" Persisted="true" OrderByProperty1="" OrderByDirection1="Asc" OrderByProperty2="" OrderByDirection2="Asc" OnDelete1="Dissasociate" OnDelete2="Dissasociate" IsShadow="false" IsInherited="false">
+      <DiagramInfo Edge1="Left" Edge2="Right" Percent1="0.4405594405594406" Percent2="0.52" Path="M 450 141 L 400 141 L 400 128 L 362 128" />
+    </Association>
+    <Association ModelName="TransportUnCap" Class1="TransportUnCap" Class2="Warehouse" Role1="TransportUnCap" Role2="Warehouse" Multiplicity1="Many" Multiplicity2="ZeroOrOne" Navigable1="false" Navigable2="true" IsExternal="true" Persisted="true" OrderByProperty1="" OrderByDirection1="Asc" OrderByProperty2="" OrderByDirection2="Asc" OnDelete1="Dissasociate" OnDelete2="Dissasociate" IsShadow="false" IsInherited="false">
+      <DiagramInfo Edge1="Left" Edge2="Right" Percent1="0.6176470588235294" Percent2="0.4" Path="M 422 208 L 380 208 L 380 179 L 335 179" />
+    </Association>
+  </Associations>
+  <Classes>
+    <Class ModelName="OrderForecastDashboard" Name="OrderFDashboard" ShadowModel="" ShadowClass="" Description="" Stereotype="Class" PK="Id" ConcurencyControl="true" AutoAssignPrimaryKey="true" IdGeneratorType="HiLoGenerator" IsPersisted="true" IsStatic="false" BaseClass="" BaseClasses="" BaseModel="">
+      <DiagramInfo IsExpanded="true" Width="388" Height="180" Top="387.199005126953" Left="10" />
+      <Attributes>
+        <Attribute Name="Id" IsValueClass="false" Description="" DataType="int" BaseInfo="" Length="100" Precision="8" Scale="2" InitValue="" IsRequired="false" IsInherited="false" Persisted="true" IsEncrypted="false" IsStatic="false" ReadOnly="false" IsExternal="false" CustomValidation="" IsCreditCard="false" IsURL="false" IsEmail="false" MinLength="0" MaxLength="100" MinValue="" MaxValue="" />
+      </Attributes>
+      <Operations />
+    </Class>
+    <Class ModelName="OrderForecastDashboard" Name="OrderForecastStatistic" ShadowModel="" ShadowClass="" Description="" Stereotype="Class" PK="Id" ConcurencyControl="true" AutoAssignPrimaryKey="true" IdGeneratorType="HiLoGenerator" IsPersisted="true" IsStatic="false" BaseClass="" BaseClasses="" BaseModel="">
+      <DiagramInfo IsExpanded="true" Width="268" Height="240" Top="255.855987548828" Left="458.233001708984" />
+      <Attributes>
+        <Attribute Name="Id" IsValueClass="false" Description="" DataType="int" BaseInfo="" Length="100" Precision="8" Scale="2" InitValue="" IsRequired="false" IsInherited="false" Persisted="true" IsEncrypted="false" IsStatic="false" ReadOnly="false" IsExternal="false" CustomValidation="" IsCreditCard="false" IsURL="false" IsEmail="false" MinLength="0" MaxLength="100" MinValue="" MaxValue="" />
+        <Attribute Name="Quantity" IsValueClass="false" Description="" DataType="decimal" BaseInfo="" Length="100" Precision="8" Scale="2" InitValue="" IsRequired="false" IsInherited="false" Persisted="true" IsEncrypted="false" IsStatic="false" ReadOnly="false" IsExternal="false" CustomValidation="" IsCreditCard="false" IsURL="false" IsEmail="false" MinLength="0" MaxLength="100" MinValue="" MaxValue="" />
+        <Attribute Name="RoundQuantity" IsValueClass="false" Description="" DataType="int" BaseInfo="" Length="100" Precision="8" Scale="2" InitValue="" IsRequired="false" IsInherited="false" Persisted="true" IsEncrypted="false" IsStatic="false" ReadOnly="false" IsExternal="false" CustomValidation="" IsCreditCard="false" IsURL="false" IsEmail="false" MinLength="0" MaxLength="100" MinValue="" MaxValue="" />
+        <Attribute Name="OrderDate" IsValueClass="false" Description="" DataType="DateTime" BaseInfo="" Length="100" Precision="8" Scale="2" InitValue="" IsRequired="false" IsInherited="false" Persisted="true" IsEncrypted="false" IsStatic="false" ReadOnly="false" IsExternal="false" CustomValidation="" IsCreditCard="false" IsURL="false" IsEmail="false" MinLength="0" MaxLength="100" MinValue="" MaxValue="" />
+        <Attribute Name="OrderDateFormatted" IsValueClass="false" Description="" DataType="string" BaseInfo="" Length="100" Precision="8" Scale="2" InitValue="" IsRequired="false" IsInherited="false" Persisted="true" IsEncrypted="false" IsStatic="false" ReadOnly="false" IsExternal="false" CustomValidation="" IsCreditCard="false" IsURL="false" IsEmail="false" MinLength="0" MaxLength="100" MinValue="" MaxValue="" />
+      </Attributes>
+      <Operations>
+        <Operation Name="ShowOrderForecastStats" Description="" RuleType="Default" EventName="" ApplyToAttribute="" BaseInfo="" IsStatic="true" IsInherited="false" IsExternal="false">static function Collection[Domain.OrderForecastStatistic] ShowOrderForecastStats()
+{
+	Collection[Domain.OrderForecastStatistic] orderFStatistics;
+	Collection[Domain.OrderForecastDetails] orderProposals = Domain.OrderForecastDetails.GetAll().Take(10);
+	
+	foreach  Domain.OrderForecastDetails: orderProposal in orderProposals {
+	    DebugLib.Logger.WriteWarnLine("------ " + orderProposal.Id.ToString(), true);
+	    Domain.OrderForecastStatistic orderFStat;
+	    orderFStat.Quantity = orderProposal.Quantity;
+	    orderFStat.RoundQuantity = orderProposal.RoundQuantity;
+		orderFStat.OrderDate = orderProposal.RecommendedOrderDate.Date;
+		orderFStat.OrderDateFormatted = orderProposal.RecommendedOrderDate.ToString("MMMM dd, yyyy");
+		orderFStat.Item = orderProposal.Item;
+		orderFStat.Warehouse = orderProposal.Warehouse;
+		orderFStatistics.Add(orderFStat);
+	}
+	
+	
+	return orderFStatistics;
+}</Operation>
+        <Operation Name="OrderForecastForSKU" Description="" RuleType="Default" EventName="" ApplyToAttribute="" BaseInfo="" IsStatic="true" IsInherited="false" IsExternal="false">static function Collection[Domain.OrderForecastStatistic] OrderForecastForSKU(Domain.Item item)
+{
+	Collection[Domain.OrderForecastStatistic] orderStats;
+	Collection[Domain.OrderForecastDetails] orderProposals = Domain.OrderForecastDetails.Find(a=&gt; a.Item == item);
+	if orderProposals.Length &gt;= 10 {
+	    //orderProposals.Take(10);
+	}
+	
+	foreach  Domain.OrderForecastDetails: orderProposal in orderProposals {
+		Domain.OrderForecastStatistic stat;
+		stat.Quantity = orderProposal.Quantity;
+		stat.RoundQuantity = orderProposal.RoundQuantity;
+		stat.OrderDate = orderProposal.RecommendedOrderDate;
+		stat.OrderDateFormatted = orderProposal.RecommendedOrderDate.ToString("MMMM dd, yyyy");
+		stat.Item = item;
+		stat.Warehouse = orderProposal.Warehouse;
+		orderStats.Add(stat);
+	}
+	
+	return orderStats;
+}</Operation>
+      </Operations>
+    </Class>
+    <Class ModelName="Item" Name="Item" ShadowModel="Item" ShadowClass="Item" Description="" Stereotype="Class" PK="SKU" ConcurencyControl="true" AutoAssignPrimaryKey="false" IdGeneratorType="HiLoGenerator" IsPersisted="true" IsStatic="false" BaseClass="" BaseClasses="" BaseModel="">
+      <DiagramInfo IsExpanded="false" Width="328" Height="52" Top="556" Left="659.890991210938" />
+      <Attributes>
+        <Attribute Name="SKU" IsValueClass="false" Description="" DataType="string" BaseInfo="" Length="100" Precision="8" Scale="2" InitValue="" IsRequired="false" IsInherited="false" Persisted="true" IsEncrypted="false" IsStatic="false" ReadOnly="false" IsExternal="false" CustomValidation="" IsCreditCard="false" IsURL="false" IsEmail="false" MinLength="0" MaxLength="100" MinValue="" MaxValue="" />
+        <Attribute Name="Description" IsValueClass="false" Description="" DataType="string" BaseInfo="" Length="100" Precision="8" Scale="2" InitValue="" IsRequired="false" IsInherited="false" Persisted="true" IsEncrypted="false" IsStatic="false" ReadOnly="false" IsExternal="false" CustomValidation="" IsCreditCard="false" IsURL="false" IsEmail="false" MinLength="0" MaxLength="100" MinValue="" MaxValue="" />
+        <Attribute Name="UPC" IsValueClass="false" Description="" DataType="string" BaseInfo="" Length="100" Precision="8" Scale="2" InitValue="" IsRequired="false" IsInherited="false" Persisted="true" IsEncrypted="false" IsStatic="false" ReadOnly="false" IsExternal="false" CustomValidation="" IsCreditCard="false" IsURL="false" IsEmail="false" MinLength="0" MaxLength="100" MinValue="" MaxValue="" />
+        <Attribute Name="AvgDailyDemand" IsValueClass="false" Description="" DataType="decimal" BaseInfo="" Length="100" Precision="8" Scale="2" InitValue="" IsRequired="false" IsInherited="false" Persisted="true" IsEncrypted="false" IsStatic="false" ReadOnly="false" IsExternal="false" CustomValidation="" IsCreditCard="false" IsURL="false" IsEmail="false" MinLength="0" MaxLength="100" MinValue="" MaxValue="" />
+        <Attribute Name="CoverageDays" IsValueClass="false" Description="" DataType="int" BaseInfo="" Length="100" Precision="8" Scale="2" InitValue="1" IsRequired="false" IsInherited="false" Persisted="false" IsEncrypted="false" IsStatic="false" ReadOnly="false" IsExternal="false" CustomValidation="" IsCreditCard="false" IsURL="false" IsEmail="false" MinLength="0" MaxLength="100" MinValue="" MaxValue="" />
+      </Attributes>
+      <Operations>
+        <Operation Name="Exists" Description="" RuleType="Default" EventName="" ApplyToAttribute="" BaseInfo="" IsStatic="false" IsInherited="false" IsExternal="true">function bool Exists()
+{
+	if Domain.Item.Find(a=&gt; a.SKU == this.SKU).Length &gt; 0 {
+	    return true;
+	}
+	return false;
+}</Operation>
+        <Operation Name="GetUnitsOfStock" Description="" RuleType="Default" EventName="" ApplyToAttribute="" BaseInfo="" IsStatic="true" IsInherited="false" IsExternal="true">static function int GetUnitsOfStock(Domain.StockOnHand stock) 
+{
+    //WHY AM I HERE ?????
+    var lastStock = Domain.StockOnHand.Find(a=&gt; a.StockOnHandDate.Date &lt; stock.StockOnHandDate.Date).OrderByDescending(b=&gt;b.StockOnHandDate.Date).First();
+    
+    if(lastStock == null){
+    	return 0;
+    }
+	int LastPastStock = lastStock.Units;
+	
+	var salesforecast = Domain.SalesForecastDetails.Find(s=&gt; s.ForecastDate.Date == stock.StockOnHandDate.Date 
+	&amp;&amp; stock.Warehouse == s.Warehouse &amp;&amp; s.Item == stock.Item).First();
+    
+    if(salesforecast == null){
+    	return 0;
+    }
+	
+	int salesForecastUnits = salesforecast.Units;
+	
+	return (LastPastStock - salesForecastUnits); //+ Received Stock
+}</Operation>
+      </Operations>
+    </Class>
+    <Class ModelName="Warehouse" Name="Warehouse" ShadowModel="Warehouse" ShadowClass="Warehouse" Description="" Stereotype="Class" PK="Id" ConcurencyControl="true" AutoAssignPrimaryKey="true" IdGeneratorType="HiLoGenerator" IsPersisted="true" IsStatic="false" BaseClass="" BaseClasses="" BaseModel="">
+      <DiagramInfo IsExpanded="false" Width="244" Height="188" Top="63" Left="524" />
+      <Attributes>
+        <Attribute Name="Id" IsValueClass="false" Description="" DataType="int" BaseInfo="" Length="100" Precision="8" Scale="2" InitValue="" IsRequired="false" IsInherited="false" Persisted="true" IsEncrypted="false" IsStatic="false" ReadOnly="false" IsExternal="false" CustomValidation="" IsCreditCard="false" IsURL="false" IsEmail="false" MinLength="0" MaxLength="100" MinValue="" MaxValue="" />
+        <Attribute Name="Code" IsValueClass="false" Description="" DataType="string" BaseInfo="" Length="100" Precision="8" Scale="2" InitValue="" IsRequired="false" IsInherited="false" Persisted="true" IsEncrypted="false" IsStatic="false" ReadOnly="false" IsExternal="false" CustomValidation="" IsCreditCard="false" IsURL="false" IsEmail="false" MinLength="0" MaxLength="100" MinValue="" MaxValue="" />
+        <Attribute Name="Description" IsValueClass="false" Description="" DataType="string" BaseInfo="" Length="100" Precision="8" Scale="2" InitValue="" IsRequired="false" IsInherited="false" Persisted="true" IsEncrypted="false" IsStatic="false" ReadOnly="false" IsExternal="false" CustomValidation="" IsCreditCard="false" IsURL="false" IsEmail="false" MinLength="0" MaxLength="100" MinValue="" MaxValue="" />
+      </Attributes>
+      <Operations />
+    </Class>
+  </Classes>
+  <Resources />
+</BusinessObject>

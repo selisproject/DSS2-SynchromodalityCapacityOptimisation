@@ -1,0 +1,49 @@
+<!--
+Copyright (c) CLMS. All rights reserved.
+Licensed under the AGPL-3.0 license. See LICENSE file in the project root for full license information.-->
+
+<ExternalApi DateCreated="" Model_Name="GoogleGeocode" Model_Description="" Version="">
+  <Endpoint TransportType="HTTP" ProtocolType="REST">
+    <Security SecurityType="None" />
+    <Class Name="Root" OriginalName="Root" Description="" Namespace="" BaseClass="" IsEnum="false">
+      <Attribute Name="status" OriginalName="" Description="" Datatype="string" Length="0" IsPrimary="false" OriginalDataType="" />
+      <Attribute Name="results" OriginalName="" Description="" Datatype="Array[Interfaces.GoogleGeocode.result]" Length="0" IsPrimary="false" OriginalDataType="" />
+    </Class>
+    <Class Name="result" OriginalName="" Description="" Namespace="" BaseClass="" IsEnum="false">
+      <Attribute Name="formatted_address" OriginalName="" Description="" Datatype="string" Length="0" IsPrimary="false" OriginalDataType="" />
+      <Attribute Name="place_id" OriginalName="" Description="" Datatype="string" Length="0" IsPrimary="false" OriginalDataType="" />
+      <Attribute Name="types" OriginalName="" Description="" Datatype="Array[string]" Length="0" IsPrimary="false" OriginalDataType="" />
+      <Attribute Name="address_components" OriginalName="" Description="" Datatype="Array[Interfaces.GoogleGeocode.address_component]" Length="0" IsPrimary="false" OriginalDataType="" />
+      <Attribute Name="geometry" OriginalName="" Description="" Datatype="Interfaces.GoogleGeocode.geometry" Length="0" IsPrimary="false" OriginalDataType="" />
+    </Class>
+    <Class Name="address_component" OriginalName="" Description="" Namespace="" BaseClass="" IsEnum="false">
+      <Attribute Name="long_name" OriginalName="" Description="" Datatype="string" Length="0" IsPrimary="false" OriginalDataType="" />
+      <Attribute Name="short_name" OriginalName="" Description="" Datatype="string" Length="0" IsPrimary="false" OriginalDataType="" />
+      <Attribute Name="types" OriginalName="" Description="" Datatype="Array[string]" Length="0" IsPrimary="false" OriginalDataType="" />
+    </Class>
+    <Class Name="geometry" OriginalName="" Description="" Namespace="" BaseClass="" IsEnum="false">
+      <Attribute Name="location_type" OriginalName="" Description="" Datatype="string" Length="0" IsPrimary="false" OriginalDataType="" />
+      <Attribute Name="location" OriginalName="" Description="" Datatype="Interfaces.GoogleGeocode.location" Length="0" IsPrimary="false" OriginalDataType="" />
+      <Attribute Name="viewport" OriginalName="" Description="" Datatype="Interfaces.GoogleGeocode.viewport" Length="0" IsPrimary="false" OriginalDataType="" />
+      <Attribute Name="bounds" OriginalName="" Description="" Datatype="Interfaces.GoogleGeocode.viewport" Length="0" IsPrimary="false" OriginalDataType="" />
+    </Class>
+    <Class Name="location" OriginalName="" Description="" Namespace="" BaseClass="" IsEnum="false">
+      <Attribute Name="lat" OriginalName="" Description="" Datatype="string" Length="0" IsPrimary="false" OriginalDataType="" />
+      <Attribute Name="lng" OriginalName="" Description="" Datatype="string" Length="0" IsPrimary="false" OriginalDataType="" />
+    </Class>
+    <Class Name="viewport" OriginalName="" Description="" Namespace="" BaseClass="" IsEnum="false">
+      <Attribute Name="northeast" OriginalName="" Description="" Datatype="Interfaces.GoogleGeocode.location" Length="0" IsPrimary="false" OriginalDataType="" />
+      <Attribute Name="southwest" OriginalName="" Description="" Datatype="Interfaces.GoogleGeocode.location" Length="0" IsPrimary="false" OriginalDataType="" />
+    </Class>
+    <Operation Name="GeoLocation" Description="" Datatype="Interfaces.GoogleGeocode.Root" OriginalName="" ClientType="" IsStatic="false" Verb="GET" Text="" ContentType="JSON" Route="" Notes="" UserDefinedUrlMethod="true">
+      <Parameters>
+        <Parameter Name="address" DataType="string" IsRef="False" IsOut="False" DefaultValue="" Notes="" Type="RequestBody" />
+      </Parameters>
+      <Headers />
+      <GetUrlMethod>
+return "json?address=" + address + "&amp;key=AIzaSyCZs5R7fS9r6xCoilVedcK-Oq-hHk7mzdI";
+</GetUrlMethod>
+    </Operation>
+  </Endpoint>
+  <RestEndpointDetails BaseUrl="https://maps.googleapis.com/maps/api/geocode/" />
+</ExternalApi>

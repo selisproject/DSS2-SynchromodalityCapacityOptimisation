@@ -1,0 +1,804 @@
+<!--
+Copyright (c) CLMS. All rights reserved.
+Licensed under the AGPL-3.0 license. See LICENSE file in the project root for full license information.-->
+
+<BusinessObject Model_Name="ActionsBO" Model_Description="" Model_Creator="">
+  <Associations>
+    <Association ModelName="ActionsBO" Class1="Shipment" Class2="ShippingOrder" Role1="Shipment" Role2="ShippingOrders" Multiplicity1="Many" Multiplicity2="Many" Navigable1="true" Navigable2="true" IsExternal="false" Persisted="true" OrderByProperty1="" OrderByDirection1="Asc" OrderByProperty2="" OrderByDirection2="Asc" OnDelete1="Dissasociate" OnDelete2="Dissasociate" IsShadow="false" IsInherited="false">
+      <DiagramInfo Edge1="Left" Edge2="Right" Percent1="0.49121121052965844" Percent2="0.4874597619282241" Path="M 491 924 L 313 924" />
+    </Association>
+    <Association ModelName="ActionsBO" Class1="Shipment" Class2="ShipmentStatus" Role1="Shipment" Role2="ShipmentStatus" Multiplicity1="ZeroOrOne" Multiplicity2="Many" Navigable1="false" Navigable2="true" IsExternal="false" Persisted="true" OrderByProperty1="" OrderByDirection1="Asc" OrderByProperty2="" OrderByDirection2="Asc" OnDelete1="Dissasociate" OnDelete2="Dissasociate" IsShadow="false" IsInherited="false">
+      <DiagramInfo Edge1="Top" Edge2="Bottom" Percent1="0.7066065506206248" Percent2="0.36111535165317027" Path="M 708 677 L 708 617" />
+    </Association>
+    <Association ModelName="ActionsBO" Class1="Shipment" Class2="Location" Role1="Shipment" Role2="DeparturePoint" Multiplicity1="ZeroOrOne" Multiplicity2="ZeroOrOne" Navigable1="false" Navigable2="true" IsExternal="false" Persisted="true" OrderByProperty1="" OrderByDirection1="Asc" OrderByProperty2="" OrderByDirection2="Asc" OnDelete1="Dissasociate" OnDelete2="Dissasociate" IsShadow="false" IsInherited="false">
+      <DiagramInfo Edge1="Right" Edge2="Left" Percent1="0.2581434672773416" Percent2="0.24154552112926067" Path="M 797 807 L 820 807 L 820 795 L 855 795" />
+    </Association>
+    <Association ModelName="ActionsBO" Class1="Shipment" Class2="Location" Role1="Shipment_1" Role2="FinalDestination" Multiplicity1="ZeroOrOne" Multiplicity2="ZeroOrOne" Navigable1="false" Navigable2="true" IsExternal="false" Persisted="true" OrderByProperty1="" OrderByDirection1="Asc" OrderByProperty2="" OrderByDirection2="Asc" OnDelete1="Dissasociate" OnDelete2="Dissasociate" IsShadow="false" IsInherited="false">
+      <DiagramInfo Edge1="Right" Edge2="Left" Percent1="0.4354343147085912" Percent2="0.5233637029474425" Path="M 797 896 L 820 896 L 820 888 L 855 888" />
+    </Association>
+    <Association ModelName="ActionsBO" Class1="Shipment" Class2="Driver" Role1="Shipment" Role2="Driver" Multiplicity1="ZeroOrOne" Multiplicity2="ZeroOrOne" Navigable1="false" Navigable2="true" IsExternal="false" Persisted="true" OrderByProperty1="" OrderByDirection1="Asc" OrderByProperty2="" OrderByDirection2="Asc" OnDelete1="Dissasociate" OnDelete2="Dissasociate" IsShadow="false" IsInherited="false">
+      <DiagramInfo Edge1="Top" Edge2="Right" Percent1="0.2081083083139823" Percent2="0.8479151338375301" Path="M 555 677 L 555 508 L 425 508" />
+    </Association>
+    <Association ModelName="ActionsBO" Class1="ShipmentStatus" Class2="Status" Role1="ShipmentStatus" Role2="Status" Multiplicity1="ZeroOrOne" Multiplicity2="ZeroOrOne" Navigable1="false" Navigable2="true" IsExternal="false" Persisted="true" OrderByProperty1="" OrderByDirection1="Asc" OrderByProperty2="" OrderByDirection2="Asc" OnDelete1="Dissasociate" OnDelete2="Dissasociate" IsShadow="false" IsInherited="false">
+      <DiagramInfo Edge1="Top" Edge2="Bottom" Percent1="0.656843002637005" Percent2="0.3334980771203822" Path="M 773 427 L 773 380 L 768 380 L 768 359" />
+    </Association>
+    <Association ModelName="ActionsBO" Class1="Shipment" Class2="CustomVolume" Role1="Shipment_1" Role2="OccupiedVolume" Multiplicity1="ZeroOrOne" Multiplicity2="ZeroOrOne" Navigable1="false" Navigable2="true" IsExternal="false" Persisted="true" OrderByProperty1="" OrderByDirection1="Asc" OrderByProperty2="" OrderByDirection2="Asc" OnDelete1="Dissasociate" OnDelete2="Dissasociate" IsShadow="false" IsInherited="false">
+      <DiagramInfo Edge1="Bottom" Edge2="Top" Percent1="0.2537225265642633" Percent2="0.754635108315394" Path="M 569 1179 L 569 1216" />
+    </Association>
+    <Association ModelName="ActionsBO" Class1="Shipment" Class2="Condition" Role1="Shipment" Role2="AcceptedConditions" Multiplicity1="ZeroOrOne" Multiplicity2="Many" Navigable1="false" Navigable2="true" IsExternal="false" Persisted="true" OrderByProperty1="" OrderByDirection1="Asc" OrderByProperty2="" OrderByDirection2="Asc" OnDelete1="Dissasociate" OnDelete2="Dissasociate" IsShadow="false" IsInherited="false">
+      <DiagramInfo Edge1="Right" Edge2="Left" Percent1="0.029059788012243817" Percent2="0.5111111111111111" Path="M 797 692 L 820 692 L 820 680 L 1070 680 L 1070 697 L 1100 697" />
+    </Association>
+    <Association ModelName="ActionsBO" Class1="Shipment" Class2="Vehicule" Role1="Shipment" Role2="VehiculeType" Multiplicity1="ZeroOrOne" Multiplicity2="ZeroOrOne" Navigable1="false" Navigable2="true" IsExternal="false" Persisted="true" OrderByProperty1="" OrderByDirection1="Asc" OrderByProperty2="" OrderByDirection2="Asc" OnDelete1="Dissasociate" OnDelete2="Dissasociate" IsShadow="false" IsInherited="false">
+      <DiagramInfo Edge1="Right" Edge2="Top" Percent1="0.8975857372260058" Percent2="0.010035546644507013" Path="M 798 1128 L 830 1128 L 830 1216 L 844 1216" />
+    </Association>
+    <Association ModelName="ActionsBO" Class1="Shipment" Class2="Point" Role1="Shipment_2" Role2="Path" Multiplicity1="ZeroOrOne" Multiplicity2="Many" Navigable1="false" Navigable2="true" IsExternal="false" Persisted="true" OrderByProperty1="" OrderByDirection1="Asc" OrderByProperty2="" OrderByDirection2="Asc" OnDelete1="Dissasociate" OnDelete2="Dissasociate" IsShadow="false" IsInherited="false">
+      <DiagramInfo Edge1="Left" Edge2="Right" Percent1="0.4852351145488298" Percent2="0.4842105263157895" Path="M 491 921 L 450 921 L 450 640 L 1070 640 L 1070 840 L 1440 840 L 1440 1031 L 1421 1031" />
+    </Association>
+    <Association ModelName="UtilsBO" Class1="PathVolumeDetail" Class2="Shipment" Role1="PathVolumeDetail" Role2="Shipment" Multiplicity1="ZeroOrOne" Multiplicity2="ZeroOrOne" Navigable1="false" Navigable2="true" IsExternal="true" Persisted="true" OrderByProperty1="" OrderByDirection1="Asc" OrderByProperty2="" OrderByDirection2="Asc" OnDelete1="Dissasociate" OnDelete2="Dissasociate" IsShadow="false" IsInherited="false">
+      <DiagramInfo Edge1="Left" Edge2="Right" Percent1="0.5" Percent2="0.49616858237547895" Path="M 992.867004394531 652 L 818.5 652 L 818.5 758.72998046875" />
+    </Association>
+    <Association ModelName="VrpSolution" Class1="Route" Class2="Shipment" Role1="Routes" Role2="Vehicule" Multiplicity1="ZeroOrOne" Multiplicity2="ZeroOrOne" Navigable1="false" Navigable2="true" IsExternal="true" Persisted="true" OrderByProperty1="" OrderByDirection1="Asc" OrderByProperty2="" OrderByDirection2="Asc" OnDelete1="Dissasociate" OnDelete2="Dissasociate" IsShadow="false" IsInherited="false">
+      <DiagramInfo Edge1="Right" Edge2="Left" Percent1="0.5473685529291782" Percent2="0.5140563036533805" Path="M 617.142028808594 319 L 756.911010742188 319" />
+    </Association>
+    <Association ModelName="OrdersBO" Class1="ShippingOrder" Class2="Location" Role1="ShippingOrder" Role2="DeparturePoint" Multiplicity1="Many" Multiplicity2="ZeroOrOne" Navigable1="false" Navigable2="true" IsExternal="true" Persisted="true" OrderByProperty1="" OrderByDirection1="Asc" OrderByProperty2="" OrderByDirection2="Asc" OnDelete1="Dissasociate" OnDelete2="Dissasociate" IsShadow="false" IsInherited="false">
+      <DiagramInfo Edge1="Right" Edge2="Left" Percent1="0.4820359281437126" Percent2="0.3370697258054768" Path="M 325 692 L 380 692 L 380 653 L 425 653" />
+    </Association>
+    <Association ModelName="OrdersBO" Class1="ShippingOrder" Class2="Location" Role1="ShippingOrder" Role2="ArrivalPoint" Multiplicity1="Many" Multiplicity2="ZeroOrOne" Navigable1="false" Navigable2="true" IsExternal="true" Persisted="true" OrderByProperty1="" OrderByDirection1="Asc" OrderByProperty2="" OrderByDirection2="Asc" OnDelete1="Dissasociate" OnDelete2="Dissasociate" IsShadow="false" IsInherited="false">
+      <DiagramInfo Edge1="Right" Edge2="Left" Percent1="0.7395209580838323" Percent2="0.6704030591388102" Path="M 325 604 L 380 604 L 380 573 L 425 573" />
+    </Association>
+    <Association ModelName="OrdersBO" Class1="ShippingOrder" Class2="StatusEvolution" Role1="ShippingOrder" Role2="StatusEvolution" Multiplicity1="ZeroOrOne" Multiplicity2="Many" Navigable1="false" Navigable2="true" IsExternal="true" Persisted="true" OrderByProperty1="" OrderByDirection1="Asc" OrderByProperty2="" OrderByDirection2="Asc" OnDelete1="Dissasociate" OnDelete2="Dissasociate" IsShadow="false" IsInherited="false">
+      <DiagramInfo Edge1="Right" Edge2="Left" Percent1="0.11789531607902352" Percent2="0.24210526315789474" Path="M 325 356 L 460 356 L 460 346 L 642 346" />
+    </Association>
+    <Association ModelName="OrdersBO" Class1="ShippingOrder" Class2="ShippingOrder" Role1="ShippingOrder" Role2="Parent" Multiplicity1="Many" Multiplicity2="ZeroOrOne" Navigable1="false" Navigable2="true" IsExternal="true" Persisted="true" OrderByProperty1="" OrderByDirection1="Asc" OrderByProperty2="" OrderByDirection2="Asc" OnDelete1="Dissasociate" OnDelete2="Dissasociate" IsShadow="false" IsInherited="false">
+      <DiagramInfo Edge1="Top" Edge2="Bottom" Percent1="0.1438298962779883" Percent2="0.4999996591679412" Path="M 94 247 L 94 210 L 370 210 L 370 800 L 168 800 L 168 773" />
+    </Association>
+    <Association ModelName="OrdersBO" Class1="ShippingOrder" Class2="CustomVolume" Role1="ShippingOrder" Role2="PlannedVolume" Multiplicity1="ZeroOrOne" Multiplicity2="Many" Navigable1="false" Navigable2="true" IsExternal="true" Persisted="true" OrderByProperty1="" OrderByDirection1="Asc" OrderByProperty2="" OrderByDirection2="Asc" OnDelete1="Dissasociate" OnDelete2="Restricted" IsShadow="false" IsInherited="false">
+      <DiagramInfo Edge1="Top" Edge2="Bottom" Percent1="0.4966305867093536" Percent2="0.4868804664723032" Path="M 243 247 L 243 186" />
+    </Association>
+    <Association ModelName="OrdersBO" Class1="ShippingOrder" Class2="CustomVolume" Role1="ShippingOrder" Role2="ActualVolume" Multiplicity1="ZeroOrOne" Multiplicity2="Many" Navigable1="false" Navigable2="true" IsExternal="true" Persisted="true" OrderByProperty1="" OrderByDirection1="Asc" OrderByProperty2="" OrderByDirection2="Asc" OnDelete1="Dissasociate" OnDelete2="Restricted" IsShadow="false" IsInherited="false">
+      <DiagramInfo Edge1="Top" Edge2="Bottom" Percent1="0.7474896932385633" Percent2="0.6997084548104956" Path="M 168 247 L 168 186" />
+    </Association>
+    <Association ModelName="UtilsBO" Class1="CostSplit" Class2="ShippingOrder" Role1="CostSplit" Role2="Orders" Multiplicity1="ZeroOrOne" Multiplicity2="Many" Navigable1="false" Navigable2="true" IsExternal="true" Persisted="true" OrderByProperty1="" OrderByDirection1="Asc" OrderByProperty2="" OrderByDirection2="Asc" OnDelete1="Dissasociate" OnDelete2="Dissasociate" IsShadow="false" IsInherited="false">
+      <DiagramInfo Edge1="Left" Edge2="Right" Percent1="0.49444444444444446" Percent2="0.4981684981684982" Path="M 44 871 L 10 871 L 10 650 L 230 650 L 230 540 L 690 540 L 690 660 L 910 660 L 910 1550 L 604 1550" />
+    </Association>
+    <Association ModelName="VrpSolution" Class1="Activity" Class2="ShippingOrder" Role1="Activity" Role2="Order" Multiplicity1="ZeroOrOne" Multiplicity2="ZeroOrOne" Navigable1="false" Navigable2="true" IsExternal="true" Persisted="true" OrderByProperty1="" OrderByDirection1="Asc" OrderByProperty2="" OrderByDirection2="Asc" OnDelete1="Dissasociate" OnDelete2="Dissasociate" IsShadow="false" IsInherited="false">
+      <DiagramInfo Edge1="Bottom" Edge2="Top" Percent1="0.6277777777777778" Percent2="0.2107321300399337" Path="M 162 487 L 162 640" />
+    </Association>
+    <Association ModelName="OrdersBO" Class1="StatusEvolution" Class2="Status" Role1="OrderStatus" Role2="Status" Multiplicity1="Many" Multiplicity2="ZeroOrOne" Navigable1="false" Navigable2="true" IsExternal="true" Persisted="true" OrderByProperty1="" OrderByDirection1="Asc" OrderByProperty2="" OrderByDirection2="Asc" OnDelete1="Dissasociate" OnDelete2="Dissasociate" IsShadow="false" IsInherited="false">
+      <DiagramInfo Edge1="Left" Edge2="Right" Percent1="0.5" Percent2="0.5" Path="M 754 431 L 754 620 L 716 620 L 716 758" />
+    </Association>
+    <Association ModelName="UtilsBO" Class1="StatusRule" Class2="Status" Role1="StatusRule" Role2="Status" Multiplicity1="Many" Multiplicity2="ZeroOrOne" Navigable1="false" Navigable2="true" IsExternal="true" Persisted="true" OrderByProperty1="" OrderByDirection1="Asc" OrderByProperty2="" OrderByDirection2="Asc" OnDelete1="Dissasociate" OnDelete2="Dissasociate" IsShadow="false" IsInherited="false">
+      <DiagramInfo Edge1="Left" Edge2="Right" Percent1="0.5" Percent2="0.5" Path="M 888 155 L 820 155 L 820 290 L 690 290 L 690 392 L 532 392" />
+    </Association>
+    <Association ModelName="UtilsBO" Class1="StatusRule" Class2="Status" Role1="StatusRule_1" Role2="ForcedStatus" Multiplicity1="ZeroOrOne" Multiplicity2="ZeroOrOne" Navigable1="false" Navigable2="true" IsExternal="true" Persisted="true" OrderByProperty1="" OrderByDirection1="Asc" OrderByProperty2="" OrderByDirection2="Asc" OnDelete1="Dissasociate" OnDelete2="Dissasociate" IsShadow="false" IsInherited="false">
+      <DiagramInfo Edge1="Left" Edge2="Right" Percent1="0.5" Percent2="0.5" Path="M 888 155 L 820 155 L 820 290 L 690 290 L 690 392 L 532 392" />
+    </Association>
+    <Association ModelName="UtilsBO" Class1="Location" Class2="Coordinates" Role1="Location" Role2="Coordinates" Multiplicity1="ZeroOrOne" Multiplicity2="ZeroOrOne" Navigable1="false" Navigable2="true" IsExternal="true" Persisted="true" OrderByProperty1="" OrderByDirection1="Asc" OrderByProperty2="" OrderByDirection2="Asc" OnDelete1="Dissasociate" OnDelete2="Dissasociate" IsShadow="false" IsInherited="false">
+      <DiagramInfo Edge1="Top" Edge2="Left" Percent1="0.49553571428571436" Percent2="0.5" Path="M 206.093002319336 262 L 280.5 262 L 280.5 190" />
+    </Association>
+    <Association ModelName="UtilsBO" Class1="LegVolumeDetails" Class2="Location" Role1="LegVolumeDetails" Role2="Origin" Multiplicity1="ZeroOrOne" Multiplicity2="ZeroOrOne" Navigable1="false" Navigable2="true" IsExternal="true" Persisted="true" OrderByProperty1="" OrderByDirection1="Asc" OrderByProperty2="" OrderByDirection2="Asc" OnDelete1="Dissasociate" OnDelete2="Dissasociate" IsShadow="false" IsInherited="false">
+      <DiagramInfo Edge1="Left" Edge2="Right" Percent1="0.5" Percent2="0.5" Path="M 1095 294 L 610 294 L 610 270 L 300 270 L 300 289 L 204 289" />
+    </Association>
+    <Association ModelName="UtilsBO" Class1="LegVolumeDetails" Class2="Location" Role1="LegVolumeDetails_1" Role2="Destination" Multiplicity1="ZeroOrOne" Multiplicity2="ZeroOrOne" Navigable1="false" Navigable2="true" IsExternal="true" Persisted="true" OrderByProperty1="" OrderByDirection1="Asc" OrderByProperty2="" OrderByDirection2="Asc" OnDelete1="Dissasociate" OnDelete2="Dissasociate" IsShadow="false" IsInherited="false">
+      <DiagramInfo Edge1="Left" Edge2="Right" Percent1="0.5" Percent2="0.5" Path="M 1095 279 L 204 279" />
+    </Association>
+    <Association ModelName="Driver" Class1="Driver" Class2="Location" Role1="Driver" Role2="Employer" Multiplicity1="Many" Multiplicity2="ZeroOrOne" Navigable1="true" Navigable2="true" IsExternal="true" Persisted="true" OrderByProperty1="" OrderByDirection1="Asc" OrderByProperty2="" OrderByDirection2="Asc" OnDelete1="Dissasociate" OnDelete2="Dissasociate" IsShadow="false" IsInherited="false">
+      <DiagramInfo Edge1="Right" Edge2="Left" Percent1="0.5" Percent2="0.5522875576018483" Path="M 424 316 L 600 316 L 600 249 L 788 249" />
+    </Association>
+    <Association ModelName="VrpSolution" Class1="Activity" Class2="Location" Role1="Activity" Role2="Point" Multiplicity1="ZeroOrOne" Multiplicity2="ZeroOrOne" Navigable1="false" Navigable2="true" IsExternal="true" Persisted="true" OrderByProperty1="" OrderByDirection1="Asc" OrderByProperty2="" OrderByDirection2="Asc" OnDelete1="Dissasociate" OnDelete2="Dissasociate" IsShadow="false" IsInherited="false">
+      <DiagramInfo Edge1="Right" Edge2="Top" Percent1="0.8210525956719771" Percent2="0.32833669904940344" Path="M 229 453 L 550 453 L 550 650" />
+    </Association>
+    <Association ModelName="ApplicationSystemBO" Class1="ApplicationUser" Class2="ApplicationPermission" Role1="Users" Role2="Permissions" Multiplicity1="Many" Multiplicity2="Many" Navigable1="true" Navigable2="true" IsExternal="true" Persisted="true" OrderByProperty1="" OrderByDirection1="Asc" OrderByProperty2="" OrderByDirection2="Asc" OnDelete1="Dissasociate" OnDelete2="Restricted" IsShadow="false" IsInherited="true">
+      <DiagramInfo Edge1="Top" Edge2="Top" Percent1="" Percent2="" Path="" />
+    </Association>
+    <Association ModelName="ApplicationSystemBO" Class1="ApplicationUser" Class2="ApplicationRole" Role1="Users" Role2="Roles" Multiplicity1="Many" Multiplicity2="Many" Navigable1="true" Navigable2="true" IsExternal="true" Persisted="true" OrderByProperty1="" OrderByDirection1="Asc" OrderByProperty2="" OrderByDirection2="Asc" OnDelete1="Dissasociate" OnDelete2="Restricted" IsShadow="false" IsInherited="true">
+      <DiagramInfo Edge1="Top" Edge2="Top" Percent1="" Percent2="" Path="" />
+    </Association>
+    <Association ModelName="ApplicationSystemBO" Class1="ApplicationClient" Class2="ApplicationUser" Role1="Clients" Role2="User" Multiplicity1="Many" Multiplicity2="One" Navigable1="true" Navigable2="true" IsExternal="true" Persisted="true" OrderByProperty1="" OrderByDirection1="Asc" OrderByProperty2="" OrderByDirection2="Asc" OnDelete1="Dissasociate" OnDelete2="CascadeDelete" IsShadow="false" IsInherited="true">
+      <DiagramInfo Edge1="Top" Edge2="Top" Percent1="" Percent2="" Path="" />
+    </Association>
+    <Association ModelName="ApplicationSystemBO" Class1="ApplicationUser" Class2="ApplicationUserLogin" Role1="User" Role2="Logins" Multiplicity1="One" Multiplicity2="Many" Navigable1="true" Navigable2="true" IsExternal="true" Persisted="true" OrderByProperty1="" OrderByDirection1="Asc" OrderByProperty2="" OrderByDirection2="Asc" OnDelete1="CascadeDelete" OnDelete2="Dissasociate" IsShadow="false" IsInherited="true">
+      <DiagramInfo Edge1="Top" Edge2="Top" Percent1="" Percent2="" Path="" />
+    </Association>
+    <Association ModelName="ApplicationSystemBO" Class1="ApplicationUserClaim" Class2="ApplicationUser" Role1="Claims" Role2="User" Multiplicity1="Many" Multiplicity2="One" Navigable1="true" Navigable2="true" IsExternal="true" Persisted="true" OrderByProperty1="" OrderByDirection1="Asc" OrderByProperty2="" OrderByDirection2="Asc" OnDelete1="Dissasociate" OnDelete2="CascadeDelete" IsShadow="false" IsInherited="true">
+      <DiagramInfo Edge1="Top" Edge2="Top" Percent1="" Percent2="" Path="" />
+    </Association>
+    <Association ModelName="ApplicationSystemBO" Class1="Profile" Class2="ApplicationUser" Role1="Profile" Role2="ApplicationUser" Multiplicity1="ZeroOrOne" Multiplicity2="ZeroOrOne" Navigable1="true" Navigable2="false" IsExternal="true" Persisted="true" OrderByProperty1="" OrderByDirection1="Asc" OrderByProperty2="" OrderByDirection2="Asc" OnDelete1="Restricted" OnDelete2="CascadeDelete" IsShadow="false" IsInherited="true">
+      <DiagramInfo Edge1="Top" Edge2="Top" Percent1="" Percent2="" Path="" />
+    </Association>
+    <Association ModelName="VolumeBO" Class1="CustomVolume" Class2="Supplier" Role1="CustomVolume" Role2="Supplier" Multiplicity1="ZeroOrOne" Multiplicity2="ZeroOrOne" Navigable1="false" Navigable2="true" IsExternal="true" Persisted="true" OrderByProperty1="" OrderByDirection1="Asc" OrderByProperty2="" OrderByDirection2="Asc" OnDelete1="Dissasociate" OnDelete2="Dissasociate" IsShadow="false" IsInherited="false">
+      <DiagramInfo Edge1="Bottom" Edge2="Top" Percent1="0.3343108504398827" Percent2="0.49444444444444446" Path="M 317 349 L 317 411" />
+    </Association>
+    <Association ModelName="VolumeBO" Class1="CustomVolume" Class2="VolumeComposition" Role1="CustomVolume" Role2="VolumeComposition" Multiplicity1="ZeroOrOne" Multiplicity2="Many" Navigable1="false" Navigable2="true" IsExternal="true" Persisted="true" OrderByProperty1="" OrderByDirection1="Asc" OrderByProperty2="" OrderByDirection2="Asc" OnDelete1="Dissasociate" OnDelete2="Dissasociate" IsShadow="false" IsInherited="false">
+      <DiagramInfo Edge1="Right" Edge2="Left" Percent1="0.49444444444444446" Percent2="0.5111111111111111" Path="M 544 258 L 620 258" />
+    </Association>
+    <Association ModelName="VehiculeBO" Class1="Vehicule" Class2="DistanceCosts" Role1="Vehicule" Role2="DistanceCosts" Multiplicity1="ZeroOrOne" Multiplicity2="ZeroOrOne" Navigable1="false" Navigable2="true" IsExternal="true" Persisted="true" OrderByProperty1="" OrderByDirection1="Asc" OrderByProperty2="" OrderByDirection2="Asc" OnDelete1="Dissasociate" OnDelete2="Dissasociate" IsShadow="false" IsInherited="false">
+      <DiagramInfo Edge1="Right" Edge2="Left" Percent1="0.27932960893854747" Percent2="0.7064513999193339" Path="M 388 197 L 450 197 L 450 187 L 514 187" />
+    </Association>
+    <Association ModelName="VehiculeBO" Class1="Vehicule" Class2="TimeCosts" Role1="Vehicule" Role2="TimeCosts" Multiplicity1="ZeroOrOne" Multiplicity2="ZeroOrOne" Navigable1="false" Navigable2="true" IsExternal="true" Persisted="true" OrderByProperty1="" OrderByDirection1="Asc" OrderByProperty2="" OrderByDirection2="Asc" OnDelete1="Dissasociate" OnDelete2="Dissasociate" IsShadow="false" IsInherited="false">
+      <DiagramInfo Edge1="Bottom" Edge2="Left" Percent1="0.6552901023890785" Percent2="0.07853400004361935" Path="M 388 375 L 480 375 L 480 360 L 674 360 L 674 391" />
+    </Association>
+    <Association ModelName="VehiculeBO" Class1="Vehicule" Class2="OwnershipCost" Role1="Vehicule" Role2="OwnershipCost" Multiplicity1="ZeroOrOne" Multiplicity2="ZeroOrOne" Navigable1="true" Navigable2="true" IsExternal="true" Persisted="true" OrderByProperty1="" OrderByDirection1="Asc" OrderByProperty2="" OrderByDirection2="Asc" OnDelete1="Dissasociate" OnDelete2="Dissasociate" IsShadow="false" IsInherited="false">
+      <DiagramInfo Edge1="Bottom" Edge2="Top" Percent1="0.32081911262798635" Percent2="0.2546235890710084" Path="M 234 388 L 234 534" />
+    </Association>
+    <Association ModelName="VehiculeBO" Class1="Vehicule" Class2="AmortizationType" Role1="Vehicule" Role2="AmortizationType" Multiplicity1="Many" Multiplicity2="ZeroOrOne" Navigable1="false" Navigable2="true" IsExternal="true" Persisted="true" OrderByProperty1="" OrderByDirection1="Asc" OrderByProperty2="" OrderByDirection2="Asc" OnDelete1="Dissasociate" OnDelete2="Dissasociate" IsShadow="false" IsInherited="false">
+      <DiagramInfo Edge1="Left" Edge2="Right" Percent1="0.5" Percent2="0.5" Path="M 80 209 L 50 209 L 50 430 L 450 430 L 450 360 L 930 360 L 930 470 L 1290 470 L 1290 343 L 1274 343" />
+    </Association>
+  </Associations>
+  <Classes>
+    <Class ModelName="ActionsBO" Name="Shipment" ShadowModel="" ShadowClass="" Description="" Stereotype="Class" PK="Id" ConcurencyControl="true" AutoAssignPrimaryKey="true" IdGeneratorType="HiLoGenerator" IsPersisted="true" IsStatic="false" BaseClass="" BaseClasses="" BaseModel="">
+      <DiagramInfo IsExpanded="true" Width="306.921875" Height="502" Top="677.411987304688" Left="491.127014160156" />
+      <Attributes>
+        <Attribute Name="Id" IsValueClass="false" Description="" DataType="int" BaseInfo="" Length="100" Precision="8" Scale="2" InitValue="" IsRequired="false" IsInherited="false" Persisted="true" IsEncrypted="false" IsStatic="false" ReadOnly="false" IsExternal="false" CustomValidation="" IsCreditCard="false" IsURL="false" IsEmail="false" MinLength="0" MaxLength="100" MinValue="" MaxValue="" Getter="" Setter="" />
+        <Attribute Name="Owner" IsValueClass="false" Description="" DataType="string" BaseInfo="" Length="100" Precision="8" Scale="2" InitValue="" IsRequired="false" IsInherited="false" Persisted="true" IsEncrypted="false" IsStatic="false" ReadOnly="false" IsExternal="false" CustomValidation="" IsCreditCard="false" IsURL="false" IsEmail="false" MinLength="0" MaxLength="100" MinValue="" MaxValue="" Getter="" Setter="" />
+        <Attribute Name="DepartureTime" IsValueClass="false" Description="" DataType="DateTime" BaseInfo="" Length="100" Precision="8" Scale="2" InitValue="" IsRequired="false" IsInherited="false" Persisted="true" IsEncrypted="false" IsStatic="false" ReadOnly="false" IsExternal="false" CustomValidation="" IsCreditCard="false" IsURL="false" IsEmail="false" MinLength="0" MaxLength="100" MinValue="" MaxValue="" Getter="" Setter="" />
+        <Attribute Name="CurrentStatus" IsValueClass="false" Description="" DataType="string" BaseInfo="" Length="100" Precision="8" Scale="2" InitValue="" IsRequired="false" IsInherited="false" Persisted="true" IsEncrypted="false" IsStatic="false" ReadOnly="false" IsExternal="false" CustomValidation="" IsCreditCard="false" IsURL="false" IsEmail="false" MinLength="0" MaxLength="100" MinValue="" MaxValue="" Getter="Get_CurrentStatus" Setter="" />
+        <Attribute Name="Temperature" IsValueClass="false" Description="" DataType="string" BaseInfo="" Length="100" Precision="8" Scale="2" InitValue="" IsRequired="false" IsInherited="false" Persisted="true" IsEncrypted="false" IsStatic="false" ReadOnly="false" IsExternal="false" CustomValidation="" IsCreditCard="false" IsURL="false" IsEmail="false" MinLength="0" MaxLength="100" MinValue="" MaxValue="" Getter="" Setter="" />
+        <Attribute Name="LoadPercentage" IsValueClass="false" Description="" DataType="int" BaseInfo="" Length="100" Precision="8" Scale="2" InitValue="" IsRequired="false" IsInherited="false" Persisted="true" IsEncrypted="false" IsStatic="false" ReadOnly="false" IsExternal="false" CustomValidation="" IsCreditCard="false" IsURL="false" IsEmail="false" MinLength="0" MaxLength="100" MinValue="" MaxValue="" Getter="" Setter="" />
+        <Attribute Name="TotalVolume" IsValueClass="false" Description="" DataType="decimal" BaseInfo="" Length="100" Precision="8" Scale="2" InitValue="" IsRequired="false" IsInherited="false" Persisted="true" IsEncrypted="false" IsStatic="false" ReadOnly="false" IsExternal="false" CustomValidation="" IsCreditCard="false" IsURL="false" IsEmail="false" MinLength="0" MaxLength="100" MinValue="" MaxValue="" Getter="" Setter="" />
+        <Attribute Name="AverageVolume" IsValueClass="false" Description="" DataType="decimal" BaseInfo="" Length="100" Precision="8" Scale="2" InitValue="" IsRequired="false" IsInherited="false" Persisted="true" IsEncrypted="false" IsStatic="false" ReadOnly="false" IsExternal="false" CustomValidation="" IsCreditCard="false" IsURL="false" IsEmail="false" MinLength="0" MaxLength="100" MinValue="" MaxValue="" Getter="" Setter="" />
+        <Attribute Name="MaxTravelTime" IsValueClass="false" Description="" DataType="int" BaseInfo="" Length="100" Precision="8" Scale="2" InitValue="" IsRequired="false" IsInherited="false" Persisted="true" IsEncrypted="false" IsStatic="false" ReadOnly="false" IsExternal="false" CustomValidation="" IsCreditCard="false" IsURL="false" IsEmail="false" MinLength="0" MaxLength="100" MinValue="" MaxValue="" Getter="" Setter="" />
+      </Attributes>
+      <Operations>
+        <Operation Name="Get_CurrentStatus" Description="" Syntax="" RuleType="Default" EventName="" ApplyToAttribute="" BaseInfo="" IsStatic="false" IsInherited="false" IsExternal="false">function string Get_CurrentStatus()
+{
+	if(this.ShipmentStatus.OrderByDescending(a=&gt; a.TimeReported).First()!=null &amp;&amp;
+			this.ShipmentStatus.OrderByDescending(a=&gt; a.TimeReported).First().Status!=null){
+		
+		return this.ShipmentStatus.OrderByDescending(a=&gt; a.TimeReported).First().Status.Description;
+		
+	}
+	return null;
+}</Operation>
+        <Operation Name="MaxVolume" Description="" Syntax="" RuleType="Default" EventName="" ApplyToAttribute="" BaseInfo="" IsStatic="false" IsInherited="false" IsExternal="false">function decimal MaxVolume() 
+{
+	return this.Path.Max(a=&gt;a.CurrentLoad);
+}</Operation>
+        <Operation Name="Get_AverageVolume" Description="" Syntax="" RuleType="Default" EventName="" ApplyToAttribute="" BaseInfo="" IsStatic="false" IsInherited="false" IsExternal="false">function decimal Get_AverageVolume() 
+{
+    /*
+	Collection[decimal] capacity;
+	decimal AgregateVolume=0;
+	
+	foreach Domain.Point i in this.Path {
+
+	    foreach Domain.ShippingOrder j in this.ShippingOrders.Where(a=&gt; a.DeparturePoint.Id==i.LocId){
+	    	
+	        foreach Domain.CustomVolume k in j.PlannedVolume {
+	        	AgregateVolume= AgregateVolume + k.VolumeComposition.First().VolumeComponent.StandardVolume*k.VolumeComposition.First().Units;
+	        }
+	        
+	    }
+	    foreach Domain.ShippingOrder j in this.ShippingOrders.Where(a=&gt; a.ArrivalPoint.Id==i.LocId){
+	    	
+	        foreach Domain.CustomVolume k in j.PlannedVolume {
+	        	AgregateVolume= AgregateVolume - k.VolumeComposition.First().VolumeComponent.StandardVolume*k.VolumeComposition.First().Units;
+	        }
+	        
+	    }
+	    capacity.Add(AgregateVolume);
+	}
+	
+	return (capacity.Sum(a=&gt;a)/capacity.Length)/this.TotalVolume;*/
+	
+	
+	return (this.Path.Sum(a=&gt;a.CurrentLoad)/this.Path.Length)/this.TotalVolume;
+	
+	
+	
+}
+</Operation>
+        <Operation Name="GetVolumeSpread" Description="" Syntax="" RuleType="Default" EventName="" ApplyToAttribute="" BaseInfo="" IsStatic="false" IsInherited="false" IsExternal="false">function Collection[decimal]  GetVolumeSpread()
+{
+	
+	return this.Path.Select(a=&gt;a.CurrentLoad);
+	
+	/*
+	
+	Collection[decimal] capacity;
+	decimal AgregateVolume=0;
+	
+	foreach Domain.Point i in this.Path {
+
+	    foreach Domain.ShippingOrder j in this.ShippingOrders.Where(a=&gt; a.DeparturePoint.Id==i.LocId){
+	    	
+	        foreach Domain.CustomVolume k in j.PlannedVolume {
+	        	AgregateVolume= AgregateVolume + k.VolumeComposition.First().VolumeComponent.StandardVolume*k.VolumeComposition.First().Units;
+	        }
+	        
+	    }
+	    foreach Domain.ShippingOrder j in this.ShippingOrders.Where(a=&gt; a.ArrivalPoint.Id==i.LocId){
+	    	
+	        foreach Domain.CustomVolume k in j.PlannedVolume {
+	        	AgregateVolume= AgregateVolume - k.VolumeComposition.First().VolumeComponent.StandardVolume*k.VolumeComposition.First().Units;
+	        }
+	        
+	    }
+	    capacity.Add(AgregateVolume);
+	    DebugLib.Logger.WriteErrorLine("order to: "+ i.GetLocation().Name+ " " + AgregateVolume);
+	}
+	
+	return capacity;*/
+}</Operation>
+        <Operation Name="OrderFits" Description="" Syntax="" RuleType="Default" EventName="" ApplyToAttribute="" BaseInfo="" IsStatic="false" IsInherited="false" IsExternal="false">function bool OrderFits(Domain.ShippingOrder Order) 
+{
+	
+	return this.MaxVolume()+Order.Get_AggregateVolume() &lt;= this.TotalVolume;
+}</Operation>
+        <Operation Name="PrintPath" Description="" Syntax="" RuleType="Default" EventName="" ApplyToAttribute="" BaseInfo="" IsStatic="false" IsInherited="false" IsExternal="false">function void PrintPath(string Prefix) 
+{
+	int count1=0;
+	foreach Domain.Point j in this.Path {
+		
+		DebugLib.Logger.WriteErrorLine(Prefix + " - " + count1 + " - " + Domain.Location.GetByKey(j.LocId).Name);
+		count1=count1+1;
+	}
+}</Operation>
+        <Operation Name="GetCostSplit" Description="" Syntax="" RuleType="Default" EventName="" ApplyToAttribute="" BaseInfo="" IsStatic="false" IsInherited="false" IsExternal="false">function Collection[Domain.CostSplit] GetCostSplit(int WeightVolume, int WeightPoints, int WeightPath) 
+{
+/*	Collection[Domain.CostSplit] CostSplit;
+	
+			
+	int TotalPoints = this.ShippingOrders.Length*2 ;
+	int VolumeCost=this.ShippingOrders.Sum(a=&gt; a.AggregateVolume);
+	int totalWeight= WeightPath+WeightPoints+WeightVolume;
+		
+
+	
+	foreach Domain.ShippingOrder i in this.ShippingOrders {
+		if CostSplit.Any(a=&gt; a.Shipper==i.Shipper){
+			CostSplit.First(a=&gt; a.Shipper==i.Shipper).Orders.Add(i);
+		}else{
+			Domain.CostSplit NewShipper;
+			NewShipper.Shipper=i.Shipper;
+			NewShipper.Orders.Add(i);
+		}
+
+	}
+	
+	foreach Domain.CostSplit i in CostSplit {
+		
+		decimal ShippersPoints = i.Orders.Length*2 ;
+		decimal ShippersVolume=i.Orders.Sum(a=&gt; a.AggregateVolume);
+		decimal ShippersPath= this.CalculatePathCost(i.Orders);
+	}
+	
+//	decimal totalPaths= */
+	
+	
+	return null;
+	
+}</Operation>
+        <Operation Name="CalculatePathTime" Description="" Syntax="" RuleType="Default" EventName="" ApplyToAttribute="" BaseInfo="" IsStatic="false" IsInherited="false" IsExternal="false">function decimal CalculatePathTime()
+{
+
+	Collection[string] coordinates;
+	
+	coordinates.Add(this.DeparturePoint.Coordinates.CoordinateY + "," +this.DeparturePoint.Coordinates.CoordinateX);
+	
+	DebugLib.Logger.WriteErrorLine(coordinates.First());
+	foreach Domain.ShippingOrder i in this.ShippingOrders {
+	    string departure=i.DeparturePoint.Coordinates.CoordinateY + "," +i.DeparturePoint.Coordinates.CoordinateX;
+	    string arrival =i.ArrivalPoint.Coordinates.CoordinateY + "," +i.ArrivalPoint.Coordinates.CoordinateX;
+	    
+	    if(!coordinates.Contains(departure)&amp;&amp;i.DeparturePoint!=this.FinalDestination){
+		coordinates.Add(departure);
+		}
+		if(!coordinates.Contains(arrival)&amp;&amp;i.ArrivalPoint!=this.FinalDestination){
+		coordinates.Add(arrival);
+		}
+		
+	}
+	string FinalCoordinate=this.FinalDestination.Coordinates.CoordinateY + "," + this.FinalDestination.Coordinates.CoordinateX;
+	
+	coordinates.Add(FinalCoordinate);
+	
+	while (coordinates.Contains("0,0")){
+		coordinates.Remove("0,0");
+	}
+	
+	string coord;
+	
+	foreach string i in coordinates {
+		if coord==""{
+		    coord=coord+i;
+		}else{
+			coord= coord+","+i;
+		}
+	}
+	
+	Interfaces.Router_Mapotempo.Router_MapotempoRoot response = Interfaces.Router_Mapotempo.API.route("time","true","true","true"
+    	,"200","EUR","en",coord,"inlecom-1-pe3io4Ui5aimobich1oot0eilothongo");
+    	
+
+    	
+
+		return ((response.features.Get(0)).properties.router.total_time/60 + 10*coordinates.Length )/60;
+
+}</Operation>
+        <Operation Name="CalculatePathDistance" Description="" Syntax="" RuleType="Default" EventName="" ApplyToAttribute="" BaseInfo="" IsStatic="false" IsInherited="false" IsExternal="false">function decimal CalculatePathDistance()
+{
+
+	Collection[string] coordinates;
+	
+	coordinates.Add(this.DeparturePoint.Coordinates.CoordinateY + "," +this.DeparturePoint.Coordinates.CoordinateX);
+	
+	DebugLib.Logger.WriteErrorLine(coordinates.First());
+	foreach Domain.ShippingOrder i in this.ShippingOrders {
+	    string departure=i.DeparturePoint.Coordinates.CoordinateY + "," +i.DeparturePoint.Coordinates.CoordinateX;
+	    string arrival =i.ArrivalPoint.Coordinates.CoordinateY + "," +i.ArrivalPoint.Coordinates.CoordinateX;
+	    
+	    if(!coordinates.Contains(departure)&amp;&amp;i.DeparturePoint!=this.FinalDestination){
+		coordinates.Add(departure);
+		}
+		if(!coordinates.Contains(arrival)&amp;&amp;i.ArrivalPoint!=this.FinalDestination){
+		coordinates.Add(arrival);
+		}
+		
+	}
+	string FinalCoordinate=this.FinalDestination.Coordinates.CoordinateY + "," + this.FinalDestination.Coordinates.CoordinateX;
+	
+	coordinates.Add(FinalCoordinate);
+	
+	while (coordinates.Contains("0,0")){
+		coordinates.Remove("0,0");
+	}
+	
+	string coord;
+	
+	foreach string i in coordinates {
+		if coord==""{
+		    coord=coord+i;
+		}else{
+			coord= coord+","+i;
+		}
+	}
+	
+	Interfaces.Router_Mapotempo.Router_MapotempoRoot response = Interfaces.Router_Mapotempo.API.route("time","true","true","true"
+    	,"200","EUR","en",coord,"inlecom-1-pe3io4Ui5aimobich1oot0eilothongo");
+    	
+
+    	
+
+		return (response.features.Get(0)).properties.router.total_distance/1000;
+
+}</Operation>
+        <Operation Name="CalculatePathCost" Description="" Syntax="" RuleType="Default" EventName="" ApplyToAttribute="" BaseInfo="" IsStatic="false" IsInherited="false" IsExternal="false">function decimal CalculatePathCost(Collection[Domain.ShippingOrder] Orders) 
+
+{
+
+	Collection[string] coordinates;
+	
+	coordinates.Add(this.DeparturePoint.Coordinates.CoordinateY + "," +this.DeparturePoint.Coordinates.CoordinateX);
+	
+	DebugLib.Logger.WriteErrorLine(coordinates.First());
+	foreach Domain.ShippingOrder i in Orders {
+	    string departure=i.DeparturePoint.Coordinates.CoordinateY + "," +i.DeparturePoint.Coordinates.CoordinateX;
+	    string arrival =i.ArrivalPoint.Coordinates.CoordinateY + "," +i.ArrivalPoint.Coordinates.CoordinateX;
+	    
+	    if(!coordinates.Contains(departure)&amp;&amp;i.DeparturePoint!=this.FinalDestination){
+		coordinates.Add(departure);
+		}
+		if(!coordinates.Contains(arrival)&amp;&amp;i.ArrivalPoint!=this.FinalDestination){
+		coordinates.Add(arrival);
+		}
+		
+	}
+	string FinalCoordinate=this.FinalDestination.Coordinates.CoordinateY + "," + this.FinalDestination.Coordinates.CoordinateX;
+	
+	coordinates.Add(FinalCoordinate);
+	
+	while (coordinates.Contains("0,0")){
+		coordinates.Remove("0,0");
+	}
+	
+	string coord;
+	
+	foreach string i in coordinates {
+		if coord==""{
+		    coord=coord+i;
+		}else{
+			coord= coord+","+i;
+		}
+	}
+	
+	Interfaces.Router_Mapotempo.Router_MapotempoRoot response = Interfaces.Router_Mapotempo.API.route("time","true","true","true"
+    	,"200","EUR","en",coord,"inlecom-1-pe3io4Ui5aimobich1oot0eilothongo");
+    	
+    	
+    	CommonLib.Serializer[Interfaces.Router_Mapotempo.Router_MapotempoRoot] serializer;
+
+		DebugLib.Logger.WriteInfoLine(serializer.ToJson(response));
+		
+		decimal time=(response.features.Get(0)).properties.router.total_time/3600 ;
+		decimal distance=(response.features.Get(0)).properties.router.total_distance/1000;
+		
+		decimal DistanceCost= distance * this.VehiculeType.CalculatedDistanceCost ;
+		
+		decimal TimeCost=time* this.VehiculeType.CalculatedTimeCost;
+		decimal TotalCost;
+		if this.VehiculeType.AmortizationType1.Label=="technical"{
+			TotalCost=TimeCost+DistanceCost+   this.VehiculeType.CalculatedOwnershipCost*distance; 
+		}else{
+			TotalCost=TimeCost+DistanceCost+   this.VehiculeType.CalculatedOwnershipCost*time; 
+		}
+    	
+    	
+    	TotalCost=TotalCost* (1+this.VehiculeType.OverHeadCost/100);
+    	
+
+		return TotalCost;
+
+}</Operation>
+      </Operations>
+    </Class>
+    <Class ModelName="BatonBO" Name="ShippingOrder" ShadowModel="BatonBO" ShadowClass="ShippingOrder" Description="" Stereotype="Class" PK="Id" ConcurencyControl="true" AutoAssignPrimaryKey="true" IdGeneratorType="HiLoGenerator" IsPersisted="true" IsStatic="false" BaseClass="" BaseClasses="" BaseModel="">
+      <DiagramInfo IsExpanded="true" Width="303.796875" Height="546" Top="657.846984863281" Left="10" />
+      <Attributes>
+        <Attribute Name="Id" IsValueClass="false" Description="" DataType="int" BaseInfo="" Length="100" Precision="8" Scale="2" InitValue="" IsRequired="false" IsInherited="false" Persisted="true" IsEncrypted="false" IsStatic="false" ReadOnly="false" IsExternal="false" CustomValidation="" IsCreditCard="false" IsURL="false" IsEmail="false" MinLength="0" MaxLength="100" MinValue="" MaxValue="" Getter="" Setter="" />
+        <Attribute Name="DepartureDate" IsValueClass="false" Description="" DataType="DateTime" BaseInfo="" Length="100" Precision="8" Scale="2" InitValue="" IsRequired="false" IsInherited="false" Persisted="true" IsEncrypted="false" IsStatic="false" ReadOnly="false" IsExternal="false" CustomValidation="" IsCreditCard="false" IsURL="false" IsEmail="false" MinLength="0" MaxLength="100" MinValue="" MaxValue="" Getter="" Setter="" />
+        <Attribute Name="ArrivalDate" IsValueClass="false" Description="" DataType="DateTime" BaseInfo="" Length="100" Precision="8" Scale="2" InitValue="" IsRequired="false" IsInherited="false" Persisted="true" IsEncrypted="false" IsStatic="false" ReadOnly="false" IsExternal="false" CustomValidation="" IsCreditCard="false" IsURL="false" IsEmail="false" MinLength="0" MaxLength="100" MinValue="" MaxValue="" Getter="" Setter="" />
+        <Attribute Name="Shipper" IsValueClass="false" Description="" DataType="string" BaseInfo="" Length="100" Precision="8" Scale="2" InitValue="" IsRequired="false" IsInherited="false" Persisted="true" IsEncrypted="false" IsStatic="false" ReadOnly="false" IsExternal="false" CustomValidation="" IsCreditCard="false" IsURL="false" IsEmail="false" MinLength="0" MaxLength="100" MinValue="" MaxValue="" Getter="" Setter="" />
+        <Attribute Name="Carrier" IsValueClass="false" Description="" DataType="string" BaseInfo="" Length="100" Precision="8" Scale="2" InitValue="" IsRequired="false" IsInherited="false" Persisted="true" IsEncrypted="false" IsStatic="false" ReadOnly="false" IsExternal="false" CustomValidation="" IsCreditCard="false" IsURL="false" IsEmail="false" MinLength="0" MaxLength="100" MinValue="" MaxValue="" Getter="" Setter="" />
+        <Attribute Name="Temperature" IsValueClass="false" Description="" DataType="string" BaseInfo="" Length="100" Precision="8" Scale="2" InitValue="" IsRequired="false" IsInherited="false" Persisted="true" IsEncrypted="false" IsStatic="false" ReadOnly="false" IsExternal="false" CustomValidation="" IsCreditCard="false" IsURL="false" IsEmail="false" MinLength="0" MaxLength="100" MinValue="" MaxValue="" Getter="" Setter="" />
+        <Attribute Name="CurrentStatus" IsValueClass="false" Description="" DataType="string" BaseInfo="" Length="100" Precision="8" Scale="2" InitValue="" IsRequired="false" IsInherited="false" Persisted="false" IsEncrypted="false" IsStatic="false" ReadOnly="false" IsExternal="false" CustomValidation="" IsCreditCard="false" IsURL="false" IsEmail="false" MinLength="0" MaxLength="100" MinValue="" MaxValue="" Getter="Get_CurrentStatus" Setter="" />
+        <Attribute Name="ItemType" IsValueClass="false" Description="" DataType="string" BaseInfo="" Length="100" Precision="8" Scale="2" InitValue="" IsRequired="false" IsInherited="false" Persisted="true" IsEncrypted="false" IsStatic="false" ReadOnly="false" IsExternal="false" CustomValidation="" IsCreditCard="false" IsURL="false" IsEmail="false" MinLength="0" MaxLength="100" MinValue="" MaxValue="" Getter="" Setter="" />
+        <Attribute Name="ItemDescription" IsValueClass="false" Description="" DataType="string" BaseInfo="" Length="100" Precision="8" Scale="2" InitValue="" IsRequired="false" IsInherited="false" Persisted="true" IsEncrypted="false" IsStatic="false" ReadOnly="false" IsExternal="false" CustomValidation="" IsCreditCard="false" IsURL="false" IsEmail="false" MinLength="0" MaxLength="100" MinValue="" MaxValue="" Getter="" Setter="" />
+        <Attribute Name="Conditions" IsValueClass="false" Description="" DataType="string" BaseInfo="" Length="100" Precision="8" Scale="2" InitValue="" IsRequired="false" IsInherited="false" Persisted="true" IsEncrypted="false" IsStatic="false" ReadOnly="false" IsExternal="false" CustomValidation="" IsCreditCard="false" IsURL="false" IsEmail="false" MinLength="0" MaxLength="100" MinValue="" MaxValue="" Getter="" Setter="" />
+        <Attribute Name="AggregateVolume" IsValueClass="false" Description="" DataType="decimal" BaseInfo="" Length="100" Precision="8" Scale="2" InitValue="" IsRequired="false" IsInherited="false" Persisted="true" IsEncrypted="false" IsStatic="false" ReadOnly="false" IsExternal="false" CustomValidation="" IsCreditCard="false" IsURL="false" IsEmail="false" MinLength="0" MaxLength="100" MinValue="" MaxValue="" Getter="" Setter="" />
+        <Attribute Name="Priority" IsValueClass="false" Description="" DataType="int" BaseInfo="" Length="100" Precision="8" Scale="2" InitValue="" IsRequired="false" IsInherited="false" Persisted="true" IsEncrypted="false" IsStatic="false" ReadOnly="false" IsExternal="false" CustomValidation="" IsCreditCard="false" IsURL="false" IsEmail="false" MinLength="0" MaxLength="100" MinValue="" MaxValue="" Getter="" Setter="" />
+      </Attributes>
+      <Operations>
+        <Operation Name="NewOperation" Description="" Syntax="" RuleType="Default" EventName="" ApplyToAttribute="" BaseInfo="" IsStatic="false" IsInherited="false" IsExternal="true">function void NewOperation() 
+{
+
+}</Operation>
+        <Operation Name="NewOperation1" Description="" Syntax="" RuleType="Default" EventName="" ApplyToAttribute="" BaseInfo="" IsStatic="false" IsInherited="false" IsExternal="true">function void NewOperation1() 
+{
+
+}</Operation>
+        <Operation Name="Get_CurrentStatus" Description="" Syntax="" RuleType="Default" EventName="" ApplyToAttribute="" BaseInfo="" IsStatic="false" IsInherited="false" IsExternal="true">function string Get_CurrentStatus()
+{
+	if(this.StatusEvolution.OrderByDescending(a=&gt; a.TimeChanged).First()!=null &amp;&amp;
+			this.StatusEvolution.OrderByDescending(a=&gt; a.TimeChanged).First().Status!=null){
+		
+		return this.StatusEvolution.OrderByDescending(a=&gt; a.TimeChanged).First().Status.Description;
+		
+	}
+	return null;
+}</Operation>
+        <Operation Name="CalculateOrderCost" Description="" Syntax="" RuleType="Default" EventName="" ApplyToAttribute="" BaseInfo="" IsStatic="false" IsInherited="false" IsExternal="true">function decimal CalculateOrderCost() 
+{
+    return 1.00;
+/*
+
+	if	this.Shipment.Length&gt;0 &amp;&amp; this.Shipment.First().ShippingOrders.Length&gt;1{
+
+	Collection[Domain.Location] Locations;
+	
+	Locations=this.Shipment.First().ShippingOrders;
+
+	Collection[string] coordinates;
+	
+	string ShipmentDeparture= (Model.this.Shipment.DeparturePoint.Coordinates.CoordinateY + "," + Model.this.Shipment.DeparturePoint.Coordinates.CoordinateX);
+	
+	coordinates.Add(ShipmentDeparture);
+	
+	DebugLib.Logger.WriteErrorLine(coordinates.First());
+	foreach Domain.ShippingOrder i in Model.this.Shipment.ShippingOrders {
+	    string departure=i.DeparturePoint.Coordinates.CoordinateY + "," +i.DeparturePoint.Coordinates.CoordinateX;
+	    string arrival =i.ArrivalPoint.Coordinates.CoordinateY + "," +i.ArrivalPoint.Coordinates.CoordinateX;
+	    
+	    if(!coordinates.Contains(departure)&amp;&amp;i.DeparturePoint!=Model.this.Shipment.FinalDestination){
+		coordinates.Add(departure);
+		}
+		if(!coordinates.Contains(arrival)&amp;&amp;i.ArrivalPoint!=Model.this.Shipment.FinalDestination){
+		coordinates.Add(arrival);
+		}
+		
+	}
+	string FinalCoordinate=Model.this.Shipment.FinalDestination.Coordinates.CoordinateY + "," + Model.this.Shipment.FinalDestination.Coordinates.CoordinateX;
+	
+	coordinates.Add(FinalCoordinate);
+	
+	while (coordinates.Contains("0,0")){
+		coordinates.Remove("0,0");
+	}
+	
+	string coord;
+	
+	foreach string i in coordinates {
+		if coord==""{
+		    coord=coord+i;
+		}else{
+			coord= coord+","+i;
+		}
+	}
+	
+	DebugLib.Logger.WriteErrorLine(coord);
+	
+	Interfaces.Router_Mapotempo.Router_MapotempoRoot response = Interfaces.Router_Mapotempo.API.route("time","true","true","true"
+    	,"200","EUR","en",coord,"inlecom-1-pe3io4Ui5aimobich1oot0eilothongo");
+    	
+   coordinates.Remove(FinalCoordinate);
+   
+   
+	string OrderDeparture=Model.Order.DeparturePoint.Coordinates.CoordinateY + "," +Model.Order.DeparturePoint.Coordinates.CoordinateX;
+	string OrderArrival =Model.Order.ArrivalPoint.Coordinates.CoordinateY + "," +Model.Order.ArrivalPoint.Coordinates.CoordinateX;
+   
+   if (!coordinates.Contains(OrderDeparture)){
+       coordinates.Add(OrderDeparture);
+  	}
+   if (OrderArrival!=FinalCoordinate)&amp;&amp;(!coordinates.Contains(OrderArrival)){
+       coordinates.Add(OrderArrival);
+    }
+    
+    	coordinates.Add(FinalCoordinate);
+	
+	string coord2;
+	
+	foreach string i in coordinates {
+		if coord2==""{
+		    coord2=coord2+i;
+		}else{
+			coord2= coord2+","+i;
+		}
+	}
+	
+	
+	
+    Interfaces.Router_Mapotempo.Router_MapotempoRoot response2 = Interfaces.Router_Mapotempo.API.route("time","true","true","true"
+    	,"200","EUR","en",coord2,"inlecom-1-pe3io4Ui5aimobich1oot0eilothongo");
+    	
+    	
+    	CommonLib.Serializer[Interfaces.Router_Mapotempo.Router_MapotempoRoot] serializer;
+
+		DebugLib.Logger.WriteInfoLine(serializer.ToJson(response));
+		
+		decimal time=(response.features.Get(0)).properties.router.total_time/3600 ;
+		decimal distance=(response.features.Get(0)).properties.router.total_distance/1000;
+		
+		decimal DistanceCost= distance * Model.this.Shipment.VehiculeType.CalculatedDistanceCost ;
+		
+		decimal TimeCost=time* Model.this.Shipment.VehiculeType.CalculatedTimeCost;
+		decimal TotalCost;
+		decimal TotalCost2=(response2.features.Get(0)).properties.router.total_time/3600 * Model.this.Shipment.VehiculeType.CalculatedTimeCost
+		+ (response2.features.Get(0)).properties.router.total_distance/1000 * Model.this.Shipment.VehiculeType.CalculatedDistanceCost;
+	
+
+    	
+    	
+    	/*foreach string: i in coordinates {
+			if !(i==OrderDeparture || i==OrderArrival || i==FinalCoordinate || i==ShipmentDeparture){
+		    	coordinates.Remove(i);
+			}
+    	}/
+    	
+
+    	Collection[string] coordinates3;
+    	
+    	coordinates3.Add(ShipmentDeparture);
+    	coordinates3.Add(OrderDeparture);
+    	coordinates3.Add(OrderArrival);
+    	coordinates3.Add(FinalCoordinate);
+    	
+    	
+    	string coord3;
+    	foreach string: i in coordinates3 {
+			if coord3==""{
+		   		coord3=coord3+i;
+			}else{
+				coord3= coord3+","+i;
+			}
+		}
+    	
+    	Interfaces.Router_Mapotempo.Router_MapotempoRoot response3 = Interfaces.Router_Mapotempo.API.route("time","true","true","true"
+    	,"200","EUR","en",coord3,"inlecom-1-pe3io4Ui5aimobich1oot0eilothongo");
+    	
+    	decimal TotalCost3=(response2.features.Get(0)).properties.router.total_time/3600 * Model.this.Shipment.VehiculeType.CalculatedTimeCost
+		+ (response2.features.Get(0)).properties.router.total_distance/1000 * Model.this.Shipment.VehiculeType.CalculatedDistanceCost;
+    	
+    	if Model.this.Shipment.VehiculeType.AmortizationType=="technical"{
+			TotalCost= TimeCost+DistanceCost+   Model.this.Shipment.VehiculeType.CalculatedOwnershipCost*distance;
+			TotalCost2= TotalCost2+Model.this.Shipment.VehiculeType.CalculatedOwnershipCost*(response2.features.Get(0)).properties.router.total_distance/1000;
+			TotalCost3= TotalCost3+Model.this.Shipment.VehiculeType.CalculatedOwnershipCost*(response3.features.Get(0)).properties.router.total_distance/1000;
+		}else{
+			TotalCost=TimeCost+DistanceCost+   Model.this.Shipment.VehiculeType.CalculatedOwnershipCost*time; 
+			TotalCost2=TotalCost2+Model.this.Shipment.VehiculeType.CalculatedOwnershipCost*(response2.features.Get(0)).properties.router.total_time/3600;
+			TotalCost3=TotalCost3+Model.this.Shipment.VehiculeType.CalculatedOwnershipCost*(response3.features.Get(0)).properties.router.total_time/3600;
+		}
+    	
+    	
+    	TotalCost=TotalCost* (1+Model.this.Shipment.VehiculeType.OverHeadCost/100);
+    	TotalCost2=TotalCost2* (1+Model.this.Shipment.VehiculeType.OverHeadCost/100);
+    	TotalCost3=TotalCost3* (1+Model.this.Shipment.VehiculeType.OverHeadCost/100);
+  
+    	
+    	DebugLib.Logger.WriteErrorLine("TotalCost: "  +TotalCost  + " TotalCost2: " + TotalCost2 + " TotalCost3 : " + TotalCost3);
+    	
+
+    	return TotalCost3/(TotalCost3+TotalCost)*TotalCost2;
+    	
+
+
+}else{
+    
+    return 0;
+}
+
+*/
+}</Operation>
+        <Operation Name="Get_AggregateVolume" Description="" Syntax="" RuleType="Default" EventName="" ApplyToAttribute="" BaseInfo="" IsStatic="false" IsInherited="false" IsExternal="true">function decimal Get_AggregateVolume() 
+{
+	decimal TotalVolume;
+	foreach Domain.CustomVolume i in this.PlannedVolume {
+		TotalVolume= TotalVolume + i.VolumeComposition.First().VolumeComponent.StandardVolume*i.VolumeComposition.First().Units;
+	}
+	DebugLib.Logger.WriteErrorLine("Agregate " + TotalVolume);        
+	return TotalVolume;
+}</Operation>
+        <Operation Name="ChangeStatus" Description="" Syntax="" RuleType="Default" EventName="" ApplyToAttribute="" BaseInfo="" IsStatic="false" IsInherited="false" IsExternal="true">function void ChangeStatus(string Status, string Description, int Limit) 
+{
+	Domain.StatusEvolution newStatus;
+ 	newStatus.Status = Domain.Status.Find(a=&gt; a.Code==Status).First();
+ 	newStatus.TimeChanged = DateTime.Now();
+ 	newStatus.User= AppLib.Session.GetCurrentUserName();
+ 	newStatus.Description= Description;
+
+	foreach Domain.StatusRule i in Domain.StatusRule.Find(a=&gt; a.Status.Code==Status &amp;&amp; (a.Shipper==null || a.Shipper==this.Shipper )
+		&amp;&amp;(a.Carrier==null || a.Carrier==this.Carrier )){
+		if (Limit!=null &amp;&amp; Limit&gt;i.Limit){
+			DebugLib.Logger.WriteErrorLine("working");
+			if (i.ForcedStatus!= null){
+				newStatus.Status = i.ForcedStatus;
+				
+			}
+		}
+	}
+	
+
+    
+ 	this.StatusEvolution.Add(newStatus);
+
+}</Operation>
+      </Operations>
+    </Class>
+    <Class ModelName="ActionsBO" Name="ShipmentStatus" ShadowModel="" ShadowClass="" Description="" Stereotype="Class" PK="Id" ConcurencyControl="true" AutoAssignPrimaryKey="true" IdGeneratorType="HiLoGenerator" IsPersisted="true" IsStatic="false" BaseClass="" BaseClasses="" BaseModel="">
+      <DiagramInfo IsExpanded="true" Width="219.734375" Height="190" Top="427.411987304688" Left="628.627990722656" />
+      <Attributes>
+        <Attribute Name="Id" IsValueClass="false" Description="" DataType="int" BaseInfo="" Length="100" Precision="8" Scale="2" InitValue="" IsRequired="false" IsInherited="false" Persisted="true" IsEncrypted="false" IsStatic="false" ReadOnly="false" IsExternal="false" CustomValidation="" IsCreditCard="false" IsURL="false" IsEmail="false" MinLength="0" MaxLength="100" MinValue="" MaxValue="" Getter="" Setter="" />
+        <Attribute Name="TimeReported" IsValueClass="false" Description="" DataType="DateTime" BaseInfo="" Length="100" Precision="8" Scale="2" InitValue="" IsRequired="false" IsInherited="false" Persisted="true" IsEncrypted="false" IsStatic="false" ReadOnly="false" IsExternal="false" CustomValidation="" IsCreditCard="false" IsURL="false" IsEmail="false" MinLength="0" MaxLength="100" MinValue="" MaxValue="" Getter="" Setter="" />
+        <Attribute Name="Description" IsValueClass="false" Description="" DataType="string" BaseInfo="" Length="100" Precision="8" Scale="2" InitValue="" IsRequired="false" IsInherited="false" Persisted="true" IsEncrypted="false" IsStatic="false" ReadOnly="false" IsExternal="false" CustomValidation="" IsCreditCard="false" IsURL="false" IsEmail="false" MinLength="0" MaxLength="100" MinValue="" MaxValue="" Getter="" Setter="" />
+        <Attribute Name="User" IsValueClass="false" Description="" DataType="string" BaseInfo="" Length="100" Precision="8" Scale="2" InitValue="" IsRequired="false" IsInherited="false" Persisted="true" IsEncrypted="false" IsStatic="false" ReadOnly="false" IsExternal="false" CustomValidation="" IsCreditCard="false" IsURL="false" IsEmail="false" MinLength="0" MaxLength="100" MinValue="" MaxValue="" Getter="" Setter="" />
+      </Attributes>
+      <Operations />
+    </Class>
+    <Class ModelName="UtilsBO" Name="Status" ShadowModel="UtilsBO" ShadowClass="Status" Description="" Stereotype="Class" PK="Id" ConcurencyControl="true" AutoAssignPrimaryKey="true" IdGeneratorType="HiLoGenerator" IsPersisted="true" IsStatic="false" BaseClass="" BaseClasses="" BaseModel="">
+      <DiagramInfo IsExpanded="true" Width="199.84375" Height="180" Top="179.530029296875" Left="701.289978027344" />
+      <Attributes>
+        <Attribute Name="Id" IsValueClass="false" Description="" DataType="int" BaseInfo="" Length="100" Precision="8" Scale="2" InitValue="" IsRequired="false" IsInherited="false" Persisted="true" IsEncrypted="false" IsStatic="false" ReadOnly="false" IsExternal="false" CustomValidation="" IsCreditCard="false" IsURL="false" IsEmail="false" MinLength="0" MaxLength="100" MinValue="" MaxValue="" Getter="" Setter="" />
+        <Attribute Name="Code" IsValueClass="false" Description="" DataType="string" BaseInfo="" Length="100" Precision="8" Scale="2" InitValue="" IsRequired="false" IsInherited="false" Persisted="true" IsEncrypted="false" IsStatic="false" ReadOnly="false" IsExternal="false" CustomValidation="" IsCreditCard="false" IsURL="false" IsEmail="false" MinLength="0" MaxLength="100" MinValue="" MaxValue="" Getter="" Setter="" />
+        <Attribute Name="Description" IsValueClass="false" Description="" DataType="string" BaseInfo="" Length="100" Precision="8" Scale="2" InitValue="" IsRequired="false" IsInherited="false" Persisted="true" IsEncrypted="false" IsStatic="false" ReadOnly="false" IsExternal="false" CustomValidation="" IsCreditCard="false" IsURL="false" IsEmail="false" MinLength="0" MaxLength="100" MinValue="" MaxValue="" Getter="" Setter="" />
+      </Attributes>
+      <Operations />
+    </Class>
+    <Class ModelName="UtilsBO" Name="Location" ShadowModel="UtilsBO" ShadowClass="Location" Description="" Stereotype="Class" PK="Id" ConcurencyControl="true" AutoAssignPrimaryKey="true" IdGeneratorType="HiLoGenerator" IsPersisted="true" IsStatic="false" BaseClass="" BaseClasses="" BaseModel="">
+      <DiagramInfo IsExpanded="true" Width="194.171875" Height="330" Top="715.289978027344" Left="855.684997558594" />
+      <Attributes>
+        <Attribute Name="Id" IsValueClass="false" Description="" DataType="int" BaseInfo="" Length="100" Precision="8" Scale="2" InitValue="" IsRequired="false" IsInherited="false" Persisted="true" IsEncrypted="false" IsStatic="false" ReadOnly="false" IsExternal="false" CustomValidation="" IsCreditCard="false" IsURL="false" IsEmail="false" MinLength="0" MaxLength="100" MinValue="" MaxValue="" Getter="" Setter="" />
+        <Attribute Name="Name" IsValueClass="false" Description="" DataType="string" BaseInfo="" Length="100" Precision="8" Scale="2" InitValue="" IsRequired="false" IsInherited="false" Persisted="true" IsEncrypted="false" IsStatic="false" ReadOnly="false" IsExternal="false" CustomValidation="" IsCreditCard="false" IsURL="false" IsEmail="false" MinLength="0" MaxLength="100" MinValue="" MaxValue="" Getter="" Setter="" />
+        <Attribute Name="Street" IsValueClass="false" Description="" DataType="string" BaseInfo="" Length="100" Precision="8" Scale="2" InitValue="" IsRequired="false" IsInherited="false" Persisted="true" IsEncrypted="false" IsStatic="false" ReadOnly="false" IsExternal="false" CustomValidation="" IsCreditCard="false" IsURL="false" IsEmail="false" MinLength="0" MaxLength="100" MinValue="" MaxValue="" Getter="" Setter="" />
+        <Attribute Name="City" IsValueClass="false" Description="" DataType="string" BaseInfo="" Length="100" Precision="8" Scale="2" InitValue="" IsRequired="false" IsInherited="false" Persisted="true" IsEncrypted="false" IsStatic="false" ReadOnly="false" IsExternal="false" CustomValidation="" IsCreditCard="false" IsURL="false" IsEmail="false" MinLength="0" MaxLength="100" MinValue="" MaxValue="" Getter="" Setter="" />
+        <Attribute Name="Country" IsValueClass="false" Description="" DataType="string" BaseInfo="" Length="100" Precision="8" Scale="2" InitValue="" IsRequired="false" IsInherited="false" Persisted="true" IsEncrypted="false" IsStatic="false" ReadOnly="false" IsExternal="false" CustomValidation="" IsCreditCard="false" IsURL="false" IsEmail="false" MinLength="0" MaxLength="100" MinValue="" MaxValue="" Getter="" Setter="" />
+        <Attribute Name="Number" IsValueClass="false" Description="" DataType="string" BaseInfo="" Length="100" Precision="8" Scale="2" InitValue="" IsRequired="false" IsInherited="false" Persisted="true" IsEncrypted="false" IsStatic="false" ReadOnly="false" IsExternal="false" CustomValidation="" IsCreditCard="false" IsURL="false" IsEmail="false" MinLength="0" MaxLength="100" MinValue="" MaxValue="" Getter="" Setter="" />
+        <Attribute Name="PostCode" IsValueClass="false" Description="" DataType="string" BaseInfo="" Length="100" Precision="8" Scale="2" InitValue="" IsRequired="false" IsInherited="false" Persisted="true" IsEncrypted="false" IsStatic="false" ReadOnly="false" IsExternal="false" CustomValidation="" IsCreditCard="false" IsURL="false" IsEmail="false" MinLength="0" MaxLength="100" MinValue="" MaxValue="" Getter="" Setter="" />
+        <Attribute Name="Label" IsValueClass="false" Description="" DataType="string" BaseInfo="" Length="100" Precision="8" Scale="2" InitValue="" IsRequired="false" IsInherited="false" Persisted="true" IsEncrypted="false" IsStatic="false" ReadOnly="false" IsExternal="false" CustomValidation="" IsCreditCard="false" IsURL="false" IsEmail="false" MinLength="0" MaxLength="100" MinValue="" MaxValue="" Getter="" Setter="" />
+      </Attributes>
+      <Operations />
+    </Class>
+    <Class ModelName="Driver" Name="Driver" ShadowModel="Driver" ShadowClass="Driver" Description="" Stereotype="Class" PK="UserName" ConcurencyControl="true" AutoAssignPrimaryKey="false" IdGeneratorType="HiLoGenerator" IsPersisted="true" IsStatic="false" BaseClass="ApplicationUser" BaseClasses="ApplicationUser" BaseModel="ApplicationSystemBO">
+      <DiagramInfo IsExpanded="true" Width="294.359375" Height="590" Top="7.72998046875" Left="131.482002258301" />
+      <Attributes>
+        <Attribute Name="UserName" IsValueClass="false" Description="" DataType="string" BaseInfo="ApplicationSystemBO:ApplicationUser" Length="256" Precision="8" Scale="2" InitValue="" IsRequired="true" IsInherited="true" Persisted="true" IsEncrypted="false" IsStatic="false" ReadOnly="false" IsExternal="false" CustomValidation="" IsCreditCard="false" IsURL="false" IsEmail="false" MinLength="0" MaxLength="100" MinValue="" MaxValue="" Getter="" Setter="" />
+        <Attribute Name="PasswordHash" IsValueClass="false" Description="" DataType="string" BaseInfo="ApplicationSystemBO:ApplicationUser" Length="2147483647" Precision="2" Scale="2" InitValue="" IsRequired="false" IsInherited="true" Persisted="true" IsEncrypted="false" IsStatic="false" ReadOnly="false" IsExternal="false" CustomValidation="" IsCreditCard="false" IsURL="false" IsEmail="false" MinLength="0" MaxLength="100" MinValue="" MaxValue="" Getter="" Setter="" />
+        <Attribute Name="SecurityStamp" IsValueClass="false" Description="" DataType="string" BaseInfo="ApplicationSystemBO:ApplicationUser" Length="2147483647" Precision="2" Scale="2" InitValue="" IsRequired="false" IsInherited="true" Persisted="true" IsEncrypted="false" IsStatic="false" ReadOnly="false" IsExternal="false" CustomValidation="" IsCreditCard="false" IsURL="false" IsEmail="false" MinLength="0" MaxLength="100" MinValue="" MaxValue="" Getter="" Setter="" />
+        <Attribute Name="EmailConfirmed" IsValueClass="false" Description="" DataType="bool" BaseInfo="ApplicationSystemBO:ApplicationUser" Length="100" Precision="2" Scale="2" InitValue="" IsRequired="false" IsInherited="true" Persisted="true" IsEncrypted="false" IsStatic="false" ReadOnly="false" IsExternal="false" CustomValidation="" IsCreditCard="false" IsURL="false" IsEmail="false" MinLength="0" MaxLength="100" MinValue="" MaxValue="" Getter="" Setter="" />
+        <Attribute Name="LockoutEnabled" IsValueClass="false" Description="" DataType="bool" BaseInfo="ApplicationSystemBO:ApplicationUser" Length="100" Precision="2" Scale="2" InitValue="" IsRequired="false" IsInherited="true" Persisted="true" IsEncrypted="false" IsStatic="false" ReadOnly="false" IsExternal="false" CustomValidation="" IsCreditCard="false" IsURL="false" IsEmail="false" MinLength="0" MaxLength="100" MinValue="" MaxValue="" Getter="" Setter="" />
+        <Attribute Name="PhoneNumberConfirmed" IsValueClass="false" Description="" DataType="bool" BaseInfo="ApplicationSystemBO:ApplicationUser" Length="100" Precision="2" Scale="2" InitValue="" IsRequired="false" IsInherited="true" Persisted="true" IsEncrypted="false" IsStatic="false" ReadOnly="false" IsExternal="false" CustomValidation="" IsCreditCard="false" IsURL="false" IsEmail="false" MinLength="0" MaxLength="100" MinValue="" MaxValue="" Getter="" Setter="" />
+        <Attribute Name="TwoFactorEnabled" IsValueClass="false" Description="" DataType="bool" BaseInfo="ApplicationSystemBO:ApplicationUser" Length="100" Precision="2" Scale="2" InitValue="" IsRequired="false" IsInherited="true" Persisted="true" IsEncrypted="false" IsStatic="false" ReadOnly="false" IsExternal="false" CustomValidation="" IsCreditCard="false" IsURL="false" IsEmail="false" MinLength="0" MaxLength="100" MinValue="" MaxValue="" Getter="" Setter="" />
+        <Attribute Name="AccessFailedCount" IsValueClass="false" Description="" DataType="int" BaseInfo="ApplicationSystemBO:ApplicationUser" Length="100" Precision="2" Scale="2" InitValue="" IsRequired="false" IsInherited="true" Persisted="true" IsEncrypted="false" IsStatic="false" ReadOnly="false" IsExternal="false" CustomValidation="" IsCreditCard="false" IsURL="false" IsEmail="false" MinLength="0" MaxLength="100" MinValue="" MaxValue="" Getter="" Setter="" />
+        <Attribute Name="Name" IsValueClass="false" Description="" DataType="string" BaseInfo="ApplicationSystemBO:ApplicationUser" Length="256" Precision="2" Scale="2" InitValue="" IsRequired="false" IsInherited="true" Persisted="true" IsEncrypted="false" IsStatic="false" ReadOnly="false" IsExternal="false" CustomValidation="" IsCreditCard="false" IsURL="false" IsEmail="false" MinLength="0" MaxLength="100" MinValue="" MaxValue="" Getter="" Setter="" />
+        <Attribute Name="Email" IsValueClass="false" Description="" DataType="string" BaseInfo="ApplicationSystemBO:ApplicationUser" Length="255" Precision="8" Scale="2" InitValue="" IsRequired="false" IsInherited="true" Persisted="true" IsEncrypted="false" IsStatic="false" ReadOnly="false" IsExternal="false" CustomValidation="" IsCreditCard="false" IsURL="false" IsEmail="false" MinLength="0" MaxLength="100" MinValue="" MaxValue="" Getter="" Setter="" />
+        <Attribute Name="PhoneNumber" IsValueClass="false" Description="" DataType="string" BaseInfo="ApplicationSystemBO:ApplicationUser" Length="255" Precision="8" Scale="2" InitValue="" IsRequired="false" IsInherited="true" Persisted="true" IsEncrypted="false" IsStatic="false" ReadOnly="false" IsExternal="false" CustomValidation="" IsCreditCard="false" IsURL="false" IsEmail="false" MinLength="0" MaxLength="100" MinValue="" MaxValue="" Getter="" Setter="" />
+        <Attribute Name="LockoutEndDate" IsValueClass="false" Description="" DataType="DateTime" BaseInfo="ApplicationSystemBO:ApplicationUser" Length="100" Precision="2" Scale="2" InitValue="" IsRequired="false" IsInherited="true" Persisted="true" IsEncrypted="false" IsStatic="false" ReadOnly="false" IsExternal="false" CustomValidation="" IsCreditCard="false" IsURL="false" IsEmail="false" MinLength="0" MaxLength="100" MinValue="" MaxValue="" Getter="" Setter="" />
+        <Attribute Name="Id" IsValueClass="false" Description="" DataType="int" BaseInfo="" Length="100" Precision="8" Scale="2" InitValue="" IsRequired="false" IsInherited="false" Persisted="true" IsEncrypted="false" IsStatic="false" ReadOnly="false" IsExternal="false" CustomValidation="" IsCreditCard="false" IsURL="false" IsEmail="false" MinLength="0" MaxLength="100" MinValue="" MaxValue="" Getter="" Setter="" />
+      </Attributes>
+      <Operations>
+        <Operation Name="IsInRole" Description="" Syntax="" RuleType="Default" EventName="" ApplyToAttribute="" BaseInfo="ApplicationSystemBO:ApplicationUser" IsStatic="false" IsInherited="true" IsExternal="true">function bool IsInRole(string roleName)
+{
+	return this.Roles.Any(r =&gt; r.Name == roleName);
+}            </Operation>
+        <Operation Name="HasPermission" Description="" Syntax="" RuleType="Default" EventName="" ApplyToAttribute="" BaseInfo="ApplicationSystemBO:ApplicationUser" IsStatic="false" IsInherited="true" IsExternal="true">function bool HasPermission(string permission)
+{
+  bool hasPermissionfromRoles = this.Roles.Any(rr =&gt; rr.Permissions.Any(pp =&gt; pp.Name == permission));
+	return hasPermissionfromRoles || this.Permissions.Any(pp =&gt; pp.Name == permission);
+}            </Operation>
+      </Operations>
+    </Class>
+    <Class ModelName="VolumeBO" Name="CustomVolume" ShadowModel="VolumeBO" ShadowClass="CustomVolume" Description="" Stereotype="Class" PK="Id" ConcurencyControl="true" AutoAssignPrimaryKey="true" IdGeneratorType="HiLoGenerator" IsPersisted="true" IsStatic="false" BaseClass="" BaseClasses="" BaseModel="">
+      <DiagramInfo IsExpanded="true" Width="362.4375" Height="186" Top="1216" Left="295.149993896484" />
+      <Attributes>
+        <Attribute Name="Id" IsValueClass="false" Description="" DataType="int" BaseInfo="" Length="100" Precision="8" Scale="2" InitValue="" IsRequired="false" IsInherited="false" Persisted="true" IsEncrypted="false" IsStatic="false" ReadOnly="false" IsExternal="false" CustomValidation="" IsCreditCard="false" IsURL="false" IsEmail="false" MinLength="0" MaxLength="100" MinValue="" MaxValue="" Getter="" Setter="" />
+        <Attribute Name="Weight" IsValueClass="false" Description="" DataType="decimal" BaseInfo="" Length="100" Precision="8" Scale="2" InitValue="" IsRequired="false" IsInherited="false" Persisted="true" IsEncrypted="false" IsStatic="false" ReadOnly="false" IsExternal="false" CustomValidation="" IsCreditCard="false" IsURL="false" IsEmail="false" MinLength="0" MaxLength="100" MinValue="" MaxValue="" Getter="" Setter="" />
+      </Attributes>
+      <Operations>
+        <Operation Name="Compare" Description="" Syntax="" RuleType="Default" EventName="" ApplyToAttribute="" BaseInfo="" IsStatic="false" IsInherited="false" IsExternal="true">function int Compare(Domain.CustomVolume Volume)
+{
+    int compare=0;
+    
+	for int i = 0; i &lt; this.VolumeComposition.Length; i + 1 {
+		if (this.VolumeComposition.Get(i).Units!=Volume.VolumeComposition.Get(i).Units){
+		    compare=compare+1;
+		}
+		
+	}
+	return compare;
+}</Operation>
+        <Operation Name="CustomCopy" Description="" Syntax="" RuleType="Default" EventName="" ApplyToAttribute="" BaseInfo="" IsStatic="false" IsInherited="false" IsExternal="true">function Domain.CustomVolume CustomCopy()
+{
+	Domain.CustomVolume returnVolume =Domain.CustomVolume.Create();
+	
+	returnVolume.Supplier=this.Supplier;
+	returnVolume.Weight=this.Weight;
+    foreach Domain.VolumeComposition: j in this.VolumeComposition{
+    	Domain.VolumeComposition currentVolume = Domain.VolumeComposition.Create();
+    	currentVolume.Units=j.Units;
+    	currentVolume.VolumeComponent=j.VolumeComponent;
+    	returnVolume.VolumeComposition.Add(currentVolume);
+    	}
+
+	return returnVolume;
+}</Operation>
+      </Operations>
+    </Class>
+    <Class ModelName="UtilsBO" Name="Condition" ShadowModel="UtilsBO" ShadowClass="Condition" Description="" Stereotype="Class" PK="Id" ConcurencyControl="true" AutoAssignPrimaryKey="true" IdGeneratorType="HiLoGenerator" IsPersisted="true" IsStatic="false" BaseClass="" BaseClasses="" BaseModel="">
+      <DiagramInfo IsExpanded="true" Width="199.84375" Height="180" Top="605" Left="1100" />
+      <Attributes>
+        <Attribute Name="Id" IsValueClass="false" Description="" DataType="int" BaseInfo="" Length="100" Precision="8" Scale="2" InitValue="" IsRequired="false" IsInherited="false" Persisted="true" IsEncrypted="false" IsStatic="false" ReadOnly="false" IsExternal="false" CustomValidation="" IsCreditCard="false" IsURL="false" IsEmail="false" MinLength="0" MaxLength="100" MinValue="" MaxValue="" Getter="" Setter="" />
+        <Attribute Name="Description" IsValueClass="false" Description="" DataType="string" BaseInfo="" Length="100" Precision="8" Scale="2" InitValue="" IsRequired="false" IsInherited="false" Persisted="true" IsEncrypted="false" IsStatic="false" ReadOnly="false" IsExternal="false" CustomValidation="" IsCreditCard="false" IsURL="false" IsEmail="false" MinLength="0" MaxLength="100" MinValue="" MaxValue="" Getter="" Setter="" />
+      </Attributes>
+      <Operations />
+    </Class>
+    <Class ModelName="VehiculeBO" Name="Vehicule" ShadowModel="VehiculeBO" ShadowClass="Vehicule" Description="" Stereotype="Class" PK="Id" ConcurencyControl="true" AutoAssignPrimaryKey="true" IdGeneratorType="HiLoGenerator" IsPersisted="true" IsStatic="false" BaseClass="" BaseClasses="" BaseModel="">
+      <DiagramInfo IsExpanded="true" Width="298.75" Height="378" Top="1216" Left="841" />
+      <Attributes>
+        <Attribute Name="Id" IsValueClass="false" Description="" DataType="int" BaseInfo="" Length="100" Precision="8" Scale="2" InitValue="" IsRequired="false" IsInherited="false" Persisted="false" IsEncrypted="false" IsStatic="false" ReadOnly="false" IsExternal="false" CustomValidation="" IsCreditCard="false" IsURL="false" IsEmail="false" MinLength="0" MaxLength="100" MinValue="" MaxValue="" Getter="" Setter="" />
+        <Attribute Name="OverHeadCost" IsValueClass="false" Description="" DataType="decimal" BaseInfo="" Length="100" Precision="8" Scale="2" InitValue="" IsRequired="false" IsInherited="false" Persisted="true" IsEncrypted="false" IsStatic="false" ReadOnly="false" IsExternal="false" CustomValidation="" IsCreditCard="false" IsURL="false" IsEmail="false" MinLength="0" MaxLength="100" MinValue="" MaxValue="" Getter="" Setter="" />
+        <Attribute Name="CalculatedTimeCost" IsValueClass="false" Description="" DataType="decimal" BaseInfo="" Length="100" Precision="8" Scale="2" InitValue="" IsRequired="false" IsInherited="false" Persisted="true" IsEncrypted="false" IsStatic="false" ReadOnly="false" IsExternal="false" CustomValidation="" IsCreditCard="false" IsURL="false" IsEmail="false" MinLength="0" MaxLength="100" MinValue="" MaxValue="" Getter="" Setter="" />
+        <Attribute Name="CalculatedDistanceCost" IsValueClass="false" Description="" DataType="decimal" BaseInfo="" Length="100" Precision="8" Scale="2" InitValue="" IsRequired="false" IsInherited="false" Persisted="true" IsEncrypted="false" IsStatic="false" ReadOnly="false" IsExternal="false" CustomValidation="" IsCreditCard="false" IsURL="false" IsEmail="false" MinLength="0" MaxLength="100" MinValue="" MaxValue="" Getter="" Setter="" />
+        <Attribute Name="CalculatedOwnershipCost" IsValueClass="false" Description="" DataType="decimal" BaseInfo="" Length="100" Precision="8" Scale="2" InitValue="" IsRequired="false" IsInherited="false" Persisted="true" IsEncrypted="false" IsStatic="false" ReadOnly="false" IsExternal="false" CustomValidation="" IsCreditCard="false" IsURL="false" IsEmail="false" MinLength="0" MaxLength="100" MinValue="" MaxValue="" Getter="" Setter="" />
+        <Attribute Name="VehiculeType" IsValueClass="false" Description="" DataType="string" BaseInfo="" Length="100" Precision="8" Scale="2" InitValue="" IsRequired="false" IsInherited="false" Persisted="true" IsEncrypted="false" IsStatic="false" ReadOnly="false" IsExternal="false" CustomValidation="" IsCreditCard="false" IsURL="false" IsEmail="false" MinLength="0" MaxLength="100" MinValue="" MaxValue="" Getter="" Setter="" />
+        <Attribute Name="Volume" IsValueClass="false" Description="" DataType="string" BaseInfo="" Length="100" Precision="8" Scale="2" InitValue="" IsRequired="false" IsInherited="false" Persisted="true" IsEncrypted="false" IsStatic="false" ReadOnly="false" IsExternal="false" CustomValidation="" IsCreditCard="false" IsURL="false" IsEmail="false" MinLength="0" MaxLength="100" MinValue="" MaxValue="" Getter="" Setter="" />
+        <Attribute Name="CO2perKm" IsValueClass="false" Description="" DataType="decimal" BaseInfo="" Length="100" Precision="8" Scale="2" InitValue="" IsRequired="false" IsInherited="false" Persisted="true" IsEncrypted="false" IsStatic="false" ReadOnly="false" IsExternal="false" CustomValidation="" IsCreditCard="false" IsURL="false" IsEmail="false" MinLength="0" MaxLength="100" MinValue="" MaxValue="" Getter="" Setter="" />
+      </Attributes>
+      <Operations />
+    </Class>
+    <Class ModelName="ActionsBO" Name="Point" ShadowModel="" ShadowClass="" Description="" Stereotype="Class" PK="Id" ConcurencyControl="true" AutoAssignPrimaryKey="true" IdGeneratorType="HiLoGenerator" IsPersisted="true" IsStatic="false" BaseClass="" BaseClasses="" BaseModel="">
+      <DiagramInfo IsExpanded="true" Width="218.84375" Height="190" Top="939" Left="1202" />
+      <Attributes>
+        <Attribute Name="Id" IsValueClass="false" Description="" DataType="int" BaseInfo="" Length="100" Precision="8" Scale="2" InitValue="" IsRequired="false" IsInherited="false" Persisted="true" IsEncrypted="false" IsStatic="false" ReadOnly="false" IsExternal="false" CustomValidation="" IsCreditCard="false" IsURL="false" IsEmail="false" MinLength="0" MaxLength="100" MinValue="" MaxValue="" Getter="" Setter="" />
+        <Attribute Name="LocId" IsValueClass="false" Description="" DataType="int" BaseInfo="" Length="100" Precision="8" Scale="2" InitValue="" IsRequired="false" IsInherited="false" Persisted="true" IsEncrypted="false" IsStatic="false" ReadOnly="false" IsExternal="false" CustomValidation="" IsCreditCard="false" IsURL="false" IsEmail="false" MinLength="0" MaxLength="100" MinValue="" MaxValue="" Getter="" Setter="" />
+        <Attribute Name="Time" IsValueClass="false" Description="" DataType="int" BaseInfo="" Length="100" Precision="8" Scale="2" InitValue="" IsRequired="false" IsInherited="false" Persisted="true" IsEncrypted="false" IsStatic="false" ReadOnly="false" IsExternal="false" CustomValidation="" IsCreditCard="false" IsURL="false" IsEmail="false" MinLength="0" MaxLength="100" MinValue="" MaxValue="" Getter="" Setter="" />
+        <Attribute Name="Distance" IsValueClass="false" Description="" DataType="int" BaseInfo="" Length="100" Precision="8" Scale="2" InitValue="" IsRequired="false" IsInherited="false" Persisted="true" IsEncrypted="false" IsStatic="false" ReadOnly="false" IsExternal="false" CustomValidation="" IsCreditCard="false" IsURL="false" IsEmail="false" MinLength="0" MaxLength="100" MinValue="" MaxValue="" Getter="" Setter="" />
+        <Attribute Name="CurrentLoad" IsValueClass="false" Description="" DataType="decimal" BaseInfo="" Length="100" Precision="8" Scale="2" InitValue="" IsRequired="false" IsInherited="false" Persisted="true" IsEncrypted="false" IsStatic="false" ReadOnly="false" IsExternal="false" CustomValidation="" IsCreditCard="false" IsURL="false" IsEmail="false" MinLength="0" MaxLength="100" MinValue="" MaxValue="" Getter="" Setter="" />
+      </Attributes>
+      <Operations>
+        <Operation Name="GetLocation" Description="" Syntax="" RuleType="Default" EventName="" ApplyToAttribute="" BaseInfo="" IsStatic="false" IsInherited="false" IsExternal="false">function Domain.Location GetLocation() 
+{
+	return Domain.Location.GetByKey(this.LocId);
+}</Operation>
+      </Operations>
+    </Class>
+  </Classes>
+  <Resources />
+</BusinessObject>

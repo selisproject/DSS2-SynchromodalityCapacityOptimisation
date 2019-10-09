@@ -1,0 +1,71 @@
+<!--
+Copyright (c) CLMS. All rights reserved.
+Licensed under the AGPL-3.0 license. See LICENSE file in the project root for full license information.-->
+
+<ExternalApi DateCreated="" Model_Name="Mapotempo" Model_Description="" Version="">
+  <Endpoint TransportType="HTTP" ProtocolType="REST">
+    <Security SecurityType="None" />
+    <Class Name="MapotempoRoot" OriginalName="MapotempoRoot" Description="" Namespace="" BaseClass="" IsEnum="false">
+      <Attribute Name="type" OriginalName="" Description="" Datatype="string" Length="0" IsPrimary="false" OriginalDataType="" />
+      <Attribute Name="geocoding" OriginalName="" Description="" Datatype="Interfaces.Mapotempo.geocoding" Length="0" IsPrimary="false" OriginalDataType="" />
+      <Attribute Name="features" OriginalName="" Description="" Datatype="Array[Interfaces.Mapotempo.features]" Length="0" IsPrimary="false" OriginalDataType="" />
+    </Class>
+    <Class Name="geocoding" OriginalName="geocoding" Description="" Namespace="" BaseClass="" IsEnum="false">
+      <Attribute Name="version" OriginalName="" Description="" Datatype="string" Length="0" IsPrimary="false" OriginalDataType="" />
+      <Attribute Name="licence" OriginalName="" Description="" Datatype="string" Length="0" IsPrimary="false" OriginalDataType="" />
+      <Attribute Name="attribution" OriginalName="" Description="" Datatype="string" Length="0" IsPrimary="false" OriginalDataType="" />
+      <Attribute Name="query" OriginalName="" Description="" Datatype="string" Length="0" IsPrimary="false" OriginalDataType="" />
+    </Class>
+    <Class Name="features" OriginalName="features" Description="" Namespace="" BaseClass="" IsEnum="false">
+      <Attribute Name="properties" OriginalName="" Description="" Datatype="Interfaces.Mapotempo.properties" Length="0" IsPrimary="false" OriginalDataType="" />
+      <Attribute Name="type" OriginalName="" Description="" Datatype="string" Length="0" IsPrimary="false" OriginalDataType="" />
+      <Attribute Name="geometry" OriginalName="" Description="" Datatype="Interfaces.Mapotempo.geometry" Length="0" IsPrimary="false" OriginalDataType="" />
+    </Class>
+    <Class Name="properties" OriginalName="properties" Description="" Namespace="" BaseClass="" IsEnum="false">
+      <Attribute Name="geocoding" OriginalName="" Description="" Datatype="Interfaces.Mapotempo.propertiesGeocoding" Length="0" IsPrimary="false" OriginalDataType="" />
+    </Class>
+    <Class Name="propertiesGeocoding" OriginalName="propertiesGeocoding" Description="" Namespace="" BaseClass="" IsEnum="false">
+      <Attribute Name="score" OriginalName="" Description="" Datatype="float" Length="0" IsPrimary="false" OriginalDataType="" />
+      <Attribute Name="type" OriginalName="" Description="" Datatype="string" Length="0" IsPrimary="false" OriginalDataType="" />
+      <Attribute Name="label" OriginalName="" Description="" Datatype="string" Length="0" IsPrimary="false" OriginalDataType="" />
+      <Attribute Name="postcode" OriginalName="" Description="" Datatype="string" Length="0" IsPrimary="false" OriginalDataType="" />
+      <Attribute Name="city" OriginalName="" Description="" Datatype="string" Length="0" IsPrimary="false" OriginalDataType="" />
+      <Attribute Name="county" OriginalName="" Description="" Datatype="string" Length="0" IsPrimary="false" OriginalDataType="" />
+      <Attribute Name="state" OriginalName="" Description="" Datatype="string" Length="0" IsPrimary="false" OriginalDataType="" />
+      <Attribute Name="country" OriginalName="" Description="" Datatype="string" Length="0" IsPrimary="false" OriginalDataType="" />
+      <Attribute Name="housenumber" OriginalName="" Description="" Datatype="string" Length="0" IsPrimary="false" OriginalDataType="" />
+      <Attribute Name="street" OriginalName="" Description="" Datatype="string" Length="0" IsPrimary="false" OriginalDataType="" />
+    </Class>
+    <Class Name="geometry" OriginalName="geometry" Description="" Namespace="" BaseClass="" IsEnum="false">
+      <Attribute Name="coordinates" OriginalName="" Description="" Datatype="Array[float]" Length="0" IsPrimary="false" OriginalDataType="" />
+      <Attribute Name="type" OriginalName="" Description="" Datatype="string" Length="0" IsPrimary="false" OriginalDataType="" />
+    </Class>
+    <Operation Name="geocode" Description="" Datatype="Interfaces.Mapotempo.MapotempoRoot" OriginalName="" ClientType="" IsStatic="false" AccessLog="false" Verb="GET" Text="" ContentType="JSON" Route="geocode" Notes="" UserDefinedUrlMethod="false">
+      <Parameters>
+        <Parameter Name="country" DataType="string" IsRef="False" IsOut="False" DefaultValue="" Notes="" Type="QueryParameter" Alias="" />
+        <Parameter Name="street" DataType="string" IsRef="False" IsOut="False" DefaultValue="" Notes="" Type="QueryParameter" Alias="" />
+        <Parameter Name="postcode" DataType="string" IsRef="False" IsOut="False" DefaultValue="" Notes="" Type="QueryParameter" Alias="" />
+        <Parameter Name="city" DataType="string" IsRef="False" IsOut="False" DefaultValue="" Notes="" Type="QueryParameter" Alias="" />
+        <Parameter Name="housenumber" DataType="string" IsRef="False" IsOut="False" DefaultValue="" Notes="" Type="QueryParameter" Alias="" />
+        <Parameter Name="api_key" DataType="string" IsRef="False" IsOut="False" DefaultValue="" Notes="" Type="QueryParameter" Alias="" />
+      </Parameters>
+      <Headers>
+        <Header Name="Accept" Value="&quot;application/json&quot;" />
+      </Headers>
+      <GetUrlMethod>return null;</GetUrlMethod>
+      <CachingOptions CachePerUser="false" OperationIsCached="false" OverrideDefaultCachingSettings="false" UseCustomExpirationMethod="false" ExpirationDays="0" ExpirationHours="0" ExpirationMinutes="3" ExpirationSeconds="0" ExpirationMilliseconds="0" CacheMode="None">function TimeSpan Expiration(
+	string country,
+	string street,
+	string postcode,
+	string city,
+	string housenumber,
+	string api_key,
+	Interfaces.Mapotempo.MapotempoRoot response
+)
+{ 
+	 return CommonLib.Utilities.CreateTimeSpan(0, 1, 0); 
+}</CachingOptions>
+    </Operation>
+  </Endpoint>
+  <RestEndpointDetails BaseUrl="https://geocode.mapotempo.com/0.1/" IgnoringNullFields="false" />
+</ExternalApi>

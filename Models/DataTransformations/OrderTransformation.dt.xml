@@ -1,0 +1,788 @@
+<!--
+Copyright (c) CLMS. All rights reserved.
+Licensed under the AGPL-3.0 license. See LICENSE file in the project root for full license information.-->
+
+<DataTransformation DateCreated="" Model_Name="OrderTransformation" Model_Description="" Version="">
+  <Transformation Name="OrderWMS_To_OrderDTO" LeftToRightPostProcess="false" RightToLeftPostProcess="false" LeftToRightPreProcess="false" RightToLeftPreProcess="false">
+    <Left>
+      <Struct Name="OrderWMS" PropertyName="" ParentModel="" ParentModelId="0" DataType="Domain.OrderWMS" OriginalDataType="Domain.OrderWMS" IsPrimitive="false" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Left" Path="OrderWMS" IsEnum="false">
+        <Attributes>
+          <Struct Name="Id" PropertyName="Id" ParentModel="" ParentModelId="0" DataType="int" OriginalDataType="int" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Left" Path="OrderWMS.Id" IsEnum="false" />
+          <Struct Name="OrdID" PropertyName="OrdID" ParentModel="" ParentModelId="0" DataType="int" OriginalDataType="int" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Left" Path="OrderWMS.OrdID" IsEnum="false" />
+          <Struct Name="OrdOrderID_Remote" PropertyName="OrdOrderID_Remote" ParentModel="" ParentModelId="0" DataType="int" OriginalDataType="int" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Left" Path="OrderWMS.OrdOrderID_Remote" IsEnum="false" />
+          <Struct Name="OrdOrderExternalCode" PropertyName="OrdOrderExternalCode" ParentModel="" ParentModelId="0" DataType="string" OriginalDataType="string" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Left" Path="OrderWMS.OrdOrderExternalCode" IsEnum="false" />
+          <Struct Name="OrdOrderDescr" PropertyName="OrdOrderDescr" ParentModel="" ParentModelId="0" DataType="string" OriginalDataType="string" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Left" Path="OrderWMS.OrdOrderDescr" IsEnum="false" />
+          <Struct Name="OrdRegDateTime" PropertyName="OrdRegDateTime" ParentModel="" ParentModelId="0" DataType="DateTime" OriginalDataType="DateTime" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Left" Path="OrderWMS.OrdRegDateTime" IsEnum="false" />
+          <Struct Name="OrdDateTime" PropertyName="OrdDateTime" ParentModel="" ParentModelId="0" DataType="DateTime" OriginalDataType="DateTime" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Left" Path="OrderWMS.OrdDateTime" IsEnum="false" />
+          <Struct Name="OrdDeliveryDateTime" PropertyName="OrdDeliveryDateTime" ParentModel="" ParentModelId="0" DataType="DateTime" OriginalDataType="DateTime" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Left" Path="OrderWMS.OrdDeliveryDateTime" IsEnum="false" />
+          <Struct Name="OrdDepositorCode" PropertyName="OrdDepositorCode" ParentModel="" ParentModelId="0" DataType="string" OriginalDataType="string" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Left" Path="OrderWMS.OrdDepositorCode" IsEnum="false" />
+          <Struct Name="OrdDepositorFullName" PropertyName="OrdDepositorFullName" ParentModel="" ParentModelId="0" DataType="string" OriginalDataType="string" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Left" Path="OrderWMS.OrdDepositorFullName" IsEnum="false" />
+          <Struct Name="OrdCustomerCode" PropertyName="OrdCustomerCode" ParentModel="" ParentModelId="0" DataType="string" OriginalDataType="string" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Left" Path="OrderWMS.OrdCustomerCode" IsEnum="false" />
+          <Struct Name="OrdCustomerFullName" PropertyName="OrdCustomerFullName" ParentModel="" ParentModelId="0" DataType="string" OriginalDataType="string" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Left" Path="OrderWMS.OrdCustomerFullName" IsEnum="false" />
+          <Struct Name="OrdStatus" PropertyName="OrdStatus" ParentModel="" ParentModelId="0" DataType="int" OriginalDataType="int" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Left" Path="OrderWMS.OrdStatus" IsEnum="false" />
+          <Struct Name="OrdMemo" PropertyName="OrdMemo" ParentModel="" ParentModelId="0" DataType="string" OriginalDataType="string" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Left" Path="OrderWMS.OrdMemo" IsEnum="false" />
+          <Struct Name="OrdPurpose" PropertyName="OrdPurpose" ParentModel="" ParentModelId="0" DataType="string" OriginalDataType="string" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Left" Path="OrderWMS.OrdPurpose" IsEnum="false" />
+          <Struct Name="OrdDeliveryValue" PropertyName="OrdDeliveryValue" ParentModel="" ParentModelId="0" DataType="float" OriginalDataType="float" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Left" Path="OrderWMS.OrdDeliveryValue" IsEnum="false" />
+          <Struct Name="OrdDeliveryNotes" PropertyName="OrdDeliveryNotes" ParentModel="" ParentModelId="0" DataType="string" OriginalDataType="string" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Left" Path="OrderWMS.OrdDeliveryNotes" IsEnum="false" />
+          <Struct Name="OrdIsReturn" PropertyName="OrdIsReturn" ParentModel="" ParentModelId="0" DataType="int" OriginalDataType="int" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Left" Path="OrderWMS.OrdIsReturn" IsEnum="false" />
+          <Struct Name="OrdPrdTypeDescr" PropertyName="OrdPrdTypeDescr" ParentModel="" ParentModelId="0" DataType="string" OriginalDataType="string" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Left" Path="OrderWMS.OrdPrdTypeDescr" IsEnum="false" />
+          <Struct Name="OrdWrhRoutingCode" PropertyName="OrdWrhRoutingCode" ParentModel="" ParentModelId="0" DataType="string" OriginalDataType="string" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Left" Path="OrderWMS.OrdWrhRoutingCode" IsEnum="false" />
+          <Struct Name="OrdDlsId" PropertyName="OrdDlsId" ParentModel="" ParentModelId="0" DataType="int" OriginalDataType="int" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Left" Path="OrderWMS.OrdDlsId" IsEnum="false" />
+          <Struct Name="OrdDlsDescr" PropertyName="OrdDlsDescr" ParentModel="" ParentModelId="0" DataType="string" OriginalDataType="string" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Left" Path="OrderWMS.OrdDlsDescr" IsEnum="false" />
+          <Struct Name="OrdDlsAddress" PropertyName="OrdDlsAddress" ParentModel="" ParentModelId="0" DataType="string" OriginalDataType="string" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Left" Path="OrderWMS.OrdDlsAddress" IsEnum="false" />
+          <Struct Name="OrdDlsZipCode" PropertyName="OrdDlsZipCode" ParentModel="" ParentModelId="0" DataType="string" OriginalDataType="string" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Left" Path="OrderWMS.OrdDlsZipCode" IsEnum="false" />
+          <Struct Name="OrdDlsCity" PropertyName="OrdDlsCity" ParentModel="" ParentModelId="0" DataType="string" OriginalDataType="string" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Left" Path="OrderWMS.OrdDlsCity" IsEnum="false" />
+          <Struct Name="OrdDlsArea" PropertyName="OrdDlsArea" ParentModel="" ParentModelId="0" DataType="string" OriginalDataType="string" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Left" Path="OrderWMS.OrdDlsArea" IsEnum="false" />
+          <Struct Name="OrdRoutingStatus" PropertyName="OrdRoutingStatus" ParentModel="" ParentModelId="0" DataType="int" OriginalDataType="int" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Left" Path="OrderWMS.OrdRoutingStatus" IsEnum="false" />
+          <Struct Name="OrdLfdWeight" PropertyName="OrdLfdWeight" ParentModel="" ParentModelId="0" DataType="float" OriginalDataType="float" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Left" Path="OrderWMS.OrdLfdWeight" IsEnum="false" />
+          <Struct Name="OrdLfdVol" PropertyName="OrdLfdVol" ParentModel="" ParentModelId="0" DataType="float" OriginalDataType="float" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Left" Path="OrderWMS.OrdLfdVol" IsEnum="false" />
+          <Struct Name="OrdLfdCtn" PropertyName="OrdLfdCtn" ParentModel="" ParentModelId="0" DataType="int" OriginalDataType="int" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Left" Path="OrderWMS.OrdLfdCtn" IsEnum="false" />
+          <Struct Name="OrdLfdBar" PropertyName="OrdLfdBar" ParentModel="" ParentModelId="0" DataType="int" OriginalDataType="int" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Left" Path="OrderWMS.OrdLfdBar" IsEnum="false" />
+          <Struct Name="OrdLfdPalEuro" PropertyName="OrdLfdPalEuro" ParentModel="" ParentModelId="0" DataType="int" OriginalDataType="int" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Left" Path="OrderWMS.OrdLfdPalEuro" IsEnum="false" />
+          <Struct Name="OrdLfdPalInd" PropertyName="OrdLfdPalInd" ParentModel="" ParentModelId="0" DataType="int" OriginalDataType="int" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Left" Path="OrderWMS.OrdLfdPalInd" IsEnum="false" />
+          <Struct Name="OrdLfdPalElsa" PropertyName="OrdLfdPalElsa" ParentModel="" ParentModelId="0" DataType="int" OriginalDataType="int" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Left" Path="OrderWMS.OrdLfdPalElsa" IsEnum="false" />
+          <Struct Name="OrdLfdParOU" PropertyName="OrdLfdParOU" ParentModel="" ParentModelId="0" DataType="int" OriginalDataType="int" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Left" Path="OrderWMS.OrdLfdParOU" IsEnum="false" />
+          <Struct Name="OrdLfdVar" PropertyName="OrdLfdVar" ParentModel="" ParentModelId="0" DataType="int" OriginalDataType="int" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Left" Path="OrderWMS.OrdLfdVar" IsEnum="false" />
+          <Struct Name="OrdVoucherDateTime" PropertyName="OrdVoucherDateTime" ParentModel="" ParentModelId="0" DataType="DateTime" OriginalDataType="DateTime" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Left" Path="OrderWMS.OrdVoucherDateTime" IsEnum="false" />
+          <Struct Name="OrdVoucherNumber" PropertyName="OrdVoucherNumber" ParentModel="" ParentModelId="0" DataType="string" OriginalDataType="string" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Left" Path="OrderWMS.OrdVoucherNumber" IsEnum="false" />
+          <Struct Name="OrdVoucherSeries" PropertyName="OrdVoucherSeries" ParentModel="" ParentModelId="0" DataType="string" OriginalDataType="string" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Left" Path="OrderWMS.OrdVoucherSeries" IsEnum="false" />
+          <Struct Name="OrdVoucherId" PropertyName="OrdVoucherId" ParentModel="" ParentModelId="0" DataType="int" OriginalDataType="int" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Left" Path="OrderWMS.OrdVoucherId" IsEnum="false" />
+          <Struct Name="OrdAgencyCode" PropertyName="OrdAgencyCode" ParentModel="" ParentModelId="0" DataType="string" OriginalDataType="string" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Left" Path="OrderWMS.OrdAgencyCode" IsEnum="false" />
+          <Struct Name="OrdAgencyDescr" PropertyName="OrdAgencyDescr" ParentModel="" ParentModelId="0" DataType="string" OriginalDataType="string" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Left" Path="OrderWMS.OrdAgencyDescr" IsEnum="false" />
+          <Struct Name="OrdAgencyAddress" PropertyName="OrdAgencyAddress" ParentModel="" ParentModelId="0" DataType="string" OriginalDataType="string" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Left" Path="OrderWMS.OrdAgencyAddress" IsEnum="false" />
+          <Struct Name="OrdTelRouteId" PropertyName="OrdTelRouteId" ParentModel="" ParentModelId="0" DataType="long" OriginalDataType="long" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Left" Path="OrderWMS.OrdTelRouteId" IsEnum="false" />
+          <Struct Name="OrdVchPlateNr" PropertyName="OrdVchPlateNr" ParentModel="" ParentModelId="0" DataType="string" OriginalDataType="string" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Left" Path="OrderWMS.OrdVchPlateNr" IsEnum="false" />
+          <Struct Name="OrdVchRouteNr" PropertyName="OrdVchRouteNr" ParentModel="" ParentModelId="0" DataType="int" OriginalDataType="int" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Left" Path="OrderWMS.OrdVchRouteNr" IsEnum="false" />
+          <Struct Name="OrdVhrDate" PropertyName="OrdVhrDate" ParentModel="" ParentModelId="0" DataType="DateTime" OriginalDataType="DateTime" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Left" Path="OrderWMS.OrdVhrDate" IsEnum="false" />
+          <Struct Name="OrdVhrID" PropertyName="OrdVhrID" ParentModel="" ParentModelId="0" DataType="long" OriginalDataType="long" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Left" Path="OrderWMS.OrdVhrID" IsEnum="false" />
+          <Struct Name="OrdLastUpdateDateTime" PropertyName="OrdLastUpdateDateTime" ParentModel="" ParentModelId="0" DataType="DateTime" OriginalDataType="DateTime" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Left" Path="OrderWMS.OrdLastUpdateDateTime" IsEnum="false" />
+          <Struct Name="OrdReadyForLoading" PropertyName="OrdReadyForLoading" ParentModel="" ParentModelId="0" DataType="int" OriginalDataType="int" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Left" Path="OrderWMS.OrdReadyForLoading" IsEnum="false" />
+          <Struct Name="OrdStatusString" PropertyName="OrdStatusString" ParentModel="" ParentModelId="0" DataType="string" OriginalDataType="string" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Left" Path="OrderWMS.OrdStatusString" IsEnum="false" />
+          <Struct Name="Polyline" PropertyName="Polyline" ParentModel="" ParentModelId="0" DataType="string" OriginalDataType="string" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Left" Path="OrderWMS.Polyline" IsEnum="false" />
+          <Struct Name="Warehouse" PropertyName="Warehouse" ParentModel="" ParentModelId="0" DataType="string" OriginalDataType="string" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Left" Path="OrderWMS.Warehouse" IsEnum="false" />
+          <Struct Name="Truck" PropertyName="Truck" ParentModel="" ParentModelId="0" DataType="string" OriginalDataType="string" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Left" Path="OrderWMS.Truck" IsEnum="false" />
+          <Struct Name="WarehouseAddress" PropertyName="WarehouseAddress" ParentModel="" ParentModelId="0" DataType="string" OriginalDataType="string" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Left" Path="OrderWMS.WarehouseAddress" IsEnum="false" />
+          <Struct Name="ETA" PropertyName="ETA" ParentModel="" ParentModelId="0" DataType="string" OriginalDataType="string" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Left" Path="OrderWMS.ETA" IsEnum="false" />
+          <Struct Name="ATA" PropertyName="ATA" ParentModel="" ParentModelId="0" DataType="DateTime" OriginalDataType="DateTime" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Left" Path="OrderWMS.ATA" IsEnum="false" />
+          <Struct Name="DestLat" PropertyName="DestLat" ParentModel="" ParentModelId="0" DataType="float" OriginalDataType="float" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Left" Path="OrderWMS.DestLat" IsEnum="false" />
+          <Struct Name="DestLong" PropertyName="DestLong" ParentModel="" ParentModelId="0" DataType="float" OriginalDataType="float" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Left" Path="OrderWMS.DestLong" IsEnum="false" />
+          <Struct Name="COE" PropertyName="COE" ParentModel="" ParentModelId="0" DataType="float" OriginalDataType="float" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Left" Path="OrderWMS.COE" IsEnum="false" />
+        </Attributes>
+      </Struct>
+    </Left>
+    <Right>
+      <Struct Name="OrderDTO" PropertyName="" ParentModel="" ParentModelId="0" DataType="Domain.OrderDTO" OriginalDataType="Domain.OrderDTO" IsPrimitive="false" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Right" Path="OrderDTO" IsEnum="false">
+        <Attributes>
+          <Struct Name="OrdID" PropertyName="OrdID" ParentModel="" ParentModelId="0" DataType="int" OriginalDataType="int" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Right" Path="OrderDTO.OrdID" IsEnum="false" />
+          <Struct Name="OrdOrderID_Remote" PropertyName="OrdOrderID_Remote" ParentModel="" ParentModelId="0" DataType="int" OriginalDataType="int" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Right" Path="OrderDTO.OrdOrderID_Remote" IsEnum="false" />
+          <Struct Name="OrdOrderExternalCode" PropertyName="OrdOrderExternalCode" ParentModel="" ParentModelId="0" DataType="string" OriginalDataType="string" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Right" Path="OrderDTO.OrdOrderExternalCode" IsEnum="false" />
+          <Struct Name="OrdOrderDescr" PropertyName="OrdOrderDescr" ParentModel="" ParentModelId="0" DataType="string" OriginalDataType="string" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Right" Path="OrderDTO.OrdOrderDescr" IsEnum="false" />
+          <Struct Name="OrdRegDateTime" PropertyName="OrdRegDateTime" ParentModel="" ParentModelId="0" DataType="string" OriginalDataType="string" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Right" Path="OrderDTO.OrdRegDateTime" IsEnum="false" />
+          <Struct Name="OrdDateTime" PropertyName="OrdDateTime" ParentModel="" ParentModelId="0" DataType="string" OriginalDataType="string" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Right" Path="OrderDTO.OrdDateTime" IsEnum="false" />
+          <Struct Name="OrdDeliveryDateTime" PropertyName="OrdDeliveryDateTime" ParentModel="" ParentModelId="0" DataType="string" OriginalDataType="string" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Right" Path="OrderDTO.OrdDeliveryDateTime" IsEnum="false" />
+          <Struct Name="OrdDepositorCode" PropertyName="OrdDepositorCode" ParentModel="" ParentModelId="0" DataType="string" OriginalDataType="string" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Right" Path="OrderDTO.OrdDepositorCode" IsEnum="false" />
+          <Struct Name="OrdDepositorFullName" PropertyName="OrdDepositorFullName" ParentModel="" ParentModelId="0" DataType="string" OriginalDataType="string" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Right" Path="OrderDTO.OrdDepositorFullName" IsEnum="false" />
+          <Struct Name="OrdCustomerCode" PropertyName="OrdCustomerCode" ParentModel="" ParentModelId="0" DataType="string" OriginalDataType="string" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Right" Path="OrderDTO.OrdCustomerCode" IsEnum="false" />
+          <Struct Name="OrdCustomerFullName" PropertyName="OrdCustomerFullName" ParentModel="" ParentModelId="0" DataType="string" OriginalDataType="string" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Right" Path="OrderDTO.OrdCustomerFullName" IsEnum="false" />
+          <Struct Name="OrdStatus" PropertyName="OrdStatus" ParentModel="" ParentModelId="0" DataType="int" OriginalDataType="int" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Right" Path="OrderDTO.OrdStatus" IsEnum="false" />
+          <Struct Name="OrdMemo" PropertyName="OrdMemo" ParentModel="" ParentModelId="0" DataType="string" OriginalDataType="string" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Right" Path="OrderDTO.OrdMemo" IsEnum="false" />
+          <Struct Name="OrdPurpose" PropertyName="OrdPurpose" ParentModel="" ParentModelId="0" DataType="string" OriginalDataType="string" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Right" Path="OrderDTO.OrdPurpose" IsEnum="false" />
+          <Struct Name="OrdDeliveryValue" PropertyName="OrdDeliveryValue" ParentModel="" ParentModelId="0" DataType="float" OriginalDataType="float" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Right" Path="OrderDTO.OrdDeliveryValue" IsEnum="false" />
+          <Struct Name="OrdDeliveryNotes" PropertyName="OrdDeliveryNotes" ParentModel="" ParentModelId="0" DataType="string" OriginalDataType="string" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Right" Path="OrderDTO.OrdDeliveryNotes" IsEnum="false" />
+          <Struct Name="OrdIsReturn" PropertyName="OrdIsReturn" ParentModel="" ParentModelId="0" DataType="int" OriginalDataType="int" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Right" Path="OrderDTO.OrdIsReturn" IsEnum="false" />
+          <Struct Name="OrdPrdTypeDescr" PropertyName="OrdPrdTypeDescr" ParentModel="" ParentModelId="0" DataType="string" OriginalDataType="string" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Right" Path="OrderDTO.OrdPrdTypeDescr" IsEnum="false" />
+          <Struct Name="OrdWrhRoutingCode" PropertyName="OrdWrhRoutingCode" ParentModel="" ParentModelId="0" DataType="string" OriginalDataType="string" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Right" Path="OrderDTO.OrdWrhRoutingCode" IsEnum="false" />
+          <Struct Name="OrdDlsId" PropertyName="OrdDlsId" ParentModel="" ParentModelId="0" DataType="int" OriginalDataType="int" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Right" Path="OrderDTO.OrdDlsId" IsEnum="false" />
+          <Struct Name="OrdDlsDescr" PropertyName="OrdDlsDescr" ParentModel="" ParentModelId="0" DataType="string" OriginalDataType="string" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Right" Path="OrderDTO.OrdDlsDescr" IsEnum="false" />
+          <Struct Name="OrdDlsAddress" PropertyName="OrdDlsAddress" ParentModel="" ParentModelId="0" DataType="string" OriginalDataType="string" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Right" Path="OrderDTO.OrdDlsAddress" IsEnum="false" />
+          <Struct Name="OrdDlsZipCode" PropertyName="OrdDlsZipCode" ParentModel="" ParentModelId="0" DataType="string" OriginalDataType="string" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Right" Path="OrderDTO.OrdDlsZipCode" IsEnum="false" />
+          <Struct Name="OrdDlsCity" PropertyName="OrdDlsCity" ParentModel="" ParentModelId="0" DataType="string" OriginalDataType="string" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Right" Path="OrderDTO.OrdDlsCity" IsEnum="false" />
+          <Struct Name="OrdDlsArea" PropertyName="OrdDlsArea" ParentModel="" ParentModelId="0" DataType="string" OriginalDataType="string" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Right" Path="OrderDTO.OrdDlsArea" IsEnum="false" />
+          <Struct Name="OrdRoutingStatus" PropertyName="OrdRoutingStatus" ParentModel="" ParentModelId="0" DataType="int" OriginalDataType="int" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Right" Path="OrderDTO.OrdRoutingStatus" IsEnum="false" />
+          <Struct Name="OrdLfdWeight" PropertyName="OrdLfdWeight" ParentModel="" ParentModelId="0" DataType="float" OriginalDataType="float" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Right" Path="OrderDTO.OrdLfdWeight" IsEnum="false" />
+          <Struct Name="OrdLfdVol" PropertyName="OrdLfdVol" ParentModel="" ParentModelId="0" DataType="float" OriginalDataType="float" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Right" Path="OrderDTO.OrdLfdVol" IsEnum="false" />
+          <Struct Name="OrdLfdCtn" PropertyName="OrdLfdCtn" ParentModel="" ParentModelId="0" DataType="int" OriginalDataType="int" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Right" Path="OrderDTO.OrdLfdCtn" IsEnum="false" />
+          <Struct Name="OrdLfdBar" PropertyName="OrdLfdBar" ParentModel="" ParentModelId="0" DataType="int" OriginalDataType="int" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Right" Path="OrderDTO.OrdLfdBar" IsEnum="false" />
+          <Struct Name="OrdLfdPalEuro" PropertyName="OrdLfdPalEuro" ParentModel="" ParentModelId="0" DataType="int" OriginalDataType="int" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Right" Path="OrderDTO.OrdLfdPalEuro" IsEnum="false" />
+          <Struct Name="OrdLfdPalInd" PropertyName="OrdLfdPalInd" ParentModel="" ParentModelId="0" DataType="int" OriginalDataType="int" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Right" Path="OrderDTO.OrdLfdPalInd" IsEnum="false" />
+          <Struct Name="OrdLfdPalElsa" PropertyName="OrdLfdPalElsa" ParentModel="" ParentModelId="0" DataType="int" OriginalDataType="int" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Right" Path="OrderDTO.OrdLfdPalElsa" IsEnum="false" />
+          <Struct Name="OrdLfdParOU" PropertyName="OrdLfdParOU" ParentModel="" ParentModelId="0" DataType="int" OriginalDataType="int" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Right" Path="OrderDTO.OrdLfdParOU" IsEnum="false" />
+          <Struct Name="OrdLfdVar" PropertyName="OrdLfdVar" ParentModel="" ParentModelId="0" DataType="int" OriginalDataType="int" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Right" Path="OrderDTO.OrdLfdVar" IsEnum="false" />
+          <Struct Name="OrdVoucherDateTime" PropertyName="OrdVoucherDateTime" ParentModel="" ParentModelId="0" DataType="string" OriginalDataType="string" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Right" Path="OrderDTO.OrdVoucherDateTime" IsEnum="false" />
+          <Struct Name="OrdVoucherNumber" PropertyName="OrdVoucherNumber" ParentModel="" ParentModelId="0" DataType="string" OriginalDataType="string" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Right" Path="OrderDTO.OrdVoucherNumber" IsEnum="false" />
+          <Struct Name="OrdVoucherSeries" PropertyName="OrdVoucherSeries" ParentModel="" ParentModelId="0" DataType="string" OriginalDataType="string" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Right" Path="OrderDTO.OrdVoucherSeries" IsEnum="false" />
+          <Struct Name="OrdVoucherId" PropertyName="OrdVoucherId" ParentModel="" ParentModelId="0" DataType="int" OriginalDataType="int" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Right" Path="OrderDTO.OrdVoucherId" IsEnum="false" />
+          <Struct Name="OrdAgencyCode" PropertyName="OrdAgencyCode" ParentModel="" ParentModelId="0" DataType="string" OriginalDataType="string" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Right" Path="OrderDTO.OrdAgencyCode" IsEnum="false" />
+          <Struct Name="OrdAgencyDescr" PropertyName="OrdAgencyDescr" ParentModel="" ParentModelId="0" DataType="string" OriginalDataType="string" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Right" Path="OrderDTO.OrdAgencyDescr" IsEnum="false" />
+          <Struct Name="OrdAgencyAddress" PropertyName="OrdAgencyAddress" ParentModel="" ParentModelId="0" DataType="string" OriginalDataType="string" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Right" Path="OrderDTO.OrdAgencyAddress" IsEnum="false" />
+          <Struct Name="OrdTelRouteId" PropertyName="OrdTelRouteId" ParentModel="" ParentModelId="0" DataType="string" OriginalDataType="string" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Right" Path="OrderDTO.OrdTelRouteId" IsEnum="false" />
+          <Struct Name="OrdVchPlateNr" PropertyName="OrdVchPlateNr" ParentModel="" ParentModelId="0" DataType="string" OriginalDataType="string" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Right" Path="OrderDTO.OrdVchPlateNr" IsEnum="false" />
+          <Struct Name="OrdVchRouteNr" PropertyName="OrdVchRouteNr" ParentModel="" ParentModelId="0" DataType="int" OriginalDataType="int" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Right" Path="OrderDTO.OrdVchRouteNr" IsEnum="false" />
+          <Struct Name="OrdVhrDate" PropertyName="OrdVhrDate" ParentModel="" ParentModelId="0" DataType="string" OriginalDataType="string" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Right" Path="OrderDTO.OrdVhrDate" IsEnum="false" />
+          <Struct Name="OrdVhrID" PropertyName="OrdVhrID" ParentModel="" ParentModelId="0" DataType="long" OriginalDataType="long" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Right" Path="OrderDTO.OrdVhrID" IsEnum="false" />
+          <Struct Name="OrdLastUpdateDateTime" PropertyName="OrdLastUpdateDateTime" ParentModel="" ParentModelId="0" DataType="string" OriginalDataType="string" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Right" Path="OrderDTO.OrdLastUpdateDateTime" IsEnum="false" />
+          <Struct Name="OrdReadyForLoading" PropertyName="OrdReadyForLoading" ParentModel="" ParentModelId="0" DataType="int" OriginalDataType="int" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Right" Path="OrderDTO.OrdReadyForLoading" IsEnum="false" />
+          <Struct Name="Warehouse" PropertyName="Warehouse" ParentModel="" ParentModelId="0" DataType="string" OriginalDataType="string" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Right" Path="OrderDTO.Warehouse" IsEnum="false" />
+          <Struct Name="WarehouseAddress" PropertyName="WarehouseAddress" ParentModel="" ParentModelId="0" DataType="string" OriginalDataType="string" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Right" Path="OrderDTO.WarehouseAddress" IsEnum="false" />
+          <Struct Name="Polyline" PropertyName="Polyline" ParentModel="" ParentModelId="0" DataType="string" OriginalDataType="string" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Right" Path="OrderDTO.Polyline" IsEnum="false" />
+        </Attributes>
+      </Struct>
+    </Right>
+    <Mappings>
+      <Mapping DetailedTransformation="" FromWizzard="true" MatchOverall="100" MatchSynonyms="0" MatchSimilarity="0" MatchGraph="0" MatchAsIs="100" MappingMode="Both">
+        <LeftToRight>
+          <Implementation IsAutoMapped="true">
+          </Implementation>
+        </LeftToRight>
+        <RightToLeft>
+          <Implementation IsAutoMapped="true">
+          </Implementation>
+        </RightToLeft>
+        <LeftItems Items="OrderWMS.OrdPurpose" />
+        <RightItems Items="OrderDTO.OrdPurpose" />
+      </Mapping>
+      <Mapping DetailedTransformation="" FromWizzard="true" MatchOverall="100" MatchSynonyms="0" MatchSimilarity="0" MatchGraph="0" MatchAsIs="100" MappingMode="Both">
+        <LeftToRight>
+          <Implementation IsAutoMapped="true">
+          </Implementation>
+        </LeftToRight>
+        <RightToLeft>
+          <Implementation IsAutoMapped="true">
+          </Implementation>
+        </RightToLeft>
+        <LeftItems Items="OrderWMS.OrdOrderExternalCode" />
+        <RightItems Items="OrderDTO.OrdOrderExternalCode" />
+      </Mapping>
+      <Mapping DetailedTransformation="" FromWizzard="true" MatchOverall="100" MatchSynonyms="0" MatchSimilarity="0" MatchGraph="0" MatchAsIs="100" MappingMode="Both">
+        <LeftToRight>
+          <Implementation IsAutoMapped="true">
+          </Implementation>
+        </LeftToRight>
+        <RightToLeft>
+          <Implementation IsAutoMapped="true">
+          </Implementation>
+        </RightToLeft>
+        <LeftItems Items="OrderWMS.OrdOrderDescr" />
+        <RightItems Items="OrderDTO.OrdOrderDescr" />
+      </Mapping>
+      <Mapping DetailedTransformation="" FromWizzard="true" MatchOverall="100" MatchSynonyms="0" MatchSimilarity="0" MatchGraph="0" MatchAsIs="100" MappingMode="Both">
+        <LeftToRight>
+          <Implementation IsAutoMapped="false">if (OrderWMSOrdRegDateTime != null) {
+        OrderDTOOrdRegDateTime = OrderWMSOrdRegDateTime.ToString("yyyy-MM-dd HH:mm:ss");
+    } else {
+        OrderDTOOrdRegDateTime = null;
+    }</Implementation>
+        </LeftToRight>
+        <RightToLeft>
+          <Implementation IsAutoMapped="false">if (OrderDTOOrdRegDateTime != null) {
+        OrderWMSOrdRegDateTime = DateTime.ParseExact(OrderDTOOrdRegDateTime,"yyyy-MM-dd HH:mm:ss");
+    } else {
+        OrderWMSOrdRegDateTime = null;
+    }</Implementation>
+        </RightToLeft>
+        <LeftItems Items="OrderWMS.OrdRegDateTime" />
+        <RightItems Items="OrderDTO.OrdRegDateTime" />
+      </Mapping>
+      <Mapping DetailedTransformation="" FromWizzard="true" MatchOverall="100" MatchSynonyms="0" MatchSimilarity="0" MatchGraph="0" MatchAsIs="100" MappingMode="Both">
+        <LeftToRight>
+          <Implementation IsAutoMapped="false">if (OrderWMSOrdDeliveryDateTime != null) {
+        OrderDTOOrdDeliveryDateTime = OrderWMSOrdDeliveryDateTime.ToString("yyyy-MM-dd HH:mm:ss");
+    } else {
+        	OrderDTOOrdDeliveryDateTime = null;
+    }</Implementation>
+        </LeftToRight>
+        <RightToLeft>
+          <Implementation IsAutoMapped="false">if (OrderDTOOrdDeliveryDateTime != null) {
+        OrderWMSOrdDeliveryDateTime = DateTime.ParseExact(OrderDTOOrdDeliveryDateTime,"yyyy-MM-dd HH:mm:ss");
+    } else {
+        	OrderWMSOrdDeliveryDateTime = null;
+    }</Implementation>
+        </RightToLeft>
+        <LeftItems Items="OrderWMS.OrdDeliveryDateTime" />
+        <RightItems Items="OrderDTO.OrdDeliveryDateTime" />
+      </Mapping>
+      <Mapping DetailedTransformation="" FromWizzard="true" MatchOverall="100" MatchSynonyms="0" MatchSimilarity="0" MatchGraph="0" MatchAsIs="100" MappingMode="Both">
+        <LeftToRight>
+          <Implementation IsAutoMapped="true">
+          </Implementation>
+        </LeftToRight>
+        <RightToLeft>
+          <Implementation IsAutoMapped="true">
+          </Implementation>
+        </RightToLeft>
+        <LeftItems Items="OrderWMS.OrdDepositorCode" />
+        <RightItems Items="OrderDTO.OrdDepositorCode" />
+      </Mapping>
+      <Mapping DetailedTransformation="" FromWizzard="true" MatchOverall="100" MatchSynonyms="0" MatchSimilarity="0" MatchGraph="0" MatchAsIs="100" MappingMode="Both">
+        <LeftToRight>
+          <Implementation IsAutoMapped="true">
+          </Implementation>
+        </LeftToRight>
+        <RightToLeft>
+          <Implementation IsAutoMapped="true">
+          </Implementation>
+        </RightToLeft>
+        <LeftItems Items="OrderWMS.OrdDepositorFullName" />
+        <RightItems Items="OrderDTO.OrdDepositorFullName" />
+      </Mapping>
+      <Mapping DetailedTransformation="" FromWizzard="true" MatchOverall="100" MatchSynonyms="0" MatchSimilarity="0" MatchGraph="0" MatchAsIs="100" MappingMode="Both">
+        <LeftToRight>
+          <Implementation IsAutoMapped="true">
+          </Implementation>
+        </LeftToRight>
+        <RightToLeft>
+          <Implementation IsAutoMapped="true">
+          </Implementation>
+        </RightToLeft>
+        <LeftItems Items="OrderWMS.OrdCustomerCode" />
+        <RightItems Items="OrderDTO.OrdCustomerCode" />
+      </Mapping>
+      <Mapping DetailedTransformation="" FromWizzard="true" MatchOverall="100" MatchSynonyms="0" MatchSimilarity="0" MatchGraph="0" MatchAsIs="100" MappingMode="Both">
+        <LeftToRight>
+          <Implementation IsAutoMapped="true">
+          </Implementation>
+        </LeftToRight>
+        <RightToLeft>
+          <Implementation IsAutoMapped="true">
+          </Implementation>
+        </RightToLeft>
+        <LeftItems Items="OrderWMS.OrdCustomerFullName" />
+        <RightItems Items="OrderDTO.OrdCustomerFullName" />
+      </Mapping>
+      <Mapping DetailedTransformation="" FromWizzard="true" MatchOverall="100" MatchSynonyms="0" MatchSimilarity="0" MatchGraph="0" MatchAsIs="100" MappingMode="Both">
+        <LeftToRight>
+          <Implementation IsAutoMapped="true">
+          </Implementation>
+        </LeftToRight>
+        <RightToLeft>
+          <Implementation IsAutoMapped="true">
+          </Implementation>
+        </RightToLeft>
+        <LeftItems Items="OrderWMS.OrdStatus" />
+        <RightItems Items="OrderDTO.OrdStatus" />
+      </Mapping>
+      <Mapping DetailedTransformation="" FromWizzard="true" MatchOverall="100" MatchSynonyms="0" MatchSimilarity="0" MatchGraph="0" MatchAsIs="100" MappingMode="Both">
+        <LeftToRight>
+          <Implementation IsAutoMapped="true">
+          </Implementation>
+        </LeftToRight>
+        <RightToLeft>
+          <Implementation IsAutoMapped="true">
+          </Implementation>
+        </RightToLeft>
+        <LeftItems Items="OrderWMS.OrdMemo" />
+        <RightItems Items="OrderDTO.OrdMemo" />
+      </Mapping>
+      <Mapping DetailedTransformation="" FromWizzard="true" MatchOverall="100" MatchSynonyms="0" MatchSimilarity="0" MatchGraph="0" MatchAsIs="100" MappingMode="Both">
+        <LeftToRight>
+          <Implementation IsAutoMapped="true">
+          </Implementation>
+        </LeftToRight>
+        <RightToLeft>
+          <Implementation IsAutoMapped="true">
+          </Implementation>
+        </RightToLeft>
+        <LeftItems Items="OrderWMS.OrdAgencyDescr" />
+        <RightItems Items="OrderDTO.OrdAgencyDescr" />
+      </Mapping>
+      <Mapping DetailedTransformation="" FromWizzard="true" MatchOverall="100" MatchSynonyms="0" MatchSimilarity="0" MatchGraph="0" MatchAsIs="100" MappingMode="Both">
+        <LeftToRight>
+          <Implementation IsAutoMapped="true">
+          </Implementation>
+        </LeftToRight>
+        <RightToLeft>
+          <Implementation IsAutoMapped="true">
+          </Implementation>
+        </RightToLeft>
+        <LeftItems Items="OrderWMS.OrdVoucherNumber" />
+        <RightItems Items="OrderDTO.OrdVoucherNumber" />
+      </Mapping>
+      <Mapping DetailedTransformation="" FromWizzard="true" MatchOverall="100" MatchSynonyms="0" MatchSimilarity="0" MatchGraph="0" MatchAsIs="100" MappingMode="Both">
+        <LeftToRight>
+          <Implementation IsAutoMapped="true">
+          </Implementation>
+        </LeftToRight>
+        <RightToLeft>
+          <Implementation IsAutoMapped="true">
+          </Implementation>
+        </RightToLeft>
+        <LeftItems Items="OrderWMS.OrdIsReturn" />
+        <RightItems Items="OrderDTO.OrdIsReturn" />
+      </Mapping>
+      <Mapping DetailedTransformation="" FromWizzard="true" MatchOverall="100" MatchSynonyms="0" MatchSimilarity="0" MatchGraph="0" MatchAsIs="100" MappingMode="Both">
+        <LeftToRight>
+          <Implementation IsAutoMapped="true">
+          </Implementation>
+        </LeftToRight>
+        <RightToLeft>
+          <Implementation IsAutoMapped="true">
+          </Implementation>
+        </RightToLeft>
+        <LeftItems Items="OrderWMS.OrdPrdTypeDescr" />
+        <RightItems Items="OrderDTO.OrdPrdTypeDescr" />
+      </Mapping>
+      <Mapping DetailedTransformation="" FromWizzard="true" MatchOverall="100" MatchSynonyms="0" MatchSimilarity="0" MatchGraph="0" MatchAsIs="100" MappingMode="Both">
+        <LeftToRight>
+          <Implementation IsAutoMapped="true">
+          </Implementation>
+        </LeftToRight>
+        <RightToLeft>
+          <Implementation IsAutoMapped="true">
+          </Implementation>
+        </RightToLeft>
+        <LeftItems Items="OrderWMS.OrdWrhRoutingCode" />
+        <RightItems Items="OrderDTO.OrdWrhRoutingCode" />
+      </Mapping>
+      <Mapping DetailedTransformation="" FromWizzard="true" MatchOverall="100" MatchSynonyms="0" MatchSimilarity="0" MatchGraph="0" MatchAsIs="100" MappingMode="Both">
+        <LeftToRight>
+          <Implementation IsAutoMapped="true">
+          </Implementation>
+        </LeftToRight>
+        <RightToLeft>
+          <Implementation IsAutoMapped="true">
+          </Implementation>
+        </RightToLeft>
+        <LeftItems Items="OrderWMS.OrdDlsId" />
+        <RightItems Items="OrderDTO.OrdDlsId" />
+      </Mapping>
+      <Mapping DetailedTransformation="" FromWizzard="true" MatchOverall="100" MatchSynonyms="0" MatchSimilarity="0" MatchGraph="0" MatchAsIs="100" MappingMode="Both">
+        <LeftToRight>
+          <Implementation IsAutoMapped="true">
+          </Implementation>
+        </LeftToRight>
+        <RightToLeft>
+          <Implementation IsAutoMapped="true">
+          </Implementation>
+        </RightToLeft>
+        <LeftItems Items="OrderWMS.OrdDlsDescr" />
+        <RightItems Items="OrderDTO.OrdDlsDescr" />
+      </Mapping>
+      <Mapping DetailedTransformation="" FromWizzard="true" MatchOverall="100" MatchSynonyms="0" MatchSimilarity="0" MatchGraph="0" MatchAsIs="100" MappingMode="Both">
+        <LeftToRight>
+          <Implementation IsAutoMapped="true">
+          </Implementation>
+        </LeftToRight>
+        <RightToLeft>
+          <Implementation IsAutoMapped="true">
+          </Implementation>
+        </RightToLeft>
+        <LeftItems Items="OrderWMS.OrdVhrID" />
+        <RightItems Items="OrderDTO.OrdVhrID" />
+      </Mapping>
+      <Mapping DetailedTransformation="" FromWizzard="true" MatchOverall="100" MatchSynonyms="0" MatchSimilarity="0" MatchGraph="0" MatchAsIs="100" MappingMode="Both">
+        <LeftToRight>
+          <Implementation IsAutoMapped="true">
+          </Implementation>
+        </LeftToRight>
+        <RightToLeft>
+          <Implementation IsAutoMapped="true">
+          </Implementation>
+        </RightToLeft>
+        <LeftItems Items="OrderWMS.OrdReadyForLoading" />
+        <RightItems Items="OrderDTO.OrdReadyForLoading" />
+      </Mapping>
+      <Mapping DetailedTransformation="" FromWizzard="true" MatchOverall="100" MatchSynonyms="0" MatchSimilarity="0" MatchGraph="0" MatchAsIs="100" MappingMode="Both">
+        <LeftToRight>
+          <Implementation IsAutoMapped="true">
+          </Implementation>
+        </LeftToRight>
+        <RightToLeft>
+          <Implementation IsAutoMapped="true">
+          </Implementation>
+        </RightToLeft>
+        <LeftItems Items="OrderWMS.Polyline" />
+        <RightItems Items="OrderDTO.Polyline" />
+      </Mapping>
+      <Mapping DetailedTransformation="" FromWizzard="true" MatchOverall="100" MatchSynonyms="0" MatchSimilarity="0" MatchGraph="0" MatchAsIs="100" MappingMode="Both">
+        <LeftToRight>
+          <Implementation IsAutoMapped="true">
+          </Implementation>
+        </LeftToRight>
+        <RightToLeft>
+          <Implementation IsAutoMapped="true">
+          </Implementation>
+        </RightToLeft>
+        <LeftItems Items="OrderWMS.WarehouseAddress" />
+        <RightItems Items="OrderDTO.WarehouseAddress" />
+      </Mapping>
+      <Mapping DetailedTransformation="" FromWizzard="true" MatchOverall="100" MatchSynonyms="0" MatchSimilarity="0" MatchGraph="0" MatchAsIs="100" MappingMode="Both">
+        <LeftToRight>
+          <Implementation IsAutoMapped="true">
+          </Implementation>
+        </LeftToRight>
+        <RightToLeft>
+          <Implementation IsAutoMapped="true">
+          </Implementation>
+        </RightToLeft>
+        <LeftItems Items="OrderWMS.OrdDeliveryNotes" />
+        <RightItems Items="OrderDTO.OrdDeliveryNotes" />
+      </Mapping>
+      <Mapping DetailedTransformation="" FromWizzard="true" MatchOverall="100" MatchSynonyms="0" MatchSimilarity="0" MatchGraph="0" MatchAsIs="100" MappingMode="Both">
+        <LeftToRight>
+          <Implementation IsAutoMapped="true">
+          </Implementation>
+        </LeftToRight>
+        <RightToLeft>
+          <Implementation IsAutoMapped="true">
+          </Implementation>
+        </RightToLeft>
+        <LeftItems Items="OrderWMS.OrdDeliveryValue" />
+        <RightItems Items="OrderDTO.OrdDeliveryValue" />
+      </Mapping>
+      <Mapping DetailedTransformation="" FromWizzard="true" MatchOverall="100" MatchSynonyms="0" MatchSimilarity="100" MatchGraph="0" MatchAsIs="100" MappingMode="Both">
+        <LeftToRight>
+          <Implementation IsAutoMapped="true">
+          </Implementation>
+        </LeftToRight>
+        <RightToLeft>
+          <Implementation IsAutoMapped="true">
+          </Implementation>
+        </RightToLeft>
+        <LeftItems Items="OrderWMS.Warehouse" />
+        <RightItems Items="OrderDTO.Warehouse" />
+      </Mapping>
+      <Mapping DetailedTransformation="" FromWizzard="true" MatchOverall="100" MatchSynonyms="0" MatchSimilarity="0" MatchGraph="0" MatchAsIs="100" MappingMode="Both">
+        <LeftToRight>
+          <Implementation IsAutoMapped="true">
+          </Implementation>
+        </LeftToRight>
+        <RightToLeft>
+          <Implementation IsAutoMapped="true">
+          </Implementation>
+        </RightToLeft>
+        <LeftItems Items="OrderWMS.OrdOrderID_Remote" />
+        <RightItems Items="OrderDTO.OrdOrderID_Remote" />
+      </Mapping>
+      <Mapping DetailedTransformation="" FromWizzard="true" MatchOverall="100" MatchSynonyms="0" MatchSimilarity="0" MatchGraph="0" MatchAsIs="100" MappingMode="Both">
+        <LeftToRight>
+          <Implementation IsAutoMapped="false">if (OrderWMSOrdDateTime != null) {
+	    OrderDTOOrdDateTime = OrderWMSOrdDateTime.ToString("yyyy-MM-dd HH:mm:ss");
+	} else {
+	    OrderDTOOrdDateTime = null;
+	}</Implementation>
+        </LeftToRight>
+        <RightToLeft>
+          <Implementation IsAutoMapped="false">if (OrderDTOOrdDateTime != null) {
+	    OrderWMSOrdDateTime = DateTime.ParseExact(OrderDTOOrdDateTime,"yyyy-MM-dd HH:mm:ss");
+	} else {
+	    OrderWMSOrdDateTime = null;
+	}</Implementation>
+        </RightToLeft>
+        <LeftItems Items="OrderWMS.OrdDateTime" />
+        <RightItems Items="OrderDTO.OrdDateTime" />
+      </Mapping>
+      <Mapping DetailedTransformation="" FromWizzard="true" MatchOverall="100" MatchSynonyms="0" MatchSimilarity="0" MatchGraph="0" MatchAsIs="100" MappingMode="Both">
+        <LeftToRight>
+          <Implementation IsAutoMapped="true">
+          </Implementation>
+        </LeftToRight>
+        <RightToLeft>
+          <Implementation IsAutoMapped="true">
+          </Implementation>
+        </RightToLeft>
+        <LeftItems Items="OrderWMS.OrdDlsCity" />
+        <RightItems Items="OrderDTO.OrdDlsCity" />
+      </Mapping>
+      <Mapping DetailedTransformation="" FromWizzard="true" MatchOverall="100" MatchSynonyms="0" MatchSimilarity="0" MatchGraph="0" MatchAsIs="100" MappingMode="Both">
+        <LeftToRight>
+          <Implementation IsAutoMapped="true">
+          </Implementation>
+        </LeftToRight>
+        <RightToLeft>
+          <Implementation IsAutoMapped="true">
+          </Implementation>
+        </RightToLeft>
+        <LeftItems Items="OrderWMS.OrdRoutingStatus" />
+        <RightItems Items="OrderDTO.OrdRoutingStatus" />
+      </Mapping>
+      <Mapping DetailedTransformation="" FromWizzard="true" MatchOverall="100" MatchSynonyms="0" MatchSimilarity="0" MatchGraph="0" MatchAsIs="100" MappingMode="Both">
+        <LeftToRight>
+          <Implementation IsAutoMapped="true">
+          </Implementation>
+        </LeftToRight>
+        <RightToLeft>
+          <Implementation IsAutoMapped="true">
+          </Implementation>
+        </RightToLeft>
+        <LeftItems Items="OrderWMS.OrdLfdWeight" />
+        <RightItems Items="OrderDTO.OrdLfdWeight" />
+      </Mapping>
+      <Mapping DetailedTransformation="" FromWizzard="true" MatchOverall="100" MatchSynonyms="0" MatchSimilarity="0" MatchGraph="0" MatchAsIs="100" MappingMode="Both">
+        <LeftToRight>
+          <Implementation IsAutoMapped="true">
+          </Implementation>
+        </LeftToRight>
+        <RightToLeft>
+          <Implementation IsAutoMapped="true">
+          </Implementation>
+        </RightToLeft>
+        <LeftItems Items="OrderWMS.OrdLfdVol" />
+        <RightItems Items="OrderDTO.OrdLfdVol" />
+      </Mapping>
+      <Mapping DetailedTransformation="" FromWizzard="true" MatchOverall="100" MatchSynonyms="0" MatchSimilarity="0" MatchGraph="0" MatchAsIs="100" MappingMode="Both">
+        <LeftToRight>
+          <Implementation IsAutoMapped="true">
+          </Implementation>
+        </LeftToRight>
+        <RightToLeft>
+          <Implementation IsAutoMapped="true">
+          </Implementation>
+        </RightToLeft>
+        <LeftItems Items="OrderWMS.OrdLfdCtn" />
+        <RightItems Items="OrderDTO.OrdLfdCtn" />
+      </Mapping>
+      <Mapping DetailedTransformation="" FromWizzard="true" MatchOverall="100" MatchSynonyms="0" MatchSimilarity="0" MatchGraph="0" MatchAsIs="100" MappingMode="Both">
+        <LeftToRight>
+          <Implementation IsAutoMapped="true">
+          </Implementation>
+        </LeftToRight>
+        <RightToLeft>
+          <Implementation IsAutoMapped="true">
+          </Implementation>
+        </RightToLeft>
+        <LeftItems Items="OrderWMS.OrdLfdBar" />
+        <RightItems Items="OrderDTO.OrdLfdBar" />
+      </Mapping>
+      <Mapping DetailedTransformation="" FromWizzard="true" MatchOverall="100" MatchSynonyms="0" MatchSimilarity="0" MatchGraph="0" MatchAsIs="100" MappingMode="Both">
+        <LeftToRight>
+          <Implementation IsAutoMapped="true">
+          </Implementation>
+        </LeftToRight>
+        <RightToLeft>
+          <Implementation IsAutoMapped="true">
+          </Implementation>
+        </RightToLeft>
+        <LeftItems Items="OrderWMS.OrdLfdPalEuro" />
+        <RightItems Items="OrderDTO.OrdLfdPalEuro" />
+      </Mapping>
+      <Mapping DetailedTransformation="" FromWizzard="true" MatchOverall="100" MatchSynonyms="0" MatchSimilarity="0" MatchGraph="0" MatchAsIs="100" MappingMode="LeftToRight">
+        <LeftToRight>
+          <Implementation IsAutoMapped="false">if (OrderWMSOrdLastUpdateDateTime != null) {
+        OrderDTOOrdLastUpdateDateTime = OrderWMSOrdLastUpdateDateTime.ToString("yyyy-MM-dd HH:mm:ss");
+    } else {
+        OrderDTOOrdLastUpdateDateTime = null;
+    }</Implementation>
+        </LeftToRight>
+        <RightToLeft>
+          <Implementation IsAutoMapped="true">
+          </Implementation>
+        </RightToLeft>
+        <LeftItems Items="OrderWMS.OrdLastUpdateDateTime" />
+        <RightItems Items="OrderDTO.OrdLastUpdateDateTime" />
+      </Mapping>
+      <Mapping DetailedTransformation="" FromWizzard="true" MatchOverall="100" MatchSynonyms="0" MatchSimilarity="0" MatchGraph="0" MatchAsIs="100" MappingMode="Both">
+        <LeftToRight>
+          <Implementation IsAutoMapped="true">
+          </Implementation>
+        </LeftToRight>
+        <RightToLeft>
+          <Implementation IsAutoMapped="true">
+          </Implementation>
+        </RightToLeft>
+        <LeftItems Items="OrderWMS.OrdLfdPalElsa" />
+        <RightItems Items="OrderDTO.OrdLfdPalElsa" />
+      </Mapping>
+      <Mapping DetailedTransformation="" FromWizzard="true" MatchOverall="100" MatchSynonyms="0" MatchSimilarity="0" MatchGraph="0" MatchAsIs="100" MappingMode="Both">
+        <LeftToRight>
+          <Implementation IsAutoMapped="true">
+          </Implementation>
+        </LeftToRight>
+        <RightToLeft>
+          <Implementation IsAutoMapped="true">
+          </Implementation>
+        </RightToLeft>
+        <LeftItems Items="OrderWMS.OrdLfdParOU" />
+        <RightItems Items="OrderDTO.OrdLfdParOU" />
+      </Mapping>
+      <Mapping DetailedTransformation="" FromWizzard="true" MatchOverall="100" MatchSynonyms="0" MatchSimilarity="0" MatchGraph="0" MatchAsIs="100" MappingMode="Both">
+        <LeftToRight>
+          <Implementation IsAutoMapped="true">
+          </Implementation>
+        </LeftToRight>
+        <RightToLeft>
+          <Implementation IsAutoMapped="true">
+          </Implementation>
+        </RightToLeft>
+        <LeftItems Items="OrderWMS.OrdLfdVar" />
+        <RightItems Items="OrderDTO.OrdLfdVar" />
+      </Mapping>
+      <Mapping DetailedTransformation="" FromWizzard="true" MatchOverall="100" MatchSynonyms="0" MatchSimilarity="0" MatchGraph="0" MatchAsIs="100" MappingMode="LeftToRight">
+        <LeftToRight>
+          <Implementation IsAutoMapped="false">if (OrderWMSOrdVoucherDateTime != null) {
+        OrderDTOOrdVoucherDateTime = OrderWMSOrdVoucherDateTime.ToString("yyyy-MM-dd HH:mm:ss");
+    } else {
+        OrderDTOOrdVoucherDateTime = null;
+    }</Implementation>
+        </LeftToRight>
+        <RightToLeft>
+          <Implementation IsAutoMapped="true">
+          </Implementation>
+        </RightToLeft>
+        <LeftItems Items="OrderWMS.OrdVoucherDateTime" />
+        <RightItems Items="OrderDTO.OrdVoucherDateTime" />
+      </Mapping>
+      <Mapping DetailedTransformation="" FromWizzard="true" MatchOverall="100" MatchSynonyms="0" MatchSimilarity="0" MatchGraph="0" MatchAsIs="100" MappingMode="Both">
+        <LeftToRight>
+          <Implementation IsAutoMapped="true">
+          </Implementation>
+        </LeftToRight>
+        <RightToLeft>
+          <Implementation IsAutoMapped="true">
+          </Implementation>
+        </RightToLeft>
+        <LeftItems Items="OrderWMS.OrdLfdPalInd" />
+        <RightItems Items="OrderDTO.OrdLfdPalInd" />
+      </Mapping>
+      <Mapping DetailedTransformation="" FromWizzard="true" MatchOverall="100" MatchSynonyms="0" MatchSimilarity="0" MatchGraph="0" MatchAsIs="100" MappingMode="Both">
+        <LeftToRight>
+          <Implementation IsAutoMapped="true">
+          </Implementation>
+        </LeftToRight>
+        <RightToLeft>
+          <Implementation IsAutoMapped="true">
+          </Implementation>
+        </RightToLeft>
+        <LeftItems Items="OrderWMS.OrdVoucherSeries" />
+        <RightItems Items="OrderDTO.OrdVoucherSeries" />
+      </Mapping>
+      <Mapping DetailedTransformation="" FromWizzard="true" MatchOverall="100" MatchSynonyms="0" MatchSimilarity="0" MatchGraph="0" MatchAsIs="100" MappingMode="Both">
+        <LeftToRight>
+          <Implementation IsAutoMapped="true">
+          </Implementation>
+        </LeftToRight>
+        <RightToLeft>
+          <Implementation IsAutoMapped="true">
+          </Implementation>
+        </RightToLeft>
+        <LeftItems Items="OrderWMS.OrdVchPlateNr" />
+        <RightItems Items="OrderDTO.OrdVchPlateNr" />
+      </Mapping>
+      <Mapping DetailedTransformation="" FromWizzard="true" MatchOverall="100" MatchSynonyms="0" MatchSimilarity="0" MatchGraph="0" MatchAsIs="100" MappingMode="Both">
+        <LeftToRight>
+          <Implementation IsAutoMapped="true">
+          </Implementation>
+        </LeftToRight>
+        <RightToLeft>
+          <Implementation IsAutoMapped="true">
+          </Implementation>
+        </RightToLeft>
+        <LeftItems Items="OrderWMS.OrdVoucherId" />
+        <RightItems Items="OrderDTO.OrdVoucherId" />
+      </Mapping>
+      <Mapping DetailedTransformation="" FromWizzard="true" MatchOverall="100" MatchSynonyms="0" MatchSimilarity="0" MatchGraph="0" MatchAsIs="100" MappingMode="Both">
+        <LeftToRight>
+          <Implementation IsAutoMapped="true">
+          </Implementation>
+        </LeftToRight>
+        <RightToLeft>
+          <Implementation IsAutoMapped="true">
+          </Implementation>
+        </RightToLeft>
+        <LeftItems Items="OrderWMS.OrdDlsArea" />
+        <RightItems Items="OrderDTO.OrdDlsArea" />
+      </Mapping>
+      <Mapping DetailedTransformation="" FromWizzard="true" MatchOverall="100" MatchSynonyms="0" MatchSimilarity="0" MatchGraph="0" MatchAsIs="100" MappingMode="Both">
+        <LeftToRight>
+          <Implementation IsAutoMapped="false">if (OrderWMSOrdVhrDate != null) {
+	    OrderDTOOrdVhrDate = OrderWMSOrdVhrDate.ToString("yyyy-MM-dd HH:mm:ss");
+	} else {
+	    OrderDTOOrdVhrDate = null;
+	}</Implementation>
+        </LeftToRight>
+        <RightToLeft>
+          <Implementation IsAutoMapped="false">if (OrderDTOOrdVhrDate != null) {
+        OrderWMSOrdVhrDate = DateTime.ParseExact(OrderDTOOrdVhrDate,"yyyy-MM-dd HH:mm:ss");
+    } else {
+        	OrderWMSOrdVhrDate = null;
+    }</Implementation>
+        </RightToLeft>
+        <LeftItems Items="OrderWMS.OrdVhrDate" />
+        <RightItems Items="OrderDTO.OrdVhrDate" />
+      </Mapping>
+      <Mapping DetailedTransformation="" FromWizzard="true" MatchOverall="100" MatchSynonyms="0" MatchSimilarity="0" MatchGraph="0" MatchAsIs="100" MappingMode="Both">
+        <LeftToRight>
+          <Implementation IsAutoMapped="true">
+          </Implementation>
+        </LeftToRight>
+        <RightToLeft>
+          <Implementation IsAutoMapped="true">
+          </Implementation>
+        </RightToLeft>
+        <LeftItems Items="OrderWMS.OrdVchRouteNr" />
+        <RightItems Items="OrderDTO.OrdVchRouteNr" />
+      </Mapping>
+      <Mapping DetailedTransformation="" FromWizzard="true" MatchOverall="100" MatchSynonyms="0" MatchSimilarity="0" MatchGraph="0" MatchAsIs="100" MappingMode="Both">
+        <LeftToRight>
+          <Implementation IsAutoMapped="true">
+          </Implementation>
+        </LeftToRight>
+        <RightToLeft>
+          <Implementation IsAutoMapped="true">
+          </Implementation>
+        </RightToLeft>
+        <LeftItems Items="OrderWMS.OrdDlsZipCode" />
+        <RightItems Items="OrderDTO.OrdDlsZipCode" />
+      </Mapping>
+      <Mapping DetailedTransformation="" FromWizzard="true" MatchOverall="100" MatchSynonyms="0" MatchSimilarity="0" MatchGraph="0" MatchAsIs="100" MappingMode="Both">
+        <LeftToRight>
+          <Implementation IsAutoMapped="true">
+          </Implementation>
+        </LeftToRight>
+        <RightToLeft>
+          <Implementation IsAutoMapped="true">
+          </Implementation>
+        </RightToLeft>
+        <LeftItems Items="OrderWMS.OrdTelRouteId" />
+        <RightItems Items="OrderDTO.OrdTelRouteId" />
+      </Mapping>
+      <Mapping DetailedTransformation="" FromWizzard="true" MatchOverall="100" MatchSynonyms="0" MatchSimilarity="0" MatchGraph="0" MatchAsIs="100" MappingMode="Both">
+        <LeftToRight>
+          <Implementation IsAutoMapped="true">
+          </Implementation>
+        </LeftToRight>
+        <RightToLeft>
+          <Implementation IsAutoMapped="true">
+          </Implementation>
+        </RightToLeft>
+        <LeftItems Items="OrderWMS.OrdAgencyAddress" />
+        <RightItems Items="OrderDTO.OrdAgencyAddress" />
+      </Mapping>
+      <Mapping DetailedTransformation="" FromWizzard="true" MatchOverall="100" MatchSynonyms="0" MatchSimilarity="0" MatchGraph="0" MatchAsIs="100" MappingMode="Both">
+        <LeftToRight>
+          <Implementation IsAutoMapped="true">
+          </Implementation>
+        </LeftToRight>
+        <RightToLeft>
+          <Implementation IsAutoMapped="true">
+          </Implementation>
+        </RightToLeft>
+        <LeftItems Items="OrderWMS.OrdDlsAddress" />
+        <RightItems Items="OrderDTO.OrdDlsAddress" />
+      </Mapping>
+      <Mapping DetailedTransformation="" FromWizzard="true" MatchOverall="100" MatchSynonyms="0" MatchSimilarity="0" MatchGraph="0" MatchAsIs="100" MappingMode="Both">
+        <LeftToRight>
+          <Implementation IsAutoMapped="true">
+          </Implementation>
+        </LeftToRight>
+        <RightToLeft>
+          <Implementation IsAutoMapped="true">
+          </Implementation>
+        </RightToLeft>
+        <LeftItems Items="OrderWMS.OrdAgencyCode" />
+        <RightItems Items="OrderDTO.OrdAgencyCode" />
+      </Mapping>
+      <Mapping DetailedTransformation="" FromWizzard="false" MappingMode="Both">
+        <LeftToRight>
+          <Implementation IsAutoMapped="true">
+          </Implementation>
+        </LeftToRight>
+        <RightToLeft>
+          <Implementation IsAutoMapped="true">
+          </Implementation>
+        </RightToLeft>
+        <LeftItems Items="OrderWMS.OrdID" />
+        <RightItems Items="OrderDTO.OrdID" />
+      </Mapping>
+    </Mappings>
+  </Transformation>
+</DataTransformation>

@@ -1,0 +1,463 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net472</TargetFramework>
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+    <Copyright>Copyright © CLMS 2018</Copyright>
+    <Company>CLMS</Company>
+    <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
+    <AssemblyName>DSS2_SynchromodalityCapacityOptimisation.Backend</AssemblyName>
+    <RootNamespace>DSS2_SynchromodalityCapacityOptimisation</RootNamespace>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(TargetFramework)' == 'netcoreapp2.2'">
+    <DefineConstants>$(DefineConstants);NETSTANDARD</DefineConstants>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="mscorlib" />
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data.Entity.Design" />
+    <Reference Include="System.IdentityModel" />
+    <Reference Include="System.IdentityModel.Services" />
+    <Reference Include="System.Runtime.Caching" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.applicationservices" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BLL\AppNotificationExtensions.cs" />
+    <Compile Include="BLL\CategoryExtensions.cs" />
+    <Compile Include="BLL\ConvertorExtensions.cs" />
+    <Compile Include="BLL\CustomVolumeExtensions.cs" />
+    <Compile Include="BLL\DashboardStatisticsExtensions.cs" />
+    <Compile Include="BLL\DataTranformations\ElasticsearchTranformation.cs" />
+    <Compile Include="BLL\DataTranformations\OrderTransformationTranformation.cs" />
+    <Compile Include="BLL\DataTranformations\PubMessageTranformation.cs" />
+    <Compile Include="BLL\DataTranformations\TemplateToRouteTranformation.cs" />
+    <Compile Include="BLL\DataTranformations\TestTranformation.cs" />
+    <Compile Include="BLL\DistanceCostsExtensions.cs" />
+    <Compile Include="BLL\EventHandlers.cs" />
+    <Compile Include="BLL\ExternalRestServices\DisruptionAPI.cs" />
+    <Compile Include="BLL\ExternalRestServices\Elasticsearch.cs" />
+    <Compile Include="BLL\ExternalRestServices\GoogleDirections.cs" />
+    <Compile Include="BLL\ExternalRestServices\GoogleDistanceMatrixAPI.cs" />
+    <Compile Include="BLL\ExternalRestServices\GoogleGeocode.cs" />
+    <Compile Include="BLL\ExternalRestServices\LocalPubSub.cs" />
+    <Compile Include="BLL\ExternalRestServices\Mapotempo.cs" />
+    <Compile Include="BLL\ExternalRestServices\Optimizer_Mapotempo.cs" />
+    <Compile Include="BLL\ExternalRestServices\Router_Mapotempo.cs" />
+    <Compile Include="BLL\ExternalRestServices\XPackML.cs" />
+    <Compile Include="BLL\FileDataExtensions.cs" />
+    <Compile Include="BLL\GPSLocationExtensions.cs" />
+    <Compile Include="BLL\InventoryDaysKPIExtensions.cs" />
+    <Compile Include="BLL\ItemExtensions.cs" />
+    <Compile Include="BLL\MakeRequestExtensions.cs" />
+    <Compile Include="BLL\MapPointsExtensions.cs" />
+    <Compile Include="BLL\NotificationExtensions.cs" />
+    <Compile Include="BLL\OrderForecastDetailsExtensions.cs" />
+    <Compile Include="BLL\OrderForecastExtensions.cs" />
+    <Compile Include="BLL\OrderForecastStatisticExtensions.cs" />
+    <Compile Include="BLL\OrderGeneratorExtensions.cs" />
+    <Compile Include="BLL\OrdersPerMonthExtensions.cs" />
+    <Compile Include="BLL\OrderStatisticsExtensions.cs" />
+    <Compile Include="BLL\OrderWMSExtensions.cs" />
+    <Compile Include="BLL\OwnershipCostExtensions.cs" />
+    <Compile Include="BLL\PastOrderExtensions.cs" />
+    <Compile Include="BLL\PlatformExtensions.cs" />
+    <Compile Include="BLL\PointExtensions.cs" />
+    <Compile Include="BLL\PubSubExtensions.cs" />
+    <Compile Include="BLL\QueryBuilderExtensions.cs" />
+    <Compile Include="BLL\RegionalAgentExtensions.cs" />
+    <Compile Include="BLL\ResponseExtensions.cs" />
+    <Compile Include="BLL\SalesForecastDetailsExtensions.cs" />
+    <Compile Include="BLL\ScheduledRouteExtensions.cs" />
+    <Compile Include="BLL\ScheduledRouteTemplateExtensions.cs" />
+    <Compile Include="BLL\ShipmentExtensions.cs" />
+    <Compile Include="BLL\ShippingOrderExtensions.cs" />
+    <Compile Include="BLL\SLADeliveryExtensions.cs" />
+    <Compile Include="BLL\SLALeadTimeExtensions.cs" />
+    <Compile Include="BLL\StatisticsExtensions.cs" />
+    <Compile Include="BLL\StatsExtensions.cs" />
+    <Compile Include="BLL\StockOnHandExtensions.cs" />
+    <Compile Include="BLL\TimeCostsExtensions.cs" />
+    <Compile Include="BLL\TruckExtensions.cs" />
+    <Compile Include="BLL\UnitsKPIExtensions.cs" />
+    <Compile Include="BLL\UtilsExtensions.cs" />
+    <Compile Include="BLL\WarehouseExtensions.cs" />
+    <Compile Include="BLL\WasteOldExtensions.cs" />
+    <Compile Include="BLL\WorkContractExtensions.cs" />
+    <Compile Include="BLL\Workflows\WorkflowSock.cs" />
+    <Compile Include="BLL\XPackLogExtensions.cs" />
+    <Compile Include="DAL\IRepository.cs" />
+    <Compile Include="DAL\NHSessionExtensions.cs" />
+    <Compile Include="DAL\OnDeleteListener.cs" />
+    <Compile Include="DAL\OnSaveOrUpdateListener.cs" />
+    <Compile Include="DAL\Repository.cs" />
+    <Compile Include="Hubs\EventsHub.cs" />
+    <Compile Include="Locales\LocaleResolver.cs" />
+    <Compile Include="POCO\Activity.cs" />
+    <Compile Include="POCO\Agreement.cs" />
+    <Compile Include="POCO\AgreementStatus.cs" />
+    <Compile Include="POCO\AmortizationType.cs" />
+    <Compile Include="POCO\AppNotification.cs" />
+    <Compile Include="POCO\AppNotificationAction.cs" />
+    <Compile Include="POCO\AVGTime.cs" />
+    <Compile Include="POCO\BaseUnit.cs" />
+    <Compile Include="POCO\Buckets.cs" />
+    <Compile Include="POCO\BusinessUnit.cs" />
+    <Compile Include="POCO\Category.cs" />
+    <Compile Include="POCO\ChartWorkaround.cs" />
+    <Compile Include="POCO\CO2PerCarrier.cs" />
+    <Compile Include="POCO\Comment.cs" />
+    <Compile Include="POCO\Company.cs" />
+    <Compile Include="POCO\Condition.cs" />
+    <Compile Include="POCO\ConstValues.cs" />
+    <Compile Include="POCO\Contact.cs" />
+    <Compile Include="POCO\ContractStatus.cs" />
+    <Compile Include="POCO\Convertor.cs" />
+    <Compile Include="POCO\Coordinates.cs" />
+    <Compile Include="POCO\CostSplit.cs" />
+    <Compile Include="POCO\CustomVolume.cs" />
+    <Compile Include="POCO\Dashboard.cs" />
+    <Compile Include="POCO\DashboardStatistics.cs" />
+    <Compile Include="POCO\DeliveryPlan.cs" />
+    <Compile Include="POCO\DeliverySchedule.cs" />
+    <Compile Include="POCO\DistanceCosts.cs" />
+    <Compile Include="POCO\Driver.cs" />
+    <Compile Include="POCO\Error.cs" />
+    <Compile Include="POCO\FileData.cs" />
+    <Compile Include="POCO\GeoArea.cs" />
+    <Compile Include="POCO\GeoCoordinates.cs" />
+    <Compile Include="POCO\GPSLocation.cs" />
+    <Compile Include="POCO\HIstogramBucket.cs" />
+    <Compile Include="POCO\InventoryDaysKPI.cs" />
+    <Compile Include="POCO\InventoryItem.cs" />
+    <Compile Include="POCO\Item.cs" />
+    <Compile Include="POCO\ItemParameter.cs" />
+    <Compile Include="POCO\ItemType.cs" />
+    <Compile Include="POCO\LegVolumeDetails.cs" />
+    <Compile Include="POCO\Location.cs" />
+    <Compile Include="POCO\LSP.cs" />
+    <Compile Include="POCO\LSPUser.cs" />
+    <Compile Include="POCO\MakeRequest.cs" />
+    <Compile Include="POCO\MapPoints.cs" />
+    <Compile Include="POCO\MinimumQuantity.cs" />
+    <Compile Include="POCO\Notification.cs" />
+    <Compile Include="POCO\OilType.cs" />
+    <Compile Include="POCO\OrderDTO.cs" />
+    <Compile Include="POCO\OrderFDashboard.cs" />
+    <Compile Include="POCO\OrderForecast.cs" />
+    <Compile Include="POCO\OrderForecastDetails.cs" />
+    <Compile Include="POCO\OrderForecastStatistic.cs" />
+    <Compile Include="POCO\OrderGenerator.cs" />
+    <Compile Include="POCO\OrdersPerMonth.cs" />
+    <Compile Include="POCO\OrderStatistics.cs" />
+    <Compile Include="POCO\OrderWMS.cs" />
+    <Compile Include="POCO\OwnershipCost.cs" />
+    <Compile Include="POCO\PastOrder.cs" />
+    <Compile Include="POCO\PastSales.cs" />
+    <Compile Include="POCO\PathVolumeDetail.cs" />
+    <Compile Include="POCO\Platform.cs" />
+    <Compile Include="POCO\Point.cs" />
+    <Compile Include="POCO\Priority.cs" />
+    <Compile Include="POCO\ProofOfDelivery.cs" />
+    <Compile Include="POCO\ProposedOrder.cs" />
+    <Compile Include="POCO\PropulsionTypeCost.cs" />
+    <Compile Include="POCO\PubMessage.cs" />
+    <Compile Include="POCO\PubSub.cs" />
+    <Compile Include="POCO\QueryBuilder.cs" />
+    <Compile Include="POCO\Reason.cs" />
+    <Compile Include="POCO\RegionalAgent.cs" />
+    <Compile Include="POCO\RegionalAgentUser.cs" />
+    <Compile Include="POCO\RequestLog.cs" />
+    <Compile Include="POCO\Response.cs" />
+    <Compile Include="POCO\Retailer.cs" />
+    <Compile Include="POCO\Route.cs" />
+    <Compile Include="POCO\RouteFrequency.cs" />
+    <Compile Include="POCO\Sales.cs" />
+    <Compile Include="POCO\SalesForecast.cs" />
+    <Compile Include="POCO\SalesForecastDetails.cs" />
+    <Compile Include="POCO\ScheduledRoute.cs" />
+    <Compile Include="POCO\ScheduledRouteState.cs" />
+    <Compile Include="POCO\ScheduledRouteTemplate.cs" />
+    <Compile Include="POCO\Shipment.cs" />
+    <Compile Include="POCO\ShipmentStatus.cs" />
+    <Compile Include="POCO\ShippingOrder.cs" />
+    <Compile Include="POCO\SLADelivery.cs" />
+    <Compile Include="POCO\SLALeadTime.cs" />
+    <Compile Include="POCO\SLAStatistics.cs" />
+    <Compile Include="POCO\Solution.cs" />
+    <Compile Include="POCO\State.cs" />
+    <Compile Include="POCO\StatePeriod.cs" />
+    <Compile Include="POCO\Statistics.cs" />
+    <Compile Include="POCO\Stats.cs" />
+    <Compile Include="POCO\Status.cs" />
+    <Compile Include="POCO\StatusEvolution.cs" />
+    <Compile Include="POCO\StatusRule.cs" />
+    <Compile Include="POCO\StockOnHand.cs" />
+    <Compile Include="POCO\StorageMedium.cs" />
+    <Compile Include="POCO\Store.cs" />
+    <Compile Include="POCO\SubCategory.cs" />
+    <Compile Include="POCO\Supplier.cs" />
+    <Compile Include="POCO\SupplierCapacity.cs" />
+    <Compile Include="POCO\SupplierParameter.cs" />
+    <Compile Include="POCO\tblActivitiesAPI.cs" />
+    <Compile Include="POCO\tblDhlEvent.cs" />
+    <Compile Include="POCO\tblDhlIncident.cs" />
+    <Compile Include="POCO\tblDhlPlannedRoute.cs" />
+    <Compile Include="POCO\tblDhlPurchase.cs" />
+    <Compile Include="POCO\tblDhlRouteStop.cs" />
+    <Compile Include="POCO\tblDhlRouteStopOperation.cs" />
+    <Compile Include="POCO\tblDhlTracking.cs" />
+    <Compile Include="POCO\tblReceivedEvent.cs" />
+    <Compile Include="POCO\tblReceivedPlannedTransport.cs" />
+    <Compile Include="POCO\tblReceivedTrainStatus.cs" />
+    <Compile Include="POCO\tblReceivedTransportStop.cs" />
+    <Compile Include="POCO\tblReceivedTransportStopVehicle.cs" />
+    <Compile Include="POCO\tblRoutesAPI.cs" />
+    <Compile Include="POCO\tblSolutionsAPI.cs" />
+    <Compile Include="POCO\tblZslBookingType.cs" />
+    <Compile Include="POCO\tblZslCarrier.cs" />
+    <Compile Include="POCO\tblZslCustomer.cs" />
+    <Compile Include="POCO\tblZslDeliveryStatus.cs" />
+    <Compile Include="POCO\TblZslNormalisationSuggestion.cs" />
+    <Compile Include="POCO\tblZslPlatformBookingOrder.cs" />
+    <Compile Include="POCO\tblZslRoute.cs" />
+    <Compile Include="POCO\tblZslTransportDetail.cs" />
+    <Compile Include="POCO\tblZslTransportEvent.cs" />
+    <Compile Include="POCO\tblZslTransportExecutionPlan.cs" />
+    <Compile Include="POCO\tblZslTransportOrder.cs" />
+    <Compile Include="POCO\tblZslWorker.cs" />
+    <Compile Include="POCO\TimeCosts.cs" />
+    <Compile Include="POCO\TransportUnCap.cs" />
+    <Compile Include="POCO\Truck.cs" />
+    <Compile Include="POCO\TruckContent.cs" />
+    <Compile Include="POCO\TruckDriver.cs" />
+    <Compile Include="POCO\TruckRecommendation.cs" />
+    <Compile Include="POCO\truck_emission.cs" />
+    <Compile Include="POCO\truck_eta.cs" />
+    <Compile Include="POCO\UnitsKPI.cs" />
+    <Compile Include="POCO\Utils.cs" />
+    <Compile Include="POCO\Vehicule.cs" />
+    <Compile Include="POCO\Volume.cs" />
+    <Compile Include="POCO\VolumeComponent.cs" />
+    <Compile Include="POCO\VolumeComposition.cs" />
+    <Compile Include="POCO\VolumePerShipper.cs" />
+    <Compile Include="POCO\Warehouse.cs" />
+    <Compile Include="POCO\WasteOld.cs" />
+    <Compile Include="POCO\WorkContract.cs" />
+    <Compile Include="POCO\WorkflowSockContext.cs" />
+    <Compile Include="POCO\XPackLog.cs" />
+    <Compile Include="Security\Encryption\SecurityManager.cs" />
+    <Compile Include="Security\Owin\BasicAuthenticationExtensions.cs" />
+    <Compile Include="Security\Owin\BasicAuthenticationHandler.cs" />
+    <Compile Include="Security\Owin\BasicAuthenticationMiddleware.cs" />
+    <Compile Include="Security\Owin\BasicAuthenticationOptions.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="DAL/MappingFiles\Activity.hbm.xml" />
+    <EmbeddedResource Include="DAL/MappingFiles\Agreement.hbm.xml" />
+    <EmbeddedResource Include="DAL/MappingFiles\AgreementStatus.hbm.xml" />
+    <EmbeddedResource Include="DAL/MappingFiles\AmortizationType.hbm.xml" />
+    <EmbeddedResource Include="DAL/MappingFiles\AppNotification.hbm.xml" />
+    <EmbeddedResource Include="DAL/MappingFiles\AppNotificationAction.hbm.xml" />
+    <EmbeddedResource Include="DAL/MappingFiles\AVGTime.hbm.xml" />
+    <EmbeddedResource Include="DAL/MappingFiles\BaseUnit.hbm.xml" />
+    <EmbeddedResource Include="DAL/MappingFiles\BusinessUnit.hbm.xml" />
+    <EmbeddedResource Include="DAL/MappingFiles\Category.hbm.xml" />
+    <EmbeddedResource Include="DAL/MappingFiles\ChartWorkaround.hbm.xml" />
+    <EmbeddedResource Include="DAL/MappingFiles\CO2PerCarrier.hbm.xml" />
+    <EmbeddedResource Include="DAL/MappingFiles\Comment.hbm.xml" />
+    <EmbeddedResource Include="DAL/MappingFiles\Company.hbm.xml" />
+    <EmbeddedResource Include="DAL/MappingFiles\Condition.hbm.xml" />
+    <EmbeddedResource Include="DAL/MappingFiles\Contact.hbm.xml" />
+    <EmbeddedResource Include="DAL/MappingFiles\Coordinates.hbm.xml" />
+    <EmbeddedResource Include="DAL/MappingFiles\CostSplit.hbm.xml" />
+    <EmbeddedResource Include="DAL/MappingFiles\CustomVolume.hbm.xml" />
+    <EmbeddedResource Include="DAL/MappingFiles\Dashboard.hbm.xml" />
+    <EmbeddedResource Include="DAL/MappingFiles\DeliveryPlan.hbm.xml" />
+    <EmbeddedResource Include="DAL/MappingFiles\DeliverySchedule.hbm.xml" />
+    <EmbeddedResource Include="DAL/MappingFiles\DistanceCosts.hbm.xml" />
+    <EmbeddedResource Include="DAL/MappingFiles\Driver.hbm.xml" />
+    <EmbeddedResource Include="DAL/MappingFiles\FileData.hbm.xml" />
+    <EmbeddedResource Include="DAL/MappingFiles\GeoArea.hbm.xml" />
+    <EmbeddedResource Include="DAL/MappingFiles\GeoCoordinates.hbm.xml" />
+    <EmbeddedResource Include="DAL/MappingFiles\InventoryItem.hbm.xml" />
+    <EmbeddedResource Include="DAL/MappingFiles\Item.hbm.xml" />
+    <EmbeddedResource Include="DAL/MappingFiles\ItemParameter.hbm.xml" />
+    <EmbeddedResource Include="DAL/MappingFiles\ItemType.hbm.xml" />
+    <EmbeddedResource Include="DAL/MappingFiles\LegVolumeDetails.hbm.xml" />
+    <EmbeddedResource Include="DAL/MappingFiles\Location.hbm.xml" />
+    <EmbeddedResource Include="DAL/MappingFiles\LSP.hbm.xml" />
+    <EmbeddedResource Include="DAL/MappingFiles\LSPUser.hbm.xml" />
+    <EmbeddedResource Include="DAL/MappingFiles\MapPoints.hbm.xml" />
+    <EmbeddedResource Include="DAL/MappingFiles\MinimumQuantity.hbm.xml" />
+    <EmbeddedResource Include="DAL/MappingFiles\Notification.hbm.xml" />
+    <EmbeddedResource Include="DAL/MappingFiles\OilType.hbm.xml" />
+    <EmbeddedResource Include="DAL/MappingFiles\OrderFDashboard.hbm.xml" />
+    <EmbeddedResource Include="DAL/MappingFiles\OrderForecast.hbm.xml" />
+    <EmbeddedResource Include="DAL/MappingFiles\OrderForecastDetails.hbm.xml" />
+    <EmbeddedResource Include="DAL/MappingFiles\OrderForecastStatistic.hbm.xml" />
+    <EmbeddedResource Include="DAL/MappingFiles\OrdersPerMonth.hbm.xml" />
+    <EmbeddedResource Include="DAL/MappingFiles\OrderStatistics.hbm.xml" />
+    <EmbeddedResource Include="DAL/MappingFiles\OrderWMS.hbm.xml" />
+    <EmbeddedResource Include="DAL/MappingFiles\OwnershipCost.hbm.xml" />
+    <EmbeddedResource Include="DAL/MappingFiles\PastOrder.hbm.xml" />
+    <EmbeddedResource Include="DAL/MappingFiles\PastSales.hbm.xml" />
+    <EmbeddedResource Include="DAL/MappingFiles\PathVolumeDetail.hbm.xml" />
+    <EmbeddedResource Include="DAL/MappingFiles\Platform.hbm.xml" />
+    <EmbeddedResource Include="DAL/MappingFiles\Point.hbm.xml" />
+    <EmbeddedResource Include="DAL/MappingFiles\Priority.hbm.xml" />
+    <EmbeddedResource Include="DAL/MappingFiles\ProofOfDelivery.hbm.xml" />
+    <EmbeddedResource Include="DAL/MappingFiles\PropulsionTypeCost.hbm.xml" />
+    <EmbeddedResource Include="DAL/MappingFiles\Reason.hbm.xml" />
+    <EmbeddedResource Include="DAL/MappingFiles\RegionalAgent.hbm.xml" />
+    <EmbeddedResource Include="DAL/MappingFiles\RegionalAgentUser.hbm.xml" />
+    <EmbeddedResource Include="DAL/MappingFiles\Response.hbm.xml" />
+    <EmbeddedResource Include="DAL/MappingFiles\Retailer.hbm.xml" />
+    <EmbeddedResource Include="DAL/MappingFiles\Route.hbm.xml" />
+    <EmbeddedResource Include="DAL/MappingFiles\Sales.hbm.xml" />
+    <EmbeddedResource Include="DAL/MappingFiles\SalesForecast.hbm.xml" />
+    <EmbeddedResource Include="DAL/MappingFiles\SalesForecastDetails.hbm.xml" />
+    <EmbeddedResource Include="DAL/MappingFiles\ScheduledRoute.hbm.xml" />
+    <EmbeddedResource Include="DAL/MappingFiles\ScheduledRouteTemplate.hbm.xml" />
+    <EmbeddedResource Include="DAL/MappingFiles\Shipment.hbm.xml" />
+    <EmbeddedResource Include="DAL/MappingFiles\ShipmentStatus.hbm.xml" />
+    <EmbeddedResource Include="DAL/MappingFiles\ShippingOrder.hbm.xml" />
+    <EmbeddedResource Include="DAL/MappingFiles\SLADelivery.hbm.xml" />
+    <EmbeddedResource Include="DAL/MappingFiles\SLALeadTime.hbm.xml" />
+    <EmbeddedResource Include="DAL/MappingFiles\SLAStatistics.hbm.xml" />
+    <EmbeddedResource Include="DAL/MappingFiles\Solution.hbm.xml" />
+    <EmbeddedResource Include="DAL/MappingFiles\StatePeriod.hbm.xml" />
+    <EmbeddedResource Include="DAL/MappingFiles\Statistics.hbm.xml" />
+    <EmbeddedResource Include="DAL/MappingFiles\Stats.hbm.xml" />
+    <EmbeddedResource Include="DAL/MappingFiles\Status.hbm.xml" />
+    <EmbeddedResource Include="DAL/MappingFiles\StatusEvolution.hbm.xml" />
+    <EmbeddedResource Include="DAL/MappingFiles\StatusRule.hbm.xml" />
+    <EmbeddedResource Include="DAL/MappingFiles\StockOnHand.hbm.xml" />
+    <EmbeddedResource Include="DAL/MappingFiles\Store.hbm.xml" />
+    <EmbeddedResource Include="DAL/MappingFiles\SubCategory.hbm.xml" />
+    <EmbeddedResource Include="DAL/MappingFiles\Supplier.hbm.xml" />
+    <EmbeddedResource Include="DAL/MappingFiles\SupplierCapacity.hbm.xml" />
+    <EmbeddedResource Include="DAL/MappingFiles\SupplierParameter.hbm.xml" />
+    <EmbeddedResource Include="DAL/MappingFiles\tblActivitiesAPI.hbm.xml" />
+    <EmbeddedResource Include="DAL/MappingFiles\tblDhlEvent.hbm.xml" />
+    <EmbeddedResource Include="DAL/MappingFiles\tblDhlIncident.hbm.xml" />
+    <EmbeddedResource Include="DAL/MappingFiles\tblDhlPlannedRoute.hbm.xml" />
+    <EmbeddedResource Include="DAL/MappingFiles\tblDhlPurchase.hbm.xml" />
+    <EmbeddedResource Include="DAL/MappingFiles\tblDhlRouteStop.hbm.xml" />
+    <EmbeddedResource Include="DAL/MappingFiles\tblDhlRouteStopOperation.hbm.xml" />
+    <EmbeddedResource Include="DAL/MappingFiles\tblDhlTracking.hbm.xml" />
+    <EmbeddedResource Include="DAL/MappingFiles\tblReceivedEvent.hbm.xml" />
+    <EmbeddedResource Include="DAL/MappingFiles\tblReceivedPlannedTransport.hbm.xml" />
+    <EmbeddedResource Include="DAL/MappingFiles\tblReceivedTrainStatus.hbm.xml" />
+    <EmbeddedResource Include="DAL/MappingFiles\tblReceivedTransportStop.hbm.xml" />
+    <EmbeddedResource Include="DAL/MappingFiles\tblReceivedTransportStopVehicle.hbm.xml" />
+    <EmbeddedResource Include="DAL/MappingFiles\tblRoutesAPI.hbm.xml" />
+    <EmbeddedResource Include="DAL/MappingFiles\tblSolutionsAPI.hbm.xml" />
+    <EmbeddedResource Include="DAL/MappingFiles\tblZslBookingType.hbm.xml" />
+    <EmbeddedResource Include="DAL/MappingFiles\tblZslCarrier.hbm.xml" />
+    <EmbeddedResource Include="DAL/MappingFiles\tblZslCustomer.hbm.xml" />
+    <EmbeddedResource Include="DAL/MappingFiles\tblZslDeliveryStatus.hbm.xml" />
+    <EmbeddedResource Include="DAL/MappingFiles\TblZslNormalisationSuggestion.hbm.xml" />
+    <EmbeddedResource Include="DAL/MappingFiles\tblZslPlatformBookingOrder.hbm.xml" />
+    <EmbeddedResource Include="DAL/MappingFiles\tblZslRoute.hbm.xml" />
+    <EmbeddedResource Include="DAL/MappingFiles\tblZslTransportDetail.hbm.xml" />
+    <EmbeddedResource Include="DAL/MappingFiles\tblZslTransportEvent.hbm.xml" />
+    <EmbeddedResource Include="DAL/MappingFiles\tblZslTransportExecutionPlan.hbm.xml" />
+    <EmbeddedResource Include="DAL/MappingFiles\tblZslTransportOrder.hbm.xml" />
+    <EmbeddedResource Include="DAL/MappingFiles\tblZslWorker.hbm.xml" />
+    <EmbeddedResource Include="DAL/MappingFiles\TimeCosts.hbm.xml" />
+    <EmbeddedResource Include="DAL/MappingFiles\TransportUnCap.hbm.xml" />
+    <EmbeddedResource Include="DAL/MappingFiles\Truck.hbm.xml" />
+    <EmbeddedResource Include="DAL/MappingFiles\TruckDriver.hbm.xml" />
+    <EmbeddedResource Include="DAL/MappingFiles\UnitsKPI.hbm.xml" />
+    <EmbeddedResource Include="DAL/MappingFiles\Vehicule.hbm.xml" />
+    <EmbeddedResource Include="DAL/MappingFiles\Volume.hbm.xml" />
+    <EmbeddedResource Include="DAL/MappingFiles\VolumeComponent.hbm.xml" />
+    <EmbeddedResource Include="DAL/MappingFiles\VolumeComposition.hbm.xml" />
+    <EmbeddedResource Include="DAL/MappingFiles\VolumePerShipper.hbm.xml" />
+    <EmbeddedResource Include="DAL/MappingFiles\Warehouse.hbm.xml" />
+    <EmbeddedResource Include="DAL/MappingFiles\WasteOld.hbm.xml" />
+    <EmbeddedResource Include="DAL/MappingFiles\WorkContract.hbm.xml" />
+    <EmbeddedResource Include="DAL/MappingFiles\WorkflowSockContext.hbm.xml" />
+    <EmbeddedResource Include="Locales/Locales\en-usLocales.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\..\LICENSE.txt" Pack="true" PackagePath="$(PackageLicenseFile)" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="CLMS.AppDev.Cache">
+      <Private>True</Private>
+      <HintPath>..\..\..\Projects\Lib\CLMS.AppDev.Cache.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+      <Private>True</Private>
+      <HintPath>..\..\..\Projects\Lib\System.Net.Http.WebRequest.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http">
+      <Private>True</Private>
+      <HintPath>..\..\..\Projects\Lib\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost">
+      <Private>True</Private>
+      <HintPath>..\..\..\Projects\Lib\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="zAppDev.DotNet.Framework">
+      <Private>True</Private>
+      <HintPath>..\..\..\Projects\Lib\zAppDev.DotNet.Framework.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="CacheManager.Core" Version="1.0.1" />
+    <PackageReference Include="CSharpVerbalExpressions" Version="0.1.0" />
+    <PackageReference Include="CsvHelper" Version="2.13.1" />
+    <PackageReference Include="DotNetZip" Version="1.12.0" />
+    <PackageReference Include="FluentNHibernate" Version="2.1.2" />
+    <PackageReference Include="GTFS" Version="1.7.1" />
+    <PackageReference Include="log4net" Version="2.0.8" />
+    <PackageReference Include="Microsoft.AspNet.Identity.Core" Version="2.2.2" />
+    <PackageReference Include="Microsoft.AspNet.Identity.Owin" Version="2.2.2" />
+    <PackageReference Include="Microsoft.AspNet.SignalR.Core" Version="2.4.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="2.2.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="2.2.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="2.2.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="2.2.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Xml" Version="2.2.0" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="2.2.0" />
+    <PackageReference Include="Microsoft.Owin" Version="4.0.0" />
+    <PackageReference Include="Microsoft.Owin.Host.SystemWeb" Version="4.0.0" />
+    <PackageReference Include="Microsoft.Owin.Security" Version="4.0.0" />
+    <PackageReference Include="Microsoft.Owin.Security.Cookies" Version="4.0.0" />
+    <PackageReference Include="Microsoft.Owin.Security.Facebook" Version="4.0.0" />
+    <PackageReference Include="Microsoft.Owin.Security.Google" Version="4.0.0" />
+    <PackageReference Include="Microsoft.Owin.Security.Jwt" Version="4.0.0" />
+    <PackageReference Include="Microsoft.Owin.Security.OAuth" Version="4.0.0" />
+    <PackageReference Include="ncrontab" Version="3.3.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.2" />
+    <PackageReference Include="NHibernate" Version="5.2.1" />
+    <PackageReference Include="Owin" Version="1.0.0" />
+    <PackageReference Include="System.DirectoryServices" Version="4.5.0" />
+    <PackageReference Include="System.DirectoryServices.AccountManagement" Version="4.5.0" />
+    <PackageReference Include="System.Net.Http" Version="4.3.4" />
+    <PackageReference Include="System.Runtime.Caching" Version="4.5.0" />
+    <PackageReference Include="System.ServiceModel.Primitives" Version="4.5.3" />
+    <PackageReference Include="System.Text.Encoding.CodePages" Version="4.5.1" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Projects\ExternalStructs\ExternalStructs.csproj" />
+  </ItemGroup>
+</Project>

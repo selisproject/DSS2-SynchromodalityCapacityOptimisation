@@ -1,0 +1,251 @@
+<!--
+Copyright (c) CLMS. All rights reserved.
+Licensed under the AGPL-3.0 license. See LICENSE file in the project root for full license information.-->
+
+<DataTransformation DateCreated="" Model_Name="TemplateToRoute" Model_Description="" Version="">
+  <Transformation Name="ScheduledRouteTemplate_To_ScheduledRoute" LeftToRightPostProcess="false" RightToLeftPostProcess="false" LeftToRightPreProcess="false" RightToLeftPreProcess="false">
+    <Left>
+      <Struct Name="ScheduledRouteTemplate" PropertyName="" ParentModel="ScheduledRoutes" ParentModelId="0" DataType="Domain.ScheduledRouteTemplate" OriginalDataType="Domain.ScheduledRouteTemplate" IsPrimitive="false" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Left" Path="ScheduledRouteTemplate" IsEnum="false">
+        <Attributes>
+          <Struct Name="Id" PropertyName="Id" ParentModel="" ParentModelId="0" DataType="int" OriginalDataType="int" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Left" Path="ScheduledRouteTemplate.Id" IsEnum="false" />
+          <Struct Name="Origin" PropertyName="Origin" ParentModel="" ParentModelId="0" DataType="string" OriginalDataType="string" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Left" Path="ScheduledRouteTemplate.Origin" IsEnum="false" />
+          <Struct Name="Destination" PropertyName="Destination" ParentModel="" ParentModelId="0" DataType="string" OriginalDataType="string" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Left" Path="ScheduledRouteTemplate.Destination" IsEnum="false" />
+          <Struct Name="DaysOfWeek" PropertyName="DaysOfWeek" ParentModel="" ParentModelId="0" DataType="string" OriginalDataType="string" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Left" Path="ScheduledRouteTemplate.DaysOfWeek" IsEnum="false" />
+          <Struct Name="PricePerPallet" PropertyName="PricePerPallet" ParentModel="" ParentModelId="0" DataType="decimal" OriginalDataType="decimal" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Left" Path="ScheduledRouteTemplate.PricePerPallet" IsEnum="false" />
+          <Struct Name="PricePerKilogram" PropertyName="PricePerKilogram" ParentModel="" ParentModelId="0" DataType="decimal" OriginalDataType="decimal" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Left" Path="ScheduledRouteTemplate.PricePerKilogram" IsEnum="false" />
+          <Struct Name="PricePerCubicMeter" PropertyName="PricePerCubicMeter" ParentModel="" ParentModelId="0" DataType="decimal" OriginalDataType="decimal" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Left" Path="ScheduledRouteTemplate.PricePerCubicMeter" IsEnum="false" />
+          <Struct Name="TotalAvailableCapacityKG" PropertyName="TotalAvailableCapacityKG" ParentModel="" ParentModelId="0" DataType="decimal" OriginalDataType="decimal" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Left" Path="ScheduledRouteTemplate.TotalAvailableCapacityKG" IsEnum="false" />
+          <Struct Name="EffectiveFrom" PropertyName="EffectiveFrom" ParentModel="" ParentModelId="0" DataType="DateTime" OriginalDataType="DateTime" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Left" Path="ScheduledRouteTemplate.EffectiveFrom" IsEnum="false" />
+          <Struct Name="EffectiveTo" PropertyName="EffectiveTo" ParentModel="" ParentModelId="0" DataType="DateTime" OriginalDataType="DateTime" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Left" Path="ScheduledRouteTemplate.EffectiveTo" IsEnum="false" />
+          <Struct Name="TypeOfGoods" PropertyName="TypeOfGoods" ParentModel="" ParentModelId="0" DataType="Domain.TruckContent" OriginalDataType="TruckContent" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Left" Path="ScheduledRouteTemplate.TypeOfGoods" IsEnum="true" />
+          <Struct Name="AvailableCapacityLaden" PropertyName="AvailableCapacityLaden" ParentModel="" ParentModelId="0" DataType="int" OriginalDataType="int" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Left" Path="ScheduledRouteTemplate.AvailableCapacityLaden" IsEnum="false" />
+          <Struct Name="CreatedOn" PropertyName="CreatedOn" ParentModel="" ParentModelId="0" DataType="DateTime" OriginalDataType="DateTime" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Left" Path="ScheduledRouteTemplate.CreatedOn" IsEnum="false" />
+          <Struct Name="Frequency" PropertyName="Frequency" ParentModel="" ParentModelId="0" DataType="Domain.RouteFrequency" OriginalDataType="RouteFrequency" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Left" Path="ScheduledRouteTemplate.Frequency" IsEnum="true" />
+          <Struct Name="IsPrivate" PropertyName="IsPrivate" ParentModel="" ParentModelId="0" DataType="bool" OriginalDataType="bool" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Left" Path="ScheduledRouteTemplate.IsPrivate" IsEnum="false" />
+          <Struct Name="TotalAvailableCapacityLaden" PropertyName="TotalAvailableCapacityLaden" ParentModel="" ParentModelId="0" DataType="int" OriginalDataType="int" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Left" Path="ScheduledRouteTemplate.TotalAvailableCapacityLaden" IsEnum="false" />
+          <Struct Name="TotalAvailableCapacityM3" PropertyName="TotalAvailableCapacityM3" ParentModel="" ParentModelId="0" DataType="decimal" OriginalDataType="decimal" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Left" Path="ScheduledRouteTemplate.TotalAvailableCapacityM3" IsEnum="false" />
+          <Struct Name="AvailableCapacityKG" PropertyName="AvailableCapacityKG" ParentModel="" ParentModelId="0" DataType="decimal" OriginalDataType="decimal" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Left" Path="ScheduledRouteTemplate.AvailableCapacityKG" IsEnum="false" />
+          <Struct Name="AvailableCapacityM3" PropertyName="AvailableCapacityM3" ParentModel="" ParentModelId="0" DataType="decimal" OriginalDataType="decimal" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Left" Path="ScheduledRouteTemplate.AvailableCapacityM3" IsEnum="false" />
+          <Struct Name="FixedPrice" PropertyName="FixedPrice" ParentModel="" ParentModelId="0" DataType="decimal" OriginalDataType="decimal" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Left" Path="ScheduledRouteTemplate.FixedPrice" IsEnum="false" />
+          <Struct Name="TruckPlate" PropertyName="TruckPlate" ParentModel="" ParentModelId="0" DataType="string" OriginalDataType="string" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Left" Path="ScheduledRouteTemplate.TruckPlate" IsEnum="false" />
+          <Struct Name="Owner" PropertyName="Owner" ParentModel="ScheduledRoutes" ParentModelId="0" DataType="Domain.RegionalAgent" OriginalDataType="Domain.RegionalAgent" IsPrimitive="false" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Left" Path="ScheduledRouteTemplate.Owner" IsEnum="false" />
+          <Struct Name="VisibleTo" PropertyName="VisibleTo" ParentModel="ScheduledRoutes" ParentModelId="0" DataType="Collection[Domain.LSP]" OriginalDataType="Collection[Domain.LSP]" IsPrimitive="false" IsCollection="true" Hidden="false" ModelType="DomainModel" Side="Left" Path="ScheduledRouteTemplate.VisibleTo" IsEnum="false" />
+        </Attributes>
+      </Struct>
+    </Left>
+    <Right>
+      <Struct Name="ScheduledRoute" PropertyName="" ParentModel="ScheduledRoutes" ParentModelId="0" DataType="Domain.ScheduledRoute" OriginalDataType="Domain.ScheduledRoute" IsPrimitive="false" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Right" Path="ScheduledRoute" IsEnum="false">
+        <Attributes>
+          <Struct Name="Id" PropertyName="Id" ParentModel="" ParentModelId="0" DataType="int" OriginalDataType="int" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Right" Path="ScheduledRoute.Id" IsEnum="false" />
+          <Struct Name="Origin" PropertyName="Origin" ParentModel="" ParentModelId="0" DataType="string" OriginalDataType="string" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Right" Path="ScheduledRoute.Origin" IsEnum="false" />
+          <Struct Name="Destination" PropertyName="Destination" ParentModel="" ParentModelId="0" DataType="string" OriginalDataType="string" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Right" Path="ScheduledRoute.Destination" IsEnum="false" />
+          <Struct Name="DaysOfWeek" PropertyName="DaysOfWeek" ParentModel="" ParentModelId="0" DataType="string" OriginalDataType="string" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Right" Path="ScheduledRoute.DaysOfWeek" IsEnum="false" />
+          <Struct Name="PricePerPallet" PropertyName="PricePerPallet" ParentModel="" ParentModelId="0" DataType="decimal" OriginalDataType="decimal" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Right" Path="ScheduledRoute.PricePerPallet" IsEnum="false" />
+          <Struct Name="PricePerKilogram" PropertyName="PricePerKilogram" ParentModel="" ParentModelId="0" DataType="decimal" OriginalDataType="decimal" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Right" Path="ScheduledRoute.PricePerKilogram" IsEnum="false" />
+          <Struct Name="PricePerCubicMeter" PropertyName="PricePerCubicMeter" ParentModel="" ParentModelId="0" DataType="decimal" OriginalDataType="decimal" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Right" Path="ScheduledRoute.PricePerCubicMeter" IsEnum="false" />
+          <Struct Name="TotalAvailableCapacityKG" PropertyName="TotalAvailableCapacityKG" ParentModel="" ParentModelId="0" DataType="decimal" OriginalDataType="decimal" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Right" Path="ScheduledRoute.TotalAvailableCapacityKG" IsEnum="false" />
+          <Struct Name="EffectiveFrom" PropertyName="EffectiveFrom" ParentModel="" ParentModelId="0" DataType="DateTime" OriginalDataType="DateTime" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Right" Path="ScheduledRoute.EffectiveFrom" IsEnum="false" />
+          <Struct Name="EffectiveTo" PropertyName="EffectiveTo" ParentModel="" ParentModelId="0" DataType="DateTime" OriginalDataType="DateTime" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Right" Path="ScheduledRoute.EffectiveTo" IsEnum="false" />
+          <Struct Name="TypeOfGoods" PropertyName="TypeOfGoods" ParentModel="" ParentModelId="0" DataType="Domain.TruckContent" OriginalDataType="TruckContent" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Right" Path="ScheduledRoute.TypeOfGoods" IsEnum="true" />
+          <Struct Name="Revision" PropertyName="Revision" ParentModel="" ParentModelId="0" DataType="int" OriginalDataType="int" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Right" Path="ScheduledRoute.Revision" IsEnum="false" />
+          <Struct Name="GUID" PropertyName="GUID" ParentModel="" ParentModelId="0" DataType="string" OriginalDataType="string" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Right" Path="ScheduledRoute.GUID" IsEnum="false" />
+          <Struct Name="ReservedCapacityLaden" PropertyName="ReservedCapacityLaden" ParentModel="" ParentModelId="0" DataType="int" OriginalDataType="int" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Right" Path="ScheduledRoute.ReservedCapacityLaden" IsEnum="false" />
+          <Struct Name="State" PropertyName="State" ParentModel="" ParentModelId="0" DataType="Domain.ScheduledRouteState" OriginalDataType="ScheduledRouteState" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Right" Path="ScheduledRoute.State" IsEnum="true" />
+          <Struct Name="BaseId" PropertyName="BaseId" ParentModel="" ParentModelId="0" DataType="int" OriginalDataType="int" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Right" Path="ScheduledRoute.BaseId" IsEnum="false" />
+          <Struct Name="Frequency" PropertyName="Frequency" ParentModel="" ParentModelId="0" DataType="Domain.RouteFrequency" OriginalDataType="RouteFrequency" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Right" Path="ScheduledRoute.Frequency" IsEnum="true" />
+          <Struct Name="TotalAvailableCapacityM3" PropertyName="TotalAvailableCapacityM3" ParentModel="" ParentModelId="0" DataType="decimal" OriginalDataType="decimal" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Right" Path="ScheduledRoute.TotalAvailableCapacityM3" IsEnum="false" />
+          <Struct Name="TotalAvailableCapacityLaden" PropertyName="TotalAvailableCapacityLaden" ParentModel="" ParentModelId="0" DataType="int" OriginalDataType="int" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Right" Path="ScheduledRoute.TotalAvailableCapacityLaden" IsEnum="false" />
+          <Struct Name="ReservedCapacityKG" PropertyName="ReservedCapacityKG" ParentModel="" ParentModelId="0" DataType="decimal" OriginalDataType="decimal" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Right" Path="ScheduledRoute.ReservedCapacityKG" IsEnum="false" />
+          <Struct Name="ReservedCapacityM3" PropertyName="ReservedCapacityM3" ParentModel="" ParentModelId="0" DataType="decimal" OriginalDataType="decimal" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Right" Path="ScheduledRoute.ReservedCapacityM3" IsEnum="false" />
+          <Struct Name="FixedPrice" PropertyName="FixedPrice" ParentModel="" ParentModelId="0" DataType="decimal" OriginalDataType="decimal" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Right" Path="ScheduledRoute.FixedPrice" IsEnum="false" />
+          <Struct Name="OriginComments" PropertyName="OriginComments" ParentModel="" ParentModelId="0" DataType="string" OriginalDataType="string" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Right" Path="ScheduledRoute.OriginComments" IsEnum="false" />
+          <Struct Name="DestinationComments" PropertyName="DestinationComments" ParentModel="" ParentModelId="0" DataType="string" OriginalDataType="string" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Right" Path="ScheduledRoute.DestinationComments" IsEnum="false" />
+          <Struct Name="TruckPlate" PropertyName="TruckPlate" ParentModel="" ParentModelId="0" DataType="string" OriginalDataType="string" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Right" Path="ScheduledRoute.TruckPlate" IsEnum="false" />
+          <Struct Name="WorkContract" PropertyName="WorkContract" ParentModel="WorkContract" ParentModelId="0" DataType="Domain.WorkContract" OriginalDataType="Domain.WorkContract" IsPrimitive="false" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Right" Path="ScheduledRoute.WorkContract" IsEnum="false" />
+        </Attributes>
+      </Struct>
+    </Right>
+    <Mappings>
+      <Mapping DetailedTransformation="" FromWizzard="false" MappingMode="Both">
+        <LeftToRight>
+          <Implementation IsAutoMapped="true">
+          </Implementation>
+        </LeftToRight>
+        <RightToLeft>
+          <Implementation IsAutoMapped="true">
+          </Implementation>
+        </RightToLeft>
+        <LeftItems Items="ScheduledRouteTemplate.Origin" />
+        <RightItems Items="ScheduledRoute.Origin" />
+      </Mapping>
+      <Mapping DetailedTransformation="" FromWizzard="false" MappingMode="Both">
+        <LeftToRight>
+          <Implementation IsAutoMapped="true">
+          </Implementation>
+        </LeftToRight>
+        <RightToLeft>
+          <Implementation IsAutoMapped="true">
+          </Implementation>
+        </RightToLeft>
+        <LeftItems Items="ScheduledRouteTemplate.Destination" />
+        <RightItems Items="ScheduledRoute.Destination" />
+      </Mapping>
+      <Mapping DetailedTransformation="" FromWizzard="false" MappingMode="Both">
+        <LeftToRight>
+          <Implementation IsAutoMapped="true">
+          </Implementation>
+        </LeftToRight>
+        <RightToLeft>
+          <Implementation IsAutoMapped="true">
+          </Implementation>
+        </RightToLeft>
+        <LeftItems Items="ScheduledRouteTemplate.DaysOfWeek" />
+        <RightItems Items="ScheduledRoute.DaysOfWeek" />
+      </Mapping>
+      <Mapping DetailedTransformation="" FromWizzard="false" MappingMode="Both">
+        <LeftToRight>
+          <Implementation IsAutoMapped="true">
+          </Implementation>
+        </LeftToRight>
+        <RightToLeft>
+          <Implementation IsAutoMapped="true">
+          </Implementation>
+        </RightToLeft>
+        <LeftItems Items="ScheduledRouteTemplate.PricePerPallet" />
+        <RightItems Items="ScheduledRoute.PricePerPallet" />
+      </Mapping>
+      <Mapping DetailedTransformation="" FromWizzard="false" MappingMode="Both">
+        <LeftToRight>
+          <Implementation IsAutoMapped="true">
+          </Implementation>
+        </LeftToRight>
+        <RightToLeft>
+          <Implementation IsAutoMapped="true">
+          </Implementation>
+        </RightToLeft>
+        <LeftItems Items="ScheduledRouteTemplate.PricePerKilogram" />
+        <RightItems Items="ScheduledRoute.PricePerKilogram" />
+      </Mapping>
+      <Mapping DetailedTransformation="" FromWizzard="false" MappingMode="Both">
+        <LeftToRight>
+          <Implementation IsAutoMapped="true">
+          </Implementation>
+        </LeftToRight>
+        <RightToLeft>
+          <Implementation IsAutoMapped="true">
+          </Implementation>
+        </RightToLeft>
+        <LeftItems Items="ScheduledRouteTemplate.PricePerCubicMeter" />
+        <RightItems Items="ScheduledRoute.PricePerCubicMeter" />
+      </Mapping>
+      <Mapping DetailedTransformation="" FromWizzard="false" MappingMode="Both">
+        <LeftToRight>
+          <Implementation IsAutoMapped="true">
+          </Implementation>
+        </LeftToRight>
+        <RightToLeft>
+          <Implementation IsAutoMapped="true">
+          </Implementation>
+        </RightToLeft>
+        <LeftItems Items="ScheduledRouteTemplate.EffectiveFrom" />
+        <RightItems Items="ScheduledRoute.EffectiveFrom" />
+      </Mapping>
+      <Mapping DetailedTransformation="" FromWizzard="false" MappingMode="Both">
+        <LeftToRight>
+          <Implementation IsAutoMapped="true">
+          </Implementation>
+        </LeftToRight>
+        <RightToLeft>
+          <Implementation IsAutoMapped="true">
+          </Implementation>
+        </RightToLeft>
+        <LeftItems Items="ScheduledRouteTemplate.EffectiveTo" />
+        <RightItems Items="ScheduledRoute.EffectiveTo" />
+      </Mapping>
+      <Mapping DetailedTransformation="" FromWizzard="false" MappingMode="Both">
+        <LeftToRight>
+          <Implementation IsAutoMapped="true">
+          </Implementation>
+        </LeftToRight>
+        <RightToLeft>
+          <Implementation IsAutoMapped="true">
+          </Implementation>
+        </RightToLeft>
+        <LeftItems Items="ScheduledRouteTemplate.TypeOfGoods" />
+        <RightItems Items="ScheduledRoute.TypeOfGoods" />
+      </Mapping>
+      <Mapping DetailedTransformation="" FromWizzard="false" MappingMode="Both">
+        <LeftToRight>
+          <Implementation IsAutoMapped="true">
+          </Implementation>
+        </LeftToRight>
+        <RightToLeft>
+          <Implementation IsAutoMapped="true">
+          </Implementation>
+        </RightToLeft>
+        <LeftItems Items="ScheduledRouteTemplate.Frequency" />
+        <RightItems Items="ScheduledRoute.Frequency" />
+      </Mapping>
+      <Mapping DetailedTransformation="" FromWizzard="false" MappingMode="Both">
+        <LeftToRight>
+          <Implementation IsAutoMapped="true">
+          </Implementation>
+        </LeftToRight>
+        <RightToLeft>
+          <Implementation IsAutoMapped="true">
+          </Implementation>
+        </RightToLeft>
+        <LeftItems Items="ScheduledRouteTemplate.TotalAvailableCapacityKG" />
+        <RightItems Items="ScheduledRoute.TotalAvailableCapacityKG" />
+      </Mapping>
+      <Mapping DetailedTransformation="" FromWizzard="false" MappingMode="Both">
+        <LeftToRight>
+          <Implementation IsAutoMapped="true">
+          </Implementation>
+        </LeftToRight>
+        <RightToLeft>
+          <Implementation IsAutoMapped="true">
+          </Implementation>
+        </RightToLeft>
+        <LeftItems Items="ScheduledRouteTemplate.TotalAvailableCapacityLaden" />
+        <RightItems Items="ScheduledRoute.TotalAvailableCapacityLaden" />
+      </Mapping>
+      <Mapping DetailedTransformation="" FromWizzard="false" MappingMode="Both">
+        <LeftToRight>
+          <Implementation IsAutoMapped="true">
+          </Implementation>
+        </LeftToRight>
+        <RightToLeft>
+          <Implementation IsAutoMapped="true">
+          </Implementation>
+        </RightToLeft>
+        <LeftItems Items="ScheduledRouteTemplate.TotalAvailableCapacityM3" />
+        <RightItems Items="ScheduledRoute.TotalAvailableCapacityM3" />
+      </Mapping>
+      <Mapping DetailedTransformation="" FromWizzard="false" MappingMode="Both">
+        <LeftToRight>
+          <Implementation IsAutoMapped="true">
+          </Implementation>
+        </LeftToRight>
+        <RightToLeft>
+          <Implementation IsAutoMapped="true">
+          </Implementation>
+        </RightToLeft>
+        <LeftItems Items="ScheduledRouteTemplate.FixedPrice" />
+        <RightItems Items="ScheduledRoute.FixedPrice" />
+      </Mapping>
+      <Mapping DetailedTransformation="" FromWizzard="false" MappingMode="Both">
+        <LeftToRight>
+          <Implementation IsAutoMapped="true">
+          </Implementation>
+        </LeftToRight>
+        <RightToLeft>
+          <Implementation IsAutoMapped="true">
+          </Implementation>
+        </RightToLeft>
+        <LeftItems Items="ScheduledRouteTemplate.TruckPlate" />
+        <RightItems Items="ScheduledRoute.TruckPlate" />
+      </Mapping>
+    </Mappings>
+  </Transformation>
+</DataTransformation>

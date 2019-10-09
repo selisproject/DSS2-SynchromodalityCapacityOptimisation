@@ -1,0 +1,166 @@
+<!--
+Copyright (c) CLMS. All rights reserved.
+Licensed under the AGPL-3.0 license. See LICENSE file in the project root for full license information.-->
+
+<ExposedApi DateCreated="" Model_Name="CostModel" Model_Description="" Version="">
+  <Operations>
+    <Operation Verb="Get" Path="CalculateCost" Name="CalculateCost" Description="" AllowAnonymousUsers="True" AllowAllAuthenticated="True" EnableAccessLog="True" ResponseSample="" RequestSample="" AllowPermisssions="" ApplicationTags="">
+      <Parameters>
+        <Parameter DataType="decimal" Required="True" Name="DriverSalary" Description="" />
+        <Parameter DataType="decimal" Required="True" Name="AvWorkH" Description="" />
+        <Parameter DataType="decimal" Required="True" Name="AvServiceH" Description="" />
+        <Parameter DataType="decimal" Required="True" Name="VehiculeAnnualHours" Description="" />
+        <Parameter DataType="decimal" Required="True" Name="VehiculeAnnualDays" Description="" />
+        <Parameter DataType="decimal" Required="True" Name="CostOfReplacementVehicule" Description="" />
+        <Parameter DataType="decimal" Required="True" Name="DaysReplacementVehicule" Description="" />
+        <Parameter DataType="decimal" Required="True" Name="AmortizationPeriod" Description="" />
+        <Parameter DataType="decimal" Required="True" Name="UtilisationPeriod" Description="" />
+        <Parameter DataType="decimal" Required="True" Name="ResidualValue" Description="" />
+        <Parameter DataType="decimal" Required="True" Name="MaintainanceCost" Description="" />
+        <Parameter DataType="decimal" Required="True" Name="VehiculeInsuranceCost" Description="" />
+        <Parameter DataType="decimal" Required="True" Name="GoodsInsurancecCost" Description="" />
+        <Parameter DataType="decimal" Required="True" Name="RoadTax" Description="" />
+        <Parameter DataType="decimal" Required="True" Name="VehiculePurchaseCost" Description="" />
+        <Parameter DataType="string" Required="True" Name="AmortizationType" Description="" />
+        <Parameter DataType="decimal" Required="True" Name="TotalDistanceDriven" Description="" />
+        <Parameter DataType="decimal" Required="True" Name="TotalDistanceService" Description="" />
+        <Parameter DataType="decimal" Required="True" Name="CNGDistance" Description="" />
+        <Parameter DataType="decimal" Required="True" Name="FuelDistance" Description="" />
+        <Parameter DataType="decimal" Required="True" Name="DieselDistance" Description="" />
+        <Parameter DataType="decimal" Required="True" Name="CNGCost" Description="" />
+        <Parameter DataType="decimal" Required="True" Name="CNGConsumption" Description="" />
+        <Parameter DataType="decimal" Required="True" Name="FuelCost" Description="" />
+        <Parameter DataType="decimal" Required="True" Name="FuelConsumption" Description="" />
+        <Parameter DataType="decimal" Required="True" Name="DieselCost" Description="" />
+        <Parameter DataType="decimal" Required="True" Name="DieselConsumption" Description="" />
+        <Parameter DataType="decimal" Required="True" Name="RefriCost" Description="" />
+        <Parameter DataType="decimal" Required="True" Name="Lettering" Description="" />
+        <Parameter DataType="decimal" Required="True" Name="TotalDistanceVehicule" Description="" />
+        <Parameter DataType="decimal" Required="True" Name="OilCost" Description="" />
+        <Parameter DataType="decimal" Required="True" Name="OilConsumption" Description="" />
+        <Parameter DataType="decimal" Required="True" Name="TireCost" Description="" />
+        <Parameter DataType="decimal" Required="True" Name="DistancePerTire" Description="" />
+        <Parameter DataType="decimal" Required="True" Name="YearlyReparationCost" Description="" />
+        <Parameter DataType="decimal" Required="True" Name="RouteDistance" Description="" />
+        <Parameter DataType="decimal" Required="True" Name="RouteTime" Description="" />
+        <Parameter DataType="decimal" Required="True" Name="OverHeadFactor" Description="" />
+      </Parameters>
+      <Code>function decimal ExposedOperation( 
+		decimal DriverSalary,
+		decimal AvWorkH, 
+		decimal AvServiceH,
+		decimal VehiculeAnnualHours,
+		decimal VehiculeAnnualDays,
+		decimal CostOfReplacementVehicule,
+		decimal DaysReplacementVehicule,
+		decimal AmortizationPeriod,
+		decimal UtilisationPeriod,
+		decimal ResidualValue,
+		decimal MaintainanceCost,
+		decimal VehiculeInsuranceCost,
+		decimal GoodsInsurancecCost,
+		decimal RoadTax,
+		decimal VehiculePurchaseCost,
+		string AmortizationType,
+		decimal	TotalDistanceDriven,
+		decimal TotalDistanceService,
+		decimal CNGDistance,
+		decimal FuelDistance,
+		decimal DieselDistance,
+		decimal CNGCost,
+		decimal CNGConsumption,
+		decimal FuelCost,
+		decimal FuelConsumption,
+		decimal DieselCost,
+		decimal DieselConsumption,	
+		decimal RefriCost,
+		decimal Lettering,
+		decimal TotalDistanceVehicule,
+		decimal OilCost,
+		decimal OilConsumption,
+		decimal TireCost,
+		decimal DistancePerTire,
+		decimal YearlyReparationCost,
+		decimal RouteDistance,
+		decimal RouteTime,
+		decimal OverHeadFactor
+		) {
+		
+		decimal OwnershipCost=0;
+		decimal TotalOwnershipCost=0;
+		decimal TotalPurchaseCost=VehiculePurchaseCost+RefriCost+Lettering-TireCost;
+		
+		if AmortizationType=="economic"{
+			OwnershipCost=TotalPurchaseCost/AmortizationPeriod;   
+		    
+		}elseif AmortizationType == "utilization time" {
+			OwnershipCost=(TotalPurchaseCost-ResidualValue)/UtilisationPeriod;
+		}else{
+		    throw "Not correct Amortization Type";
+		}
+		
+		decimal HourlyDriverCost=DriverSalary/(AvServiceH/AvWorkH);
+
+		decimal HourlyVehiculeCost=(RoadTax+VehiculeInsuranceCost+GoodsInsurancecCost+MaintainanceCost+(TotalPurchaseCost/2+VehiculePurchaseCost/10)*0.04+OwnershipCost+DaysReplacementVehicule*CostOfReplacementVehicule)/(VehiculeAnnualHours*VehiculeAnnualDays);
+
+		decimal KmCost=CNGCost*CNGConsumption*CNGDistance*0.01 + FuelCost*FuelConsumption*FuelDistance*0.01 + DieselCost*DieselConsumption*DieselDistance*0.01 +TotalOwnershipCost+OilCost*OilConsumption+TireCost/DistancePerTire+YearlyReparationCost/TotalDistanceDriven;
+
+		decimal RouteDistanceCost= RouteDistance/(TotalDistanceService/TotalDistanceDriven)*KmCost;
+		
+		decimal RouteTimeCost= RouteTime*(HourlyDriverCost+HourlyVehiculeCost);
+
+		decimal TotalRouteCost= (RouteDistanceCost+RouteTimeCost)*(1+OverHeadFactor);
+
+		return TotalRouteCost;
+
+	}
+
+</Code>
+      <CachingOptions CachePerUser="false" OperationIsCached="false" OverrideDefaultCachingSettings="false" UseCustomExpirationMethod="false" ExpirationDays="0" ExpirationHours="0" ExpirationMinutes="3" ExpirationSeconds="0" ExpirationMilliseconds="0" CacheMode="None">function TimeSpan Expiration(
+	decimal DriverSalary,
+	decimal AvWorkH,
+	decimal AvServiceH,
+	decimal VehiculeAnnualHours,
+	decimal VehiculeAnnualDays,
+	decimal CostOfReplacementVehicule,
+	decimal DaysReplacementVehicule,
+	decimal AmortizationPeriod,
+	decimal UtilisationPeriod,
+	decimal ResidualValue,
+	decimal MaintainanceCost,
+	decimal VehiculeInsuranceCost,
+	decimal GoodsInsurancecCost,
+	decimal RoadTax,
+	decimal VehiculePurchaseCost,
+	string AmortizationType,
+	decimal TotalDistanceDriven,
+	decimal TotalDistanceService,
+	decimal CNGDistance,
+	decimal FuelDistance,
+	decimal DieselDistance,
+	decimal CNGCost,
+	decimal CNGConsumption,
+	decimal FuelCost,
+	decimal FuelConsumption,
+	decimal DieselCost,
+	decimal DieselConsumption,
+	decimal RefriCost,
+	decimal Lettering,
+	decimal TotalDistanceVehicule,
+	decimal OilCost,
+	decimal OilConsumption,
+	decimal TireCost,
+	decimal DistancePerTire,
+	decimal YearlyReparationCost,
+	decimal RouteDistance,
+	decimal RouteTime,
+	decimal OverHeadFactor,
+	decimal response
+)
+{ 
+	 return CommonLib.Utilities.CreateTimeSpan(0, 1, 0); 
+}</CachingOptions>
+    </Operation>
+  </Operations>
+  <DataContracts />
+</ExposedApi>

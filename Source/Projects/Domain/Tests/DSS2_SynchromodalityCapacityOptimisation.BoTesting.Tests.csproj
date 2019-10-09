@@ -1,0 +1,200 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net472</TargetFramework>
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+    <Copyright>Copyright © CLMS 2018</Copyright>
+    <Company>CLMS</Company>
+    <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
+    <AssemblyName>DSS2_SynchromodalityCapacityOptimisation.BoTesting.Tests</AssemblyName>
+    <RootNamespace>DSS2_SynchromodalityCapacityOptimisation</RootNamespace>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(TargetFramework)' == 'netcoreapp2.2'">
+    <DefineConstants>$(DefineConstants);NETSTANDARD</DefineConstants>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Transactions" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ActivityTests.cs" />
+    <Compile Include="AgreementStatusTests.cs" />
+    <Compile Include="AgreementTests.cs" />
+    <Compile Include="AmortizationTypeTests.cs" />
+    <Compile Include="ApplicationClientTests.cs" />
+    <Compile Include="ApplicationLanguageTests.cs" />
+    <Compile Include="ApplicationOperationTests.cs" />
+    <Compile Include="ApplicationPermissionTests.cs" />
+    <Compile Include="ApplicationRoleTests.cs" />
+    <Compile Include="ApplicationSettingTests.cs" />
+    <Compile Include="ApplicationThemeTests.cs" />
+    <Compile Include="ApplicationUserActionTests.cs" />
+    <Compile Include="ApplicationUserClaimTests.cs" />
+    <Compile Include="ApplicationUserExternalProfileTests.cs" />
+    <Compile Include="ApplicationUserLoginTests.cs" />
+    <Compile Include="ApplicationUserTests.cs" />
+    <Compile Include="AppNotificationActionTests.cs" />
+    <Compile Include="AppNotificationTests.cs" />
+    <Compile Include="AuditEntityConfigurationTests.cs" />
+    <Compile Include="AuditLogEntryTests.cs" />
+    <Compile Include="AuditLogEntryTypeTests.cs" />
+    <Compile Include="AuditLogPropertyActionTypeTests.cs" />
+    <Compile Include="AuditPropertyConfigurationTests.cs" />
+    <Compile Include="AVGTimeTests.cs" />
+    <Compile Include="BaseUnitTests.cs" />
+    <Compile Include="BusinessUnitTests.cs" />
+    <Compile Include="CategoryTests.cs" />
+    <Compile Include="ChartWorkaroundTests.cs" />
+    <Compile Include="CO2PerCarrierTests.cs" />
+    <Compile Include="CommentTests.cs" />
+    <Compile Include="Common\BaseFixture.cs" />
+    <Compile Include="Common\NHConfigurator.cs" />
+    <Compile Include="Common\NHibernateFixture.cs" />
+    <Compile Include="Common\TestConnectionProvider.cs" />
+    <Compile Include="CompanyTests.cs" />
+    <Compile Include="ConditionTests.cs" />
+    <Compile Include="ContactTests.cs" />
+    <Compile Include="CoordinatesTests.cs" />
+    <Compile Include="CostSplitTests.cs" />
+    <Compile Include="CustomVolumeTests.cs" />
+    <Compile Include="DashboardTests.cs" />
+    <Compile Include="DateTimeFormatTests.cs" />
+    <Compile Include="DeliveryScheduleTests.cs" />
+    <Compile Include="DistanceCostsTests.cs" />
+    <Compile Include="DriverTests.cs" />
+    <Compile Include="FileDataTests.cs" />
+    <Compile Include="GeoAreaTests.cs" />
+    <Compile Include="GeoCoordinatesTests.cs" />
+    <Compile Include="InventoryItemTests.cs" />
+    <Compile Include="ItemParameterTests.cs" />
+    <Compile Include="ItemTests.cs" />
+    <Compile Include="ItemTypeTests.cs" />
+    <Compile Include="LegVolumeDetailsTests.cs" />
+    <Compile Include="LocationTests.cs" />
+    <Compile Include="LSPTests.cs" />
+    <Compile Include="MapPointsTests.cs" />
+    <Compile Include="MinimumQuantityTests.cs" />
+    <Compile Include="NotificationTests.cs" />
+    <Compile Include="OilTypeTests.cs" />
+    <Compile Include="OrderFDashboardTests.cs" />
+    <Compile Include="OrderForecastDetailsTests.cs" />
+    <Compile Include="OrderForecastStatisticTests.cs" />
+    <Compile Include="OrderForecastTests.cs" />
+    <Compile Include="OrdersPerMonthTests.cs" />
+    <Compile Include="OrderStatisticsTests.cs" />
+    <Compile Include="OrderWMSTests.cs" />
+    <Compile Include="OwnershipCostTests.cs" />
+    <Compile Include="PastOrderTests.cs" />
+    <Compile Include="PathVolumeDetailTests.cs" />
+    <Compile Include="PlatformTests.cs" />
+    <Compile Include="PointTests.cs" />
+    <Compile Include="PriorityTests.cs" />
+    <Compile Include="ProfileSettingTests.cs" />
+    <Compile Include="ProfileTests.cs" />
+    <Compile Include="ProofOfDeliveryTests.cs" />
+    <Compile Include="PropulsionTypeCostTests.cs" />
+    <Compile Include="ReasonTests.cs" />
+    <Compile Include="RegionalAgentTests.cs" />
+    <Compile Include="ResponseTests.cs" />
+    <Compile Include="RouteTests.cs" />
+    <Compile Include="SalesForecastDetailsTests.cs" />
+    <Compile Include="SalesForecastTests.cs" />
+    <Compile Include="SalesTests.cs" />
+    <Compile Include="ScheduledRouteTemplateTests.cs" />
+    <Compile Include="ScheduledRouteTests.cs" />
+    <Compile Include="ShipmentStatusTests.cs" />
+    <Compile Include="ShipmentTests.cs" />
+    <Compile Include="ShippingOrderTests.cs" />
+    <Compile Include="SLADeliveryTests.cs" />
+    <Compile Include="SLALeadTimeTests.cs" />
+    <Compile Include="SLAStatisticsTests.cs" />
+    <Compile Include="SolutionTests.cs" />
+    <Compile Include="StatePeriodTests.cs" />
+    <Compile Include="StatisticsTests.cs" />
+    <Compile Include="StatsTests.cs" />
+    <Compile Include="StatusEvolutionTests.cs" />
+    <Compile Include="StatusRuleTests.cs" />
+    <Compile Include="StatusTests.cs" />
+    <Compile Include="StockOnHandTests.cs" />
+    <Compile Include="StoreTests.cs" />
+    <Compile Include="SubCategoryTests.cs" />
+    <Compile Include="SupplierCapacityTests.cs" />
+    <Compile Include="SupplierParameterTests.cs" />
+    <Compile Include="tblActivitiesAPITests.cs" />
+    <Compile Include="tblDhlEventTests.cs" />
+    <Compile Include="tblDhlIncidentTests.cs" />
+    <Compile Include="tblDhlPlannedRouteTests.cs" />
+    <Compile Include="tblDhlPurchaseTests.cs" />
+    <Compile Include="tblDhlRouteStopOperationTests.cs" />
+    <Compile Include="tblDhlRouteStopTests.cs" />
+    <Compile Include="tblDhlTrackingTests.cs" />
+    <Compile Include="tblReceivedEventTests.cs" />
+    <Compile Include="tblReceivedPlannedTransportTests.cs" />
+    <Compile Include="tblReceivedTrainStatusTests.cs" />
+    <Compile Include="tblReceivedTransportStopTests.cs" />
+    <Compile Include="tblReceivedTransportStopVehicleTests.cs" />
+    <Compile Include="tblRoutesAPITests.cs" />
+    <Compile Include="tblSolutionsAPITests.cs" />
+    <Compile Include="tblZslBookingTypeTests.cs" />
+    <Compile Include="tblZslCarrierTests.cs" />
+    <Compile Include="tblZslCustomerTests.cs" />
+    <Compile Include="tblZslDeliveryStatusTests.cs" />
+    <Compile Include="TblZslNormalisationSuggestionTests.cs" />
+    <Compile Include="tblZslPlatformBookingOrderTests.cs" />
+    <Compile Include="tblZslRouteTests.cs" />
+    <Compile Include="tblZslTransportDetailTests.cs" />
+    <Compile Include="tblZslTransportEventTests.cs" />
+    <Compile Include="tblZslTransportExecutionPlanTests.cs" />
+    <Compile Include="tblZslTransportOrderTests.cs" />
+    <Compile Include="tblZslWorkerTests.cs" />
+    <Compile Include="TimeCostsTests.cs" />
+    <Compile Include="TransportUnCapTests.cs" />
+    <Compile Include="TruckTests.cs" />
+    <Compile Include="UnitsKPITests.cs" />
+    <Compile Include="VehiculeTests.cs" />
+    <Compile Include="VolumeComponentTests.cs" />
+    <Compile Include="VolumeCompositionTests.cs" />
+    <Compile Include="VolumePerShipperTests.cs" />
+    <Compile Include="VolumeTests.cs" />
+    <Compile Include="WarehouseTests.cs" />
+    <Compile Include="WasteOldTests.cs" />
+    <Compile Include="WorkContractTests.cs" />
+    <Compile Include="WorkflowContextBaseTests.cs" />
+    <Compile Include="WorkflowScheduleTests.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <None Include="..\..\..\LICENSE.txt" Pack="true" PackagePath="$(PackageLicenseFile)" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="hibernate.cfg.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="log4net.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="zAppDev.DotNet.Framework">
+      <Private>True</Private>
+      <HintPath>..\..\..\Projects\Lib\zAppDev.DotNet.Framework.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="FluentNHibernate" Version="2.1.2" />
+    <PackageReference Include="NHibernate" Version="5.2.1" />
+    <PackageReference Include="NUnit" Version="3.11.0" />
+    <PackageReference Include="System.Data.SqlClient" Version="4.6.0" />
+    <PackageReference Include="System.Text.Encoding.CodePages" Version="4.5.1" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Projects\Domain\POCO\DSS2_SynchromodalityCapacityOptimisation.Backend.csproj" />
+  </ItemGroup>
+</Project>

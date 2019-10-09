@@ -1,0 +1,413 @@
+<!--
+Copyright (c) CLMS. All rights reserved.
+Licensed under the AGPL-3.0 license. See LICENSE file in the project root for full license information.-->
+
+<DataTransformation DateCreated="" Model_Name="Elasticsearch" Model_Description="" Version="">
+  <Transformation Name="Hit_To_RequestLog" LeftToRightPostProcess="false" RightToLeftPostProcess="false" LeftToRightPreProcess="false" RightToLeftPreProcess="false">
+    <Left>
+      <Struct Name="Hit" PropertyName="" ParentModel="Elasticsearch" ParentModelId="0" DataType="Interfaces.Elasticsearch.Hit" OriginalDataType="Interfaces.Elasticsearch.Hit" IsPrimitive="false" IsCollection="false" Hidden="false" ModelType="ExternalApi" Side="Left" Path="Hit" IsEnum="false">
+        <Attributes>
+          <Struct Name="RequestPath" PropertyName="RequestPath" ParentModel="Elasticsearch" ParentModelId="0" DataType="string" OriginalDataType="string" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="ExternalApi" Side="Left" Path="Hit.RequestPath" IsEnum="false" />
+          <Struct Name="Message" PropertyName="Message" ParentModel="Elasticsearch" ParentModelId="0" DataType="string" OriginalDataType="string" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="ExternalApi" Side="Left" Path="Hit.Message" IsEnum="false" />
+          <Struct Name="RequestId" PropertyName="RequestId" ParentModel="Elasticsearch" ParentModelId="0" DataType="string" OriginalDataType="string" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="ExternalApi" Side="Left" Path="Hit.RequestId" IsEnum="false" />
+          <Struct Name="RequestMethod" PropertyName="RequestMethod" ParentModel="Elasticsearch" ParentModelId="0" DataType="string" OriginalDataType="string" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="ExternalApi" Side="Left" Path="Hit.RequestMethod" IsEnum="false" />
+          <Struct Name="ElapsedMsecs" PropertyName="ElapsedMsecs" ParentModel="Elasticsearch" ParentModelId="0" DataType="float" OriginalDataType="float" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="ExternalApi" Side="Left" Path="Hit.ElapsedMsecs" IsEnum="false" />
+          <Struct Name="IP" PropertyName="IP" ParentModel="Elasticsearch" ParentModelId="0" DataType="string" OriginalDataType="string" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="ExternalApi" Side="Left" Path="Hit.IP" IsEnum="false" />
+          <Struct Name="Service" PropertyName="Service" ParentModel="Elasticsearch" ParentModelId="0" DataType="string" OriginalDataType="string" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="ExternalApi" Side="Left" Path="Hit.Service" IsEnum="false" />
+          <Struct Name="Operation" PropertyName="Operation" ParentModel="Elasticsearch" ParentModelId="0" DataType="string" OriginalDataType="string" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="ExternalApi" Side="Left" Path="Hit.Operation" IsEnum="false" />
+          <Struct Name="StatusCode" PropertyName="StatusCode" ParentModel="Elasticsearch" ParentModelId="0" DataType="int" OriginalDataType="int" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="ExternalApi" Side="Left" Path="Hit.StatusCode" IsEnum="false" />
+          <Struct Name="Timestamp" PropertyName="Timestamp" ParentModel="Elasticsearch" ParentModelId="0" DataType="DateTime" OriginalDataType="DateTime" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="ExternalApi" Side="Left" Path="Hit.Timestamp" IsEnum="false" />
+          <Struct Name="tags" PropertyName="tags" ParentModel="Elasticsearch" ParentModelId="0" DataType="Array[string]" OriginalDataType="Array[string]" IsPrimitive="false" IsCollection="true" Hidden="false" ModelType="ExternalApi" Side="Left" Path="Hit.tags" IsEnum="false" />
+          <Struct Name="timestamp" PropertyName="timestamp" ParentModel="Elasticsearch" ParentModelId="0" DataType="DateTime" OriginalDataType="DateTime" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="ExternalApi" Side="Left" Path="Hit.timestamp" IsEnum="false" />
+          <Struct Name="Username" PropertyName="Username" ParentModel="Elasticsearch" ParentModelId="0" DataType="string" OriginalDataType="string" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="ExternalApi" Side="Left" Path="Hit.Username" IsEnum="false" />
+          <Struct Name="version" PropertyName="version" ParentModel="Elasticsearch" ParentModelId="0" DataType="string" OriginalDataType="string" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="ExternalApi" Side="Left" Path="Hit.version" IsEnum="false" />
+          <Struct Name="RequestUri" PropertyName="RequestUri" ParentModel="Elasticsearch" ParentModelId="0" DataType="string" OriginalDataType="string" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="ExternalApi" Side="Left" Path="Hit.RequestUri" IsEnum="false" />
+          <Struct Name="ClientId" PropertyName="ClientId" ParentModel="Elasticsearch" ParentModelId="0" DataType="string" OriginalDataType="string" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="ExternalApi" Side="Left" Path="Hit.ClientId" IsEnum="false" />
+          <Struct Name="ClientName" PropertyName="ClientName" ParentModel="Elasticsearch" ParentModelId="0" DataType="string" OriginalDataType="string" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="ExternalApi" Side="Left" Path="Hit.ClientName" IsEnum="false" />
+          <Struct Name="Product" PropertyName="Product" ParentModel="Elasticsearch" ParentModelId="0" DataType="string" OriginalDataType="string" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="ExternalApi" Side="Left" Path="Hit.Product" IsEnum="false" />
+        </Attributes>
+      </Struct>
+    </Left>
+    <Right>
+      <Struct Name="RequestLog" PropertyName="" ParentModel="" ParentModelId="0" DataType="Domain.RequestLog" OriginalDataType="Domain.RequestLog" IsPrimitive="false" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Right" Path="RequestLog" IsEnum="false">
+        <Attributes>
+          <Struct Name="RequestPath" PropertyName="RequestPath" ParentModel="" ParentModelId="0" DataType="string" OriginalDataType="string" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Right" Path="RequestLog.RequestPath" IsEnum="false" />
+          <Struct Name="Message" PropertyName="Message" ParentModel="" ParentModelId="0" DataType="string" OriginalDataType="string" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Right" Path="RequestLog.Message" IsEnum="false" />
+          <Struct Name="RequestId" PropertyName="RequestId" ParentModel="" ParentModelId="0" DataType="string" OriginalDataType="string" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Right" Path="RequestLog.RequestId" IsEnum="false" />
+          <Struct Name="RequestMethod" PropertyName="RequestMethod" ParentModel="" ParentModelId="0" DataType="string" OriginalDataType="string" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Right" Path="RequestLog.RequestMethod" IsEnum="false" />
+          <Struct Name="ElapsedMsecs" PropertyName="ElapsedMsecs" ParentModel="" ParentModelId="0" DataType="double" OriginalDataType="double" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Right" Path="RequestLog.ElapsedMsecs" IsEnum="false" />
+          <Struct Name="IP" PropertyName="IP" ParentModel="" ParentModelId="0" DataType="string" OriginalDataType="string" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Right" Path="RequestLog.IP" IsEnum="false" />
+          <Struct Name="Service" PropertyName="Service" ParentModel="" ParentModelId="0" DataType="string" OriginalDataType="string" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Right" Path="RequestLog.Service" IsEnum="false" />
+          <Struct Name="Operation" PropertyName="Operation" ParentModel="" ParentModelId="0" DataType="string" OriginalDataType="string" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Right" Path="RequestLog.Operation" IsEnum="false" />
+          <Struct Name="StatusCode" PropertyName="StatusCode" ParentModel="" ParentModelId="0" DataType="string" OriginalDataType="string" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Right" Path="RequestLog.StatusCode" IsEnum="false" />
+          <Struct Name="Timestamp" PropertyName="Timestamp" ParentModel="" ParentModelId="0" DataType="string" OriginalDataType="string" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Right" Path="RequestLog.Timestamp" IsEnum="false" />
+          <Struct Name="Username" PropertyName="Username" ParentModel="" ParentModelId="0" DataType="string" OriginalDataType="string" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Right" Path="RequestLog.Username" IsEnum="false" />
+          <Struct Name="RequestUri" PropertyName="RequestUri" ParentModel="" ParentModelId="0" DataType="string" OriginalDataType="string" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Right" Path="RequestLog.RequestUri" IsEnum="false" />
+          <Struct Name="ClientId" PropertyName="ClientId" ParentModel="" ParentModelId="0" DataType="string" OriginalDataType="string" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Right" Path="RequestLog.ClientId" IsEnum="false" />
+          <Struct Name="ClientName" PropertyName="ClientName" ParentModel="" ParentModelId="0" DataType="string" OriginalDataType="string" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Right" Path="RequestLog.ClientName" IsEnum="false" />
+          <Struct Name="ProductName" PropertyName="ProductName" ParentModel="" ParentModelId="0" DataType="string" OriginalDataType="string" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Right" Path="RequestLog.ProductName" IsEnum="false" />
+        </Attributes>
+      </Struct>
+    </Right>
+    <Mappings>
+      <Mapping DetailedTransformation="" FromWizzard="true" MatchOverall="100" MatchSynonyms="0" MatchSimilarity="0" MatchGraph="0" MatchAsIs="100" MappingMode="Both">
+        <LeftToRight>
+          <Implementation IsAutoMapped="true">
+          </Implementation>
+        </LeftToRight>
+        <RightToLeft>
+          <Implementation IsAutoMapped="true">
+          </Implementation>
+        </RightToLeft>
+        <LeftItems Items="Hit.RequestUri" />
+        <RightItems Items="RequestLog.RequestUri" />
+      </Mapping>
+      <Mapping DetailedTransformation="" FromWizzard="true" MatchOverall="100" MatchSynonyms="0" MatchSimilarity="100" MatchGraph="100" MatchAsIs="100" MappingMode="Both">
+        <LeftToRight>
+          <Implementation IsAutoMapped="true">
+          </Implementation>
+        </LeftToRight>
+        <RightToLeft>
+          <Implementation IsAutoMapped="true">
+          </Implementation>
+        </RightToLeft>
+        <LeftItems Items="Hit.Username" />
+        <RightItems Items="RequestLog.Username" />
+      </Mapping>
+      <Mapping DetailedTransformation="" FromWizzard="true" MatchOverall="100" MatchSynonyms="0" MatchSimilarity="100" MatchGraph="0" MatchAsIs="100" MappingMode="Both">
+        <LeftToRight>
+          <Implementation IsAutoMapped="true">
+          </Implementation>
+        </LeftToRight>
+        <RightToLeft>
+          <Implementation IsAutoMapped="true">
+          </Implementation>
+        </RightToLeft>
+        <LeftItems Items="Hit.Operation" />
+        <RightItems Items="RequestLog.Operation" />
+      </Mapping>
+      <Mapping DetailedTransformation="" FromWizzard="true" MatchOverall="100" MatchSynonyms="0" MatchSimilarity="100" MatchGraph="100" MatchAsIs="100" MappingMode="Both">
+        <LeftToRight>
+          <Implementation IsAutoMapped="true">
+          </Implementation>
+        </LeftToRight>
+        <RightToLeft>
+          <Implementation IsAutoMapped="true">
+          </Implementation>
+        </RightToLeft>
+        <LeftItems Items="Hit.Message" />
+        <RightItems Items="RequestLog.Message" />
+      </Mapping>
+      <Mapping DetailedTransformation="" FromWizzard="true" MatchOverall="100" MatchSynonyms="0" MatchSimilarity="0" MatchGraph="0" MatchAsIs="100" MappingMode="Both">
+        <LeftToRight>
+          <Implementation IsAutoMapped="true">
+          </Implementation>
+        </LeftToRight>
+        <RightToLeft>
+          <Implementation IsAutoMapped="true">
+          </Implementation>
+        </RightToLeft>
+        <LeftItems Items="Hit.RequestId" />
+        <RightItems Items="RequestLog.RequestId" />
+      </Mapping>
+      <Mapping DetailedTransformation="" FromWizzard="true" MatchOverall="100" MatchSynonyms="0" MatchSimilarity="0" MatchGraph="0" MatchAsIs="100" MappingMode="Both">
+        <LeftToRight>
+          <Implementation IsAutoMapped="true">
+          </Implementation>
+        </LeftToRight>
+        <RightToLeft>
+          <Implementation IsAutoMapped="true">
+          </Implementation>
+        </RightToLeft>
+        <LeftItems Items="Hit.RequestMethod" />
+        <RightItems Items="RequestLog.RequestMethod" />
+      </Mapping>
+      <Mapping DetailedTransformation="" FromWizzard="true" MatchOverall="100" MatchSynonyms="0" MatchSimilarity="0" MatchGraph="0" MatchAsIs="100" MappingMode="Both">
+        <LeftToRight>
+          <Implementation IsAutoMapped="true">
+          </Implementation>
+        </LeftToRight>
+        <RightToLeft>
+          <Implementation IsAutoMapped="true">
+          </Implementation>
+        </RightToLeft>
+        <LeftItems Items="Hit.ElapsedMsecs" />
+        <RightItems Items="RequestLog.ElapsedMsecs" />
+      </Mapping>
+      <Mapping DetailedTransformation="" FromWizzard="true" MatchOverall="100" MatchSynonyms="0" MatchSimilarity="0" MatchGraph="0" MatchAsIs="100" MappingMode="Both">
+        <LeftToRight>
+          <Implementation IsAutoMapped="true">
+          </Implementation>
+        </LeftToRight>
+        <RightToLeft>
+          <Implementation IsAutoMapped="true">
+          </Implementation>
+        </RightToLeft>
+        <LeftItems Items="Hit.IP" />
+        <RightItems Items="RequestLog.IP" />
+      </Mapping>
+      <Mapping DetailedTransformation="" FromWizzard="true" MatchOverall="100" MatchSynonyms="0" MatchSimilarity="100" MatchGraph="0" MatchAsIs="100" MappingMode="Both">
+        <LeftToRight>
+          <Implementation IsAutoMapped="true">
+          </Implementation>
+        </LeftToRight>
+        <RightToLeft>
+          <Implementation IsAutoMapped="true">
+          </Implementation>
+        </RightToLeft>
+        <LeftItems Items="Hit.Service" />
+        <RightItems Items="RequestLog.Service" />
+      </Mapping>
+      <Mapping DetailedTransformation="" FromWizzard="true" MatchOverall="100" MatchSynonyms="0" MatchSimilarity="0" MatchGraph="0" MatchAsIs="100" MappingMode="Both">
+        <LeftToRight>
+          <Implementation IsAutoMapped="true">
+          </Implementation>
+        </LeftToRight>
+        <RightToLeft>
+          <Implementation IsAutoMapped="true">
+          </Implementation>
+        </RightToLeft>
+        <LeftItems Items="Hit.RequestPath" />
+        <RightItems Items="RequestLog.RequestPath" />
+      </Mapping>
+      <Mapping DetailedTransformation="" FromWizzard="true" MatchOverall="100" MatchSynonyms="0" MatchSimilarity="0" MatchGraph="0" MatchAsIs="100" MappingMode="Both">
+        <LeftToRight>
+          <Implementation IsAutoMapped="true">
+          </Implementation>
+        </LeftToRight>
+        <RightToLeft>
+          <Implementation IsAutoMapped="true">
+          </Implementation>
+        </RightToLeft>
+        <LeftItems Items="Hit.StatusCode" />
+        <RightItems Items="RequestLog.StatusCode" />
+      </Mapping>
+      <Mapping DetailedTransformation="" FromWizzard="true" MatchOverall="100" MatchSynonyms="0" MatchSimilarity="0" MatchGraph="0" MatchAsIs="100" MappingMode="Both">
+        <LeftToRight>
+          <Implementation IsAutoMapped="true">
+          </Implementation>
+        </LeftToRight>
+        <RightToLeft>
+          <Implementation IsAutoMapped="true">
+          </Implementation>
+        </RightToLeft>
+        <LeftItems Items="Hit.Timestamp" />
+        <RightItems Items="RequestLog.Timestamp" />
+      </Mapping>
+      <Mapping DetailedTransformation="" FromWizzard="false" MappingMode="Both">
+        <LeftToRight>
+          <Implementation IsAutoMapped="true">
+          </Implementation>
+        </LeftToRight>
+        <RightToLeft>
+          <Implementation IsAutoMapped="true">
+          </Implementation>
+        </RightToLeft>
+        <LeftItems Items="Hit.ClientId" />
+        <RightItems Items="RequestLog.ClientId" />
+      </Mapping>
+      <Mapping DetailedTransformation="" FromWizzard="false" MappingMode="Both">
+        <LeftToRight>
+          <Implementation IsAutoMapped="true">
+          </Implementation>
+        </LeftToRight>
+        <RightToLeft>
+          <Implementation IsAutoMapped="true">
+          </Implementation>
+        </RightToLeft>
+        <LeftItems Items="Hit.ClientName" />
+        <RightItems Items="RequestLog.ClientName" />
+      </Mapping>
+      <Mapping DetailedTransformation="" FromWizzard="false" MappingMode="Both">
+        <LeftToRight>
+          <Implementation IsAutoMapped="true">
+          </Implementation>
+        </LeftToRight>
+        <RightToLeft>
+          <Implementation IsAutoMapped="true">
+          </Implementation>
+        </RightToLeft>
+        <LeftItems Items="Hit.Product" />
+        <RightItems Items="RequestLog.ProductName" />
+      </Mapping>
+    </Mappings>
+  </Transformation>
+  <Transformation Name="ELKBucket_To_Bucket" LeftToRightPostProcess="false" RightToLeftPostProcess="false" LeftToRightPreProcess="false" RightToLeftPreProcess="false">
+    <Left>
+      <Struct Name="Bucket" PropertyName="" ParentModel="Elasticsearch" ParentModelId="0" DataType="Interfaces.Elasticsearch.Bucket" OriginalDataType="Interfaces.Elasticsearch.Bucket" IsPrimitive="false" IsCollection="false" Hidden="false" ModelType="ExternalApi" Side="Left" Path="Bucket" IsEnum="false">
+        <Attributes>
+          <Struct Name="key" PropertyName="key" ParentModel="Elasticsearch" ParentModelId="0" DataType="string" OriginalDataType="string" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="ExternalApi" Side="Left" Path="Bucket.key" IsEnum="false" />
+          <Struct Name="doc_count" PropertyName="doc_count" ParentModel="Elasticsearch" ParentModelId="0" DataType="int" OriginalDataType="int" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="ExternalApi" Side="Left" Path="Bucket.doc_count" IsEnum="false" />
+        </Attributes>
+      </Struct>
+    </Left>
+    <Right>
+      <Struct Name="Buckets" PropertyName="" ParentModel="" ParentModelId="0" DataType="Domain.Buckets" OriginalDataType="Domain.Buckets" IsPrimitive="false" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Right" Path="Buckets" IsEnum="false">
+        <Attributes>
+          <Struct Name="key" PropertyName="key" ParentModel="" ParentModelId="0" DataType="string" OriginalDataType="string" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Right" Path="Buckets.key" IsEnum="false" />
+          <Struct Name="doc_count" PropertyName="doc_count" ParentModel="" ParentModelId="0" DataType="int" OriginalDataType="int" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Right" Path="Buckets.doc_count" IsEnum="false" />
+        </Attributes>
+      </Struct>
+    </Right>
+    <Mappings>
+      <Mapping DetailedTransformation="" FromWizzard="true" MatchOverall="100" MatchSynonyms="0" MatchSimilarity="100" MatchGraph="100" MatchAsIs="100" MappingMode="Both">
+        <LeftToRight>
+          <Implementation IsAutoMapped="true">
+          </Implementation>
+        </LeftToRight>
+        <RightToLeft>
+          <Implementation IsAutoMapped="true">
+          </Implementation>
+        </RightToLeft>
+        <LeftItems Items="Bucket.key" />
+        <RightItems Items="Buckets.key" />
+      </Mapping>
+      <Mapping DetailedTransformation="" FromWizzard="true" MatchOverall="100" MatchSynonyms="0" MatchSimilarity="0" MatchGraph="0" MatchAsIs="100" MappingMode="Both">
+        <LeftToRight>
+          <Implementation IsAutoMapped="true">
+          </Implementation>
+        </LeftToRight>
+        <RightToLeft>
+          <Implementation IsAutoMapped="true">
+          </Implementation>
+        </RightToLeft>
+        <LeftItems Items="Bucket.doc_count" />
+        <RightItems Items="Buckets.doc_count" />
+      </Mapping>
+    </Mappings>
+  </Transformation>
+  <Transformation Name="HistogramBucket_To_HIstogramBucket" LeftToRightPostProcess="false" RightToLeftPostProcess="false" LeftToRightPreProcess="false" RightToLeftPreProcess="false">
+    <Left>
+      <Struct Name="HistogramBucket" PropertyName="" ParentModel="Elasticsearch" ParentModelId="0" DataType="Interfaces.Elasticsearch.HistogramBucket" OriginalDataType="Interfaces.Elasticsearch.HistogramBucket" IsPrimitive="false" IsCollection="false" Hidden="false" ModelType="ExternalApi" Side="Left" Path="HistogramBucket" IsEnum="false">
+        <Attributes>
+          <Struct Name="KeyAsString" PropertyName="KeyAsString" ParentModel="Elasticsearch" ParentModelId="0" DataType="string" OriginalDataType="string" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="ExternalApi" Side="Left" Path="HistogramBucket.KeyAsString" IsEnum="false" />
+          <Struct Name="Key" PropertyName="Key" ParentModel="Elasticsearch" ParentModelId="0" DataType="decimal" OriginalDataType="decimal" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="ExternalApi" Side="Left" Path="HistogramBucket.Key" IsEnum="false" />
+          <Struct Name="DocCount" PropertyName="DocCount" ParentModel="Elasticsearch" ParentModelId="0" DataType="int" OriginalDataType="int" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="ExternalApi" Side="Left" Path="HistogramBucket.DocCount" IsEnum="false" />
+          <Struct Name="Statistics" PropertyName="Statistics" ParentModel="Elasticsearch" ParentModelId="0" DataType="Interfaces.Elasticsearch.StatsAggregatorResponse" OriginalDataType="Interfaces.Elasticsearch.StatsAggregatorResponse" IsPrimitive="false" IsCollection="false" Hidden="false" ModelType="ExternalApi" Side="Left" Path="HistogramBucket.Statistics" IsEnum="false" />
+          <Struct Name="Errors" PropertyName="Errors" ParentModel="Elasticsearch" ParentModelId="0" DataType="Interfaces.Elasticsearch.ErrorFilterAggResponse" OriginalDataType="Interfaces.Elasticsearch.ErrorFilterAggResponse" IsPrimitive="false" IsCollection="false" Hidden="false" ModelType="ExternalApi" Side="Left" Path="HistogramBucket.Errors" IsEnum="false" />
+        </Attributes>
+      </Struct>
+    </Left>
+    <Right>
+      <Struct Name="HIstogramBucket" PropertyName="" ParentModel="" ParentModelId="0" DataType="Domain.HIstogramBucket" OriginalDataType="Domain.HIstogramBucket" IsPrimitive="false" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Right" Path="HIstogramBucket" IsEnum="false">
+        <Attributes>
+          <Struct Name="key" PropertyName="key" ParentModel="" ParentModelId="0" DataType="decimal" OriginalDataType="decimal" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Right" Path="HIstogramBucket.key" IsEnum="false" />
+          <Struct Name="keyAsString" PropertyName="keyAsString" ParentModel="" ParentModelId="0" DataType="string" OriginalDataType="string" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Right" Path="HIstogramBucket.keyAsString" IsEnum="false" />
+          <Struct Name="doc_count" PropertyName="doc_count" ParentModel="" ParentModelId="0" DataType="int" OriginalDataType="int" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Right" Path="HIstogramBucket.doc_count" IsEnum="false" />
+          <Struct Name="avg" PropertyName="avg" ParentModel="" ParentModelId="0" DataType="double" OriginalDataType="double" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Right" Path="HIstogramBucket.avg" IsEnum="false" />
+          <Struct Name="sum" PropertyName="sum" ParentModel="" ParentModelId="0" DataType="double" OriginalDataType="double" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Right" Path="HIstogramBucket.sum" IsEnum="false" />
+          <Struct Name="max" PropertyName="max" ParentModel="" ParentModelId="0" DataType="double" OriginalDataType="double" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Right" Path="HIstogramBucket.max" IsEnum="false" />
+          <Struct Name="min" PropertyName="min" ParentModel="" ParentModelId="0" DataType="double" OriginalDataType="double" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Right" Path="HIstogramBucket.min" IsEnum="false" />
+          <Struct Name="failure" PropertyName="failure" ParentModel="" ParentModelId="0" DataType="int" OriginalDataType="int" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Right" Path="HIstogramBucket.failure" IsEnum="false" />
+          <Struct Name="success" PropertyName="success" ParentModel="" ParentModelId="0" DataType="int" OriginalDataType="int" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Right" Path="HIstogramBucket.success" IsEnum="false" />
+          <Struct Name="error_rate" PropertyName="error_rate" ParentModel="" ParentModelId="0" DataType="float" OriginalDataType="float" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Right" Path="HIstogramBucket.error_rate" IsEnum="false" />
+        </Attributes>
+      </Struct>
+    </Right>
+    <Mappings>
+      <Mapping DetailedTransformation="" FromWizzard="true" MatchOverall="9975" MatchSynonyms="0" MatchSimilarity="100" MatchGraph="0" MatchAsIs="995" MappingMode="Both">
+        <LeftToRight>
+          <Implementation IsAutoMapped="true">
+          </Implementation>
+        </LeftToRight>
+        <RightToLeft>
+          <Implementation IsAutoMapped="true">
+          </Implementation>
+        </RightToLeft>
+        <LeftItems Items="HistogramBucket.Key" />
+        <RightItems Items="HIstogramBucket.key" />
+      </Mapping>
+      <Mapping DetailedTransformation="" FromWizzard="true" MatchOverall="995" MatchSynonyms="0" MatchSimilarity="0" MatchGraph="0" MatchAsIs="995" MappingMode="Both">
+        <LeftToRight>
+          <Implementation IsAutoMapped="true">
+          </Implementation>
+        </LeftToRight>
+        <RightToLeft>
+          <Implementation IsAutoMapped="true">
+          </Implementation>
+        </RightToLeft>
+        <LeftItems Items="HistogramBucket.KeyAsString" />
+        <RightItems Items="HIstogramBucket.keyAsString" />
+      </Mapping>
+      <Mapping DetailedTransformation="" FromWizzard="true" MatchOverall="995" MatchSynonyms="0" MatchSimilarity="0" MatchGraph="0" MatchAsIs="995" MappingMode="Both">
+        <LeftToRight>
+          <Implementation IsAutoMapped="true">
+          </Implementation>
+        </LeftToRight>
+        <RightToLeft>
+          <Implementation IsAutoMapped="true">
+          </Implementation>
+        </RightToLeft>
+        <LeftItems Items="HistogramBucket.DocCount" />
+        <RightItems Items="HIstogramBucket.doc_count" />
+      </Mapping>
+    </Mappings>
+  </Transformation>
+  <Transformation Name="HistogramBucket_To_HIstogramBucket_2" LeftToRightPostProcess="false" RightToLeftPostProcess="false" LeftToRightPreProcess="false" RightToLeftPreProcess="false">
+    <Left>
+      <Struct Name="HistogramBucket" PropertyName="" ParentModel="Elasticsearch" ParentModelId="0" DataType="Interfaces.Elasticsearch.HistogramBucket" OriginalDataType="Interfaces.Elasticsearch.HistogramBucket" IsPrimitive="false" IsCollection="false" Hidden="false" ModelType="ExternalApi" Side="Left" Path="HistogramBucket" IsEnum="false">
+        <Attributes>
+          <Struct Name="KeyAsString" PropertyName="KeyAsString" ParentModel="Elasticsearch" ParentModelId="0" DataType="string" OriginalDataType="string" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="ExternalApi" Side="Left" Path="HistogramBucket.KeyAsString" IsEnum="false" />
+          <Struct Name="Key" PropertyName="Key" ParentModel="Elasticsearch" ParentModelId="0" DataType="decimal" OriginalDataType="decimal" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="ExternalApi" Side="Left" Path="HistogramBucket.Key" IsEnum="false" />
+          <Struct Name="DocCount" PropertyName="DocCount" ParentModel="Elasticsearch" ParentModelId="0" DataType="int" OriginalDataType="int" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="ExternalApi" Side="Left" Path="HistogramBucket.DocCount" IsEnum="false" />
+          <Struct Name="Statistics" PropertyName="Statistics" ParentModel="Elasticsearch" ParentModelId="0" DataType="Interfaces.Elasticsearch.StatsAggregatorResponse" OriginalDataType="Interfaces.Elasticsearch.StatsAggregatorResponse" IsPrimitive="false" IsCollection="false" Hidden="false" ModelType="ExternalApi" Side="Left" Path="HistogramBucket.Statistics" IsEnum="false" />
+          <Struct Name="Errors" PropertyName="Errors" ParentModel="Elasticsearch" ParentModelId="0" DataType="Interfaces.Elasticsearch.ErrorFilterAggResponse" OriginalDataType="Interfaces.Elasticsearch.ErrorFilterAggResponse" IsPrimitive="false" IsCollection="false" Hidden="false" ModelType="ExternalApi" Side="Left" Path="HistogramBucket.Errors" IsEnum="false" />
+        </Attributes>
+      </Struct>
+    </Left>
+    <Right>
+      <Struct Name="HIstogramBucket" PropertyName="" ParentModel="" ParentModelId="0" DataType="Domain.HIstogramBucket" OriginalDataType="Domain.HIstogramBucket" IsPrimitive="false" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Right" Path="HIstogramBucket" IsEnum="false">
+        <Attributes>
+          <Struct Name="key" PropertyName="key" ParentModel="" ParentModelId="0" DataType="decimal" OriginalDataType="decimal" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Right" Path="HIstogramBucket.key" IsEnum="false" />
+          <Struct Name="keyAsString" PropertyName="keyAsString" ParentModel="" ParentModelId="0" DataType="string" OriginalDataType="string" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Right" Path="HIstogramBucket.keyAsString" IsEnum="false" />
+          <Struct Name="doc_count" PropertyName="doc_count" ParentModel="" ParentModelId="0" DataType="int" OriginalDataType="int" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Right" Path="HIstogramBucket.doc_count" IsEnum="false" />
+          <Struct Name="avg" PropertyName="avg" ParentModel="" ParentModelId="0" DataType="double" OriginalDataType="double" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Right" Path="HIstogramBucket.avg" IsEnum="false" />
+          <Struct Name="sum" PropertyName="sum" ParentModel="" ParentModelId="0" DataType="double" OriginalDataType="double" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Right" Path="HIstogramBucket.sum" IsEnum="false" />
+          <Struct Name="max" PropertyName="max" ParentModel="" ParentModelId="0" DataType="double" OriginalDataType="double" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Right" Path="HIstogramBucket.max" IsEnum="false" />
+          <Struct Name="min" PropertyName="min" ParentModel="" ParentModelId="0" DataType="double" OriginalDataType="double" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Right" Path="HIstogramBucket.min" IsEnum="false" />
+          <Struct Name="failure" PropertyName="failure" ParentModel="" ParentModelId="0" DataType="int" OriginalDataType="int" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Right" Path="HIstogramBucket.failure" IsEnum="false" />
+          <Struct Name="success" PropertyName="success" ParentModel="" ParentModelId="0" DataType="int" OriginalDataType="int" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Right" Path="HIstogramBucket.success" IsEnum="false" />
+          <Struct Name="error_rate" PropertyName="error_rate" ParentModel="" ParentModelId="0" DataType="float" OriginalDataType="float" IsPrimitive="true" IsCollection="false" Hidden="false" ModelType="DomainModel" Side="Right" Path="HIstogramBucket.error_rate" IsEnum="false" />
+        </Attributes>
+      </Struct>
+    </Right>
+    <Mappings>
+      <Mapping DetailedTransformation="" FromWizzard="false" MappingMode="Both">
+        <LeftToRight>
+          <Implementation IsAutoMapped="true">
+          </Implementation>
+        </LeftToRight>
+        <RightToLeft>
+          <Implementation IsAutoMapped="true">
+          </Implementation>
+        </RightToLeft>
+        <LeftItems Items="HistogramBucket.Key" />
+        <RightItems Items="HIstogramBucket.key" />
+      </Mapping>
+      <Mapping DetailedTransformation="" FromWizzard="false" MappingMode="Both">
+        <LeftToRight>
+          <Implementation IsAutoMapped="true">
+          </Implementation>
+        </LeftToRight>
+        <RightToLeft>
+          <Implementation IsAutoMapped="true">
+          </Implementation>
+        </RightToLeft>
+        <LeftItems Items="HistogramBucket.DocCount" />
+        <RightItems Items="HIstogramBucket.doc_count" />
+      </Mapping>
+      <Mapping DetailedTransformation="" FromWizzard="false" MappingMode="Both">
+        <LeftToRight>
+          <Implementation IsAutoMapped="true">
+          </Implementation>
+        </LeftToRight>
+        <RightToLeft>
+          <Implementation IsAutoMapped="true">
+          </Implementation>
+        </RightToLeft>
+        <LeftItems Items="HistogramBucket.Key" />
+        <RightItems Items="HIstogramBucket.keyAsString" />
+      </Mapping>
+    </Mappings>
+  </Transformation>
+</DataTransformation>

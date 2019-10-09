@@ -1,0 +1,1257 @@
+<!--
+Copyright (c) CLMS. All rights reserved.
+Licensed under the AGPL-3.0 license. See LICENSE file in the project root for full license information.-->
+
+<BusinessObject Model_Name="Utils" Model_Description="" Model_Creator="">
+  <Associations />
+  <Classes>
+    <Class ModelName="Utils" Name="OrdersPerMonth" ShadowModel="" ShadowClass="" Description="" Stereotype="Class" PK="Id" ConcurencyControl="true" AutoAssignPrimaryKey="true" IdGeneratorType="HiLoGenerator" IsPersisted="true" IsStatic="false" BaseClass="" BaseClasses="" BaseModel="">
+      <DiagramInfo IsExpanded="true" Width="228.15625" Height="180" Top="0" Left="0" />
+      <Attributes>
+        <Attribute Name="Id" IsValueClass="false" Description="" DataType="int" BaseInfo="" Length="100" Precision="8" Scale="2" InitValue="" IsRequired="false" IsInherited="false" Persisted="true" IsEncrypted="false" IsStatic="false" ReadOnly="false" IsExternal="false" CustomValidation="" IsCreditCard="false" IsURL="false" IsEmail="false" MinLength="0" MaxLength="100" MinValue="" MaxValue="" Getter="" Setter="" />
+        <Attribute Name="Label" IsValueClass="false" Description="" DataType="string" BaseInfo="" Length="100" Precision="8" Scale="2" InitValue="" IsRequired="false" IsInherited="false" Persisted="true" IsEncrypted="false" IsStatic="false" ReadOnly="false" IsExternal="false" CustomValidation="" IsCreditCard="false" IsURL="false" IsEmail="false" MinLength="0" MaxLength="100" MinValue="" MaxValue="" Getter="" Setter="" />
+        <Attribute Name="Value" IsValueClass="false" Description="" DataType="int" BaseInfo="" Length="100" Precision="8" Scale="2" InitValue="" IsRequired="false" IsInherited="false" Persisted="true" IsEncrypted="false" IsStatic="false" ReadOnly="false" IsExternal="false" CustomValidation="" IsCreditCard="false" IsURL="false" IsEmail="false" MinLength="0" MaxLength="100" MinValue="" MaxValue="" Getter="" Setter="" />
+      </Attributes>
+      <Operations>
+        <Operation Name="GroupOrders" Description="" Syntax="" RuleType="Default" EventName="" ApplyToAttribute="" BaseInfo="" IsStatic="true" IsInherited="false" IsExternal="false">static function Collection[Domain.OrdersPerMonth] GroupOrders(int year)
+{
+	DateTime d = DateTime.Create(year, 01, 01);
+//	Collection[Domain.OrderWMS] ordersFiltered = Domain.OrderWMS.Find(or =&gt; or.OrdRegDateTime &gt;= d &amp;&amp; or.OrdRegDateTime &lt; d.AddYears(1));
+	Collection[Domain.OrdersPerMonth] ordersPerMonth;
+	
+	for(int i = 1; i&lt;13; i+1 )
+	{
+	    Domain.OrdersPerMonth orderPerMonth = Domain.OrdersPerMonth.Create();
+	    orderPerMonth.Label = i.ToString();
+	    DateTime currentMonth = DateTime.Create(int.Parse(year.ToString()), int.Parse(i.ToString()), 01);
+	    int j;
+	    DateTime nextMonth;
+	    if(i == 12)
+	    {
+	        year = year + 1;
+	        j = 01;
+	    	nextMonth = DateTime.Create(int.Parse(year.ToString()), int.Parse(j.ToString()), 01);    
+	    }else 
+	    {
+	    	j = i + 1;
+	    	nextMonth = DateTime.Create(int.Parse(year.ToString()), int.Parse(j.ToString()), 01);
+	    }
+	    orderPerMonth.Value = Domain.OrderWMS.Find(ord =&gt; ord.OrdRegDateTime &gt;= currentMonth
+	    								&amp;&amp; ord.OrdRegDateTime &lt; nextMonth ).Length;
+		ordersPerMonth.Add(orderPerMonth);
+	}
+	
+	return ordersPerMonth;
+}</Operation>
+        <Operation Name="GroupRAOrders" Description="" Syntax="" RuleType="Default" EventName="" ApplyToAttribute="" BaseInfo="" IsStatic="true" IsInherited="false" IsExternal="false">static function Collection[Domain.OrdersPerMonth] GroupRAOrders(int year, string agentCode)
+{
+	DateTime d = DateTime.Create(year, 01, 01);
+	Collection[Domain.OrderWMS] ordersFiltered = Domain.OrderWMS.Find(or =&gt; or.OrdAgencyCode == agentCode);
+	Collection[Domain.OrdersPerMonth] ordersPerMonth;
+	
+	for(int i = 1; i&lt;13; i+1 )
+	{
+	    Domain.OrdersPerMonth orderPerMonth = Domain.OrdersPerMonth.Create();
+	    orderPerMonth.Label = i.ToString();
+	    DateTime currentMonth = DateTime.Create(int.Parse(year.ToString()), int.Parse(i.ToString()), 01);
+	    int j;
+	    DateTime nextMonth;
+	    if(i == 12)
+	    {
+	        year = year + 1;
+	        j = 01;
+	    	nextMonth = DateTime.Create(int.Parse(year.ToString()), int.Parse(j.ToString()), 01);    
+	    }else 
+	    {
+	    	j = i + 1;
+	    	nextMonth = DateTime.Create(int.Parse(year.ToString()), int.Parse(j.ToString()), 01);
+	    }
+	    DebugLib.Logger.WriteInfoLine("Current month " + currentMonth + " next month " + nextMonth);
+	    Collection[Domain.OrderWMS] ordersCounted = ordersFiltered.Where(ord =&gt; ord.OrdRegDateTime &gt;= currentMonth
+	    								&amp;&amp; ord.OrdRegDateTime &lt; nextMonth );
+		orderPerMonth.Value = ordersCounted.Length;	    								
+		ordersPerMonth.Add(orderPerMonth);
+	}
+	
+	return ordersPerMonth;
+}</Operation>
+      </Operations>
+    </Class>
+    <Class ModelName="Utils" Name="ChartWorkaround" ShadowModel="" ShadowClass="" Description="" Stereotype="Class" PK="Id" ConcurencyControl="true" AutoAssignPrimaryKey="true" IdGeneratorType="HiLoGenerator" IsPersisted="true" IsStatic="false" BaseClass="" BaseClasses="" BaseModel="">
+      <DiagramInfo IsExpanded="true" Width="241.421875" Height="180" Top="42" Left="434" />
+      <Attributes>
+        <Attribute Name="Id" IsValueClass="false" Description="" DataType="int" BaseInfo="" Length="100" Precision="8" Scale="2" InitValue="" IsRequired="false" IsInherited="false" Persisted="true" IsEncrypted="false" IsStatic="false" ReadOnly="false" IsExternal="false" CustomValidation="" IsCreditCard="false" IsURL="false" IsEmail="false" MinLength="0" MaxLength="100" MinValue="" MaxValue="" Getter="" Setter="" />
+        <Attribute Name="Label" IsValueClass="false" Description="" DataType="string" BaseInfo="" Length="100" Precision="8" Scale="2" InitValue="" IsRequired="false" IsInherited="false" Persisted="true" IsEncrypted="false" IsStatic="false" ReadOnly="false" IsExternal="false" CustomValidation="" IsCreditCard="false" IsURL="false" IsEmail="false" MinLength="0" MaxLength="100" MinValue="" MaxValue="" Getter="" Setter="" />
+        <Attribute Name="Value" IsValueClass="false" Description="" DataType="int" BaseInfo="" Length="100" Precision="8" Scale="2" InitValue="" IsRequired="false" IsInherited="false" Persisted="true" IsEncrypted="false" IsStatic="false" ReadOnly="false" IsExternal="false" CustomValidation="" IsCreditCard="false" IsURL="false" IsEmail="false" MinLength="0" MaxLength="100" MinValue="" MaxValue="" Getter="" Setter="" />
+      </Attributes>
+      <Operations />
+    </Class>
+    <Class ModelName="Utils" Name="MapPoints" ShadowModel="" ShadowClass="" Description="" Stereotype="Class" PK="Id" ConcurencyControl="true" AutoAssignPrimaryKey="true" IdGeneratorType="HiLoGenerator" IsPersisted="true" IsStatic="false" BaseClass="" BaseClasses="" BaseModel="">
+      <DiagramInfo IsExpanded="true" Width="180" Height="214" Top="311" Left="107" />
+      <Attributes>
+        <Attribute Name="Id" IsValueClass="false" Description="" DataType="int" BaseInfo="" Length="100" Precision="8" Scale="2" InitValue="" IsRequired="false" IsInherited="false" Persisted="true" IsEncrypted="false" IsStatic="false" ReadOnly="false" IsExternal="false" CustomValidation="" IsCreditCard="false" IsURL="false" IsEmail="false" MinLength="0" MaxLength="100" MinValue="" MaxValue="" Getter="" Setter="" />
+        <Attribute Name="Lat" IsValueClass="false" Description="" DataType="float" BaseInfo="" Length="100" Precision="8" Scale="2" InitValue="" IsRequired="false" IsInherited="false" Persisted="true" IsEncrypted="false" IsStatic="false" ReadOnly="false" IsExternal="false" CustomValidation="" IsCreditCard="false" IsURL="false" IsEmail="false" MinLength="0" MaxLength="100" MinValue="" MaxValue="" Getter="" Setter="" />
+        <Attribute Name="Long" IsValueClass="false" Description="" DataType="float" BaseInfo="" Length="100" Precision="8" Scale="2" InitValue="" IsRequired="false" IsInherited="false" Persisted="true" IsEncrypted="false" IsStatic="false" ReadOnly="false" IsExternal="false" CustomValidation="" IsCreditCard="false" IsURL="false" IsEmail="false" MinLength="0" MaxLength="100" MinValue="" MaxValue="" Getter="" Setter="" />
+        <Attribute Name="Title" IsValueClass="false" Description="" DataType="string" BaseInfo="" Length="100" Precision="8" Scale="2" InitValue="" IsRequired="false" IsInherited="false" Persisted="true" IsEncrypted="false" IsStatic="false" ReadOnly="false" IsExternal="false" CustomValidation="" IsCreditCard="false" IsURL="false" IsEmail="false" MinLength="0" MaxLength="100" MinValue="" MaxValue="" Getter="" Setter="" />
+        <Attribute Name="Type" IsValueClass="false" Description="" DataType="string" BaseInfo="" Length="100" Precision="8" Scale="2" InitValue="" IsRequired="false" IsInherited="false" Persisted="true" IsEncrypted="false" IsStatic="false" ReadOnly="false" IsExternal="false" CustomValidation="" IsCreditCard="false" IsURL="false" IsEmail="false" MinLength="0" MaxLength="100" MinValue="" MaxValue="" Getter="" Setter="" />
+        <Attribute Name="Icon" IsValueClass="false" Description="" DataType="string" BaseInfo="" Length="100" Precision="8" Scale="2" InitValue="" IsRequired="false" IsInherited="false" Persisted="true" IsEncrypted="false" IsStatic="false" ReadOnly="false" IsExternal="false" CustomValidation="" IsCreditCard="false" IsURL="false" IsEmail="false" MinLength="0" MaxLength="100" MinValue="" MaxValue="" Getter="" Setter="" />
+      </Attributes>
+      <Operations>
+        <Operation Name="InitMapPoints" Description="" Syntax="" RuleType="Default" EventName="" ApplyToAttribute="" BaseInfo="" IsStatic="true" IsInherited="false" IsExternal="false">static function Collection[Domain.MapPoints] InitMapPoints(bool allOrders,string raCode, bool allRAs)
+{
+    Collection[Domain.MapPoints] mapPoints;
+    try {
+        Collection[Domain.OrderWMS] or;
+		if(allOrders)
+		{
+			 or = Domain.OrderWMS.GetAll(1, 30);    
+		}else 
+		{
+			if(raCode != null)
+			{
+				or.AddRange(Domain.OrderWMS.Find(ord =&gt; ord.OrdAgencyCode == raCode));
+			}
+			
+		}
+		foreach Domain.OrderWMS: order in or
+		{
+//			Domain.MapPoints mapPoint = Domain.MapPoints.Create();
+//			if(order.DestLat == null || order.DestLong == null)
+//			{
+//				Interfaces.GoogleGeocode.Root response;
+//				if(string.IsNullOrEmpty(order.OrdDlsAddress))
+//				{
+//				    response = Interfaces.GoogleGeocode.API.GeoLocation(order.OrdDlsCity);
+//				}else 
+//				{
+//					response = Interfaces.GoogleGeocode.API.GeoLocation(order.OrdDlsAddress);	
+//				}    
+//				
+//	//			CommonLib.Serializer[Interfaces.GoogleGeocode.Root] ser;
+//	//			DebugLib.Logger.WriteInfoLine("google response " + ser.ToJson(response));
+//				
+//				if(response.results.Length == 0)
+//				{
+//				    continue;
+//				}
+//				
+//				mapPoint.Lat = float.Parse(response.results.Get(0).geometry.location.lat);
+//				mapPoint.Long = float.Parse(response.results.Get(0).geometry.location.lng);
+//				order.DestLat = mapPoint.Lat;
+//				order.DestLong = mapPoint.Long;	
+//				order.Save();
+//			}else 
+//			{
+//				mapPoint.Lat = order.DestLat;
+//				mapPoint.Long = order.DestLong;
+//				
+//			}
+//			mapPoint.Title = order.OrdDlsDescr;
+//			mapPoint.Icon = "http://apps.zappdev.com/SARMEDAgentPortal_1215_vvasilopoulos/Resources/Images/commercial-places.png";
+//			mapPoint.Type = "DLS";    
+//			
+//			
+//			
+//			mapPoints.Add(mapPoint);
+			
+			Domain.Warehouse warehouse = Domain.Warehouse.Find(wr =&gt; wr.Title == order.Warehouse).First();
+			if( warehouse.GeoCoordinates != null)
+			{
+				float originLat = warehouse.GeoCoordinates.Latitude;
+				float originLong = warehouse.GeoCoordinates.Longitude;
+				
+				
+				//logic for the new map point for the warehouse
+				//if it is already in list do not add
+				if(! (mapPoints.Any(mp =&gt; mp.Lat == originLat &amp;&amp; mp.Long == originLong)))
+				{
+				    Domain.MapPoints warehouseMapPoint = Domain.MapPoints.Create();
+				    warehouseMapPoint.Lat = originLat;
+				    warehouseMapPoint.Long = originLong;
+				    warehouseMapPoint.Title = warehouse.Title;
+				    warehouseMapPoint.Icon = "http://apps.zappdev.com/SARMEDAgentPortal_1215_vvasilopoulos/Resources/Images/industries.png";
+				    mapPoints.Add(warehouseMapPoint);
+				}
+//			
+//			Interfaces.GoogleDirections.DirectionsResponse directionResponse = Interfaces.GoogleDirections.API.Directions(originLat, originLong, mapPoint.Lat, mapPoint.Long);
+//		
+//			CommonLib.Serializer[Interfaces.GoogleDirections.DirectionsResponse] dirSer;
+//			DebugLib.Logger.WriteInfoLine("google directions response " + dirSer.ToJson(directionResponse));
+			}
+		}
+		
+		if(allRAs)
+		{
+			foreach Domain.RegionalAgent: regionalAgent in Domain.RegionalAgent.GetAll() 
+			{
+				foreach Domain.Truck: truck in regionalAgent.Trucks
+				{
+					if(truck.CurrentLocation == null)
+					{
+					    continue;
+					}
+					Domain.MapPoints mapPointTruck = Domain.MapPoints.Create();
+					mapPointTruck.Lat = truck.CurrentLocation.Latitude;
+					mapPointTruck.Long = truck.CurrentLocation.Longitude;
+					mapPointTruck.Icon = "http://apps.zappdev.com/SARMEDAgentPortal_1215_vvasilopoulos/Resources/Images/transport.png";
+					mapPointTruck.Type = "Truck";
+					mapPointTruck.Title = truck.PlateNumber;
+					mapPoints.Add(mapPointTruck);
+				}	
+				if(regionalAgent.AddressCoordinates == null)
+				{
+				    continue;
+				}
+				Domain.MapPoints mapPoint = Domain.MapPoints.Create();
+				mapPoint.Lat = regionalAgent.AddressCoordinates.Latitude;
+				mapPoint.Long = regionalAgent.AddressCoordinates.Longitude;
+				mapPoint.Title = regionalAgent.AgencyDescription;
+				mapPoint.Type = "RegionalAgent";
+				mapPoint.Icon = "http://apps.zappdev.com/SARMEDAgentPortal_1215_vvasilopoulos/Resources/Images/industries.png";
+				mapPoints.Add(mapPoint);
+			}  
+			
+		}else
+		{
+		    if(!string.IsNullOrEmpty(raCode))
+		    {
+		        Domain.RegionalAgent regionalAgent = Domain.RegionalAgent.Find(rag =&gt; rag.AgencyCode == raCode).First();
+		        if(regionalAgent.AddressCoordinates != null)
+				{
+					Domain.MapPoints mapPoint = Domain.MapPoints.Create();
+					mapPoint.Lat = regionalAgent.AddressCoordinates.Latitude;
+					mapPoint.Long = regionalAgent.AddressCoordinates.Longitude;
+					mapPoint.Title = regionalAgent.AgencyDescription;
+					mapPoint.Type = "RegionalAgent";
+					mapPoint.Icon = "http://apps.zappdev.com/SARMEDAgentPortal_1215_vvasilopoulos/Resources/Images/industries.png";
+					mapPoints.Add(mapPoint);
+					foreach Domain.Truck: truck in regionalAgent.Trucks 
+					{
+						if(truck.CurrentLocation == null)
+						{
+						    continue;
+						}
+						Domain.MapPoints mapPointTruck = Domain.MapPoints.Create();
+						mapPointTruck.Lat = truck.CurrentLocation.Latitude;
+						mapPointTruck.Long = truck.CurrentLocation.Longitude;
+						mapPointTruck.Icon = "http://apps.zappdev.com/SARMEDAgentPortal_1215_vvasilopoulos/Resources/Images/transport.png";
+						mapPointTruck.Type = "Truck";
+						mapPointTruck.Title = truck.PlateNumber;
+						mapPoints.Add(mapPointTruck);
+					}	
+				}
+		    }
+		}
+		
+		
+    }
+    catch Exception x {
+    	DebugLib.Logger.WriteErrorLine(x);
+    }
+	return mapPoints;	
+}</Operation>
+        <Operation Name="OrderDirections" Description="" Syntax="" RuleType="Default" EventName="" ApplyToAttribute="" BaseInfo="" IsStatic="true" IsInherited="false" IsExternal="false">static function Collection[Domain.MapPoints] OrderDirections(int id)
+{
+	Collection[Domain.MapPoints] mapPoints;
+	try {
+		Domain.OrderWMS order = Domain.OrderWMS.GetByKey(id);
+//		if(order.Warehouse.GeoCoordinates != null)
+//		{
+//		    float originLat = order.Warehouse.GeoCoordinates.Latitude;
+//		    float originLong = order.Warehouse.GeoCoordinates.Longitude;
+//		    Interfaces.GoogleGeocode.Root response = Interfaces.GoogleGeocode.API.GeoLocation(order.OrdDlsCity);
+//			if(response.results.Length != 0)
+//			{
+//				float destinationLat = float.Parse(response.results.Get(0).geometry.location.lat);
+//				float destinationLong = float.Parse(response.results.Get(0).geometry.location.lng);    
+//			
+//				Interfaces.GoogleDirections.DirectionsResponse directionsResponse = 
+//					Interfaces.GoogleDirections.API.Directions(originLat, originLong, destinationLat, destinationLong);
+//					
+//				CommonLib.Serializer[Interfaces.GoogleDirections.DirectionsResponse] ser;
+//				DebugLib.Logger.WriteInfoLine("google directions response " + ser.ToJson(directionsResponse));
+//				
+//				if(directionsResponse.Routes.Length != 0)
+//				{
+//					order.Polyline = directionsResponse.Routes.Get(0).overview_polyline.points;
+//					order.Update();
+//					foreach Interfaces.GoogleDirections.Step: step in directionsResponse.Routes.Get(0).legs.Get(0).steps
+//					{
+//						Domain.MapPoints mapPointLine = Domain.MapPoints.Create();
+//						mapPointLine.OriginLat = step.start_location.lat;
+//						mapPointLine.OriginLong = step.start_location.lng;
+//						mapPointLine.DestinationLat = step.end_location.lat;
+//						mapPointLine.DestinationLong = step.end_location.lng;
+//						mapPoints.Add(mapPointLine);
+//					}
+//				    
+//				}
+//			}
+//		    
+//		}
+		
+	}
+	catch Exception x {
+		DebugLib.Logger.WriteErrorLine(x);
+	}
+	return mapPoints;
+}</Operation>
+      </Operations>
+    </Class>
+    <Class ModelName="Utils" Name="OrderGenerator" ShadowModel="" ShadowClass="" Description="" Stereotype="Class" PK="" ConcurencyControl="false" AutoAssignPrimaryKey="false" IdGeneratorType="HiLoGenerator" IsPersisted="false" IsStatic="false" BaseClass="" BaseClasses="" BaseModel="">
+      <DiagramInfo IsExpanded="true" Width="221.109375" Height="180" Top="101" Left="856" />
+      <Attributes />
+      <Operations>
+        <Operation Name="GenerateOrders" Description="" Syntax="" RuleType="Default" EventName="" ApplyToAttribute="" BaseInfo="" IsStatic="true" IsInherited="false" IsExternal="false">static function Collection[Domain.OrderWMS] GenerateOrders(int ordersCount)
+{
+	Collection[Domain.GeoArea] areas = Domain.GeoArea.GetAll();
+	Collection[Domain.Warehouse] warehouses = Domain.Warehouse.GetAll();
+	Collection[Domain.OrderWMS] orders = Domain.OrderWMS.GetAll();
+	Collection[Domain.OrderWMS] generatedOrders;
+	
+	int areasNo = areas.Length;
+	int ordersNo = orders.Length;
+	int warehousesNo = warehouses.Length;
+	
+	for (int i = 0; i &lt; ordersCount; i + 1)
+	{
+	    int randomOrderIndex = int.GetRandom(0, ordersNo);
+		Domain.OrderWMS tempOrder = orders.Get(randomOrderIndex);
+		Domain.OrderWMS copyOrder = tempOrder.Copy(false, true);
+		
+		//select dls
+		int randomAreaIndex = int.GetRandom(0, areasNo);
+		Domain.GeoArea selectedGeoArea = areas.Get(randomAreaIndex);
+		copyOrder.OrdDlsAddress = "";
+		copyOrder.OrdDlsCity = selectedGeoArea.Area;
+		copyOrder.OrdDlsArea = selectedGeoArea.County;
+		copyOrder.OrdDlsZipCode = selectedGeoArea.PostalCode;
+		
+		//select warehouse
+		int randomWarehouseIndex = int.GetRandom(0, warehousesNo);
+		Domain.Warehouse warehouse = warehouses.Get(randomWarehouseIndex);
+//		copyOrder.Warehouse = warehouse;
+		
+		//select ra
+		Collection[Domain.RegionalAgent] regionalAgents = Domain.RegionalAgent.Find(ra =&gt; ra.AreaSupport.Contains(selectedGeoArea));
+		int randomRAIndex = int.GetRandom(0, regionalAgents.Length);
+		Domain.RegionalAgent regionalAgent = regionalAgents.Get(randomRAIndex);
+		copyOrder.OrdAgencyCode = regionalAgent.AgencyCode;
+		copyOrder.OrdAgencyAddress = regionalAgent.AgencyAddress;
+		copyOrder.OrdAgencyDescr = regionalAgent.AgencyDescription;
+		
+		//update datetimes and status
+		DateTime now = DateTime.Now();
+//		copyOrder.OrdDateTime = DateTime.Now();
+		copyOrder.OrdRegDateTime = now;
+		int randomDaysAdd = int.GetRandom(1, 100);
+		copyOrder.OrdDeliveryDateTime = now.AddDays(randomDaysAdd);
+		copyOrder.OrdStatus = 10;
+		
+		//hit google for polyline
+//		if(copyOrder.Warehouse.GeoCoordinates != null)
+//		{
+//		    DebugLib.Logger.WriteInfoLine("inside geocoordinates");
+//			float originLat = copyOrder.Warehouse.GeoCoordinates.Latitude;
+//			float originLong = copyOrder.Warehouse.GeoCoordinates.Longitude;
+//			
+//			Interfaces.GoogleGeocode.Root response = Interfaces.GoogleGeocode.API.GeoLocation(copyOrder.OrdDlsCity);
+//			if(response.results.Length != 0)
+//			{
+//				float destinationLat = float.Parse(response.results.Get(0).geometry.location.lat);
+//				float destinationLong = float.Parse(response.results.Get(0).geometry.location.lng);    
+//			
+//				Interfaces.GoogleDirections.DirectionsResponse directionsResponse = 
+//					Interfaces.GoogleDirections.API.Directions(originLat, originLong, destinationLat, destinationLong);
+//					
+//				CommonLib.Serializer[Interfaces.GoogleDirections.DirectionsResponse] ser;
+//				DebugLib.Logger.WriteInfoLine("google directions response " + ser.ToJson(directionsResponse));
+//				
+//				if(directionsResponse.Routes.Length != 0)
+//				{
+//					copyOrder.Polyline = directionsResponse.Routes.Get(0).overview_polyline.points;
+//				}
+//				
+//			}
+//		}
+		
+		generatedOrders.Add(copyOrder);
+		copyOrder.Save();
+	}
+	return generatedOrders;
+}</Operation>
+      </Operations>
+    </Class>
+    <Class ModelName="Utils" Name="PubSub" ShadowModel="" ShadowClass="" Description="" Stereotype="Class" PK="" ConcurencyControl="false" AutoAssignPrimaryKey="false" IdGeneratorType="HiLoGenerator" IsPersisted="false" IsStatic="false" BaseClass="" BaseClasses="" BaseModel="">
+      <DiagramInfo IsExpanded="false" Width="180" Height="50" Top="472" Left="457" />
+      <Attributes />
+      <Operations>
+        <Operation Name="SubscribeOrders" Description="" Syntax="" RuleType="Default" EventName="" ApplyToAttribute="" BaseInfo="" IsStatic="true" IsInherited="false" IsExternal="false">static function void SubscribeOrders()
+{
+ 	Interfaces.LocalPubSub.SubRoot portal;
+
+    portal.authHash = "SarmedPortal";
+ 
+  try{
+    WebLib.SocketClient sock = WebLib.SocketClient.CreateConnection("SarmedPortal", "147.102.4.108", 20004);
+    sock.Send("{ \"authHash\" : \"" + portal.authHash + "\"}\n");
+	DebugLib.Logger.WriteInfoLine("Listening for orders... (" + portal.authHash + ")");
+    sock.StartReceiving((Array[byte] data) =&gt; {
+        string str = CommonLib.Utilities.ByteArrayToUTF8(data);
+        Domain.Utils.DeserializeMessage(str);
+        return true;
+    }, "\n");
+  }
+  catch BusinessException x{
+      DebugLib.Logger.WriteErrorLine(x.Message);
+      DebugLib.Logger.WriteErrorLine(x.StackTrace);
+      throw x;
+  }
+}</Operation>
+        <Operation Name="SubscribeGPS" Description="" Syntax="" RuleType="Default" EventName="" ApplyToAttribute="" BaseInfo="" IsStatic="true" IsInherited="false" IsExternal="false">static function void SubscribeGPS()
+{
+    DebugLib.Logger.WriteInfoLine("GPS socket listening");
+Interfaces.LocalPubSub.SubRoot derp;
+    
+    derp.authHash = "SarmedPortalGPS"; //App-" + AppLib.Application.GetConfigurationKey("ApplicationVersion");
+//    derp.subscriptionId = "AllOrders";
+//    Interfaces.LocalPubSub.SubRule root;
+//    root.key = "sarmed_order";
+//    root.val = 0;
+//    root.type = "int";
+//    root.op = "gt";
+//    derp.data = {root};
+ 
+    
+//    var result = Interfaces.LocalPubSub.API.Subscribe(derp);
+  try{
+    WebLib.SocketClient sock = WebLib.SocketClient.CreateConnection("SarmedPortalGPS", "147.102.4.108", 20004);
+    sock.Send("{ \"authHash\" : \"" + derp.authHash + "\"}\n");
+//    sock.Send("{ \"authHash\" : \"" + "SarmedPortalGPS" + "\"}\n");
+//    sock.Send("{ \"authHash\" : \"" + "SarmedPortalAvgTime" + "\"}\n");
+//    sock.Send("{ \"authHash\" : \"" + "SarmedPortalRecommendation" + "\"}\n");
+//    sock.Send("{ \"authHash\" : \"" + "SarmedPortalETA" + "\"}\n");
+
+    sock.StartReceiving((Array[byte] data) =&gt; {
+        string str = CommonLib.Utilities.ByteArrayToUTF8(data);
+        DebugLib.Logger.WriteWarnLine("str:  "+ str);
+        Domain.Utils.DeserializeMessage(str);
+
+        return true;
+    }, "\n");
+  }
+  catch BusinessException x{
+      DebugLib.Logger.WriteErrorLine(x);
+  }
+}</Operation>
+        <Operation Name="SubscribeRecommendation" Description="" Syntax="" RuleType="Default" EventName="" ApplyToAttribute="" BaseInfo="" IsStatic="true" IsInherited="false" IsExternal="false">static function void SubscribeRecommendation()
+{
+	DebugLib.Logger.WriteInfoLine("NTUA Recommendation listening");
+	Interfaces.LocalPubSub.SubRoot derp;
+	    
+	    derp.authHash = "SarmedPortalRecommendation"; //App-" + AppLib.Application.GetConfigurationKey("ApplicationVersion");
+	//    derp.subscriptionId = "AllOrders";
+	//    Interfaces.LocalPubSub.SubRule root;
+	//    root.key = "sarmed_order";
+	//    root.val = 0;
+	//    root.type = "int";
+	//    root.op = "gt";
+	//    derp.data = {root};
+	 
+	    
+	//    var result = Interfaces.LocalPubSub.API.Subscribe(derp);
+	  try{
+	    WebLib.SocketClient sock = WebLib.SocketClient.CreateConnection("SarmedPortalRecommendation", "147.102.4.108", 20004);
+//	    sock.Send("{ \"authHash\" : \"" + "SarmedPortalAvgTime" + "\"}\n");
+	    sock.Send("{ \"authHash\" : \"" + "SarmedPortalRecommendation" + "\"}\n");
+//	    sock.Send("{ \"authHash\" : \"" + "SarmedPortalETA" + "\"}\n");
+	
+	    sock.StartReceiving((Array[byte] data) =&gt; {
+	        string str = CommonLib.Utilities.ByteArrayToUTF8(data);
+	        DebugLib.Logger.WriteWarnLine("str:  "+ str);
+	        Domain.Utils.DeserializeMessage(str);
+	
+	        return true;
+	    }, "\n");
+	  }
+	  catch BusinessException x{
+	      DebugLib.Logger.WriteErrorLine(x);
+	  }
+}</Operation>
+        <Operation Name="SubscribeAVGTime" Description="" Syntax="" RuleType="Default" EventName="" ApplyToAttribute="" BaseInfo="" IsStatic="false" IsInherited="false" IsExternal="false">function void SubscribeAVGTime()
+{
+	DebugLib.Logger.WriteInfoLine("NTUA AVGTime listening");
+	Interfaces.LocalPubSub.SubRoot derp;
+	    
+	    derp.authHash = "SarmedPortalAvgTime"; //App-" + AppLib.Application.GetConfigurationKey("ApplicationVersion");
+	//    derp.subscriptionId = "AllOrders";
+	//    Interfaces.LocalPubSub.SubRule root;
+	//    root.key = "sarmed_order";
+	//    root.val = 0;
+	//    root.type = "int";
+	//    root.op = "gt";
+	//    derp.data = {root};
+	 
+	    
+	//    var result = Interfaces.LocalPubSub.API.Subscribe(derp);
+	  try{
+	    WebLib.SocketClient sock = WebLib.SocketClient.CreateConnection("SarmedPortalAvgTime", "147.102.4.108", 20004);
+	    sock.Send("{ \"authHash\" : \"" + "SarmedPortalAvgTime" + "\"}\n");
+//	    sock.Send("{ \"authHash\" : \"" + "SarmedPortalETA" + "\"}\n");
+	
+	    sock.StartReceiving((Array[byte] data) =&gt; {
+	        string str = CommonLib.Utilities.ByteArrayToUTF8(data);
+	        DebugLib.Logger.WriteWarnLine("str:  "+ str);
+	        Domain.Utils.DeserializeMessage(str);
+	
+	        return true;
+	    }, "\n");
+	  }
+	  catch BusinessException x{
+	      DebugLib.Logger.WriteErrorLine(x);
+	  }
+}</Operation>
+        <Operation Name="SubscribeETA" Description="" Syntax="" RuleType="Default" EventName="" ApplyToAttribute="" BaseInfo="" IsStatic="false" IsInherited="false" IsExternal="false">function void SubscribeETA()
+{
+	DebugLib.Logger.WriteInfoLine("NTUA ETA listening");
+	Interfaces.LocalPubSub.SubRoot derp;
+	    
+	    derp.authHash = "SarmedPortalETA"; //App-" + AppLib.Application.GetConfigurationKey("ApplicationVersion");
+	//    derp.subscriptionId = "AllOrders";
+	//    Interfaces.LocalPubSub.SubRule root;
+	//    root.key = "sarmed_order";
+	//    root.val = 0;
+	//    root.type = "int";
+	//    root.op = "gt";
+	//    derp.data = {root};
+	 
+	    
+	//    var result = Interfaces.LocalPubSub.API.Subscribe(derp);
+	  try{
+	    WebLib.SocketClient sock = WebLib.SocketClient.CreateConnection("SarmedPortalETA", "147.102.4.108", 20004);
+	    sock.Send("{ \"authHash\" : \"" + "SarmedPortalETA" + "\"}\n");
+	
+	    sock.StartReceiving((Array[byte] data) =&gt; {
+	        string str = CommonLib.Utilities.ByteArrayToUTF8(data);
+	        DebugLib.Logger.WriteWarnLine("str:  "+ str);
+	        Domain.Utils.DeserializeMessage(str);
+	
+	        return true;
+	    }, "\n");
+	  }
+	  catch BusinessException x{
+	      DebugLib.Logger.WriteErrorLine(x);
+	  }
+}</Operation>
+        <Operation Name="SubscribeNTUAETA" Description="" Syntax="" RuleType="Default" EventName="" ApplyToAttribute="" BaseInfo="" IsStatic="true" IsInherited="false" IsExternal="false">static function void SubscribeNTUAETA()
+{
+	DebugLib.Logger.WriteInfoLine("NTUA ETA listening");
+	Interfaces.LocalPubSub.SubRoot derp;
+	    
+	    derp.authHash = "SarmedPortalETA"; //App-" + AppLib.Application.GetConfigurationKey("ApplicationVersion");
+	//    derp.subscriptionId = "AllOrders";
+	//    Interfaces.LocalPubSub.SubRule root;
+	//    root.key = "sarmed_order";
+	//    root.val = 0;
+	//    root.type = "int";
+	//    root.op = "gt";
+	//    derp.data = {root};
+	 
+	    
+	//    var result = Interfaces.LocalPubSub.API.Subscribe(derp);
+	  try{
+	    WebLib.SocketClient sock = WebLib.SocketClient.CreateConnection("SarmedPortalETA", "147.102.4.108", 20004);
+	    sock.Send("{ \"authHash\" : \"" + "SarmedPortalETA" + "\"}\n");
+	
+	    sock.StartReceiving((Array[byte] data) =&gt; {
+	        string str = CommonLib.Utilities.ByteArrayToUTF8(data);
+	        DebugLib.Logger.WriteWarnLine("str:  "+ str);
+	        Domain.Utils.DeserializeMessage(str);
+	
+	        return true;
+	    }, "\n");
+	  }
+	  catch BusinessException x{
+	      DebugLib.Logger.WriteErrorLine(x);
+	  }
+}</Operation>
+        <Operation Name="SubscribeNTUAAVGTime" Description="" Syntax="" RuleType="Default" EventName="" ApplyToAttribute="" BaseInfo="" IsStatic="true" IsInherited="false" IsExternal="false">static function void SubscribeNTUAAVGTime()
+{
+	DebugLib.Logger.WriteInfoLine("NTUA AVGTime listening");
+	Interfaces.LocalPubSub.SubRoot derp;
+	    
+	    derp.authHash = "SarmedPortalAvgTime"; //App-" + AppLib.Application.GetConfigurationKey("ApplicationVersion");
+	//    derp.subscriptionId = "AllOrders";
+	//    Interfaces.LocalPubSub.SubRule root;
+	//    root.key = "sarmed_order";
+	//    root.val = 0;
+	//    root.type = "int";
+	//    root.op = "gt";
+	//    derp.data = {root};
+	 
+	    
+	//    var result = Interfaces.LocalPubSub.API.Subscribe(derp);
+	  try{
+	    WebLib.SocketClient sock = WebLib.SocketClient.CreateConnection("SarmedPortalAvgTime", "147.102.4.108", 20004);
+	    sock.Send("{ \"authHash\" : \"" + "SarmedPortalAvgTime" + "\"}\n");
+//	    sock.Send("{ \"authHash\" : \"" + "SarmedPortalETA" + "\"}\n");
+	
+	    sock.StartReceiving((Array[byte] data) =&gt; {
+	        string str = CommonLib.Utilities.ByteArrayToUTF8(data);
+	        DebugLib.Logger.WriteWarnLine("str:  "+ str);
+	        Domain.Utils.DeserializeMessage(str);
+	
+	        return true;
+	    }, "\n");
+	  }
+	  catch BusinessException x{
+	      DebugLib.Logger.WriteErrorLine(x);
+	  }
+}</Operation>
+        <Operation Name="SubscribeCOE" Description="" Syntax="" RuleType="Default" EventName="" ApplyToAttribute="" BaseInfo="" IsStatic="true" IsInherited="false" IsExternal="false">static function void SubscribeCOE()
+{
+	DebugLib.Logger.WriteInfoLine("NTUA CO2 listening");
+	Interfaces.LocalPubSub.SubRoot derp;
+	    
+	    derp.authHash = "SarmedPortalCO2"; //App-" + AppLib.Application.GetConfigurationKey("ApplicationVersion");
+	//    derp.subscriptionId = "AllOrders";
+	//    Interfaces.LocalPubSub.SubRule root;
+	//    root.key = "sarmed_order";
+	//    root.val = 0;
+	//    root.type = "int";
+	//    root.op = "gt";
+	//    derp.data = {root};
+	 
+	    
+	//    var result = Interfaces.LocalPubSub.API.Subscribe(derp);
+	  try{
+	    WebLib.SocketClient sock = WebLib.SocketClient.CreateConnection("SarmedPortalCO2", "147.102.4.108", 20004);
+	    
+	    sock.Send("{ \"authHash\" : \"" + "SarmedPortalCO2" + "\"}\n");
+	    
+	    sock.StartReceiving((Array[byte] data) =&gt; {
+	        string str = CommonLib.Utilities.ByteArrayToUTF8(data);
+	        DebugLib.Logger.WriteWarnLine("str:  "+ str);
+	        Domain.Utils.DeserializeMessage(str);
+	
+	        return true;
+	    }, "\n");
+	  }
+	  catch BusinessException x{
+	      DebugLib.Logger.WriteErrorLine(x);
+	  }
+}</Operation>
+      </Operations>
+    </Class>
+    <Class ModelName="Utils" Name="Utils" ShadowModel="" ShadowClass="" Description="" Stereotype="Class" PK="" ConcurencyControl="false" AutoAssignPrimaryKey="false" IdGeneratorType="HiLoGenerator" IsPersisted="false" IsStatic="false" BaseClass="" BaseClasses="" BaseModel="">
+      <DiagramInfo IsExpanded="true" Width="180" Height="180" Top="426" Left="764" />
+      <Attributes />
+      <Operations>
+        <Operation Name="InitPubMessage" Description="" Syntax="" RuleType="Default" EventName="" ApplyToAttribute="" BaseInfo="" IsStatic="true" IsInherited="false" IsExternal="false">static function Collection[Domain.PubMessage] InitPubMessage(Object obj)
+{
+    Collection[Domain.PubMessage] messages;
+	RuntimeType type = obj.GetType();
+	Collection[RuntimeProperty] properties = type.GetProperties();
+	foreach RuntimeProperty: property in properties 
+	{
+		Object value = property.GetValue(obj);
+		string name = property.Name;
+		string datatype = property.GetRuntimeType().Name;
+		DebugLib.Logger.WriteInfoLine("property value "  + value + " property Name " + name + " property type " + datatype);
+		if(value == null)
+		{
+		    value = "";
+		}
+		
+		Domain.PubMessage message = Domain.PubMessage.Create();
+		if(datatype == "Guid"){continue;}
+		string valueString = value.ToString();
+		if(valueString.Contains("Sarmed", true)){continue;}
+		if(datatype.Contains("Date"))
+		{
+		    message.type = "DateTime";
+		    message.key = name;
+		    DateTime time = value as DateTime;
+		    message.val = time.ToString("yyyy-MM-ddThh-mm-ss");
+		}
+		if(datatype == "Int64")
+		{
+		    message.type = "long";
+		    message.key = name;
+		    message.val = value.ToString();
+		}
+		if(datatype == "Int32")
+		{
+		    message.type = "int";
+		    message.key = name;
+		    message.val = value.ToString();
+		}
+		if(datatype == "Single")
+		{
+		    message.type = "double";
+		    message.key = name;
+		    message.val = value.ToString();
+		}
+		if(datatype == "String")
+		{
+		    message.type = "string";
+		    message.key = name;
+		    message.val = value as string;
+		}
+		messages.Add(message);
+	}
+	return messages;
+}</Operation>
+        <Operation Name="DesirializePubMessage" Description="" Syntax="" RuleType="Default" EventName="" ApplyToAttribute="" BaseInfo="" IsStatic="true" IsInherited="false" IsExternal="false">static function void DesirializePubMessage(Collection[Domain.PubMessage] message, string objectType)
+{
+	if(string.IsNullOrEmpty(objectType))
+	{
+	    
+	}
+	switch (objectType)
+	{
+		case "OrderWMS":
+		    Domain.OrderWMS order = Domain.Utils.InitOrderWMS(message);
+		    break;
+			
+	}
+	
+}</Operation>
+        <Operation Name="InitOrderWMS" Description="" Syntax="" RuleType="Default" EventName="" ApplyToAttribute="" BaseInfo="" IsStatic="true" IsInherited="false" IsExternal="false">static function Domain.OrderWMS InitOrderWMS(Collection[Domain.PubMessage] message)
+{
+	Domain.OrderWMS order = Domain.OrderWMS.Create();
+	foreach Domain.PubMessage: attr in message 
+	{
+		switch (attr.key)
+		{
+			case "OrdID":
+			    order.OrdID = int.Parse(attr.val);
+				break;
+			case "OrdOrderID_Remote":
+			    order.OrdOrderID_Remote = int.Parse(attr.val);
+				break;
+			case "OrdOrderExternalCode":
+			    order.OrdOrderExternalCode = attr.val;
+				break;
+		    case "OrdOrderDescr":
+		        order.OrdOrderDescr = attr.val;
+				break;
+			case "OrdRegDateTime":
+			    order.OrdRegDateTime = DateTime.ParseExact(attr.val, "yyyy-MM-ddThh-mm-ss");
+				break;
+			case "OrdDateTime":
+			    order.OrdDateTime = DateTime.ParseExact(attr.val, "yyyy-MM-ddThh-mm-ss");
+				break;
+			case "OrdDeliveryDateTime":
+			    order.OrdDeliveryDateTime = DateTime.ParseExact(attr.val, "yyyy-MM-ddThh-mm-ss");
+				break;
+			case "OrdDepositorCode":
+			    order.OrdDepositorCode = attr.val;
+				break;
+			case "OrdDepositorFullName":
+			    order.OrdDepositorFullName = attr.val;
+				break;
+			case "OrdCustomerCode":
+			    order.OrdCustomerCode = attr.val;
+				break;
+			case "OrdCustomerFullName":
+			    order.OrdCustomerFullName = attr.val;
+				break;
+			case "OrdStatus":
+			    order.OrdStatus = int.Parse(attr.val);
+				break;
+			case "OrdMemo":
+			    order.OrdMemo = attr.val;
+				break;
+			case "OrdPurpose":
+			    order.OrdPurpose = attr.val;
+				break;
+			case "OrdDeliveryval":
+			    order.OrdDeliveryValue = float.Parse(attr.val);
+				break;
+			case "OrdDeliveryNotes":
+			    order.OrdDeliveryNotes = attr.val;
+				break;
+			case "OrdIsReturn":
+			    order.OrdIsReturn = int.Parse(attr.val);
+				break;
+			case "OrdPrdTypeDescr":
+			    order.OrdPrdTypeDescr = attr.val;
+				break;
+			case "OrdWrhRoutingCode":
+			    order.OrdWrhRoutingCode = attr.val;
+				break;
+			case "OrdDlsId":
+			    order.OrdDlsId = int.Parse(attr.val);
+				break;
+			case "OrdDlsDescr":
+			    order.OrdDlsDescr = attr.val;
+				break;
+			case "OrdDlsCity":
+			    order.OrdDlsCity = attr.val;
+				break;
+			case "OrdDlsArea":
+			    order.OrdDlsArea = attr.val;
+				break;
+			case "OrdDlsAddress":
+			    order.OrdDlsAddress = attr.val;
+				break;
+			case "OrdDlsZipCode":
+			    order.OrdDlsZipCode = attr.val;
+				break;
+			case "OrdRoutingStatus":
+			    order.OrdRoutingStatus = int.Parse(attr.val);
+				break;
+			case "OrdLfdBar":
+			    order.OrdLfdBar = int.Parse(attr.val);
+				break;
+			case "OrdLfdCtn":
+			    order.OrdLfdCtn = int.Parse(attr.val);
+				break;
+			case "OrdLfdPalElsa":
+			    order.OrdLfdPalElsa = int.Parse(attr.val);
+				break;
+			case "OrdLfdPalEuro":
+			    order.OrdLfdPalEuro = int.Parse(attr.val);
+				break;
+			case "OrdLfdPalInd":
+			    order.OrdLfdPalInd = int.Parse(attr.val);
+				break;
+			case "OrdLfdParOU":
+			    order.OrdLfdParOU = int.Parse(attr.val);
+				break;
+			case "OrdLfdVar":
+			    order.OrdLfdVar = int.Parse(attr.val);
+				break;
+			case "OrdLfdVol":
+			    order.OrdLfdVol = float.Parse(attr.val);
+				break;
+			case "OrdLfdWeight":
+			    order.OrdLfdWeight = float.Parse(attr.val);
+				break;
+			case "OrdVoucherId":
+			    order.OrdVoucherId = int.Parse(attr.val);
+				break;
+			case "OrdVoucherDateTime":
+			    order.OrdVoucherDateTime = DateTime.ParseExact(attr.val, "yyyy-MM-ddThh-mm-ss");
+				break;
+			case "OrdVoucherNumber":
+			    order.OrdVoucherNumber = attr.val;
+				break;
+			case "OrdVoucherSeries":
+			    order.OrdVoucherSeries = attr.val;
+				break;
+			case "OrdAgencyCode":
+			    order.OrdAgencyCode = attr.val;
+				break;
+			case "OrdAgencyAddress":
+			    order.OrdAgencyAddress = attr.val;
+				break;
+			case "OrdAgencyDescr":
+			    order.OrdAgencyDescr = attr.val;
+				break;
+			case "OrdTelRouteId":
+//			    order.OrdTelRouteId = long.Parse(attr.val);
+				break;
+			case "OrdVchRouteNr":
+			    order.OrdVchRouteNr = int.Parse(attr.val);
+				break;
+			case "OrdVchPlateNr":
+			    order.OrdVchPlateNr = attr.val;
+				break;
+			case "OrdVhrID":
+//			    order.OrdVhrID = attr.val as long;
+				break;
+			case "OrdVhrDate":
+			    order.OrdVhrDate = DateTime.ParseExact(attr.val, "yyyy-MM-ddThh-mm-ss");
+				break;
+			case "OrdLastUpdateDateTime":
+			    order.OrdLastUpdateDateTime = DateTime.ParseExact(attr.val, "yyyy-MM-ddThh-mm-ss");
+				break;
+			case "OrdReadyForLoading":
+			    order.OrdReadyForLoading = int.Parse(attr.val);
+				break;
+			case "Polyline":
+			    order.Polyline = attr.val;
+				break;
+			case "OrdStatusString":
+			    order.OrdStatusString = attr.val;
+				break;
+		}
+		
+	}
+	return order;
+}</Operation>
+        <Operation Name="DeserializeMessage" Description="" Syntax="" RuleType="Default" EventName="" ApplyToAttribute="" BaseInfo="" IsStatic="true" IsInherited="false" IsExternal="false">static function void DeserializeMessage(string json)
+{	
+    try {
+    CommonLib.Serializer[Collection[Domain.PubMessage]] ser;
+    CommonLib.Serializer[Domain.OrderDTO] ord;
+	Collection[Domain.PubMessage] kvpairs = ser.FromJson(json);
+	    DebugLib.Logger.WriteWarnLine("Starting message parsing... JSON contains "+kvpairs.Length+" objects");
+
+	foreach (Domain.PubMessage mes in kvpairs) {
+	    if(mes.key=="sarmed_order" &amp;&amp; int.Parse(mes.val) &gt; 0) {
+	       DebugLib.Logger.WriteWarnLine("Order received!");
+	        Domain.PubMessage payload=kvpairs.First(x=&gt;x.key=="payload");
+	        string orderjson = CommonLib.Utilities.Base64Decode (payload.val);
+	        Domain.OrderDTO tempDTO = ord.FromJson(orderjson);
+	        Domain.OrderWMS temp = DataTransformations.OrderTransformation.OrderWMS_To_OrderDTOReversed(tempDTO);
+	    	/* if(!Domain.Warehouse.Any(z=&gt;z.Title==temp.Warehouse)){
+	            Domain.Warehouse ware=Domain.Warehouse.Create();
+	            ware.Title=temp.Warehouse;
+	            ware.Save();
+	        }
+	        if(!Domain.RegionalAgent.Any(y=&gt;y.AgencyCode==temp.OrdAgencyCode)){
+	            Domain.RegionalAgent ra=Domain.RegionalAgent.Create();
+	            ra.AgencyCode=temp.OrdAgencyCode;
+	            ra.AgencyAddress=temp.OrdAgencyAddress;
+	            ra.AgencyDescription = temp.OrdAgencyDescription;
+	            ra.WarehousesSupport.Add(Domain.Warehouse.Find(x=&gt;x.Title==temp.Warehouse).First());
+	            ra.Save();
+	        } */
+	        Domain.OrderWMS tempord=Domain.OrderWMS.Find(x=&gt;x.OrdID==temp.OrdID).First();
+	        if(tempord!=null){
+	            DebugLib.Logger.WriteWarnLine("Order found in database. Updating...");
+				tempord.CopyFields(temp);
+				if(tempord.OrdRoutingStatus == 30)
+				{
+				    tempord.ATA = DateTime.Now();
+				    Collection[string] roles;
+				    foreach(Domain.ApplicationRole role in AppLib.Session.GetCurrentUser().Roles){
+				        roles.Add(role.Name);
+				    }
+				    tempord.OrdStatus=30;
+				    tempord.Update();
+				    Events.SaveOrder.Raise(tempord.OrdID,roles.ToArray());
+				}else{
+					tempord.Save(); 
+					Collection[string] roles;
+					foreach Domain.ApplicationRole role in AppLib.Session.GetCurrentUser().Roles {
+						roles.Add(role.Name);
+					}
+					Events.UpdateDatasets.Raise(tempord.Id,roles.ToArray());
+				}
+				
+			}
+	        else{
+	            DebugLib.Logger.WriteInfoLine("New order received!");
+	            if(temp.OrdRoutingStatus == 30)
+	            {
+	                temp.ATA = DateTime.Now();
+	            }
+	            temp.Save();
+	            //	Collection[string] roles;
+				//	foreach Domain.ApplicationRole role in AppLib.Session.GetCurrentUser().Roles {
+				//		roles.Add(role.Name);
+				//	}
+	            //Events.UpdateDatasets.Raise(temp.Id,roles.ToArray());
+	        }
+	        DebugLib.Logger.WriteWarnLine("Order saved successfully.");
+	        CommonLib.DataContext.Flush();
+	        if(temp.OrdRoutingStatus == 20)
+	        {
+	            Events.OrderStarted.Raise(temp.OrdID,temp.OrdVchPlateNr);
+	        } elseif(temp.OrdRoutingStatus == 30)
+	        {
+	        	Events.OrderFinished.Raise(temp.OrdID);
+	        } else {
+	            Collection[string] roles;
+	            foreach (Domain.ApplicationRole role in AppLib.Session.GetCurrentUser().Roles) {
+	            	roles.Add(role.Name);
+	            }
+	        	Events.OnOrderReceive.Raise(temp.OrdID,temp.Warehouse, temp.OrdDlsCity,temp.OrdAgencyDescr,roles.ToArray());    	
+	        }
+	    }
+	    elseif(mes.key=="truck_location"){
+	        DebugLib.Logger.WriteInfoLine("Truck location received!");
+	        Domain.PubMessage payload=kvpairs.First(x=&gt;x.key=="payload");
+            string gpsjson = CommonLib.Utilities.Base64Decode(payload.val);
+            DebugLib.Logger.WriteInfoLine("gps data " + gpsjson);
+            CommonLib.Serializer[Domain.GPSLocation] gps;
+            Domain.GPSLocation temp = gps.FromJson(gpsjson);
+            Events.OnGPSReceive.Raise(temp.truck_license_plate,temp.latitude.ToString(),temp.longitude.ToString());
+	    }
+	    elseif(mes.key=="sarmed_truck_recommendation" &amp;&amp; int.Parse(mes.val) &gt; 0)
+	    {
+	        Domain.PubMessage payload = kvpairs.First(x =&gt; x.key == "payload");
+	        string truckRec = CommonLib.Utilities.Base64Decode(payload.val);
+	        DebugLib.Logger.WriteInfoLine("TruckRec " + truckRec);
+	        CommonLib.Serializer[Interfaces.DisruptionAPI.TrucksRecommended] truckSer;
+	        Interfaces.DisruptionAPI.TrucksRecommended truck = truckSer.FromJson(truckRec);
+	       	Collection[string] roles;
+	        foreach(Domain.ApplicationRole role in AppLib.Session.GetCurrentUser().Roles){
+	            roles.Add(role.Name);
+	        }
+	        
+	        Events.OnNTUARecommendationReceive.Raise(truck.order_id,truck.trucks_recommended.Get(0),roles.ToArray());
+	        
+	        
+	    }
+	    elseif(mes.key=="sarmed_truck_eta"){
+	        Domain.PubMessage payload = kvpairs.First(x =&gt; x.key == "payload");
+	        string trucketa = CommonLib.Utilities.Base64Decode(payload.val);
+	        DebugLib.Logger.WriteInfoLine("Truck eta mess " + trucketa);
+	        CommonLib.Serializer[Domain.truck_eta] truckSer;
+	        Domain.truck_eta truck = truckSer.FromJson(trucketa);
+	        Domain.OrderWMS orderETA =  Domain.OrderWMS.Find(ordETA =&gt; ordETA.OrdID == truck.order_id).First();
+//	        if(orderETA != null &amp;&amp; ! string.IsNullOrEmpty(orderETA.ETA))
+//	        {
+//	            orderETA.ETA = truck.eta.ToString();
+//	            orderETA.Save();
+//	        }
+	        Events.OnETAReceived.Raise(truck.truck_license_plate,truck.eta, truck.order_id);
+	    }
+	    elseif(mes.key=="sarmed_truck_emissions"){
+	        Domain.PubMessage payload = kvpairs.First(x =&gt; x.key == "payload");
+	        string truckemiss = CommonLib.Utilities.Base64Decode(payload.val);
+	        DebugLib.Logger.WriteInfoLine("co2 " + truckemiss);
+	        CommonLib.Serializer[Domain.truck_emission] truckSer;
+	        Domain.truck_emission truck = truckSer.FromJson(truckemiss);
+	        Domain.OrderWMS orderCOE = Domain.OrderWMS.Find(ordco =&gt; ordco.OrdVchPlateNr == truck.truck_license_plate &amp;&amp; ordco.OrdRoutingStatus == 20).First();
+//	        if(orderCOE != null)
+//	        {
+//	        	orderCOE.COE = float.Parse(truck.co2_emission);
+//	        	orderCOE.Save();    
+//	        }
+			float co2em =  float.Parse(truck.co2_emission);
+			co2em = co2em / 1000;
+			truck.co2_emission = co2em.ToString();
+	        Events.OnCO2Received.Raise(truck.truck_license_plate,truck.co2_emission);
+	    }elseif(mes.key == "sarmed_truck_delivery_time")
+	    {
+	        Domain.PubMessage payload = kvpairs.First(x =&gt; x.key == "payload");
+	        string truckAVGtime = CommonLib.Utilities.Base64Decode(payload.val);
+	        DebugLib.Logger.WriteInfoLine("avg time " + truckAVGtime);
+	        CommonLib.Serializer[Domain.AVGTime] avgSer;
+	        Domain.AVGTime avg = avgSer.FromJson(truckAVGtime);
+	        avg.Save();
+	    }
+	}
+	}
+	catch Exception x{
+	   DebugLib.Logger.WriteErrorLine(x);
+	}}</Operation>
+        <Operation Name="InitTruckPositions" Description="" Syntax="" RuleType="Default" EventName="" ApplyToAttribute="" BaseInfo="" IsStatic="true" IsInherited="false" IsExternal="false">static function void InitTruckPositions()
+{
+	try {
+	
+		Domain.RegionalAgent southGrRa = Domain.RegionalAgent.Find(ra =&gt; ra.AgencyCode == "AG.265").First();
+		Collection[Domain.Truck] trucks = southGrRa.Trucks;
+		
+		Domain.GeoCoordinates creteGeo = Domain.GeoCoordinates.Create();
+		creteGeo.Latitude = float.Parse("35.317223");
+		creteGeo.Longitude = float.Parse("25.099130");
+		if(trucks.Length &gt; 0)
+		{
+			trucks.Get(0).CurrentLocation = creteGeo;    
+		}
+	
+		Domain.GeoCoordinates athensGeo = Domain.GeoCoordinates.Create();
+		athensGeo.Latitude = float.Parse("37.923545");
+		athensGeo.Longitude = float.Parse("23.889674");
+		if(trucks.Length &gt; 1)
+		{
+		    trucks.Get(1).CurrentLocation = athensGeo;
+		}
+		Domain.GeoCoordinates athGeo = Domain.GeoCoordinates.Create();
+		athGeo.Latitude = float.Parse("38.008472");
+		athGeo.Longitude = float.Parse("23.715051");
+		if(trucks.Length &gt; 2)
+		{
+		    trucks.Get(2).CurrentLocation = athGeo;
+		}
+		southGrRa.Save();
+		
+		Domain.RegionalAgent northRa = Domain.RegionalAgent.Find(rag =&gt; rag.AgencyCode == "A.G.709").First();
+		Collection[Domain.Truck] northtrucks = northRa.Trucks;
+		
+		Domain.GeoCoordinates lamiaGeo = Domain.GeoCoordinates.Create();
+		lamiaGeo.Latitude = float.Parse("38.903778");
+		lamiaGeo.Longitude = float.Parse("22.541465");
+		if(northtrucks.Length &gt; 0)
+		{
+			northtrucks.Get(0).CurrentLocation = lamiaGeo;    
+		}
+		Domain.GeoCoordinates IoanninaGeo = Domain.GeoCoordinates.Create();
+		IoanninaGeo.Latitude = float.Parse("39.655994");
+		IoanninaGeo.Longitude = float.Parse("20.826959");
+		if(northtrucks.Length &gt; 1)
+		{
+		    northtrucks.Get(1).CurrentLocation = IoanninaGeo;
+		}
+		Domain.GeoCoordinates LarissaGeo = Domain.GeoCoordinates.Create();
+		LarissaGeo.Latitude = float.Parse("39.590443");
+		LarissaGeo.Longitude = float.Parse("22.488873");
+		if(northtrucks.Length &gt; 2)
+		{
+		    northtrucks.Get(2).CurrentLocation = LarissaGeo;
+		}
+		northRa.Save();
+		
+		foreach Domain.Truck truck in trucks{
+		    	Domain.GPSLocation gpsloc = Domain.GPSLocation.Create();
+				gpsloc.truck_license_plate=truck.PlateNumber;
+				gpsloc.latitude=truck.CurrentLocation.Latitude;
+				gpsloc.longitude=truck.CurrentLocation.Longitude;
+				gpsloc.timestamp=Domain.Utils.ConvertToTimestampFormat(DateTime.Now());
+				gpsloc.Publish();
+		}
+		foreach Domain.Truck truck in northtrucks{
+		    	Domain.GPSLocation gpsloc = Domain.GPSLocation.Create();
+				gpsloc.truck_license_plate=truck.PlateNumber;
+				gpsloc.latitude=truck.CurrentLocation.Latitude;
+				gpsloc.longitude=truck.CurrentLocation.Longitude;
+				gpsloc.timestamp=Domain.Utils.ConvertToTimestampFormat(DateTime.Now());
+				gpsloc.Publish();
+		}
+	}
+	catch Exception x {
+		DebugLib.Logger.WriteErrorLine("init truck positions");
+		DebugLib.Logger.WriteErrorLine(x);	
+	}
+}</Operation>
+        <Operation Name="ConvertToTimestampFormat" Description="" Syntax="" RuleType="Default" EventName="" ApplyToAttribute="" BaseInfo="" IsStatic="true" IsInherited="false" IsExternal="false">static function string ConvertToTimestampFormat(DateTime dt)
+{
+	string years=dt.Year().ToString();
+	string months=dt.Month().ToString();
+	string days=dt.Day().ToString();
+	string hours=dt.Hour().ToString();
+	string minutes=dt.Minute().ToString();
+	string seconds=dt.Second().ToString();
+	//2017-03-28T08:47:47.734Z
+	
+	return years+"-"+months+"-"+days+"T"+hours+":"+minutes+":"+seconds+".000Z";
+}</Operation>
+      </Operations>
+    </Class>
+    <Class ModelName="Utils" Name="PubMessage" ShadowModel="" ShadowClass="" Description="" Stereotype="Class" PK="" ConcurencyControl="false" AutoAssignPrimaryKey="false" IdGeneratorType="HiLoGenerator" IsPersisted="false" IsStatic="false" BaseClass="" BaseClasses="" BaseModel="">
+      <DiagramInfo IsExpanded="true" Width="184.28125" Height="180" Top="148" Left="1192" />
+      <Attributes>
+        <Attribute Name="key" IsValueClass="false" Description="" DataType="string" BaseInfo="" Length="100" Precision="8" Scale="2" InitValue="" IsRequired="false" IsInherited="false" Persisted="false" IsEncrypted="false" IsStatic="false" ReadOnly="false" IsExternal="false" CustomValidation="" IsCreditCard="false" IsURL="false" IsEmail="false" MinLength="0" MaxLength="100" MinValue="" MaxValue="" Getter="" Setter="" />
+        <Attribute Name="val" IsValueClass="false" Description="" DataType="string" BaseInfo="" Length="4000" Precision="8" Scale="2" InitValue="" IsRequired="false" IsInherited="false" Persisted="false" IsEncrypted="false" IsStatic="false" ReadOnly="false" IsExternal="false" CustomValidation="" IsCreditCard="false" IsURL="false" IsEmail="false" MinLength="0" MaxLength="100" MinValue="" MaxValue="" Getter="" Setter="" />
+        <Attribute Name="type" IsValueClass="false" Description="" DataType="string" BaseInfo="" Length="100" Precision="8" Scale="2" InitValue="" IsRequired="false" IsInherited="false" Persisted="false" IsEncrypted="false" IsStatic="false" ReadOnly="false" IsExternal="false" CustomValidation="" IsCreditCard="false" IsURL="false" IsEmail="false" MinLength="0" MaxLength="100" MinValue="" MaxValue="" Getter="" Setter="" />
+      </Attributes>
+      <Operations />
+    </Class>
+    <Class ModelName="Utils" Name="GPSLocation" ShadowModel="" ShadowClass="" Description="" Stereotype="Class" PK="" ConcurencyControl="false" AutoAssignPrimaryKey="false" IdGeneratorType="HiLoGenerator" IsPersisted="false" IsStatic="false" BaseClass="" BaseClasses="" BaseModel="">
+      <DiagramInfo IsExpanded="true" Width="228.53125" Height="190" Top="455" Left="1092" />
+      <Attributes>
+        <Attribute Name="order_id" IsValueClass="false" Description="" DataType="int" BaseInfo="" Length="100" Precision="8" Scale="2" InitValue="" IsRequired="false" IsInherited="false" Persisted="false" IsEncrypted="false" IsStatic="false" ReadOnly="false" IsExternal="false" CustomValidation="" IsCreditCard="false" IsURL="false" IsEmail="false" MinLength="0" MaxLength="100" MinValue="" MaxValue="" Getter="" Setter="" />
+        <Attribute Name="truck_license_plate" IsValueClass="false" Description="" DataType="string" BaseInfo="" Length="100" Precision="8" Scale="2" InitValue="" IsRequired="false" IsInherited="false" Persisted="false" IsEncrypted="false" IsStatic="false" ReadOnly="false" IsExternal="false" CustomValidation="" IsCreditCard="false" IsURL="false" IsEmail="false" MinLength="0" MaxLength="100" MinValue="" MaxValue="" Getter="" Setter="" />
+        <Attribute Name="timestamp" IsValueClass="false" Description="" DataType="string" BaseInfo="" Length="100" Precision="8" Scale="2" InitValue="" IsRequired="false" IsInherited="false" Persisted="false" IsEncrypted="false" IsStatic="false" ReadOnly="false" IsExternal="false" CustomValidation="" IsCreditCard="false" IsURL="false" IsEmail="false" MinLength="0" MaxLength="100" MinValue="" MaxValue="" Getter="" Setter="" />
+        <Attribute Name="latitude" IsValueClass="false" Description="" DataType="float" BaseInfo="" Length="100" Precision="8" Scale="2" InitValue="" IsRequired="false" IsInherited="false" Persisted="false" IsEncrypted="false" IsStatic="false" ReadOnly="false" IsExternal="false" CustomValidation="" IsCreditCard="false" IsURL="false" IsEmail="false" MinLength="0" MaxLength="100" MinValue="" MaxValue="" Getter="" Setter="" />
+        <Attribute Name="longitude" IsValueClass="false" Description="" DataType="float" BaseInfo="" Length="100" Precision="8" Scale="2" InitValue="" IsRequired="false" IsInherited="false" Persisted="false" IsEncrypted="false" IsStatic="false" ReadOnly="false" IsExternal="false" CustomValidation="" IsCreditCard="false" IsURL="false" IsEmail="false" MinLength="0" MaxLength="100" MinValue="" MaxValue="" Getter="" Setter="" />
+      </Attributes>
+      <Operations>
+        <Operation Name="Publish" Description="" Syntax="" RuleType="Default" EventName="" ApplyToAttribute="" BaseInfo="" IsStatic="false" IsInherited="false" IsExternal="false">function void Publish()
+{
+	    CommonLib.Serializer[Domain.GPSLocation] gps;
+	    string gpsjson=gps.ToJson(this, false);
+	    string base64gps=CommonLib.Utilities.Base64Encode(gpsjson);
+	    Collection[Domain.PubMessage] message;
+	    Domain.PubMessage mes1;
+	    Domain.PubMessage mes2;
+	    Domain.PubMessage mes3;
+	    mes1.type="string";
+	    mes1.val="truck_location";
+	    mes1.key="topic";
+	    mes2.type="string";
+	    mes2.val=this.truck_license_plate;
+	    mes2.key="truck_location";
+	    mes3.type="string";
+	    mes3.val=base64gps;
+	    mes3.key="payload";
+	    message.Add(mes1);
+	    message.Add(mes2);
+	    message.Add(mes3);
+	    Interfaces.LocalPubSub.Publication publication;
+	    Collection[Interfaces.LocalPubSub.PubMessage] apisPubMessage;
+	    foreach Domain.PubMessage: pubs in message 
+	    {
+	    	Interfaces.LocalPubSub.PubMessage pubMessage = DataTransformations.PubMessage.PubMessage_To_PubMessage(pubs);
+	    	apisPubMessage.Add(pubMessage);
+	    }
+	    publication.publication = apisPubMessage.ToArray();
+	    Interfaces.LocalPubSub.API.Publish(publication);
+}
+</Operation>
+      </Operations>
+    </Class>
+    <Class ModelName="Utils" Name="TruckRecommendation" ShadowModel="" ShadowClass="" Description="" Stereotype="Class" PK="" ConcurencyControl="false" AutoAssignPrimaryKey="false" IdGeneratorType="HiLoGenerator" IsPersisted="false" IsStatic="false" BaseClass="" BaseClasses="" BaseModel="">
+      <DiagramInfo IsExpanded="true" Width="293.453125" Height="180" Top="612" Left="771" />
+      <Attributes>
+        <Attribute Name="order_id" IsValueClass="false" Description="" DataType="string" BaseInfo="" Length="100" Precision="8" Scale="2" InitValue="" IsRequired="false" IsInherited="false" Persisted="false" IsEncrypted="false" IsStatic="false" ReadOnly="false" IsExternal="false" CustomValidation="" IsCreditCard="false" IsURL="false" IsEmail="false" MinLength="0" MaxLength="100" MinValue="" MaxValue="" Getter="" Setter="" />
+        <Attribute Name="trucks_recommended" IsValueClass="false" Description="" DataType="string" BaseInfo="" Length="100" Precision="8" Scale="2" InitValue="" IsRequired="false" IsInherited="false" Persisted="false" IsEncrypted="false" IsStatic="false" ReadOnly="false" IsExternal="false" CustomValidation="" IsCreditCard="false" IsURL="false" IsEmail="false" MinLength="0" MaxLength="100" MinValue="" MaxValue="" Getter="" Setter="" />
+      </Attributes>
+      <Operations />
+    </Class>
+    <Class ModelName="Utils" Name="truck_eta" ShadowModel="" ShadowClass="" Description="" Stereotype="Class" PK="" ConcurencyControl="false" AutoAssignPrimaryKey="false" IdGeneratorType="HiLoGenerator" IsPersisted="false" IsStatic="false" BaseClass="" BaseClasses="" BaseModel="">
+      <DiagramInfo IsExpanded="true" Width="228.53125" Height="180" Top="626" Left="481" />
+      <Attributes>
+        <Attribute Name="truck_license_plate" IsValueClass="false" Description="" DataType="string" BaseInfo="" Length="100" Precision="8" Scale="2" InitValue="" IsRequired="false" IsInherited="false" Persisted="false" IsEncrypted="false" IsStatic="false" ReadOnly="false" IsExternal="false" CustomValidation="" IsCreditCard="false" IsURL="false" IsEmail="false" MinLength="0" MaxLength="100" MinValue="" MaxValue="" Getter="" Setter="" />
+        <Attribute Name="eta" IsValueClass="false" Description="" DataType="DateTime" BaseInfo="" Length="100" Precision="8" Scale="2" InitValue="" IsRequired="false" IsInherited="false" Persisted="false" IsEncrypted="false" IsStatic="false" ReadOnly="false" IsExternal="false" CustomValidation="" IsCreditCard="false" IsURL="false" IsEmail="false" MinLength="0" MaxLength="100" MinValue="" MaxValue="" Getter="" Setter="" />
+        <Attribute Name="order_id" IsValueClass="false" Description="" DataType="int" BaseInfo="" Length="100" Precision="8" Scale="2" InitValue="" IsRequired="false" IsInherited="false" Persisted="false" IsEncrypted="false" IsStatic="false" ReadOnly="false" IsExternal="false" CustomValidation="" IsCreditCard="false" IsURL="false" IsEmail="false" MinLength="0" MaxLength="100" MinValue="" MaxValue="" Getter="" Setter="" />
+      </Attributes>
+      <Operations />
+    </Class>
+    <Class ModelName="Utils" Name="truck_emission" ShadowModel="" ShadowClass="" Description="" Stereotype="Class" PK="" ConcurencyControl="false" AutoAssignPrimaryKey="false" IdGeneratorType="HiLoGenerator" IsPersisted="false" IsStatic="false" BaseClass="" BaseClasses="" BaseModel="">
+      <DiagramInfo IsExpanded="true" Width="228.53125" Height="180" Top="673" Left="50" />
+      <Attributes>
+        <Attribute Name="truck_license_plate" IsValueClass="false" Description="" DataType="string" BaseInfo="" Length="100" Precision="8" Scale="2" InitValue="" IsRequired="false" IsInherited="false" Persisted="false" IsEncrypted="false" IsStatic="false" ReadOnly="false" IsExternal="false" CustomValidation="" IsCreditCard="false" IsURL="false" IsEmail="false" MinLength="0" MaxLength="100" MinValue="" MaxValue="" Getter="" Setter="" />
+        <Attribute Name="co2_emission" IsValueClass="false" Description="" DataType="string" BaseInfo="" Length="100" Precision="8" Scale="2" InitValue="" IsRequired="false" IsInherited="false" Persisted="false" IsEncrypted="false" IsStatic="false" ReadOnly="false" IsExternal="false" CustomValidation="" IsCreditCard="false" IsURL="false" IsEmail="false" MinLength="0" MaxLength="100" MinValue="" MaxValue="" Getter="" Setter="" />
+      </Attributes>
+      <Operations />
+    </Class>
+    <Class ModelName="Utils" Name="AVGTime" ShadowModel="" ShadowClass="" Description="" Stereotype="Class" PK="Id" ConcurencyControl="true" AutoAssignPrimaryKey="true" IdGeneratorType="HiLoGenerator" IsPersisted="true" IsStatic="false" BaseClass="" BaseClasses="" BaseModel="">
+      <DiagramInfo IsExpanded="true" Width="246.046875" Height="180" Top="866" Left="351" />
+      <Attributes>
+        <Attribute Name="truck_license_plate" IsValueClass="false" Description="" DataType="string" BaseInfo="" Length="100" Precision="8" Scale="2" InitValue="" IsRequired="false" IsInherited="false" Persisted="true" IsEncrypted="false" IsStatic="false" ReadOnly="false" IsExternal="false" CustomValidation="" IsCreditCard="false" IsURL="false" IsEmail="false" MinLength="0" MaxLength="100" MinValue="" MaxValue="" Getter="" Setter="" />
+        <Attribute Name="avg_delivery_time" IsValueClass="false" Description="" DataType="float" BaseInfo="" Length="100" Precision="8" Scale="2" InitValue="" IsRequired="false" IsInherited="false" Persisted="true" IsEncrypted="false" IsStatic="false" ReadOnly="false" IsExternal="false" CustomValidation="" IsCreditCard="false" IsURL="false" IsEmail="false" MinLength="0" MaxLength="100" MinValue="" MaxValue="" Getter="" Setter="" />
+        <Attribute Name="Id" IsValueClass="false" Description="" DataType="int" BaseInfo="" Length="100" Precision="8" Scale="2" InitValue="" IsRequired="false" IsInherited="false" Persisted="true" IsEncrypted="false" IsStatic="false" ReadOnly="false" IsExternal="false" CustomValidation="" IsCreditCard="false" IsURL="false" IsEmail="false" MinLength="0" MaxLength="100" MinValue="" MaxValue="" Getter="" Setter="" />
+      </Attributes>
+      <Operations />
+    </Class>
+    <Class ModelName="Utils" Name="DashboardStatistics" ShadowModel="" ShadowClass="" Description="" Stereotype="Class" PK="Id" ConcurencyControl="false" AutoAssignPrimaryKey="false" IdGeneratorType="HiLoGenerator" IsPersisted="false" IsStatic="false" BaseClass="" BaseClasses="" BaseModel="">
+      <DiagramInfo IsExpanded="true" Width="260.390625" Height="238" Top="234" Left="369" />
+      <Attributes>
+        <Attribute Name="Id" IsValueClass="false" Description="" DataType="int" BaseInfo="" Length="100" Precision="8" Scale="2" InitValue="" IsRequired="false" IsInherited="false" Persisted="false" IsEncrypted="false" IsStatic="false" ReadOnly="false" IsExternal="false" CustomValidation="" IsCreditCard="false" IsURL="false" IsEmail="false" MinLength="0" MaxLength="100" MinValue="" MaxValue="" Getter="" Setter="" />
+        <Attribute Name="OnTime" IsValueClass="false" Description="" DataType="int" BaseInfo="" Length="100" Precision="8" Scale="2" InitValue="" IsRequired="false" IsInherited="false" Persisted="false" IsEncrypted="false" IsStatic="false" ReadOnly="false" IsExternal="false" CustomValidation="" IsCreditCard="false" IsURL="false" IsEmail="false" MinLength="0" MaxLength="100" MinValue="" MaxValue="" Getter="" Setter="" />
+        <Attribute Name="InFull" IsValueClass="false" Description="" DataType="int" BaseInfo="" Length="100" Precision="8" Scale="2" InitValue="" IsRequired="false" IsInherited="false" Persisted="false" IsEncrypted="false" IsStatic="false" ReadOnly="false" IsExternal="false" CustomValidation="" IsCreditCard="false" IsURL="false" IsEmail="false" MinLength="0" MaxLength="100" MinValue="" MaxValue="" Getter="" Setter="" />
+        <Attribute Name="AsOrdered" IsValueClass="false" Description="" DataType="int" BaseInfo="" Length="100" Precision="8" Scale="2" InitValue="" IsRequired="false" IsInherited="false" Persisted="false" IsEncrypted="false" IsStatic="false" ReadOnly="false" IsExternal="false" CustomValidation="" IsCreditCard="false" IsURL="false" IsEmail="false" MinLength="0" MaxLength="100" MinValue="" MaxValue="" Getter="" Setter="" />
+        <Attribute Name="Impeachment" IsValueClass="false" Description="" DataType="int" BaseInfo="" Length="100" Precision="8" Scale="2" InitValue="" IsRequired="false" IsInherited="false" Persisted="false" IsEncrypted="false" IsStatic="false" ReadOnly="false" IsExternal="false" CustomValidation="" IsCreditCard="false" IsURL="false" IsEmail="false" MinLength="0" MaxLength="100" MinValue="" MaxValue="" Getter="" Setter="" />
+        <Attribute Name="TotalDelivered" IsValueClass="false" Description="" DataType="int" BaseInfo="" Length="100" Precision="8" Scale="2" InitValue="" IsRequired="false" IsInherited="false" Persisted="false" IsEncrypted="false" IsStatic="false" ReadOnly="false" IsExternal="false" CustomValidation="" IsCreditCard="false" IsURL="false" IsEmail="false" MinLength="0" MaxLength="100" MinValue="" MaxValue="" Getter="" Setter="" />
+        <Attribute Name="Supplier" IsValueClass="false" Description="" DataType="string" BaseInfo="" Length="100" Precision="8" Scale="2" InitValue="" IsRequired="false" IsInherited="false" Persisted="false" IsEncrypted="false" IsStatic="false" ReadOnly="false" IsExternal="false" CustomValidation="" IsCreditCard="false" IsURL="false" IsEmail="false" MinLength="0" MaxLength="100" MinValue="" MaxValue="" Getter="" Setter="" />
+      </Attributes>
+      <Operations>
+        <Operation Name="CalculatePoDStats" Description="" Syntax="" RuleType="Default" EventName="" ApplyToAttribute="" BaseInfo="" IsStatic="true" IsInherited="false" IsExternal="false">static function Collection[Domain.DashboardStatistics] CalculatePoDStats() 
+{
+	Collection[Domain.DashboardStatistics] wow;
+	Domain.DashboardStatistics stats;
+	stats.InFull=0;
+	stats.AsOrdered=0;
+	stats.OnTime=0;
+	Collection[Domain.ProofOfDelivery] deliveries=Domain.ProofOfDelivery.GetAll();
+	
+	foreach(Domain.ProofOfDelivery delivery in deliveries){
+		stats.Supplier=delivery.OrderWMS.OrdDepositorFullName;
+		if(delivery.QuantityStatus== "In Full"){
+			stats.InFull=stats.InFull+1;
+		}
+		if(delivery.QualityStatus== "As Ordered"){
+			stats.AsOrdered=stats.AsOrdered+1;
+		}
+		if(delivery.DeliveryStatus== "On Time"){
+			stats.OnTime=stats.OnTime+1;
+		}
+		
+	}
+	stats.TotalDelivered=deliveries.Length;
+	wow.Add(stats);
+	return wow;
+}</Operation>
+      </Operations>
+    </Class>
+  </Classes>
+  <Resources />
+</BusinessObject>

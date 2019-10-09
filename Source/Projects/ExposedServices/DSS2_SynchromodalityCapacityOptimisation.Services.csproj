@@ -1,0 +1,115 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net472</TargetFramework>
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+    <Copyright>Copyright © CLMS 2018</Copyright>
+    <Company>CLMS</Company>
+    <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
+    <AssemblyName>DSS2_SynchromodalityCapacityOptimisation.Services</AssemblyName>
+    <RootNamespace>DSS2_SynchromodalityCapacityOptimisation</RootNamespace>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(TargetFramework)' == 'netcoreapp2.2'">
+    <DefineConstants>$(DefineConstants);NETSTANDARD</DefineConstants>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="system.Runtime.Serialization" />
+    <Reference Include="system.ServiceModel" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="capacities\capacitiesDataContracts.cs" />
+    <Compile Include="capacities\capacitiesService.cs" />
+    <Compile Include="capacities\IcapacitiesService.cs" />
+    <Compile Include="CostModel\CostModelDataContracts.cs" />
+    <Compile Include="CostModel\CostModelService.cs" />
+    <Compile Include="CostModel\ICostModelService.cs" />
+    <Compile Include="DataSeed\DataSeedDataContracts.cs" />
+    <Compile Include="DataSeed\DataSeedService.cs" />
+    <Compile Include="DataSeed\IDataSeedService.cs" />
+    <Compile Include="deliveryDays\deliveryDaysDataContracts.cs" />
+    <Compile Include="deliveryDays\deliveryDaysService.cs" />
+    <Compile Include="deliveryDays\IdeliveryDaysService.cs" />
+    <Compile Include="exportInventoryItems\exportInventoryItemsDataContracts.cs" />
+    <Compile Include="exportInventoryItems\exportInventoryItemsService.cs" />
+    <Compile Include="exportInventoryItems\IexportInventoryItemsService.cs" />
+    <Compile Include="exportItems\exportItemsDataContracts.cs" />
+    <Compile Include="exportItems\exportItemsService.cs" />
+    <Compile Include="exportItems\IexportItemsService.cs" />
+    <Compile Include="exportOFDetails\exportOFDetailsDataContracts.cs" />
+    <Compile Include="exportOFDetails\exportOFDetailsService.cs" />
+    <Compile Include="exportOFDetails\IexportOFDetailsService.cs" />
+    <Compile Include="exportSalesForecastDetails\exportSalesForecastDetailsDataContracts.cs" />
+    <Compile Include="exportSalesForecastDetails\exportSalesForecastDetailsService.cs" />
+    <Compile Include="exportSalesForecastDetails\IexportSalesForecastDetailsService.cs" />
+    <Compile Include="hierarchies\hierarchiesDataContracts.cs" />
+    <Compile Include="hierarchies\hierarchiesService.cs" />
+    <Compile Include="hierarchies\IhierarchiesService.cs" />
+    <Compile Include="inventoryItems\IinventoryItemsService.cs" />
+    <Compile Include="inventoryItems\inventoryItemsDataContracts.cs" />
+    <Compile Include="inventoryItems\inventoryItemsService.cs" />
+    <Compile Include="items\IitemsService.cs" />
+    <Compile Include="items\itemsDataContracts.cs" />
+    <Compile Include="items\itemsService.cs" />
+    <Compile Include="KPIInit\IKPIInitService.cs" />
+    <Compile Include="KPIInit\KPIInitDataContracts.cs" />
+    <Compile Include="KPIInit\KPIInitService.cs" />
+    <Compile Include="KPIService\IKPIServiceService.cs" />
+    <Compile Include="KPIService\KPIServiceDataContracts.cs" />
+    <Compile Include="KPIService\KPIServiceService.cs" />
+    <Compile Include="minimumQuantities\IminimumQuantitiesService.cs" />
+    <Compile Include="minimumQuantities\minimumQuantitiesDataContracts.cs" />
+    <Compile Include="minimumQuantities\minimumQuantitiesService.cs" />
+    <Compile Include="OrderForecastService\IOrderForecastServiceService.cs" />
+    <Compile Include="OrderForecastService\OrderForecastServiceDataContracts.cs" />
+    <Compile Include="OrderForecastService\OrderForecastServiceService.cs" />
+    <Compile Include="pastOrders\IpastOrdersService.cs" />
+    <Compile Include="pastOrders\pastOrdersDataContracts.cs" />
+    <Compile Include="pastOrders\pastOrdersService.cs" />
+    <Compile Include="pastSales\IpastSalesService.cs" />
+    <Compile Include="pastSales\pastSalesDataContracts.cs" />
+    <Compile Include="pastSales\pastSalesService.cs" />
+    <Compile Include="RA\IRAService.cs" />
+    <Compile Include="RA\RADataContracts.cs" />
+    <Compile Include="RA\RAService.cs" />
+    <Compile Include="salesForecasts\IsalesForecastsService.cs" />
+    <Compile Include="salesForecasts\salesForecastsDataContracts.cs" />
+    <Compile Include="salesForecasts\salesForecastsService.cs" />
+    <Compile Include="stocksOnHand\IstocksOnHandService.cs" />
+    <Compile Include="stocksOnHand\stocksOnHandDataContracts.cs" />
+    <Compile Include="stocksOnHand\stocksOnHandService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\LICENSE.txt" Pack="true" PackagePath="$(PackageLicenseFile)" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.Web.Http">
+      <Private>True</Private>
+      <HintPath>..\..\Projects\Lib\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc">
+      <Private>True</Private>
+      <HintPath>..\..\Projects\Lib\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="zAppDev.DotNet.Framework">
+      <Private>True</Private>
+      <HintPath>..\..\Projects\Lib\zAppDev.DotNet.Framework.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="3.3.0" />
+    <PackageReference Include="System.Text.Encoding.CodePages" Version="4.5.1" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Projects\Domain\POCO\DSS2_SynchromodalityCapacityOptimisation.Backend.csproj" />
+    <ProjectReference Include="..\..\Projects\ExternalStructs\ExternalStructs.csproj" />
+  </ItemGroup>
+</Project>

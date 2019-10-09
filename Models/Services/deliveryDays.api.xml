@@ -1,0 +1,97 @@
+<!--
+Copyright (c) CLMS. All rights reserved.
+Licensed under the AGPL-3.0 license. See LICENSE file in the project root for full license information.-->
+
+<ExposedApi DateCreated="" Model_Name="deliveryDays" Model_Description="Receives a Collection of Delivery Days and Lead Time regarding the Items. If all entries are imported successfully, returns a success message. If not, returns a failure message." Version="0.1.0">
+  <Operations>
+    <Operation Verb="Post" Path="import" ReturnDataType="Domain.Response" Name="Import" Description="Import Delivery Days and Lead Time" AllowAnonymousUsers="False" AllowAllAuthenticated="True" EnableAccessLog="True" ResponseSample="" RequestSample="" AllowPermisssions="" ApplicationTags="">
+      <Parameters>
+        <Parameter DataType="Collection[Domain.DeliverySchedule]" Required="True" Name="deliverySchedules" Description="" />
+      </Parameters>
+      <Code>function Domain.Response Import(Collection[Domain.DeliverySchedule] deliverySchedules)
+{
+	string message;
+	
+	foreach Domain.DeliverySchedule: delSchedule in deliverySchedules {
+	    DebugLib.Logger.WriteInfoLine("Warehouse: " + delSchedule.Warehouse.Code);
+		if (delSchedule.Supplier == null || delSchedule.Warehouse == null) {
+			message = message + delSchedule.Id + " ,";
+		    continue;
+		}
+//		Domain.Item existingItem = Domain.Item.Find(s=&gt; s.SKU == delSchedule.Item.SKU).First();
+		Domain.Supplier existingSupplier = Domain.Supplier.Find(w=&gt; w.Code == delSchedule.Supplier.Code).First();
+		Domain.Warehouse existingWarehouse = Domain.Warehouse.Find(a=&gt; a.Code == delSchedule.Warehouse.Code).First();
+		if (existingSupplier == null || existingWarehouse == null) {
+		    message = message + delSchedule.Id + " ,";
+		    continue;
+		}
+		Domain.DeliverySchedule newDelSchedule;
+		newDelSchedule.Supplier = existingSupplier;
+		newDelSchedule.Warehouse = existingWarehouse;
+//		newDelSchedule.Item = existingItem;
+		newDelSchedule.LeadTime = delSchedule.LeadTime;
+		newDelSchedule.Weekday = delSchedule.Weekday;
+		newDelSchedule.Save();
+	}
+	if (!string.IsNullOrEmpty(message)) {
+	    DebugLib.Logger.WriteWarnLine("Error message: " + message);
+	    return Domain.Response.GenerateResponse("Failed", "Failed to import entries with Ids: " + message, "", "-1");
+	}
+	
+	return Domain.Response.GenerateResponse("Succeed", "All entries imported successfully.", "", "1");
+}</Code>
+      <CachingOptions CachePerUser="false" OperationIsCached="false" OverrideDefaultCachingSettings="false" UseCustomExpirationMethod="false" ExpirationDays="0" ExpirationHours="0" ExpirationMinutes="3" ExpirationSeconds="0" ExpirationMilliseconds="0" CacheMode="None">function TimeSpan Expiration(
+	Collection[Domain.DeliverySchedule] deliverySchedules,
+	Domain.Response response
+)
+{ 
+	 return CommonLib.Utilities.CreateTimeSpan(0, 1, 0); 
+}</CachingOptions>
+    </Operation>
+  </Operations>
+  <DataContracts>
+    <DataContract Name="" Class="Domain.DeliverySchedule" BaseClass="">
+      <Members>
+        <Member Name="Id" DataType="int" Checked="False" />
+        <Member Name="LeadTime" DataType="int" Checked="True" />
+        <Member Name="Weekday" DataType="int" Checked="True" />
+        <Member Name="Supplier" DataType="Domain.Supplier" Checked="True" />
+        <Member Name="Item" DataType="Domain.Item" Checked="True" />
+        <Member Name="Warehouse" DataType="Domain.Warehouse" Checked="True" />
+      </Members>
+    </DataContract>
+    <DataContract Name="" Class="Domain.Supplier" BaseClass="Company">
+      <Members>
+        <Member Name="Id" DataType="int" Checked="False" />
+        <Member Name="Code" DataType="string" Checked="True" />
+        <Member Name="Name" DataType="string" Checked="True" />
+      </Members>
+    </DataContract>
+    <DataContract Name="" Class="Domain.Item" BaseClass="">
+      <Members>
+        <Member Name="SKU" DataType="string" Checked="True" />
+        <Member Name="Description" DataType="string" Checked="True" />
+        <Member Name="UPC" DataType="string" Checked="True" />
+        <Member Name="ItemsForecast" DataType="Collection[Domain.Sales]" Checked="False" />
+        <Member Name="StocksOnHand" DataType="Collection[Domain.StockOnHand]" Checked="False" />
+        <Member Name="MinimumQuantity" DataType="Domain.MinimumQuantity" Checked="False" />
+      </Members>
+    </DataContract>
+    <DataContract Name="" Class="Domain.Warehouse" BaseClass="">
+      <Members>
+        <Member Name="Id" DataType="int" Checked="True" />
+        <Member Name="Code" DataType="string" Checked="True" />
+        <Member Name="Description" DataType="string" Checked="True" />
+      </Members>
+    </DataContract>
+    <DataContract Name="" Class="Domain.Response" BaseClass="">
+      <Members>
+        <Member Name="Id" DataType="int" Checked="False" />
+        <Member Name="Status" DataType="string" Checked="True" />
+        <Member Name="Message" DataType="string" Checked="True" />
+        <Member Name="Details" DataType="string" Checked="True" />
+        <Member Name="Code" DataType="string" Checked="True" />
+      </Members>
+    </DataContract>
+  </DataContracts>
+</ExposedApi>

@@ -1,0 +1,795 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration>Debug</Configuration>
+    <Platform>AnyCPU</Platform>
+    <ProductVersion />
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{5d2db5b9-6943-40b6-b045-ba2ab4e6ddc0}</ProjectGuid>
+    <ProjectTypeGuids>{349C5851-65DF-11DA-9384-00065B846F21};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <TypeScriptToolsVersion>2.8</TypeScriptToolsVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp />
+    <Copyright>Copyright © CLMS 2018</Copyright>
+    <Company>CLMS</Company>
+    <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
+    <AssemblyName>DSS2_SynchromodalityCapacityOptimisation.Web</AssemblyName>
+    <RootNamespace>DSS2_SynchromodalityCapacityOptimisation</RootNamespace>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DefineConstants>$(DefineConstants);NETFRAMEWORK</DefineConstants>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <NoWarn>1591</NoWarn>
+    <DocumentationFile>bin\DSS2_SynchromodalityCapacityOptimisation.Web.XML</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DefineConstants>$(DefineConstants);NETFRAMEWORK</DefineConstants>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <NoWarn>1591</NoWarn>
+    <DocumentationFile>bin\DSS2_SynchromodalityCapacityOptimisation.Web.XML</DocumentationFile>
+    <TypeScriptTarget>ES5</TypeScriptTarget>
+    <TypeScriptJSXEmit>None</TypeScriptJSXEmit>
+    <TypeScriptCompileOnSaveEnabled>True</TypeScriptCompileOnSaveEnabled>
+    <TypeScriptNoImplicitAny>False</TypeScriptNoImplicitAny>
+    <TypeScriptModuleKind>CommonJS</TypeScriptModuleKind>
+    <TypeScriptRemoveComments>False</TypeScriptRemoveComments>
+    <TypeScriptOutFile />
+    <TypeScriptOutDir />
+    <TypeScriptGeneratesDeclarations>False</TypeScriptGeneratesDeclarations>
+    <TypeScriptNoEmitOnError>True</TypeScriptNoEmitOnError>
+    <TypeScriptSourceMap>True</TypeScriptSourceMap>
+    <TypeScriptMapRoot />
+    <TypeScriptSourceRoot />
+  </PropertyGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">14.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data.Entity.Design" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.IdentityModel" />
+    <Reference Include="System.identitymodel.services" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Runtime.Caching" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel.Activation" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\APIRegistryConfig.cs" />
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\DatabaseSeeder.cs" />
+    <Compile Include="App_Start\SwaggerConfig.cs" />
+    <Compile Include="App_Start\ThrottleConfig.cs" />
+    <Compile Include="Code\BaseViewPage.cs" />
+    <Compile Include="Code\ControllerBase.cs" />
+    <Compile Include="Code\CustomControllerActionFilter.cs" />
+    <Compile Include="Code\CustomWebApiActionFilter.cs" />
+    <Compile Include="Code\CustomWebApiAuthorizeAttribute.cs" />
+    <Compile Include="Code\HealthCheckService.cs" />
+    <Compile Include="Code\WebApi\ApiThrottleLogger.cs" />
+    <Compile Include="Code\WebApi\ApiThrottleRepository.cs" />
+    <Compile Include="Code\WebApi\BaseApiCtrl.cs" />
+    <Compile Include="Code\WebApi\capacitiesController.cs" />
+    <Compile Include="Code\WebApi\CostModelController.cs" />
+    <Compile Include="Code\WebApi\DataSeedController.cs" />
+    <Compile Include="Code\WebApi\deliveryDaysController.cs" />
+    <Compile Include="Code\WebApi\exportInventoryItemsController.cs" />
+    <Compile Include="Code\WebApi\exportItemsController.cs" />
+    <Compile Include="Code\WebApi\exportOFDetailsController.cs" />
+    <Compile Include="Code\WebApi\exportSalesForecastDetailsController.cs" />
+    <Compile Include="Code\WebApi\hierarchiesController.cs" />
+    <Compile Include="Code\WebApi\inventoryItemsController.cs" />
+    <Compile Include="Code\WebApi\itemsController.cs" />
+    <Compile Include="Code\WebApi\KPIInitController.cs" />
+    <Compile Include="Code\WebApi\KPIServiceController.cs" />
+    <Compile Include="Code\WebApi\minimumQuantitiesController.cs" />
+    <Compile Include="Code\WebApi\OrderForecastServiceController.cs" />
+    <Compile Include="Code\WebApi\pastOrdersController.cs" />
+    <Compile Include="Code\WebApi\pastSalesController.cs" />
+    <Compile Include="Code\WebApi\RAController.cs" />
+    <Compile Include="Code\WebApi\RedisRateTableThrottling.cs" />
+    <Compile Include="Code\WebApi\salesForecastsController.cs" />
+    <Compile Include="Code\WebApi\stocksOnHandController.cs" />
+    <Compile Include="Code\WebFormHelper.cs" />
+    <Compile Include="Controllers\ApiDocumentation\ApiDocumentationController.cs" />
+    <Compile Include="Controllers\ApplicationSettingFormController.cs" />
+    <Compile Include="Controllers\ApplicationSettingsListController.cs" />
+    <Compile Include="Controllers\ChangePasswordController.cs" />
+    <Compile Include="Controllers\CreateAdminController.cs" />
+    <Compile Include="Controllers\ErrorPageController.cs" />
+    <Compile Include="Controllers\FirstAdminSetupController.cs" />
+    <Compile Include="Controllers\ForgotPasswordController.cs" />
+    <Compile Include="Controllers\HomePageController.cs" />
+    <Compile Include="Controllers\ManageOperationController.cs" />
+    <Compile Include="Controllers\ManagePermissionController.cs" />
+    <Compile Include="Controllers\ManageRoleController.cs" />
+    <Compile Include="Controllers\ManageUserController.cs" />
+    <Compile Include="Controllers\MasterPageController.cs" />
+    <Compile Include="Controllers\MasterPageForSlideController.cs" />
+    <Compile Include="Controllers\MasterPageSignInController.cs" />
+    <Compile Include="Controllers\NotFoundPageController.cs" />
+    <Compile Include="Controllers\OperationsListController.cs" />
+    <Compile Include="Controllers\PermissionsListController.cs" />
+    <Compile Include="Controllers\RolesListController.cs" />
+    <Compile Include="Controllers\SignInPageController.cs" />
+    <Compile Include="Controllers\SignOutPageController.cs" />
+    <Compile Include="Controllers\UnauthorizedController.cs" />
+    <Compile Include="Controllers\UserPreferencesController.cs" />
+    <Compile Include="Controllers\UsersListController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\ApplicationSettingFormViewModel.cs" />
+    <Compile Include="ViewModels\ApplicationSettingsListViewModel.cs" />
+    <Compile Include="ViewModels\ChangePasswordViewModel.cs" />
+    <Compile Include="ViewModels\CreateAdminViewModel.cs" />
+    <Compile Include="ViewModels\ErrorPageViewModel.cs" />
+    <Compile Include="ViewModels\FirstAdminSetupViewModel.cs" />
+    <Compile Include="ViewModels\ForgotPasswordViewModel.cs" />
+    <Compile Include="ViewModels\HomePageViewModel.cs" />
+    <Compile Include="ViewModels\ManageOperationViewModel.cs" />
+    <Compile Include="ViewModels\ManagePermissionViewModel.cs" />
+    <Compile Include="ViewModels\ManageRoleViewModel.cs" />
+    <Compile Include="ViewModels\ManageUserViewModel.cs" />
+    <Compile Include="ViewModels\MasterPageForSlideViewModel.cs" />
+    <Compile Include="ViewModels\MasterPageSignInViewModel.cs" />
+    <Compile Include="ViewModels\MasterPageViewModel.cs" />
+    <Compile Include="ViewModels\NotFoundPageViewModel.cs" />
+    <Compile Include="ViewModels\OperationsListViewModel.cs" />
+    <Compile Include="ViewModels\PermissionsListViewModel.cs" />
+    <Compile Include="ViewModels\RolesListViewModel.cs" />
+    <Compile Include="ViewModels\SignInPageViewModel.cs" />
+    <Compile Include="ViewModels\SignOutPageViewModel.cs" />
+    <Compile Include="ViewModels\UnauthorizedViewModel.cs" />
+    <Compile Include="ViewModels\UserPreferencesViewModel.cs" />
+    <Compile Include="ViewModels\UsersListViewModel.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="ApiDocumentation\fonts\slate.eot" />
+    <Content Include="ApiDocumentation\fonts\slate.svg" />
+    <Content Include="ApiDocumentation\fonts\slate.ttf" />
+    <Content Include="ApiDocumentation\fonts\slate.woff" />
+    <Content Include="ApiDocumentation\fonts\slate.woff2" />
+    <Content Include="ApiDocumentation\images\download.png" />
+    <Content Include="ApiDocumentation\images\giphy.gif" />
+    <Content Include="ApiDocumentation\images\navbar.png" />
+    <Content Include="ApiDocumentation\images\zAppDevLogoNew.png" />
+    <Content Include="ApiDocumentation\javascripts\all.js" />
+    <Content Include="ApiDocumentation\javascripts\testApi.js" />
+    <Content Include="ApiDocumentation\stylesheets\print.css" />
+    <Content Include="ApiDocumentation\stylesheets\screen.css" />
+    <Content Include="App_Data\CodeMap.js" />
+    <Content Include="App_Data\Logs\DataValidationErrors.txt" />
+    <Content Include="App_Data\Logs\log.txt" />
+    <Content Include="App_Data\Uploads\FilesAreUploadedHere.txt" />
+    <Content Include="bundlesInfo.json" />
+    <Content Include="CodeMaps\operations.code-map.json" />
+    <Content Include="config\appSettings.config" />
+    <Content Include="config\cacheManager.config" />
+    <Content Include="config\connectionStrings.config" />
+    <Content Include="config\hibernate.cfg.xml" />
+    <Content Include="config\log4net.config" />
+    <Content Include="config\mailSettings.config" />
+    <Content Include="Global.asax" />
+    <Content Include="projectInfo.json" />
+    <Content Include="Resources\bootstrap.zip" />
+    <Content Include="Resources\MasterPageSingIn.css" />
+    <Content Include="Resources\themeicons.zip" />
+    <Content Include="Scripts\@types\ace\package.json" />
+    <Content Include="Scripts\@types\ace\README.md" />
+    <Content Include="Scripts\@types\ace\types-metadata.json" />
+    <Content Include="Scripts\@types\angular\LICENSE" />
+    <Content Include="Scripts\@types\angular\package.json" />
+    <Content Include="Scripts\@types\angular\README.md" />
+    <Content Include="Scripts\@types\bootstrap\LICENSE" />
+    <Content Include="Scripts\@types\bootstrap\package.json" />
+    <Content Include="Scripts\@types\bootstrap\README.md" />
+    <Content Include="Scripts\@types\googlemaps\LICENSE" />
+    <Content Include="Scripts\@types\googlemaps\package.json" />
+    <Content Include="Scripts\@types\googlemaps\README.md" />
+    <Content Include="Scripts\@types\handlebars\package.json" />
+    <Content Include="Scripts\@types\handlebars\README.md" />
+    <Content Include="Scripts\@types\highlight.js\package.json" />
+    <Content Include="Scripts\@types\highlight.js\README.md" />
+    <Content Include="Scripts\@types\highlight.js\types-metadata.json" />
+    <Content Include="Scripts\@types\jquery.datatables\package.json" />
+    <Content Include="Scripts\@types\jquery.datatables\README.md" />
+    <Content Include="Scripts\@types\jquery.datatables\types-metadata.json" />
+    <Content Include="Scripts\@types\jqueryui\package.json" />
+    <Content Include="Scripts\@types\jqueryui\README.md" />
+    <Content Include="Scripts\@types\jqueryui\types-metadata.json" />
+    <Content Include="Scripts\@types\jquery\LICENSE" />
+    <Content Include="Scripts\@types\jquery\package.json" />
+    <Content Include="Scripts\@types\jquery\README.md" />
+    <Content Include="Scripts\@types\lodash\LICENSE" />
+    <Content Include="Scripts\@types\lodash\package.json" />
+    <Content Include="Scripts\@types\lodash\README.md" />
+    <Content Include="Scripts\@types\marked\package.json" />
+    <Content Include="Scripts\@types\marked\README.md" />
+    <Content Include="Scripts\@types\marked\types-metadata.json" />
+    <Content Include="Scripts\@types\minimatch\package.json" />
+    <Content Include="Scripts\@types\minimatch\README.md" />
+    <Content Include="Scripts\@types\minimatch\types-metadata.json" />
+    <Content Include="Scripts\@types\node\LICENSE" />
+    <Content Include="Scripts\@types\node\package.json" />
+    <Content Include="Scripts\@types\node\README.md" />
+    <Content Include="Scripts\@types\numeral\package.json" />
+    <Content Include="Scripts\@types\numeral\README.md" />
+    <Content Include="Scripts\@types\signalr\package.json" />
+    <Content Include="Scripts\@types\signalr\README.md" />
+    <Content Include="Scripts\@types\signalr\types-metadata.json" />
+    <Content Include="Scripts\@types\source-map\package.json" />
+    <Content Include="Scripts\@types\source-map\README.md" />
+    <Content Include="Scripts\@types\source-map\types-metadata.json" />
+    <Content Include="Scripts\@types\sweetalert\package.json" />
+    <Content Include="Scripts\@types\sweetalert\README.md" />
+    <Content Include="Scripts\@types\sweetalert\types-metadata.json" />
+    <Content Include="Scripts\Clms-Framework\clms.fw.ajax.js" />
+    <Content Include="Scripts\Clms-Framework\clms.fw.angular.js" />
+    <Content Include="Scripts\Clms-Framework\clms.fw.back.end.info.aggregator.js" />
+    <Content Include="Scripts\Clms-Framework\clms.fw.base.classes.js" />
+    <Content Include="Scripts\Clms-Framework\clms.fw.cf.helper.js" />
+    <Content Include="Scripts\Clms-Framework\clms.fw.client.commander.js" />
+    <Content Include="Scripts\Clms-Framework\clms.fw.common.js" />
+    <Content Include="Scripts\Clms-Framework\clms.fw.core.js" />
+    <Content Include="Scripts\Clms-Framework\clms.fw.cycles.js" />
+    <Content Include="Scripts\Clms-Framework\clms.fw.datasources.js" />
+    <Content Include="Scripts\Clms-Framework\clms.fw.debug.js" />
+    <Content Include="Scripts\Clms-Framework\clms.fw.developer.api.js" />
+    <Content Include="Scripts\Clms-Framework\clms.fw.dotnet.js" />
+    <Content Include="Scripts\Clms-Framework\clms.fw.dotnet.linq.js" />
+    <Content Include="Scripts\Clms-Framework\clms.fw.friendly.error.message.js" />
+    <Content Include="Scripts\Clms-Framework\clms.fw.globalization.js" />
+    <Content Include="Scripts\Clms-Framework\clms.fw.interfaces.js" />
+    <Content Include="Scripts\Clms-Framework\clms.fw.merger.js" />
+    <Content Include="Scripts\Clms-Framework\clms.fw.performance.manager.js" />
+    <Content Include="Scripts\Clms-Framework\clms.fw.popup.manager.js" />
+    <Content Include="Scripts\Clms-Framework\clms.fw.recorder.js" />
+    <Content Include="Scripts\Clms-Framework\clms.fw.references.reconstructor.js" />
+    <Content Include="Scripts\Clms-Framework\clms.fw.resource.manager.js" />
+    <Content Include="Scripts\Clms-Framework\clms.fw.rule.engine.js" />
+    <Content Include="Scripts\Clms-Framework\clms.fw.theme.manager.js" />
+    <Content Include="Scripts\Clms-Framework\clms.fw.validation.js" />
+    <Content Include="Scripts\Clms-Framework\clms.fw.xml.js" />
+    <Content Include="Scripts\Controls\Calendar\clms.calendar.js" />
+    <Content Include="Scripts\Controls\Calendar\clms.calendar.js.map" />
+    <Content Include="Scripts\Controls\Chart\clms.chart.css" />
+    <Content Include="Scripts\Controls\Chart\clms.chart.js" />
+    <Content Include="Scripts\Controls\Chart\clms.chart.js.map" />
+    <Content Include="Scripts\Controls\Custom\NemoAce\definition.js" />
+    <Content Include="Scripts\Controls\Custom\NemoAce\directive.js" />
+    <Content Include="Scripts\Controls\Custom\Repeater\definition.js" />
+    <Content Include="Scripts\Controls\Custom\Repeater\directive.js" />
+    <Content Include="Scripts\Controls\Custom\Ul\definition.js" />
+    <Content Include="Scripts\Controls\Custom\Ul\directive.js" />
+    <Content Include="Scripts\Controls\DataList\clms.data.list.css" />
+    <Content Include="Scripts\Controls\DataList\clms.data.list.export.js" />
+    <Content Include="Scripts\Controls\DataList\clms.data.list.export.v2.js" />
+    <Content Include="Scripts\Controls\DataList\clms.data.list.filters.js" />
+    <Content Include="Scripts\Controls\DataList\clms.data.list.helper.classes.js" />
+    <Content Include="Scripts\Controls\DataList\clms.data.list.import.js" />
+    <Content Include="Scripts\Controls\DataList\clms.data.list.js" />
+    <Content Include="Scripts\Controls\DataList\clms.data.list.js.map" />
+    <Content Include="Scripts\Controls\DataList\clms.data.list.resources.js" />
+    <Content Include="Scripts\Controls\DataList\clms.data.list.views.js" />
+    <Content Include="Scripts\Controls\DataList\clms.data.picklist.js" />
+    <Content Include="Scripts\Controls\Datasource\clms.datasource.widgets.js" />
+    <Content Include="Scripts\Controls\Datasource\clms.datasource.widgets.js.map" />
+    <Content Include="Scripts\Controls\DateTimePicker\clms.datetime.picker.js" />
+    <Content Include="Scripts\Controls\DateTimePicker\clms.datetime.picker.js.map" />
+    <Content Include="Scripts\Controls\DateTimePicker\jquery.datetimepicker.css" />
+    <Content Include="Scripts\Controls\DateTimePicker\jquery.datetimepicker.min.js" />
+    <Content Include="Scripts\Controls\DebugConsole\clms.debug.console.css" />
+    <Content Include="Scripts\Controls\DebugConsole\clms.debug.console.js" />
+    <Content Include="Scripts\Controls\DebugConsole\clms.debug.console.js.map" />
+    <Content Include="Scripts\Controls\DebugConsole\DebugPage.js" />
+    <Content Include="Scripts\Controls\DebugConsole\json-formatter.min.css" />
+    <Content Include="Scripts\Controls\DebugConsole\json-formatter.min.js" />
+    <Content Include="Scripts\Controls\DebugConsole\recursion-helper.js" />
+    <Content Include="Scripts\Controls\FileAttachment\clms.file.attachment.css" />
+    <Content Include="Scripts\Controls\FileAttachment\clms.file.attachment.js" />
+    <Content Include="Scripts\Controls\FileAttachment\clms.file.attachment.js.map" />
+    <Content Include="Scripts\Controls\Grid\clms.datasource.grid.js" />
+    <Content Include="Scripts\Controls\Grid\clms.datasource.grid.js.map" />
+    <Content Include="Scripts\Controls\Grid\clms.grid.js" />
+    <Content Include="Scripts\Controls\Grid\clms.grid.js.map" />
+    <Content Include="Scripts\Controls\ImageBox\clms.image.box.js" />
+    <Content Include="Scripts\Controls\ImageBox\clms.image.box.js.map" />
+    <Content Include="Scripts\Controls\List\clms.list.control.js" />
+    <Content Include="Scripts\Controls\List\clms.list.control.js.map" />
+    <Content Include="Scripts\Controls\List\clms.list.interfaces.control.js" />
+    <Content Include="Scripts\Controls\List\clms.list.interfaces.control.js.map" />
+    <Content Include="Scripts\Controls\List\clms.list.ng.control.js" />
+    <Content Include="Scripts\Controls\List\clms.list.ng.control.js.map" />
+    <Content Include="Scripts\Controls\List\clms.picklist.js" />
+    <Content Include="Scripts\Controls\List\clms.picklist.js.map" />
+    <Content Include="Scripts\Controls\List\style.css" />
+    <Content Include="Scripts\Controls\MapControl\clms.map.control.js" />
+    <Content Include="Scripts\Controls\MapControl\clms.map.control.js.map" />
+    <Content Include="Scripts\Controls\MapControl\clms.map.js" />
+    <Content Include="Scripts\Controls\MapControl\images\conv30.png" />
+    <Content Include="Scripts\Controls\MapControl\images\conv40.png" />
+    <Content Include="Scripts\Controls\MapControl\images\conv50.png" />
+    <Content Include="Scripts\Controls\MapControl\images\heart30.png" />
+    <Content Include="Scripts\Controls\MapControl\images\heart40.png" />
+    <Content Include="Scripts\Controls\MapControl\images\heart50.png" />
+    <Content Include="Scripts\Controls\MapControl\images\m1.png" />
+    <Content Include="Scripts\Controls\MapControl\images\m2.png" />
+    <Content Include="Scripts\Controls\MapControl\images\m3.png" />
+    <Content Include="Scripts\Controls\MapControl\images\m4.png" />
+    <Content Include="Scripts\Controls\MapControl\images\m5.png" />
+    <Content Include="Scripts\Controls\MapControl\images\people35.png" />
+    <Content Include="Scripts\Controls\MapControl\images\people45.png" />
+    <Content Include="Scripts\Controls\MapControl\images\people55.png" />
+    <Content Include="Scripts\Controls\MapControl\images\pin.png" />
+    <Content Include="Scripts\Controls\Menu\clms.menu.control.js" />
+    <Content Include="Scripts\Controls\Menu\clms.menu.control.js.map" />
+    <Content Include="Scripts\Controls\ProgressBar\clms.progress.bar.js" />
+    <Content Include="Scripts\Controls\ProgressBar\clms.progress.bar.js.map" />
+    <Content Include="Scripts\Controls\Recorder\clms.recorder.panel.css" />
+    <Content Include="Scripts\Controls\Recorder\clms.recorder.panel.js" />
+    <Content Include="Scripts\Controls\SelectionBox\clms.selection.box.css" />
+    <Content Include="Scripts\Controls\SelectionBox\clms.selection.box.js" />
+    <Content Include="Scripts\Controls\SelectionBox\clms.selection.box.js.map" />
+    <Content Include="Scripts\Controls\SelectionBox\clms.selection.less" />
+    <Content Include="Scripts\Controls\Tabs\clms.tab.control.js" />
+    <Content Include="Scripts\Controls\Tabs\clms.tab.control.js.map" />
+    <Content Include="Scripts\Controls\Tree\clms.tree.control.js" />
+    <Content Include="Scripts\Controls\Tree\clms.tree.control.js.map" />
+    <Content Include="Scripts\Controls\ValidationPanel\clms.validation.panel.js" />
+    <Content Include="Scripts\Controls\ValidationPanel\clms.validation.ui.html" />
+    <Content Include="Scripts\Themes\LiteTheme.js" />
+    <Content Include="Scripts\Third-Party\angular-sanitize.js" />
+    <Content Include="Scripts\Third-Party\angular.min.js" />
+    <Content Include="Scripts\Third-Party\axios.min.js" />
+    <Content Include="Scripts\Third-Party\Chart.min.js" />
+    <Content Include="Scripts\Third-Party\chosen\chosen-sprite.png" />
+    <Content Include="Scripts\Third-Party\chosen\chosen-sprite@2x.png" />
+    <Content Include="Scripts\Third-Party\chosen\chosen.jquery.min.js" />
+    <Content Include="Scripts\Third-Party\chosen\chosen.min.css" />
+    <Content Include="Scripts\Third-Party\colorpicker\css\colorpicker.css" />
+    <Content Include="Scripts\Third-Party\colorpicker\images\blank.gif" />
+    <Content Include="Scripts\Third-Party\colorpicker\images\colorpicker_background.png" />
+    <Content Include="Scripts\Third-Party\colorpicker\images\colorpicker_hex.png" />
+    <Content Include="Scripts\Third-Party\colorpicker\images\colorpicker_hsb_b.png" />
+    <Content Include="Scripts\Third-Party\colorpicker\images\colorpicker_hsb_h.png" />
+    <Content Include="Scripts\Third-Party\colorpicker\images\colorpicker_hsb_s.png" />
+    <Content Include="Scripts\Third-Party\colorpicker\images\colorpicker_indic.gif" />
+    <Content Include="Scripts\Third-Party\colorpicker\images\colorpicker_overlay.png" />
+    <Content Include="Scripts\Third-Party\colorpicker\images\colorpicker_rgb_b.png" />
+    <Content Include="Scripts\Third-Party\colorpicker\images\colorpicker_rgb_g.png" />
+    <Content Include="Scripts\Third-Party\colorpicker\images\colorpicker_rgb_r.png" />
+    <Content Include="Scripts\Third-Party\colorpicker\images\colorpicker_select.gif" />
+    <Content Include="Scripts\Third-Party\colorpicker\images\colorpicker_submit.png" />
+    <Content Include="Scripts\Third-Party\colorpicker\images\custom_indic.gif" />
+    <Content Include="Scripts\Third-Party\colorpicker\images\select.png" />
+    <Content Include="Scripts\Third-Party\colorpicker\images\slider.png" />
+    <Content Include="Scripts\Third-Party\colorpicker\images\Thumbs.db" />
+    <Content Include="Scripts\Third-Party\colorpicker\js\colorpicker.js" />
+    <Content Include="Scripts\Third-Party\DataTables\Buttons-1.3.1\css\buttons.bootstrap.min.css" />
+    <Content Include="Scripts\Third-Party\DataTables\Buttons-1.3.1\js\buttons.bootstrap.js" />
+    <Content Include="Scripts\Third-Party\DataTables\Buttons-1.3.1\js\buttons.colVis.js" />
+    <Content Include="Scripts\Third-Party\DataTables\Buttons-1.3.1\js\buttons.flash.min.js" />
+    <Content Include="Scripts\Third-Party\DataTables\Buttons-1.3.1\js\buttons.html5.min.js" />
+    <Content Include="Scripts\Third-Party\DataTables\Buttons-1.3.1\js\buttons.print.min.js" />
+    <Content Include="Scripts\Third-Party\DataTables\Buttons-1.3.1\js\dataTables.buttons.min.js" />
+    <Content Include="Scripts\Third-Party\DataTables\Buttons-1.3.1\swf\flashExport.swf" />
+    <Content Include="Scripts\Third-Party\DataTables\ColReorder-1.3.3\css\colReorder.bootstrap.min.css" />
+    <Content Include="Scripts\Third-Party\DataTables\ColReorder-1.3.3\js\dataTables.colReorder.js" />
+    <Content Include="Scripts\Third-Party\DataTables\DataTables-1.10.15\css\dataTables.bootstrap.min.css" />
+    <Content Include="Scripts\Third-Party\DataTables\DataTables-1.10.15\images\sort_asc.png" />
+    <Content Include="Scripts\Third-Party\DataTables\DataTables-1.10.15\images\sort_asc_disabled.png" />
+    <Content Include="Scripts\Third-Party\DataTables\DataTables-1.10.15\images\sort_both.png" />
+    <Content Include="Scripts\Third-Party\DataTables\DataTables-1.10.15\images\sort_desc.png" />
+    <Content Include="Scripts\Third-Party\DataTables\DataTables-1.10.15\images\sort_desc_disabled.png" />
+    <Content Include="Scripts\Third-Party\DataTables\DataTables-1.10.15\js\dataTables.bootstrap.min.js" />
+    <Content Include="Scripts\Third-Party\DataTables\DataTables-1.10.15\js\jquery.dataTables.js" />
+    <Content Include="Scripts\Third-Party\DataTables\FixedHeader-3.1.2\css\fixedHeader.bootstrap.min.css" />
+    <Content Include="Scripts\Third-Party\DataTables\FixedHeader-3.1.2\js\dataTables.fixedHeader.min.js" />
+    <Content Include="Scripts\Third-Party\DataTables\Responsive-2.1.1\css\responsive.bootstrap.min.css" />
+    <Content Include="Scripts\Third-Party\DataTables\Responsive-2.1.1\js\responsive.bootstrap.min.js" />
+    <Content Include="Scripts\Third-Party\DataTables\Select-1.2.2\css\select.bootstrap.min.css" />
+    <Content Include="Scripts\Third-Party\DataTables\Select-1.2.2\js\dataTables.select.js" />
+    <Content Include="Scripts\Third-Party\es6-promise.auto.js" />
+    <Content Include="Scripts\Third-Party\FullCalendar\fullcalendar.min.css" />
+    <Content Include="Scripts\Third-Party\FullCalendar\fullcalendar.min.js" />
+    <Content Include="Scripts\Third-Party\FullCalendar\locale-el.js" />
+    <Content Include="Scripts\Third-Party\gmaps.js" />
+    <Content Include="Scripts\Third-Party\hammer.min.js" />
+    <Content Include="Scripts\Third-Party\jquery-1.9.1.min.js" />
+    <Content Include="Scripts\Third-Party\jquery-ui-1.12.1.min.css" />
+    <Content Include="Scripts\Third-Party\jquery-ui-1.12.1.min.js" />
+    <Content Include="Scripts\Third-Party\jquery.inputmask.bundle.min.js" />
+    <Content Include="Scripts\Third-Party\jquery.nicescroll.min.js" />
+    <Content Include="Scripts\Third-Party\jquery.signalR.min.js" />
+    <Content Include="Scripts\Third-Party\jquery.ui-contextmenu.js" />
+    <Content Include="Scripts\Third-Party\jquery.ui-contextmenu.min.js" />
+    <Content Include="Scripts\Third-Party\jscolor.min.js" />
+    <Content Include="Scripts\Third-Party\jspdf\html2pdf.js" />
+    <Content Include="Scripts\Third-Party\jspdf\jspdf.min.js" />
+    <Content Include="Scripts\Third-Party\jszip.min.js" />
+    <Content Include="Scripts\Third-Party\markerclusterer.js" />
+    <Content Include="Scripts\Third-Party\moment-with-locales.min.js" />
+    <Content Include="Scripts\Third-Party\numeral.min.js" />
+    <Content Include="Scripts\Third-Party\pdfmaker\pdfmake.js" />
+    <Content Include="Scripts\Third-Party\pdfmaker\pdfmake.min.js" />
+    <Content Include="Scripts\Third-Party\pdfmaker\pdfmake.min.js.map" />
+    <Content Include="Scripts\Third-Party\pdfmaker\vfs_fonts.js" />
+    <Content Include="Scripts\Third-Party\perfect-scrollbar\perfect-scrollbar.jquery.min.js" />
+    <Content Include="Scripts\Third-Party\perfect-scrollbar\perfect-scrollbar.min.css" />
+    <Content Include="Scripts\Third-Party\select2\select2.min.css" />
+    <Content Include="Scripts\Third-Party\select2\select2.min.js" />
+    <Content Include="Scripts\Third-Party\signalr\signalr.min.js" />
+    <Content Include="Scripts\Third-Party\swal\sweetalert.css" />
+    <Content Include="Scripts\Third-Party\swal\sweetalert.min.js" />
+    <Content Include="Scripts\Third-Party\textarea.autosize.js" />
+    <Content Include="Scripts\Third-Party\trix-editor\angular-trix.min.js" />
+    <Content Include="Scripts\Third-Party\trix-editor\trix.js" />
+    <Content Include="Scripts\Third-Party\trix-editor\trix.min.css" />
+    <Content Include="Scripts\Third-Party\typeahead.bundle.min.js" />
+    <Content Include="Scripts\Third-Party\VerbalExpressions.js" />
+    <Content Include="Scripts\Third-Party\VerbalExpressions.min.js" />
+    <Content Include="Scripts\tsconfig.json" />
+    <Content Include="Themes\LiteTheme\css\bootstrap.min.css" />
+    <Content Include="Themes\LiteTheme\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Themes\LiteTheme\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Themes\LiteTheme\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Themes\LiteTheme\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Themes\LiteTheme\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Themes\LiteTheme\images\icon-asterisk.png" />
+    <Content Include="Themes\LiteTheme\LiteTheme_Generated.css" />
+    <Content Include="Themes\LiteTheme\LiteTheme_Generated.less" />
+    <Content Include="Themes\LiteTheme\LiteTheme_Generated_ie.css" />
+    <Content Include="Themes\LiteTheme\LiteTheme_Generated_ie.less" />
+    <Content Include="Themes\LiteTheme\MasterPageSingIn.css" />
+    <Content Include="Themes\LiteTheme\themeicons\style.css" />
+    <Content Include="Themes\LiteTheme\themeicons\themeicons\themeicons.eot" />
+    <Content Include="Themes\LiteTheme\themeicons\themeicons\themeicons.svg" />
+    <Content Include="Themes\LiteTheme\themeicons\themeicons\themeicons.ttf" />
+    <Content Include="Themes\LiteTheme\themeicons\themeicons\themeicons.woff" />
+    <Content Include="Views\ApiDocumentation\api-documentation.cshtml" />
+    <Content Include="Views\ApplicationSettingForm.cshtml" />
+    <Content Include="Views\ApplicationSettingsList.cshtml" />
+    <Content Include="Views\ChangePassword.cshtml" />
+    <Content Include="Views\CreateAdmin.cshtml" />
+    <Content Include="Views\DebugPage.cshtml" />
+    <Content Include="Views\ErrorPage.cshtml" />
+    <Content Include="Views\FirstAdminSetup.cshtml" />
+    <Content Include="Views\ForgotPassword.cshtml" />
+    <Content Include="Views\HomePage.cshtml" />
+    <Content Include="Views\ManageOperation.cshtml" />
+    <Content Include="Views\ManagePermission.cshtml" />
+    <Content Include="Views\ManageRole.cshtml" />
+    <Content Include="Views\ManageUser.cshtml" />
+    <Content Include="Views\MasterPage.cshtml" />
+    <Content Include="Views\MasterPageForSlide.cshtml" />
+    <Content Include="Views\MasterPageSignIn.cshtml" />
+    <Content Include="Views\NotFoundPage.cshtml" />
+    <Content Include="Views\OperationsList.cshtml" />
+    <Content Include="Views\PermissionsList.cshtml" />
+    <Content Include="Views\RolesList.cshtml" />
+    <Content Include="Views\SignInPage.cshtml" />
+    <Content Include="Views\SignOutPage.cshtml" />
+    <Content Include="Views\Unauthorized.cshtml" />
+    <Content Include="Views\UserPreferences.cshtml" />
+    <Content Include="Views\UsersList.cshtml" />
+    <Content Include="Views\web.config" />
+    <Content Include="web.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <TypeScriptCompile Include="Scripts\BLL.ts" />
+    <TypeScriptCompile Include="Scripts\DSS2_SynchromodalityCapacityOptimisation\Controllers\ApplicationSettingFormController.ts" />
+    <TypeScriptCompile Include="Scripts\DSS2_SynchromodalityCapacityOptimisation\Controllers\ApplicationSettingsListController.ts" />
+    <TypeScriptCompile Include="Scripts\DSS2_SynchromodalityCapacityOptimisation\Controllers\ChangePasswordController.ts" />
+    <TypeScriptCompile Include="Scripts\DSS2_SynchromodalityCapacityOptimisation\Controllers\CreateAdminController.ts" />
+    <TypeScriptCompile Include="Scripts\DSS2_SynchromodalityCapacityOptimisation\Controllers\ErrorPageController.ts" />
+    <TypeScriptCompile Include="Scripts\DSS2_SynchromodalityCapacityOptimisation\Controllers\FirstAdminSetupController.ts" />
+    <TypeScriptCompile Include="Scripts\DSS2_SynchromodalityCapacityOptimisation\Controllers\ForgotPasswordController.ts" />
+    <TypeScriptCompile Include="Scripts\DSS2_SynchromodalityCapacityOptimisation\Controllers\HomePageController.ts" />
+    <TypeScriptCompile Include="Scripts\DSS2_SynchromodalityCapacityOptimisation\Controllers\ManageOperationController.ts" />
+    <TypeScriptCompile Include="Scripts\DSS2_SynchromodalityCapacityOptimisation\Controllers\ManagePermissionController.ts" />
+    <TypeScriptCompile Include="Scripts\DSS2_SynchromodalityCapacityOptimisation\Controllers\ManageRoleController.ts" />
+    <TypeScriptCompile Include="Scripts\DSS2_SynchromodalityCapacityOptimisation\Controllers\ManageUserController.ts" />
+    <TypeScriptCompile Include="Scripts\DSS2_SynchromodalityCapacityOptimisation\Controllers\MasterPageController.ts" />
+    <TypeScriptCompile Include="Scripts\DSS2_SynchromodalityCapacityOptimisation\Controllers\MasterPageForSlideController.ts" />
+    <TypeScriptCompile Include="Scripts\DSS2_SynchromodalityCapacityOptimisation\Controllers\MasterPageSignInController.ts" />
+    <TypeScriptCompile Include="Scripts\DSS2_SynchromodalityCapacityOptimisation\Controllers\NotFoundPageController.ts" />
+    <TypeScriptCompile Include="Scripts\DSS2_SynchromodalityCapacityOptimisation\Controllers\OperationsListController.ts" />
+    <TypeScriptCompile Include="Scripts\DSS2_SynchromodalityCapacityOptimisation\Controllers\PermissionsListController.ts" />
+    <TypeScriptCompile Include="Scripts\DSS2_SynchromodalityCapacityOptimisation\Controllers\RolesListController.ts" />
+    <TypeScriptCompile Include="Scripts\DSS2_SynchromodalityCapacityOptimisation\Controllers\SignInPageController.ts" />
+    <TypeScriptCompile Include="Scripts\DSS2_SynchromodalityCapacityOptimisation\Controllers\SignOutPageController.ts" />
+    <TypeScriptCompile Include="Scripts\DSS2_SynchromodalityCapacityOptimisation\Controllers\UnauthorizedController.ts" />
+    <TypeScriptCompile Include="Scripts\DSS2_SynchromodalityCapacityOptimisation\Controllers\UserPreferencesController.ts" />
+    <TypeScriptCompile Include="Scripts\DSS2_SynchromodalityCapacityOptimisation\Controllers\UsersListController.ts" />
+    <TypeScriptCompile Include="Scripts\DSS2_SynchromodalityCapacityOptimisation\Services\capacitiesService.ts" />
+    <TypeScriptCompile Include="Scripts\DSS2_SynchromodalityCapacityOptimisation\Services\CostModelService.ts" />
+    <TypeScriptCompile Include="Scripts\DSS2_SynchromodalityCapacityOptimisation\Services\DataSeedService.ts" />
+    <TypeScriptCompile Include="Scripts\DSS2_SynchromodalityCapacityOptimisation\Services\deliveryDaysService.ts" />
+    <TypeScriptCompile Include="Scripts\DSS2_SynchromodalityCapacityOptimisation\Services\exportInventoryItemsService.ts" />
+    <TypeScriptCompile Include="Scripts\DSS2_SynchromodalityCapacityOptimisation\Services\exportItemsService.ts" />
+    <TypeScriptCompile Include="Scripts\DSS2_SynchromodalityCapacityOptimisation\Services\exportOFDetailsService.ts" />
+    <TypeScriptCompile Include="Scripts\DSS2_SynchromodalityCapacityOptimisation\Services\exportSalesForecastDetailsService.ts" />
+    <TypeScriptCompile Include="Scripts\DSS2_SynchromodalityCapacityOptimisation\Services\hierarchiesService.ts" />
+    <TypeScriptCompile Include="Scripts\DSS2_SynchromodalityCapacityOptimisation\Services\inventoryItemsService.ts" />
+    <TypeScriptCompile Include="Scripts\DSS2_SynchromodalityCapacityOptimisation\Services\itemsService.ts" />
+    <TypeScriptCompile Include="Scripts\DSS2_SynchromodalityCapacityOptimisation\Services\KPIInitService.ts" />
+    <TypeScriptCompile Include="Scripts\DSS2_SynchromodalityCapacityOptimisation\Services\KPIServiceService.ts" />
+    <TypeScriptCompile Include="Scripts\DSS2_SynchromodalityCapacityOptimisation\Services\minimumQuantitiesService.ts" />
+    <TypeScriptCompile Include="Scripts\DSS2_SynchromodalityCapacityOptimisation\Services\OrderForecastServiceService.ts" />
+    <TypeScriptCompile Include="Scripts\DSS2_SynchromodalityCapacityOptimisation\Services\pastOrdersService.ts" />
+    <TypeScriptCompile Include="Scripts\DSS2_SynchromodalityCapacityOptimisation\Services\pastSalesService.ts" />
+    <TypeScriptCompile Include="Scripts\DSS2_SynchromodalityCapacityOptimisation\Services\RAService.ts" />
+    <TypeScriptCompile Include="Scripts\DSS2_SynchromodalityCapacityOptimisation\Services\salesForecastsService.ts" />
+    <TypeScriptCompile Include="Scripts\DSS2_SynchromodalityCapacityOptimisation\Services\stocksOnHandService.ts" />
+    <TypeScriptCompile Include="Scripts\DSS2_SynchromodalityCapacityOptimisation\ViewModels\ApplicationSettingFormViewModel.ts" />
+    <TypeScriptCompile Include="Scripts\DSS2_SynchromodalityCapacityOptimisation\ViewModels\ApplicationSettingsListViewModel.ts" />
+    <TypeScriptCompile Include="Scripts\DSS2_SynchromodalityCapacityOptimisation\ViewModels\ChangePasswordViewModel.ts" />
+    <TypeScriptCompile Include="Scripts\DSS2_SynchromodalityCapacityOptimisation\ViewModels\CreateAdminViewModel.ts" />
+    <TypeScriptCompile Include="Scripts\DSS2_SynchromodalityCapacityOptimisation\ViewModels\ErrorPageViewModel.ts" />
+    <TypeScriptCompile Include="Scripts\DSS2_SynchromodalityCapacityOptimisation\ViewModels\FirstAdminSetupViewModel.ts" />
+    <TypeScriptCompile Include="Scripts\DSS2_SynchromodalityCapacityOptimisation\ViewModels\ForgotPasswordViewModel.ts" />
+    <TypeScriptCompile Include="Scripts\DSS2_SynchromodalityCapacityOptimisation\ViewModels\HomePageViewModel.ts" />
+    <TypeScriptCompile Include="Scripts\DSS2_SynchromodalityCapacityOptimisation\ViewModels\ManageOperationViewModel.ts" />
+    <TypeScriptCompile Include="Scripts\DSS2_SynchromodalityCapacityOptimisation\ViewModels\ManagePermissionViewModel.ts" />
+    <TypeScriptCompile Include="Scripts\DSS2_SynchromodalityCapacityOptimisation\ViewModels\ManageRoleViewModel.ts" />
+    <TypeScriptCompile Include="Scripts\DSS2_SynchromodalityCapacityOptimisation\ViewModels\ManageUserViewModel.ts" />
+    <TypeScriptCompile Include="Scripts\DSS2_SynchromodalityCapacityOptimisation\ViewModels\MasterPageForSlideViewModel.ts" />
+    <TypeScriptCompile Include="Scripts\DSS2_SynchromodalityCapacityOptimisation\ViewModels\MasterPageSignInViewModel.ts" />
+    <TypeScriptCompile Include="Scripts\DSS2_SynchromodalityCapacityOptimisation\ViewModels\MasterPageViewModel.ts" />
+    <TypeScriptCompile Include="Scripts\DSS2_SynchromodalityCapacityOptimisation\ViewModels\NotFoundPageViewModel.ts" />
+    <TypeScriptCompile Include="Scripts\DSS2_SynchromodalityCapacityOptimisation\ViewModels\OperationsListViewModel.ts" />
+    <TypeScriptCompile Include="Scripts\DSS2_SynchromodalityCapacityOptimisation\ViewModels\PermissionsListViewModel.ts" />
+    <TypeScriptCompile Include="Scripts\DSS2_SynchromodalityCapacityOptimisation\ViewModels\RolesListViewModel.ts" />
+    <TypeScriptCompile Include="Scripts\DSS2_SynchromodalityCapacityOptimisation\ViewModels\SignInPageViewModel.ts" />
+    <TypeScriptCompile Include="Scripts\DSS2_SynchromodalityCapacityOptimisation\ViewModels\SignOutPageViewModel.ts" />
+    <TypeScriptCompile Include="Scripts\DSS2_SynchromodalityCapacityOptimisation\ViewModels\UnauthorizedViewModel.ts" />
+    <TypeScriptCompile Include="Scripts\DSS2_SynchromodalityCapacityOptimisation\ViewModels\UserPreferencesViewModel.ts" />
+    <TypeScriptCompile Include="Scripts\DSS2_SynchromodalityCapacityOptimisation\ViewModels\UsersListViewModel.ts" />
+    <TypeScriptCompile Include="Scripts\typings\globals\ace.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\globals\axios.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\globals\clms.messagesbox.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\globals\controls\Calendar\clms.calendar.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\globals\controls\Chart\clms.chart.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\globals\controls\DataList\clms.data.list.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\globals\controls\DataList\clms.data.list.export.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\globals\controls\DataList\clms.data.list.export.v2.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\globals\controls\DataList\clms.data.list.filters.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\globals\controls\DataList\clms.data.list.helper.classes.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\globals\controls\DataList\clms.data.list.import.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\globals\controls\DataList\clms.data.list.resources.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\globals\controls\DataList\clms.data.list.views.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\globals\controls\DataList\clms.data.picklist.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\globals\controls\Datasource\clms.datasource.widgets.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\globals\controls\DateTimePicker\clms.datetime.picker.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\globals\controls\DebugConsole\clms.debug.console.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\globals\controls\FileAttachment\clms.file.attachment.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\globals\controls\Grid\clms.datasource.grid.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\globals\controls\Grid\clms.grid.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\globals\controls\ImageBox\clms.image.box.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\globals\controls\MapControl\clms.map.control.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\globals\controls\Menu\clms.menu.control.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\globals\controls\ProgressBar\clms.progress.bar.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\globals\controls\Recorder\clms.recorder.panel.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\globals\controls\SelectionBox\clms.selection.box.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\globals\controls\Tabs\clms.tab.control.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\globals\controls\Tree\clms.tree.control.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\globals\controls\ValidationPanel\clms.validation.panel.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\globals\framework\clms.fw.ajax.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\globals\framework\clms.fw.angular.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\globals\framework\clms.fw.back.end.info.aggregator.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\globals\framework\clms.fw.base.classes.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\globals\framework\clms.fw.cf.helper.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\globals\framework\clms.fw.client.commander.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\globals\framework\clms.fw.common.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\globals\framework\clms.fw.core.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\globals\framework\clms.fw.cycles.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\globals\framework\clms.fw.datasources.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\globals\framework\clms.fw.debug.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\globals\framework\clms.fw.developer.api.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\globals\framework\clms.fw.dotnet.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\globals\framework\clms.fw.dotnet.linq.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\globals\framework\clms.fw.friendly.error.message.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\globals\framework\clms.fw.globalization.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\globals\framework\clms.fw.interfaces.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\globals\framework\clms.fw.performance.manager.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\globals\framework\clms.fw.popup.manager.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\globals\framework\clms.fw.recorder.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\globals\framework\clms.fw.references.reconstructor.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\globals\framework\clms.fw.resource.manager.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\globals\framework\clms.fw.rule.engine.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\globals\framework\clms.fw.theme.manager.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\globals\framework\clms.fw.validation.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\globals\framework\clms.fw.xml.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\globals\jquery.inputmask.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\globals\moment.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\globals\promise.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\globals\verbalexpression.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\index.d.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\LICENSE.txt" Pack="true" PackagePath="$(PackageLicenseFile)" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup />
+  <ItemGroup>
+    <Reference Include="CLMS.AppDev.Cache">
+      <Private>True</Private>
+      <HintPath>..\Projects\Lib\CLMS.AppDev.Cache.dll</HintPath>
+    </Reference>
+    <Reference Include="CLMS.ApplicationModelling.MetaSourceCode">
+      <Private>True</Private>
+      <HintPath>..\Projects\Lib\CLMS.ApplicationModelling.MetaSourceCode.dll</HintPath>
+    </Reference>
+    <Reference Include="CLMS.MetaCodeGenerator">
+      <Private>True</Private>
+      <HintPath>..\Projects\Lib\CLMS.MetaCodeGenerator.dll</HintPath>
+    </Reference>
+    <Reference Include="CLMS.PDF.Helper">
+      <Private>True</Private>
+      <HintPath>..\Projects\Lib\CLMS.PDF.Helper.dll</HintPath>
+    </Reference>
+    <Reference Include="CLMS.Serialization">
+      <Private>True</Private>
+      <HintPath>..\Projects\Lib\CLMS.Serialization.dll</HintPath>
+    </Reference>
+    <Reference Include="CLMS.Serializers">
+      <Private>True</Private>
+      <HintPath>..\Projects\Lib\CLMS.Serializers.dll</HintPath>
+    </Reference>
+    <Reference Include="CLMS.Web.UI.Controls">
+      <Private>True</Private>
+      <HintPath>..\Projects\Lib\CLMS.Web.UI.Controls.dll</HintPath>
+    </Reference>
+    <Reference Include="ExternalStructs">
+      <Private>True</Private>
+      <HintPath>..\Projects\InterfaceBinaries\ExternalStructs.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Web.UI.WebControls">
+      <Private>True</Private>
+      <HintPath>..\Projects\Lib\Microsoft.Practices.Web.UI.WebControls.dll</HintPath>
+    </Reference>
+    <Reference Include="Remotion.Data.Linq">
+      <Private>True</Private>
+      <HintPath>..\Projects\Lib\Remotion.Data.Linq.dll</HintPath>
+    </Reference>
+    <Reference Include="WebApi.OutputCache.Core">
+      <Private>True</Private>
+      <HintPath>..\Projects\Lib\WebApi.OutputCache.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="WebApi.OutputCache.V2">
+      <Private>True</Private>
+      <HintPath>..\Projects\Lib\WebApi.OutputCache.V2.dll</HintPath>
+    </Reference>
+    <Reference Include="WebApiThrottle">
+      <Private>True</Private>
+      <HintPath>..\Projects\Lib\WebApiThrottle.dll</HintPath>
+    </Reference>
+    <Reference Include="zAppDev.DotNet.Framework">
+      <Private>True</Private>
+      <HintPath>..\Projects\Lib\zAppDev.DotNet.Framework.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Autofac" Version="4.5.0" />
+    <PackageReference Include="Autofac.Extras.CommonServiceLocator" Version="5.0.0" />
+    <PackageReference Include="Autofac.Owin" Version="4.2.0" />
+    <PackageReference Include="Autofac.WebApi2" Version="4.2.0" />
+    <PackageReference Include="Autofac.WebApi2.Owin" Version="4.0.0" />
+    <PackageReference Include="AutoMapper" Version="3.3.0" />
+    <PackageReference Include="CacheManager.Core" Version="1.0.1" />
+    <PackageReference Include="CacheManager.Serialization.Json" Version="1.0.1" />
+    <PackageReference Include="CacheManager.StackExchange.Redis" Version="1.0.1" />
+    <PackageReference Include="CacheManager.SystemRuntimeCaching" Version="1.0.1" />
+    <PackageReference Include="CSharpVerbalExpressions" Version="0.1.0" />
+    <PackageReference Include="CsvHelper" Version="2.13.1" />
+    <PackageReference Include="DotNetZip" Version="1.12.0" />
+    <PackageReference Include="EPPlus" Version="4.5.2.1" />
+    <PackageReference Include="ExcelDataReader" Version="3.6.0" />
+    <PackageReference Include="ExcelDataReader.DataSet" Version="3.6.0" />
+    <PackageReference Include="Glimpse" Version="1.8.6" />
+    <PackageReference Include="Glimpse.AspNet" Version="1.8.0" />
+    <PackageReference Include="GTFS" Version="1.7.1" />
+    <PackageReference Include="IdentityModel" Version="1.2.1" />
+    <PackageReference Include="IdentityServer3.AccessTokenValidation.AspNetCore" Version="1.0.0" />
+    <PackageReference Include="log4net" Version="2.0.8" />
+    <PackageReference Include="Microsoft.AspNet.Identity.Core" Version="2.2.2" />
+    <PackageReference Include="Microsoft.AspNet.Identity.Owin" Version="2.2.2" />
+    <PackageReference Include="Microsoft.AspNet.Mvc" Version="5.2.3" />
+    <PackageReference Include="Microsoft.AspNet.SignalR.Core" Version="2.4.0" />
+    <PackageReference Include="Microsoft.AspNet.SignalR.Owin" Version="1.0.0" />
+    <PackageReference Include="Microsoft.AspNet.SignalR.SystemWeb" Version="2.4.0" />
+    <PackageReference Include="Microsoft.AspNet.Web.Optimization" Version="1.1.0" />
+    <PackageReference Include="Microsoft.AspNet.WebApi.Core" Version="5.2.6" />
+    <PackageReference Include="Microsoft.AspNet.WebApi.Owin" Version="5.2.6" />
+    <PackageReference Include="Microsoft.AspNet.WebApi.WebHost" Version="5.2.6" />
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="2.2.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="2.2.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="2.2.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="2.2.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Xml" Version="2.2.0" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="2.2.0" />
+    <PackageReference Include="Microsoft.Net.Http" Version="2.2.29" />
+    <PackageReference Include="Microsoft.Owin" Version="4.0.0" />
+    <PackageReference Include="Microsoft.Owin.Host.SystemWeb" Version="4.0.0" />
+    <PackageReference Include="Microsoft.Owin.Security" Version="4.0.0" />
+    <PackageReference Include="Microsoft.Owin.Security.Cookies" Version="4.0.0" />
+    <PackageReference Include="Microsoft.Owin.Security.Facebook" Version="4.0.0" />
+    <PackageReference Include="Microsoft.Owin.Security.Google" Version="4.0.0" />
+    <PackageReference Include="Microsoft.Owin.Security.Jwt" Version="4.0.0" />
+    <PackageReference Include="Microsoft.Owin.Security.OAuth" Version="4.0.0" />
+    <PackageReference Include="ncrontab" Version="3.3.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.2" />
+    <PackageReference Include="NHibernate" Version="5.2.1" />
+    <PackageReference Include="NHibernate.Caches.SysCache" Version="5.5.1" />
+    <PackageReference Include="NullableReaders" Version="2.0.0" />
+    <PackageReference Include="PDFsharp" Version="1.50.5147" />
+    <PackageReference Include="PDFsharp-MigraDoc" Version="1.50.5147" />
+    <PackageReference Include="RabbitMQ.Client" Version="5.1.0" />
+    <PackageReference Include="SSH.NET" Version="2016.1.0" />
+    <PackageReference Include="StackExchange.Redis.StrongName" Version="1.2.6" />
+    <PackageReference Include="Swashbuckle.Core" Version="5.2.2" />
+    <PackageReference Include="System.Configuration.ConfigurationManager" Version="4.5.0" />
+    <PackageReference Include="System.Diagnostics.DiagnosticSource" Version="4.5.0" />
+    <PackageReference Include="System.Runtime.Caching" Version="4.5.0" />
+    <PackageReference Include="System.ServiceModel.Primitives" Version="4.5.3" />
+    <PackageReference Include="System.Text.Encoding.CodePages" Version="4.5.1" />
+    <PackageReference Include="WebActivatorEx " Version="2.2.0" />
+    <PackageReference Include="WebGrease" Version="1.5.2" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\Projects\Domain\POCO\DSS2_SynchromodalityCapacityOptimisation.Backend.csproj" />
+    <ProjectReference Include="..\Projects\ExposedServices\DSS2_SynchromodalityCapacityOptimisation.Services.csproj" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets')" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+</Project>

@@ -1,0 +1,49 @@
+<hibernate-configuration xmlns="urn:nhibernate-configuration-2.2">
+  <session-factory>
+    <!--the brand of dbms-->
+    <property name="dialect">NHibernate.Dialect.MsSql2012Dialect</property>
+    <!--connection provider-->
+    <property name="connection.provider">NHibernate.Connection.DriverConnectionProvider</property>
+    <!--sql client driver-->
+    <property name="connection.driver_class">NHibernate.Driver.SqlClientDriver</property>
+    <!--connection string-->
+    <property name="connection.connection_string_name">Database</property>
+    <!--SQL command timeout in seconds-->
+    <property name="command_timeout">180</property>
+    <!--output generated sql to console window-->
+    <property name="show_sql">false</property>
+    <property name="generate_statistics">false</property>
+    <property name="cache.default_expiration">20</property>
+    <property name="cache.provider_class">NHibernate.Caches.SysCache.SysCacheProvider, NHibernate.Caches.SysCache</property>
+    <property name="cache.use_second_level_cache">true</property>
+    <property name="cache.use_query_cache">true</property>
+    <property name="adonet.batch_size">200</property>
+    <property name="prepare_sql">true</property>
+    <mapping assembly="zAppDev.DotNet.Framework" />
+    <mapping assembly="DSS2_SynchromodalityCapacityOptimisation.Backend" />
+    <event type="delete">
+      <listener class="DSS2_SynchromodalityCapacityOptimisation.DAL.OnDeleteListener, DSS2_SynchromodalityCapacityOptimisation.Backend" />
+      <listener class="NHibernate.Event.Default.DefaultDeleteEventListener, NHibernate" />
+    </event>
+    <event type="save-update">
+      <listener class="DSS2_SynchromodalityCapacityOptimisation.DAL.OnSaveOrUpdateListener, DSS2_SynchromodalityCapacityOptimisation.Backend" />
+      <listener class="NHibernate.Event.Default.DefaultSaveOrUpdateEventListener, NHibernate" />
+    </event>
+    <event type="post-insert">
+      <listener class="zAppDev.DotNet.Framework.Auditing.NHAuditTrailListener, zAppDev.DotNet.Framework" />
+      <listener class="zAppDev.DotNet.Framework.Identity.NHAuthorizationListener, zAppDev.DotNet.Framework" />
+    </event>
+    <event type="post-update">
+      <listener class="zAppDev.DotNet.Framework.Auditing.NHAuditTrailListener, zAppDev.DotNet.Framework" />
+      <listener class="zAppDev.DotNet.Framework.Identity.NHAuthorizationListener, zAppDev.DotNet.Framework" />
+    </event>
+    <event type="post-delete">
+      <listener class="zAppDev.DotNet.Framework.Auditing.NHAuditTrailListener, zAppDev.DotNet.Framework" />
+      <listener class="zAppDev.DotNet.Framework.Identity.NHAuthorizationListener, zAppDev.DotNet.Framework" />
+    </event>
+    <event type="pre-collection-update">
+      <listener class="zAppDev.DotNet.Framework.Auditing.NHAuditTrailListener, zAppDev.DotNet.Framework" />
+      <listener class="zAppDev.DotNet.Framework.Identity.NHAuthorizationListener, zAppDev.DotNet.Framework" />
+    </event>
+  </session-factory>
+</hibernate-configuration>

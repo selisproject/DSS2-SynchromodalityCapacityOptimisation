@@ -1,0 +1,156 @@
+<!--
+Copyright (c) CLMS. All rights reserved.
+Licensed under the AGPL-3.0 license. See LICENSE file in the project root for full license information.-->
+
+<ExposedApi DateCreated="" Model_Name="items" Model_Description="Receives a Collection of Items. If all Items are imported successfully, returns a success message. If not, returns a failure message." Version="0.1.0">
+  <Operations>
+    <Operation Verb="Post" Path="import" ReturnDataType="Domain.Response" Name="Import" Description="Import Items" AllowAnonymousUsers="False" AllowAllAuthenticated="True" EnableAccessLog="True" ResponseSample="" RequestSample="" AllowPermisssions="" ApplicationTags="">
+      <Parameters>
+        <Parameter DataType="Collection[Domain.Item]" Required="True" Name="items" Description="" />
+      </Parameters>
+      <Code>function Domain.Response Import(Collection[Domain.Item] items)
+{
+	foreach Domain.Item: item in items {
+
+	    if string.IsNullOrEmpty(item.SKU) {
+	    	return Domain.Response.GenerateResponse("Failed", "Found an item with empty SKU.", "", "-1");
+	    }
+		if item.Exists() {
+			DebugLib.Logger.WriteInfoLine("Item exists.");
+		    Domain.Item existingItem = Domain.Item.GetByKey(item.SKU);
+		  
+		    existingItem.Supplier = Domain.Supplier.Find(a=&gt; a.Code == item.Supplier.Code).First();
+		    existingItem.BusinessUnit = Domain.BusinessUnit.Find(b=&gt; b.Number == item.BusinessUnit.Number).First();
+		    existingItem.Category = Domain.Category.Find(c=&gt; c.Number == item.Category.Number &amp;&amp; c.BusinessUnit.Number == item.BusinessUnit.Number).First();
+		    existingItem.SubCategory = Domain.SubCategory.Find(sc=&gt; sc.Number == item.SubCategory.Number &amp;&amp; sc.Category == existingItem.Category).First();
+		    existingItem.BaseUnit = Domain.BaseUnit.Find(bu=&gt; bu.Number == item.BaseUnit.Number &amp;&amp; bu.SubCategory == existingItem.SubCategory).First();
+		    existingItem.Description = item.Description;
+		    existingItem.UPC = item.UPC;
+		    existingItem.PalletSize = item.PalletSize;
+		    existingItem.SupplierPackSize = item.SupplierPackSize;
+		    existingItem.InnerPackSize = item.InnerPackSize;
+		    existingItem.PalletType = item.PalletType;
+		    existingItem.PalTI = item.PalTI;
+		    existingItem.PalHI = item.PalHI;
+		    existingItem.UOM = item.UOM;
+		    existingItem.Save();
+		}	
+		else {
+		    DebugLib.Logger.WriteInfoLine("***** New Item imported with SKU:  " + item.SKU);
+		    Domain.Item newItem;
+		    newItem.SKU = item.SKU;
+		    newItem.Supplier = Domain.Supplier.Find(a=&gt; a.Code == item.Supplier.Code).First();
+		    newItem.BusinessUnit = Domain.BusinessUnit.Find(b=&gt; b.Number == item.BusinessUnit.Number).First();
+		    newItem.Category = Domain.Category.Find(c=&gt; c.Number == item.Category.Number).First();
+		    newItem.SubCategory = Domain.SubCategory.Find(sc=&gt; sc.Number == item.SubCategory.Number &amp;&amp; sc.Category == item.Category).First();
+		    newItem.BaseUnit = Domain.BaseUnit.Find(bu=&gt; bu.Number == item.BaseUnit.Number &amp;&amp; bu.SubCategory == item.SubCategory).First();
+		    newItem.Description = item.Description;
+		    newItem.UPC = item.UPC;
+		    newItem.PalletSize = item.PalletSize;
+		    newItem.SupplierPackSize = item.SupplierPackSize;
+		    newItem.InnerPackSize = item.InnerPackSize;
+		    newItem.PalletType = item.PalletType;
+		    newItem.PalTI = item.PalTI;
+		    newItem.PalHI = item.PalHI;
+		    newItem.UOM = item.UOM;
+			newItem.Save();	
+		}
+	}
+	
+	return Domain.Response.GenerateResponse("Succeed", "All items imported successfully.", "", "1");
+}</Code>
+      <CachingOptions CachePerUser="false" OperationIsCached="false" OverrideDefaultCachingSettings="false" UseCustomExpirationMethod="false" ExpirationDays="0" ExpirationHours="0" ExpirationMinutes="3" ExpirationSeconds="0" ExpirationMilliseconds="0" CacheMode="None">function TimeSpan Expiration(
+	Collection[Domain.Item] items,
+	Domain.Response response
+)
+{ 
+	 return CommonLib.Utilities.CreateTimeSpan(0, 1, 0); 
+}</CachingOptions>
+    </Operation>
+  </Operations>
+  <DataContracts>
+    <DataContract Name="" Class="Domain.BaseUnit" BaseClass="">
+      <Members>
+        <Member Name="Id" DataType="int" Checked="False" />
+        <Member Name="Number" DataType="int" Checked="True" />
+        <Member Name="Description" DataType="string" Checked="True" />
+        <Member Name="SubCategory" DataType="Domain.SubCategory" Checked="False" />
+      </Members>
+    </DataContract>
+    <DataContract Name="" Class="Domain.BusinessUnit" BaseClass="">
+      <Members>
+        <Member Name="Id" DataType="int" Checked="False" />
+        <Member Name="Number" DataType="int" Checked="True" />
+        <Member Name="Description" DataType="string" Checked="True" />
+        <Member Name="Categories" DataType="Collection[Domain.Category]" Checked="False" />
+        <Member Name="Supplier" DataType="Domain.Supplier" Checked="False" />
+      </Members>
+    </DataContract>
+    <DataContract Name="" Class="Domain.Category" BaseClass="">
+      <Members>
+        <Member Name="Id" DataType="int" Checked="False" />
+        <Member Name="Number" DataType="int" Checked="True" />
+        <Member Name="Description" DataType="string" Checked="True" />
+        <Member Name="SubCategory" DataType="Collection[Domain.SubCategory]" Checked="False" />
+        <Member Name="BusinessUnit" DataType="Domain.BusinessUnit" Checked="False" />
+      </Members>
+    </DataContract>
+    <DataContract Name="" Class="Domain.Item" BaseClass="">
+      <Members>
+        <Member Name="SKU" DataType="string" Checked="True" />
+        <Member Name="Description" DataType="string" Checked="True" />
+        <Member Name="UPC" DataType="string" Checked="True" />
+        <Member Name="AvgDailyDemand" DataType="decimal" Checked="False" />
+        <Member Name="SupplierCapacities" DataType="Collection[Domain.SupplierCapacity]" Checked="False" />
+        <Member Name="Supplier" DataType="Domain.Supplier" Checked="True" />
+        <Member Name="BusinessUnit" DataType="Domain.BusinessUnit" Checked="True" />
+        <Member Name="Category" DataType="Domain.Category" Checked="True" />
+        <Member Name="SubCategory" DataType="Domain.SubCategory" Checked="True" />
+        <Member Name="BaseUnit" DataType="Domain.BaseUnit" Checked="True" />
+        <Member Name="ItemsForecast" DataType="Collection[Domain.Sales]" Checked="False" />
+        <Member Name="StocksOnHand" DataType="Collection[Domain.StockOnHand]" Checked="False" />
+        <Member Name="DeliverySchedules" DataType="Collection[Domain.DeliverySchedule]" Checked="False" />
+        <Member Name="MinimumQuantity" DataType="Domain.MinimumQuantity" Checked="False" />
+        <Member Name="Agreements" DataType="Collection[Domain.Agreement]" Checked="False" />
+        <Member Name="Notifications" DataType="Collection[Domain.Notification]" Checked="False" />
+        <Member Name="CoverageDays" DataType="int" Checked="False" />
+        <Member Name="PalletSize" DataType="int" Checked="True" />
+        <Member Name="SupplierPackSize" DataType="int" Checked="True" />
+        <Member Name="InnerPackSize" DataType="int" Checked="True" />
+        <Member Name="PalletType" DataType="string" Checked="True" />
+        <Member Name="PalTI" DataType="int" Checked="True" />
+        <Member Name="PalHI" DataType="int" Checked="True" />
+        <Member Name="UOM" DataType="string" Checked="True" />
+        <Member Name="SLALeadTimes" DataType="Collection[Domain.SLALeadTime]" Checked="False" />
+        <Member Name="SLADeliveries" DataType="Collection[Domain.SLADelivery]" Checked="False" />
+        <Member Name="PastOrders" DataType="Collection[Domain.PastOrder]" Checked="False" />
+      </Members>
+    </DataContract>
+    <DataContract Name="" Class="Domain.Response" BaseClass="">
+      <Members>
+        <Member Name="Id" DataType="int" Checked="False" />
+        <Member Name="Status" DataType="string" Checked="True" />
+        <Member Name="Message" DataType="string" Checked="True" />
+        <Member Name="Details" DataType="string" Checked="True" />
+        <Member Name="Code" DataType="string" Checked="True" />
+      </Members>
+    </DataContract>
+    <DataContract Name="" Class="Domain.SubCategory" BaseClass="">
+      <Members>
+        <Member Name="Id" DataType="int" Checked="False" />
+        <Member Name="Number" DataType="int" Checked="True" />
+        <Member Name="Description" DataType="string" Checked="True" />
+        <Member Name="BaseUnits" DataType="Collection[Domain.BaseUnit]" Checked="False" />
+        <Member Name="Category" DataType="Domain.Category" Checked="False" />
+      </Members>
+    </DataContract>
+    <DataContract Name="" Class="Domain.Supplier" BaseClass="Company">
+      <Members>
+        <Member Name="Id" DataType="int" Checked="False" />
+        <Member Name="Code" DataType="string" Checked="True" />
+        <Member Name="Name" DataType="string" Checked="True" />
+        <Member Name="BusinessUnit" DataType="Domain.BusinessUnit" Checked="False" />
+      </Members>
+    </DataContract>
+  </DataContracts>
+</ExposedApi>

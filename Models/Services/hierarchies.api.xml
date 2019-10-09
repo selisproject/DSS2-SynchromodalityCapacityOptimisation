@@ -1,0 +1,8 @@
+<!--
+Copyright (c) CLMS. All rights reserved.
+Licensed under the AGPL-3.0 license. See LICENSE file in the project root for full license information.-->
+
+<ExposedApi DateCreated="" Model_Name="hierarchies" Model_Description="" Version="0.1.0">
+  <Operations />
+  <DataContracts />
+</ExposedApi>

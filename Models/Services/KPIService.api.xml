@@ -1,0 +1,132 @@
+<!--
+Copyright (c) CLMS. All rights reserved.
+Licensed under the AGPL-3.0 license. See LICENSE file in the project root for full license information.-->
+
+<ExposedApi DateCreated="" Model_Name="KPIService" Model_Description="" Version="0.1.0">
+  <Operations>
+    <Operation Verb="Get" Path="GetVolumePerLSP" ReturnDataType="Collection[Domain.VolumePerShipper]" Name="GetVolumePerLSP" Description="" AllowAnonymousUsers="True" AllowAllAuthenticated="True" EnableAccessLog="True" ResponseSample="" RequestSample="" AllowPermisssions="" ApplicationTags="">
+      <Parameters>
+        <Parameter DataType="string" Required="True" Name="Name" Description="" />
+      </Parameters>
+      <Code>function Collection[Domain.VolumePerShipper] GetVolumePerLSP(string Name)
+{
+	Collection[Domain.VolumePerShipper]ChartElement;
+	
+	foreach Domain.ShippingOrder i in Domain.ShippingOrder.Find(a=&gt; a.Shipper==Name) {
+		DebugLib.Logger.WriteErrorLine(i.Carrier!="");
+		if (i.Carrier!=""){
+		decimal OrderVolume=i.Get_AggregateVolume();
+		if ChartElement.Any(a=&gt; a.Description==i.Carrier){
+				ChartElement.First(a=&gt; a.Description==i.Carrier).Volume=ChartElement.First(a=&gt; a.Description==i.Carrier).Volume+OrderVolume;
+			
+			}else{
+				Domain.VolumePerShipper GraphElement;
+				GraphElement.Description=i.Carrier;
+				GraphElement.Volume=OrderVolume;
+				ChartElement.Add(GraphElement);
+			
+			}
+		}
+	}
+	
+	
+	return ChartElement;
+}</Code>
+      <CachingOptions CachePerUser="false" OperationIsCached="false" OverrideDefaultCachingSettings="false" UseCustomExpirationMethod="false" ExpirationDays="0" ExpirationHours="0" ExpirationMinutes="3" ExpirationSeconds="0" ExpirationMilliseconds="0" CacheMode="None">function TimeSpan Expiration(
+	string Name,
+	Collection[Domain.VolumePerShipper] response
+)
+{ 
+	 return CommonLib.Utilities.CreateTimeSpan(0, 1, 0); 
+}</CachingOptions>
+    </Operation>
+    <Operation Verb="Get" Path="GetVolumePerUnit" ReturnDataType="Collection[Domain.VolumePerShipper]" Name="GetVolumePerUnit" Description="" AllowAnonymousUsers="True" AllowAllAuthenticated="True" EnableAccessLog="True" ResponseSample="" RequestSample="" AllowPermisssions="" ApplicationTags="">
+      <Parameters>
+        <Parameter DataType="string" Required="True" Name="Name" Description="" />
+      </Parameters>
+      <Code>function Collection[Domain.VolumePerShipper] GetVolumePerUnit(string Name)
+{
+	Collection[Domain.VolumePerShipper]VolumeSpreadChart;
+	
+	foreach Domain.ShippingOrder i in Domain.ShippingOrder.Find(a=&gt; a.Shipper==Name) {
+	
+		foreach Domain.CustomVolume j in i.PlannedVolume {
+  			foreach Domain.VolumeComposition k in j.VolumeComposition {
+  				if VolumeSpreadChart.Any(a=&gt; a.Description==k.VolumeComponent.Name){
+					VolumeSpreadChart.First(a=&gt; a.Description==k.VolumeComponent.Name).Volume=VolumeSpreadChart.First(a=&gt; a.Description==k.VolumeComponent.Name).Volume+1;
+			
+				}else{
+					Domain.VolumePerShipper GraphElement;
+					GraphElement.Description=k.VolumeComponent.Name;
+					GraphElement.Volume=1;
+					VolumeSpreadChart.Add(GraphElement);
+			
+				}
+  			}
+  		}
+	
+	}
+	
+	return VolumeSpreadChart;
+}</Code>
+      <CachingOptions CachePerUser="false" OperationIsCached="false" OverrideDefaultCachingSettings="false" UseCustomExpirationMethod="false" ExpirationDays="0" ExpirationHours="0" ExpirationMinutes="3" ExpirationSeconds="0" ExpirationMilliseconds="0" CacheMode="None">function TimeSpan Expiration(
+	string Name,
+	Collection[Domain.VolumePerShipper] response
+)
+{ 
+	 return CommonLib.Utilities.CreateTimeSpan(0, 1, 0); 
+}</CachingOptions>
+    </Operation>
+    <Operation Verb="Get" Path="CO2PerCarrier" ReturnDataType="Collection[Domain.CO2PerCarrier]" Name="CO2PerCarrier" Description="" AllowAnonymousUsers="True" AllowAllAuthenticated="True" EnableAccessLog="True" ResponseSample="" RequestSample="" AllowPermisssions="" ApplicationTags="">
+      <Parameters>
+        <Parameter DataType="string" Required="True" Name="Name" Description="" />
+      </Parameters>
+      <Code>function Collection[Domain.CO2PerCarrier] CO2PerCarrier(string Name)
+{
+	Collection[Domain.CO2PerCarrier]ChartElement;
+	
+	foreach Domain.ShippingOrder i in Domain.ShippingOrder.Find(a=&gt; a.Shipper==Name) {
+	if (i.Carrier!=""){
+		decimal OrderVolume=i.Get_AggregateVolume();
+		if ChartElement.Any(a=&gt; a.Description==i.Carrier){
+				ChartElement.First(a=&gt; a.Description==i.Carrier).KgCO2=ChartElement.First(a=&gt; a.Description==i.Carrier).KgCO2+OrderVolume;
+			
+			}else{
+				Domain.CO2PerCarrier GraphElement;
+				GraphElement.Description=i.Carrier;
+				GraphElement.KgCO2=OrderVolume*5.8;
+				ChartElement.Add(GraphElement);
+			
+			}
+		}
+	}
+	
+	
+	return ChartElement;
+}</Code>
+      <CachingOptions CachePerUser="false" OperationIsCached="false" OverrideDefaultCachingSettings="false" UseCustomExpirationMethod="false" ExpirationDays="0" ExpirationHours="0" ExpirationMinutes="3" ExpirationSeconds="0" ExpirationMilliseconds="0" CacheMode="None">function TimeSpan Expiration(
+	string Name,
+	Collection[Domain.CO2PerCarrier] response
+)
+{ 
+	 return CommonLib.Utilities.CreateTimeSpan(0, 1, 0); 
+}</CachingOptions>
+    </Operation>
+  </Operations>
+  <DataContracts>
+    <DataContract Name="" Class="Domain.VolumePerShipper" BaseClass="">
+      <Members>
+        <Member Name="Id" DataType="int" Checked="False" />
+        <Member Name="Volume" DataType="decimal" Checked="True" />
+        <Member Name="Description" DataType="string" Checked="True" />
+      </Members>
+    </DataContract>
+    <DataContract Name="" Class="Domain.CO2PerCarrier" BaseClass="">
+      <Members>
+        <Member Name="Id" DataType="int" Checked="False" />
+        <Member Name="Description" DataType="string" Checked="False" />
+        <Member Name="KgCO2" DataType="decimal" Checked="False" />
+      </Members>
+    </DataContract>
+  </DataContracts>
+</ExposedApi>

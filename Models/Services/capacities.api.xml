@@ -1,0 +1,89 @@
+<!--
+Copyright (c) CLMS. All rights reserved.
+Licensed under the AGPL-3.0 license. See LICENSE file in the project root for full license information.-->
+
+<ExposedApi DateCreated="" Model_Name="capacities" Model_Description="Receives a Collection of capacities. If all capacities are imported successfully, returns a success message. If not, returns a failure message." Version="0.1.0">
+  <Operations>
+    <Operation Verb="Post" Path="Publish" ReturnDataType="Domain.Response" Name="Publish" Description="" AllowAnonymousUsers="False" AllowAllAuthenticated="True" EnableAccessLog="True" ResponseSample="" RequestSample="" AllowPermisssions="" ApplicationTags="">
+      <Parameters>
+        <Parameter DataType="Collection[Domain.SupplierCapacity]" Required="False" Name="capacities" Description="" />
+      </Parameters>
+      <Code>function Domain.Response Publish(Collection[Domain.SupplierCapacity] capacities)
+{
+	string message;
+	foreach Domain.SupplierCapacity: supCapacity in capacities 
+	{
+	    DebugLib.Logger.WriteInfoLine("Item: " + supCapacity.Item.SKU);
+    	if (supCapacity.Item == null) {
+    	    message = message + supCapacity.Id + " ,";
+		    continue;
+    	}
+    	Domain.Item existingItem = Domain.Item.Find(s=&gt; s.SKU == supCapacity.Item.SKU).First();
+    	if (existingItem == null) {
+		    message = message + supCapacity.Id + " ,";
+		    continue;
+		}
+		Domain.SupplierCapacity newSupCapacity;
+		newSupCapacity.Stock = supCapacity.Stock;
+		newSupCapacity.DailyProduction = supCapacity.DailyProduction;
+		newSupCapacity.DateOfStockUpdate = supCapacity.DateOfStockUpdate;
+		newSupCapacity.Item = existingItem;
+		newSupCapacity.Save();
+	}
+	if (!string.IsNullOrEmpty(message)) {
+	    DebugLib.Logger.WriteWarnLine("Error message: " + message);
+	    return Domain.Response.GenerateResponse("Failed", "Failed to import the entries with Ids " + message, "", "-1");
+	}
+	return Domain.Response.GenerateResponse("Succeed", "All items imported successfully.", "", "1");
+}</Code>
+      <CachingOptions CachePerUser="false" OperationIsCached="false" OverrideDefaultCachingSettings="false" UseCustomExpirationMethod="false" ExpirationDays="0" ExpirationHours="0" ExpirationMinutes="3" ExpirationSeconds="0" ExpirationMilliseconds="0" CacheMode="None">function TimeSpan Expiration(
+	Collection[Domain.SupplierCapacity] capacities,
+	Domain.Response response
+)
+{ 
+	 return CommonLib.Utilities.CreateTimeSpan(0, 1, 0); 
+}</CachingOptions>
+    </Operation>
+  </Operations>
+  <DataContracts>
+    <DataContract Name="" Class="Domain.Item" BaseClass="">
+      <Members>
+        <Member Name="SKU" DataType="string" Checked="True" />
+        <Member Name="Description" DataType="string" Checked="True" />
+        <Member Name="UPC" DataType="string" Checked="True" />
+        <Member Name="AvgDailyDemand" DataType="decimal" Checked="True" />
+        <Member Name="ItemsForecast" DataType="Collection[Domain.Sales]" Checked="False" />
+        <Member Name="StocksOnHand" DataType="Collection[Domain.StockOnHand]" Checked="False" />
+        <Member Name="DeliverySchedules" DataType="Collection[Domain.DeliverySchedule]" Checked="False" />
+        <Member Name="MinimumQuantity" DataType="Domain.MinimumQuantity" Checked="False" />
+        <Member Name="Agreements" DataType="Collection[Domain.Agreement]" Checked="False" />
+      </Members>
+    </DataContract>
+    <DataContract Name="" Class="Domain.Response" BaseClass="">
+      <Members>
+        <Member Name="Id" DataType="int" Checked="False" />
+        <Member Name="Status" DataType="string" Checked="True" />
+        <Member Name="Message" DataType="string" Checked="True" />
+        <Member Name="Details" DataType="string" Checked="True" />
+        <Member Name="Code" DataType="string" Checked="True" />
+      </Members>
+    </DataContract>
+    <DataContract Name="" Class="Domain.Supplier" BaseClass="Company">
+      <Members>
+        <Member Name="Id" DataType="int" Checked="False" />
+        <Member Name="Code" DataType="string" Checked="True" />
+        <Member Name="Name" DataType="string" Checked="True" />
+      </Members>
+    </DataContract>
+    <DataContract Name="" Class="Domain.SupplierCapacity" BaseClass="">
+      <Members>
+        <Member Name="Id" DataType="int" Checked="False" />
+        <Member Name="DateOfStockUpdate" DataType="DateTime" Checked="True" />
+        <Member Name="DailyProduction" DataType="int" Checked="True" />
+        <Member Name="Stock" DataType="int" Checked="True" />
+        <Member Name="Item" DataType="Domain.Item" Checked="True" />
+        <Member Name="Supplier" DataType="Domain.Supplier" Checked="True" />
+      </Members>
+    </DataContract>
+  </DataContracts>
+</ExposedApi>

@@ -1,0 +1,262 @@
+<!--
+Copyright (c) CLMS. All rights reserved.
+Licensed under the AGPL-3.0 license. See LICENSE file in the project root for full license information.-->
+
+<ExternalApi DateCreated="" Model_Name="Elasticsearch" Model_Description="" Version="">
+  <Endpoint TransportType="HTTP" ProtocolType="REST">
+    <Security SecurityType="Basic">
+      <BasicSecurityDetails Username="kview" Password="@2FwBe&amp;#uWER" />
+    </Security>
+    <Class Name="TermAggregator" OriginalName="terms" Description="" Namespace="" BaseClass="" IsEnum="false">
+      <Attribute Name="field" OriginalName="" Description="" Datatype="string" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="size" OriginalName="" Description="" Datatype="int" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+    </Class>
+    <Class Name="TermAggregatorRoot" OriginalName="terms" Description="" Namespace="" BaseClass="" IsEnum="false">
+      <Attribute Name="terms" OriginalName="terms" Description="" Datatype="Interfaces.Elasticsearch.TermAggregator" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="Aggs" OriginalName="aggs" Description="" Datatype="Interfaces.Elasticsearch.TermsAggregationRequest" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+    </Class>
+    <Class Name="TermsAggregationRequest" OriginalName="Order" Description="" Namespace="" BaseClass="" IsEnum="false">
+      <Attribute Name="order" OriginalName="order" Description="" Datatype="string" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="ResposeStatus" OriginalName="resposeStatus" Description="" Datatype="Interfaces.Elasticsearch.ErrorFilterAgg" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="ResponseTime" OriginalName="responseTime" Description="" Datatype="Interfaces.Elasticsearch.StatsAggregatorRoot" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+    </Class>
+    <Class Name="StatsAggregator" OriginalName="stats" Description="" Namespace="" BaseClass="" IsEnum="false">
+      <Attribute Name="field" OriginalName="" Description="" Datatype="string" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+    </Class>
+    <Class Name="StatsAggregatorRoot" OriginalName="stats" Description="" Namespace="" BaseClass="" IsEnum="false">
+      <Attribute Name="stats" OriginalName="stats" Description="" Datatype="Interfaces.Elasticsearch.StatsAggregator" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+    </Class>
+    <Class Name="AnalyticsRequest" OriginalName="" Description="" Namespace="" BaseClass="" IsEnum="false">
+      <Attribute Name="query" OriginalName="query" Description="" Datatype="Interfaces.Elasticsearch.Query" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="aggs" OriginalName="aggs" Description="" Datatype="Interfaces.Elasticsearch.OBAggregatorRequest" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="source" OriginalName="_source" Description="" Datatype="Interfaces.Elasticsearch.Meta" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+    </Class>
+    <Class Name="SearchRequest" OriginalName="SearchRequest" Description="" Namespace="" BaseClass="" IsEnum="false">
+      <Attribute Name="source" OriginalName="_source" Description="" Datatype="Interfaces.Elasticsearch.Meta" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="query" OriginalName="" Description="" Datatype="Interfaces.Elasticsearch.Query" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="sort" OriginalName="sort" Description="" Datatype="Collection[Interfaces.Elasticsearch.Sort]" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+    </Class>
+    <Class Name="OBAggregatorRequest" OriginalName="OBAggregatorRequest" Description="" Namespace="" BaseClass="" IsEnum="false">
+      <Attribute Name="ElapsedMsecs" OriginalName="elapsed_msecs" Description="" Datatype="Interfaces.Elasticsearch.StatsAggregatorRoot" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="TopService" OriginalName="top_service" Description="" Datatype="Interfaces.Elasticsearch.TermAggregatorRoot" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="TopOperation" OriginalName="top_operation" Description="" Datatype="Interfaces.Elasticsearch.TermAggregatorRoot" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="FromIP" OriginalName="from_ip" Description="" Datatype="Interfaces.Elasticsearch.TermAggregatorRoot" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="VerbType" OriginalName="verb_type" Description="" Datatype="Interfaces.Elasticsearch.TermAggregatorRoot" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="Status" OriginalName="status" Description="" Datatype="Interfaces.Elasticsearch.TermAggregatorRoot" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="RequestOverTime" OriginalName="req_over_time" Description="" Datatype="Interfaces.Elasticsearch.HistogramRoot" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="RequestLatency" OriginalName="req_latency" Description="" Datatype="Interfaces.Elasticsearch.BucketHistogramRoot" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="Errors" OriginalName="errors" Description="" Datatype="Interfaces.Elasticsearch.ErrorFilterAgg" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="Services" OriginalName="services" Description="" Datatype="Interfaces.Elasticsearch.TermAggregatorRoot" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+    </Class>
+    <Class Name="OBAggregatorResponse" OriginalName="OBAggregatorResponse" Description="" Namespace="" BaseClass="" IsEnum="false">
+      <Attribute Name="ElapsedMsecs" OriginalName="elapsed_msecs" Description="" Datatype="Interfaces.Elasticsearch.StatsAggregatorResponse" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="TopService" OriginalName="top_service" Description="" Datatype="Interfaces.Elasticsearch.TermAggregatorResponse" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="TopOperation" OriginalName="top_operation" Description="" Datatype="Interfaces.Elasticsearch.TermAggregatorResponse" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="FromIP" OriginalName="from_ip" Description="" Datatype="Interfaces.Elasticsearch.TermAggregatorResponse" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="VerbType" OriginalName="verb_type" Description="" Datatype="Interfaces.Elasticsearch.TermAggregatorResponse" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="Status" OriginalName="status" Description="" Datatype="Interfaces.Elasticsearch.TermAggregatorResponse" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="RequestOverTime" OriginalName="req_over_time" Description="" Datatype="Interfaces.Elasticsearch.HistogramResponse" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="RequestLatency" OriginalName="req_latency" Description="" Datatype="Interfaces.Elasticsearch.HistogramResponse" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="Errors" OriginalName="errors" Description="" Datatype="Interfaces.Elasticsearch.ErrorFilterAggResponse" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+    </Class>
+    <Class Name="SearchResponse" OriginalName="SearchResponse" Description="" Namespace="" BaseClass="" IsEnum="false">
+      <Attribute Name="HitResponce" OriginalName="hits" Description="" Datatype="Interfaces.Elasticsearch.HitsResponse" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="Took" OriginalName="took" Description="" Datatype="int" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+    </Class>
+    <Class Name="AnalyticsResponse" OriginalName="" Description="" Namespace="" BaseClass="" IsEnum="false">
+      <Attribute Name="aggregations" OriginalName="" Description="" Datatype="Interfaces.Elasticsearch.OBAggregatorResponse" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+    </Class>
+    <Class Name="TermAggregatorResponse" OriginalName="DocumentCount" Description="" Namespace="" BaseClass="" IsEnum="false">
+      <Attribute Name="doc_count_error_upper_bound" OriginalName="" Description="" Datatype="int" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="sum_other_doc_count" OriginalName="" Description="" Datatype="int" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="buckets" OriginalName="" Description="" Datatype="Array[Interfaces.Elasticsearch.Bucket]" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+    </Class>
+    <Class Name="Statistics" OriginalName="Statistics" Description="" Namespace="" BaseClass="" IsEnum="false">
+      <Attribute Name="statistics" OriginalName="statistics" Description="" Datatype="Interfaces.Elasticsearch.StatsAggregatorRoot" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="errors" OriginalName="errors" Description="" Datatype="Interfaces.Elasticsearch.ErrorFilterAgg" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+    </Class>
+    <Class Name="ErrorFilterAgg" OriginalName="" Description="" Namespace="" BaseClass="" IsEnum="false">
+      <Attribute Name="Filters" OriginalName="filters" Description="" Datatype="Interfaces.Elasticsearch.FiltersAggRoot" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+    </Class>
+    <Class Name="FiltersAggRoot" OriginalName="" Description="" Namespace="" BaseClass="" IsEnum="false">
+      <Attribute Name="Filters" OriginalName="filters" Description="" Datatype="Interfaces.Elasticsearch.FiltersAgg" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+    </Class>
+    <Class Name="FiltersAgg" OriginalName="" Description="" Namespace="" BaseClass="" IsEnum="false">
+      <Attribute Name="Failure" OriginalName="failure" Description="" Datatype="Interfaces.Elasticsearch.FiltersRangeRootAgg" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="Success" OriginalName="success" Description="" Datatype="Interfaces.Elasticsearch.FiltersRangeRootAgg" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+    </Class>
+    <Class Name="FiltersRangeRootAgg" OriginalName="FiltersRangeRootAgg" Description="" Namespace="" BaseClass="" IsEnum="false">
+      <Attribute Name="Range" OriginalName="range" Description="" Datatype="Interfaces.Elasticsearch.FiltersRangeAgg" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+    </Class>
+    <Class Name="FiltersRangeAgg" OriginalName="FiltersRangeAgg" Description="" Namespace="" BaseClass="" IsEnum="false">
+      <Attribute Name="StatusCode" OriginalName="StatusCode" Description="" Datatype="Interfaces.Elasticsearch.Timestamp" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+    </Class>
+    <Class Name="HitsResponse" OriginalName="HitsResponse" Description="" Namespace="" BaseClass="" IsEnum="false">
+      <Attribute Name="Hits" OriginalName="hits" Description="" Datatype="Collection[Interfaces.Elasticsearch.HitRoot]" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="Total" OriginalName="total" Description="" Datatype="int" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="MaxScore" OriginalName="max_score" Description="" Datatype="string" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+    </Class>
+    <Class Name="StatsAggregatorResponse" OriginalName="StatsAggregatorResponse" Description="" Namespace="" BaseClass="" IsEnum="false">
+      <Attribute Name="count" OriginalName="" Description="" Datatype="double" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="min" OriginalName="" Description="" Datatype="double" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="max" OriginalName="" Description="" Datatype="double" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="avg" OriginalName="" Description="" Datatype="double" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="sum" OriginalName="" Description="" Datatype="double" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+    </Class>
+    <Class Name="ErrorFilterAggResponseBucket" OriginalName="ErrorFilterAggResponse" Description="" Namespace="" BaseClass="" IsEnum="false">
+      <Attribute Name="Failure" OriginalName="failure" Description="" Datatype="Interfaces.Elasticsearch.Bucket" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="Success" OriginalName="success" Description="" Datatype="Interfaces.Elasticsearch.Bucket" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+    </Class>
+    <Class Name="ErrorFilterAggResponse" OriginalName="ErrorFilterAggResponseBucket" Description="" Namespace="" BaseClass="" IsEnum="false">
+      <Attribute Name="Buckets" OriginalName="buckets" Description="" Datatype="Interfaces.Elasticsearch.ErrorFilterAggResponseBucket" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+    </Class>
+    <Class Name="Histogram" OriginalName="Histogram" Description="" Namespace="" BaseClass="" IsEnum="false">
+      <Attribute Name="Field" OriginalName="field" Description="" Datatype="string" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="Interval" OriginalName="interval" Description="" Datatype="string" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="Format" OriginalName="format" Description="" Datatype="string" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="Offset" OriginalName="offset" Description="" Datatype="string" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+    </Class>
+    <Class Name="HistogramRoot" OriginalName="HistogramRoot" Description="" Namespace="" BaseClass="" IsEnum="false">
+      <Attribute Name="DateHistogram" OriginalName="date_histogram" Description="" Datatype="Interfaces.Elasticsearch.Histogram" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="Aggregator" OriginalName="aggs" Description="" Datatype="Interfaces.Elasticsearch.Statistics" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+    </Class>
+    <Class Name="BucketHistogram" OriginalName="BucketHistogram" Description="" Namespace="" BaseClass="" IsEnum="false">
+      <Attribute Name="Field" OriginalName="field" Description="" Datatype="string" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="Interval" OriginalName="interval" Description="" Datatype="int" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+    </Class>
+    <Class Name="BucketHistogramRoot" OriginalName="BucketHistogramRoot" Description="" Namespace="" BaseClass="" IsEnum="false">
+      <Attribute Name="Histogram" OriginalName="histogram" Description="" Datatype="Interfaces.Elasticsearch.BucketHistogram" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+    </Class>
+    <Class Name="HistogramResponse" OriginalName="HistogramResponse" Description="" Namespace="" BaseClass="" IsEnum="false">
+      <Attribute Name="Buckets" OriginalName="buckets" Description="" Datatype="Collection[Interfaces.Elasticsearch.HistogramBucket]" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+    </Class>
+    <Class Name="HistogramBucket" OriginalName="HistogramBucket" Description="" Namespace="" BaseClass="" IsEnum="false">
+      <Attribute Name="KeyAsString" OriginalName="key_as_string" Description="" Datatype="string" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="Key" OriginalName="Key" Description="" Datatype="decimal" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="DocCount" OriginalName="doc_count" Description="" Datatype="int" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="Statistics" OriginalName="statistics" Description="" Datatype="Interfaces.Elasticsearch.StatsAggregatorResponse" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="Errors" OriginalName="errors" Description="" Datatype="Interfaces.Elasticsearch.ErrorFilterAggResponse" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+    </Class>
+    <Class Name="Status" OriginalName="Status" Description="" Namespace="" BaseClass="" IsEnum="false">
+      <Attribute Name="name" OriginalName="" Description="" Datatype="string" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="cluster_name" OriginalName="" Description="" Datatype="string" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="cluster_uuid" OriginalName="" Description="" Datatype="string" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="version" OriginalName="" Description="" Datatype="Interfaces.Elasticsearch.Version" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="tagline" OriginalName="" Description="" Datatype="string" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+    </Class>
+    <Class Name="Version" OriginalName="version" Description="" Namespace="" BaseClass="" IsEnum="false">
+      <Attribute Name="number" OriginalName="" Description="" Datatype="string" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="build_hash" OriginalName="" Description="" Datatype="string" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="build_date" OriginalName="" Description="" Datatype="DateTime" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="build_snapshot" OriginalName="" Description="" Datatype="bool" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="lucene_version" OriginalName="" Description="" Datatype="string" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+    </Class>
+    <Class Name="Hit" OriginalName="source" Description="" Namespace="" BaseClass="" IsEnum="false">
+      <Attribute Name="RequestPath" OriginalName="RequestPath" Description="" Datatype="string" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="Message" OriginalName="Message" Description="" Datatype="string" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="RequestId" OriginalName="RequestId" Description="" Datatype="string" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="RequestMethod" OriginalName="RequestMethod" Description="" Datatype="string" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="ElapsedMsecs" OriginalName="ElapsedMsecs" Description="" Datatype="float" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="IP" OriginalName="IP" Description="" Datatype="string" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="Service" OriginalName="Service" Description="" Datatype="string" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="Operation" OriginalName="Operation" Description="" Datatype="string" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="StatusCode" OriginalName="StatusCode" Description="" Datatype="int" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="Timestamp" OriginalName="Timestamp" Description="" Datatype="DateTime" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="tags" OriginalName="tags" Description="" Datatype="Array[string]" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="timestamp" OriginalName="@timestamp" Description="" Datatype="DateTime" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="Username" OriginalName="Username" Description="" Datatype="string" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="version" OriginalName="@version" Description="" Datatype="string" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="RequestUri" OriginalName="RequestUri" Description="" Datatype="string" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="ClientId" OriginalName="ClientId" Description="" Datatype="string" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="ClientName" OriginalName="ClientName" Description="" Datatype="string" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="Product" OriginalName="Product" Description="" Datatype="string" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+    </Class>
+    <Class Name="HitRoot" OriginalName="HitRoot" Description="" Namespace="" BaseClass="" IsEnum="false">
+      <Attribute Name="Source" OriginalName="_source" Description="" Datatype="Interfaces.Elasticsearch.Hit" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="ID" OriginalName="_id" Description="" Datatype="string" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+    </Class>
+    <Class Name="Meta" OriginalName="source" Description="" Namespace="" BaseClass="" IsEnum="false">
+      <Attribute Name="excludes" OriginalName="" Description="" Datatype="Array[string]" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+    </Class>
+    <Class Name="Sort" OriginalName="Sort" Description="" Namespace="" BaseClass="" IsEnum="false">
+      <Attribute Name="Timestamp" OriginalName="Timestamp" Description="" Datatype="Interfaces.Elasticsearch.Order" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+    </Class>
+    <Class Name="QueryString" OriginalName="QueryString" Description="" Namespace="" BaseClass="" IsEnum="false">
+      <Attribute Name="AnalyzeWildcard" OriginalName="analyze_wildcard" Description="" Datatype="bool" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="Query" OriginalName="query" Description="" Datatype="string" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+    </Class>
+    <Class Name="Query" OriginalName="query" Description="" Namespace="" BaseClass="" IsEnum="false">
+      <Attribute Name="logic" OriginalName="bool" Description="" Datatype="Interfaces.Elasticsearch.Logic" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+    </Class>
+    <Class Name="Logic" OriginalName="bool" Description="" Namespace="" BaseClass="" IsEnum="false">
+      <Attribute Name="must" OriginalName="" Description="" Datatype="Interfaces.Elasticsearch.Must" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="filter" OriginalName="" Description="" Datatype="Interfaces.Elasticsearch.Filter" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+    </Class>
+    <Class Name="Must" OriginalName="must" Description="" Namespace="" BaseClass="" IsEnum="false">
+      <Attribute Name="match_all" OriginalName="match_all" Description="" Datatype="Interfaces.Elasticsearch.MatchAll" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="QueryString" OriginalName="query_string" Description="" Datatype="Interfaces.Elasticsearch.QueryString" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+    </Class>
+    <Class Name="MatchAll" OriginalName="match_all" Description="" Namespace="" BaseClass="" IsEnum="false" />
+    <Class Name="Range" OriginalName="range" Description="" Namespace="" BaseClass="" IsEnum="false">
+      <Attribute Name="timestamp" OriginalName="@timestamp" Description="" Datatype="Interfaces.Elasticsearch.Timestamp" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+    </Class>
+    <Class Name="Timestamp" OriginalName="timestamp" Description="" Namespace="" BaseClass="" IsEnum="false">
+      <Attribute Name="gt" OriginalName="" Description="" Datatype="string" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="lt" OriginalName="" Description="" Datatype="string" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="gte" OriginalName="" Description="" Datatype="string" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="lte" OriginalName="" Description="" Datatype="string" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+    </Class>
+    <Class Name="Filter" OriginalName="filter" Description="" Namespace="" BaseClass="" IsEnum="false">
+      <Attribute Name="range" OriginalName="range" Description="" Datatype="Interfaces.Elasticsearch.Range" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+    </Class>
+    <Class Name="Bucket" OriginalName="buckets" Description="" Namespace="" BaseClass="" IsEnum="false">
+      <Attribute Name="key" OriginalName="" Description="" Datatype="string" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="doc_count" OriginalName="" Description="" Datatype="int" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+    </Class>
+    <Class Name="Order" OriginalName="Order" Description="" Namespace="" BaseClass="" IsEnum="false">
+      <Attribute Name="order" OriginalName="order" Description="" Datatype="string" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+    </Class>
+    <Operation Name="Info" Description="" Datatype="Interfaces.Elasticsearch.Status" OriginalName="" ClientType="" IsStatic="false" AccessLog="false" Verb="GET" Text="" ContentType="JSON" Route="/" Notes="Get elasticsearch cluster status" UserDefinedUrlMethod="true">
+      <Parameters />
+      <Headers />
+      <GetUrlMethod>return "/";</GetUrlMethod>
+      <CachingOptions CachePerUser="false" OperationIsCached="true" OverrideDefaultCachingSettings="false" UseCustomExpirationMethod="false" ExpirationDays="0" ExpirationHours="0" ExpirationMinutes="3" ExpirationSeconds="0" ExpirationMilliseconds="0" CacheMode="None">function TimeSpan Expiration(
+	Interfaces.Elasticsearch.Status response
+)
+{ 
+	 return CommonLib.Utilities.CreateTimeSpan(0, 1, 0); 
+}</CachingOptions>
+    </Operation>
+    <Operation Name="Search" Description="" Datatype="Interfaces.Elasticsearch.SearchResponse" OriginalName="" ClientType="" IsStatic="false" AccessLog="false" Verb="POST" Text="" ContentType="JSON" Route="/_search" Notes="" UserDefinedUrlMethod="true">
+      <Parameters>
+        <Parameter Name="query" DataType="Interfaces.Elasticsearch.SearchRequest" IsRef="False" IsOut="False" DefaultValue="{\&quot;excludes\&quot;: [ \&quot;message\&quot;]}" Notes="Elasticsearch query" Type="RequestBody" Alias="" />
+        <Parameter Name="hits" DataType="int" IsRef="False" IsOut="False" DefaultValue="10" Notes="" Type="UriPart" Alias="" />
+      </Parameters>
+      <Headers />
+      <GetUrlMethod>return "/selis-*/_search?filter_path=hits.total,hits.max_score,hits.hits._id,hits.hits._source&amp;size=" + hits;</GetUrlMethod>
+      <CachingOptions CachePerUser="false" OperationIsCached="false" OverrideDefaultCachingSettings="false" UseCustomExpirationMethod="false" ExpirationDays="0" ExpirationHours="0" ExpirationMinutes="3" ExpirationSeconds="0" ExpirationMilliseconds="0" CacheMode="None">function TimeSpan Expiration(
+	Interfaces.Elasticsearch.SearchRequest query,
+	int hits,
+	Interfaces.Elasticsearch.SearchResponse response
+)
+{ 
+	 return CommonLib.Utilities.CreateTimeSpan(0, 1, 0); 
+}</CachingOptions>
+    </Operation>
+    <Operation Name="Analytics" Description="" Datatype="Interfaces.Elasticsearch.AnalyticsResponse" OriginalName="" ClientType="" IsStatic="false" AccessLog="false" Verb="POST" Text="" ContentType="JSON" Route="_search?size=0" Notes="" UserDefinedUrlMethod="true">
+      <Parameters>
+        <Parameter Name="query" DataType="Interfaces.Elasticsearch.AnalyticsRequest" IsRef="False" IsOut="False" DefaultValue="" Notes="" Type="RequestBody" Alias="" />
+      </Parameters>
+      <Headers />
+      <GetUrlMethod>return "/selis-*/_search?size=0";</GetUrlMethod>
+      <CachingOptions CachePerUser="false" OperationIsCached="false" OverrideDefaultCachingSettings="false" UseCustomExpirationMethod="false" ExpirationDays="0" ExpirationHours="0" ExpirationMinutes="3" ExpirationSeconds="0" ExpirationMilliseconds="0" CacheMode="None">function TimeSpan Expiration(
+	Interfaces.Elasticsearch.AnalyticsRequest query,
+	Interfaces.Elasticsearch.AnalyticsResponse response
+)
+{ 
+	 return CommonLib.Utilities.CreateTimeSpan(0, 1, 0); 
+}</CachingOptions>
+    </Operation>
+  </Endpoint>
+  <RestEndpointDetails BaseUrl="https://api-analytics.zappdev.com/q" IgnoringNullFields="true" />
+</ExternalApi>

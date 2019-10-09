@@ -1,0 +1,98 @@
+<!--
+Copyright (c) CLMS. All rights reserved.
+Licensed under the AGPL-3.0 license. See LICENSE file in the project root for full license information.-->
+
+<ExposedApi DateCreated="" Model_Name="salesForecasts" Model_Description="Receives a Collection of the Sales Forecast regarding the Items. If all entries are imported successfully, returns a success message. If not, returns a failure message." Version="0.1.0">
+  <Operations>
+    <Operation Verb="Post" Path="import" ReturnDataType="Domain.Response" Name="Import" Description="Import Sales Forecasts" AllowAnonymousUsers="False" AllowAllAuthenticated="True" EnableAccessLog="False" ResponseSample="" RequestSample="" AllowPermisssions="" ApplicationTags="">
+      <Parameters>
+        <Parameter DataType="Collection[Domain.SalesForecastDetails]" Required="True" Name="salesForecasts" Description="" />
+      </Parameters>
+      <Code>function Domain.Response Import(Collection[Domain.SalesForecastDetails] salesForecasts)
+{
+	string message;
+	
+	Domain.SalesForecast sForecast;
+	sForecast.ImportDate = DateTime.Now();
+	
+	foreach Domain.SalesForecastDetails: salesForecast in salesForecasts {
+	    DebugLib.Logger.WriteInfoLine("Warehouse: " + salesForecast.Warehouse.Code);
+		if (salesForecast.Item == null || salesForecast.Warehouse == null) {
+		    DebugLib.Logger.WriteInfoLine("NULL");
+			message = message + salesForecast.Id + " ,";
+		    continue;
+		}
+		Domain.Item existingItem = Domain.Item.Find(s=&gt; s.SKU == salesForecast.Item.SKU).First();
+		Domain.Warehouse existingWarehouse = Domain.Warehouse.Find(a=&gt; a.Code == salesForecast.Warehouse.Code).First();
+		if (existingItem == null || existingWarehouse == null) {
+		    message = message + salesForecast.Id + " ,";
+		    continue;
+		}
+		Domain.SalesForecastDetails newSalesForecast;
+		newSalesForecast.Warehouse = existingWarehouse;
+		newSalesForecast.Item = existingItem;
+		newSalesForecast.ForecastDate = salesForecast.ForecastDate;
+		newSalesForecast.Units = salesForecast.Units;
+		newSalesForecast.SalesForecast = sForecast;
+		newSalesForecast.Save();
+		
+	}
+	sForecast.Save();
+	
+	if (!string.IsNullOrEmpty(message)) {
+	    DebugLib.Logger.WriteWarnLine("Error message: " + message);
+	    return Domain.Response.GenerateResponse("Failed", "Failed to import the entries with Ids " + message, "", "-1");
+	}
+	
+	return Domain.Response.GenerateResponse("Succeed", "All entries imported successfully.", "", "1");
+}</Code>
+      <CachingOptions CachePerUser="false" OperationIsCached="false" OverrideDefaultCachingSettings="false" UseCustomExpirationMethod="false" ExpirationDays="0" ExpirationHours="0" ExpirationMinutes="3" ExpirationSeconds="0" ExpirationMilliseconds="0" CacheMode="None">function TimeSpan Expiration(
+	Collection[Domain.SalesForecastDetails] salesForecasts,
+	Domain.Response response
+)
+{ 
+	 return CommonLib.Utilities.CreateTimeSpan(0, 1, 0); 
+}</CachingOptions>
+    </Operation>
+  </Operations>
+  <DataContracts>
+    <DataContract Name="" Class="Domain.Response" BaseClass="">
+      <Members>
+        <Member Name="Id" DataType="int" Checked="False" />
+        <Member Name="Status" DataType="string" Checked="True" />
+        <Member Name="Message" DataType="string" Checked="True" />
+        <Member Name="Details" DataType="string" Checked="True" />
+        <Member Name="Code" DataType="string" Checked="True" />
+      </Members>
+    </DataContract>
+    <DataContract Name="" Class="Domain.Sales" BaseClass="">
+      <Members>
+        <Member Name="Id" DataType="int" Checked="False" />
+        <Member Name="ForecastDate" DataType="DateTime" Checked="True" />
+        <Member Name="Units" DataType="int" Checked="True" />
+        <Member Name="Item" DataType="Domain.Item" Checked="True" />
+        <Member Name="Warehouse" DataType="Domain.Warehouse" Checked="True" />
+      </Members>
+    </DataContract>
+    <DataContract Name="" Class="Domain.SalesForecast" BaseClass="">
+      <Members>
+        <Member Name="Id" DataType="int" Checked="False" />
+        <Member Name="ImportId" DataType="int" Checked="True" />
+        <Member Name="ImportDate" DataType="DateTime" Checked="True" />
+        <Member Name="SalesForecastDetails" DataType="Collection[Domain.SalesForecastDetails]" Checked="True" />
+        <Member Name="OrderForecasts" DataType="Collection[Domain.OrderForecast]" Checked="False" />
+      </Members>
+    </DataContract>
+    <DataContract Name="" Class="Domain.SalesForecastDetails" BaseClass="Sales">
+      <Members>
+        <Member Name="Id" DataType="int" Checked="False" />
+        <Member Name="ForecastDate" DataType="DateTime" Checked="True" />
+        <Member Name="Units" DataType="int" Checked="True" />
+        <Member Name="AvgDailyDemandForecast" DataType="decimal" Checked="False" />
+        <Member Name="ComputedStock" DataType="int" Checked="False" />
+        <Member Name="NewOrder" DataType="int" Checked="False" />
+        <Member Name="SalesForecast" DataType="Domain.SalesForecast" Checked="False" />
+      </Members>
+    </DataContract>
+  </DataContracts>
+</ExposedApi>

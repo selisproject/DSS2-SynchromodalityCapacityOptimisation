@@ -1,0 +1,121 @@
+<!--
+Copyright (c) CLMS. All rights reserved.
+Licensed under the AGPL-3.0 license. See LICENSE file in the project root for full license information.-->
+
+<ExposedApi DateCreated="" Model_Name="OrderForecastService" Model_Description="" Version="0.1.0">
+  <Operations>
+    <Operation Verb="Get" Path="calculate" ReturnDataType="Domain.OrderForecastDetails" Name="CalculateForSKU" Description="" AllowAnonymousUsers="False" AllowAllAuthenticated="True" EnableAccessLog="True" ResponseSample="" RequestSample="" AllowPermisssions="" ApplicationTags="">
+      <Parameters>
+        <Parameter DataType="string" Required="True" Name="sku" Description="" />
+      </Parameters>
+      <Code>function Collection[Domain.OrderForecastDetails] CalculateForSKU(string sku)
+{
+	return Domain.OrderForecastDetails.Find(a=&gt;a.Item.SKU == sku);
+}</Code>
+      <CachingOptions CachePerUser="false" OperationIsCached="false" OverrideDefaultCachingSettings="false" UseCustomExpirationMethod="false" ExpirationDays="0" ExpirationHours="0" ExpirationMinutes="3" ExpirationSeconds="0" ExpirationMilliseconds="0" CacheMode="None">function TimeSpan Expiration(
+	string sku,
+	Domain.OrderForecastDetails response
+)
+{ 
+	 return CommonLib.Utilities.CreateTimeSpan(0, 1, 0); 
+}</CachingOptions>
+    </Operation>
+  </Operations>
+  <DataContracts>
+    <DataContract Name="" Class="Domain.OrderForecastDetails" BaseClass="">
+      <Members>
+        <Member Name="Id" DataType="int" Checked="False" />
+        <Member Name="ReplenishmentCycle" DataType="int" Checked="False" />
+        <Member Name="AutomatedForecast" DataType="int" Checked="False" />
+        <Member Name="Quantity" DataType="decimal" Checked="True" />
+        <Member Name="RoundQuantity" DataType="int" Checked="False" />
+        <Member Name="OrderInventoryDays" DataType="decimal" Checked="False" />
+        <Member Name="RecommendedOrderDate" DataType="DateTime" Checked="True" />
+        <Member Name="SalesForecastDate" DataType="DateTime" Checked="True" />
+        <Member Name="SupplierCanDeliver" DataType="bool" Checked="False" />
+        <Member Name="SupplierMaxQuantity" DataType="decimal" Checked="False" />
+        <Member Name="SupplierCoverageDays" DataType="int" Checked="True" />
+        <Member Name="ItemCoverageDays" DataType="int" Checked="True" />
+        <Member Name="InitialStockLevel" DataType="int" Checked="True" />
+        <Member Name="Warehouse" DataType="Domain.Warehouse" Checked="True" />
+        <Member Name="Item" DataType="Domain.Item" Checked="True" />
+        <Member Name="OrderForecast" DataType="Domain.OrderForecast" Checked="False" />
+      </Members>
+    </DataContract>
+    <DataContract Name="" Class="Domain.Warehouse" BaseClass="">
+      <Members>
+        <Member Name="Id" DataType="int" Checked="False" />
+        <Member Name="Code" DataType="string" Checked="False" />
+        <Member Name="Description" DataType="string" Checked="True" />
+        <Member Name="PastOrders" DataType="Collection[Domain.PastOrder]" Checked="False" />
+      </Members>
+    </DataContract>
+    <DataContract Name="" Class="Domain.Item" BaseClass="">
+      <Members>
+        <Member Name="SKU" DataType="string" Checked="True" />
+        <Member Name="Description" DataType="string" Checked="True" />
+        <Member Name="UPC" DataType="string" Checked="False" />
+        <Member Name="AvgDailyDemand" DataType="decimal" Checked="False" />
+        <Member Name="CoverageDays" DataType="int" Checked="False" />
+        <Member Name="ItemsForecast" DataType="Collection[Domain.Sales]" Checked="False" />
+        <Member Name="StocksOnHand" DataType="Collection[Domain.StockOnHand]" Checked="False" />
+        <Member Name="DeliverySchedules" DataType="Collection[Domain.DeliverySchedule]" Checked="False" />
+        <Member Name="MinimumQuantity" DataType="Domain.MinimumQuantity" Checked="False" />
+        <Member Name="Agreements" DataType="Collection[Domain.Agreement]" Checked="False" />
+        <Member Name="SupplierCapacities" DataType="Collection[Domain.SupplierCapacity]" Checked="False" />
+        <Member Name="Supplier" DataType="Domain.Supplier" Checked="True" />
+        <Member Name="BusinessUnit" DataType="Domain.BusinessUnit" Checked="True" />
+        <Member Name="Category" DataType="Domain.Category" Checked="True" />
+        <Member Name="SubCategory" DataType="Domain.SubCategory" Checked="True" />
+        <Member Name="BaseUnit" DataType="Domain.BaseUnit" Checked="True" />
+        <Member Name="Notifications" DataType="Collection[Domain.Notification]" Checked="False" />
+        <Member Name="PastOrders" DataType="Collection[Domain.PastOrder]" Checked="False" />
+        <Member Name="SLALeadTimes" DataType="Collection[Domain.SLALeadTime]" Checked="False" />
+        <Member Name="SLADeliveries" DataType="Collection[Domain.SLADelivery]" Checked="False" />
+      </Members>
+    </DataContract>
+    <DataContract Name="" Class="Domain.Supplier" BaseClass="Company">
+      <Members>
+        <Member Name="Id" DataType="int" Checked="False" />
+        <Member Name="Code" DataType="string" Checked="False" />
+        <Member Name="Name" DataType="string" Checked="True" />
+        <Member Name="BusinessUnit" DataType="Domain.BusinessUnit" Checked="False" />
+      </Members>
+    </DataContract>
+    <DataContract Name="" Class="Domain.BusinessUnit" BaseClass="">
+      <Members>
+        <Member Name="Id" DataType="int" Checked="False" />
+        <Member Name="Number" DataType="int" Checked="False" />
+        <Member Name="Description" DataType="string" Checked="True" />
+        <Member Name="Supplier" DataType="Domain.Supplier" Checked="False" />
+        <Member Name="Categories" DataType="Collection[Domain.Category]" Checked="False" />
+      </Members>
+    </DataContract>
+    <DataContract Name="" Class="Domain.Category" BaseClass="">
+      <Members>
+        <Member Name="Id" DataType="int" Checked="False" />
+        <Member Name="Number" DataType="int" Checked="False" />
+        <Member Name="Description" DataType="string" Checked="True" />
+        <Member Name="SubCategory" DataType="Collection[Domain.SubCategory]" Checked="False" />
+        <Member Name="BusinessUnit" DataType="Domain.BusinessUnit" Checked="False" />
+      </Members>
+    </DataContract>
+    <DataContract Name="" Class="Domain.SubCategory" BaseClass="">
+      <Members>
+        <Member Name="Id" DataType="int" Checked="False" />
+        <Member Name="Number" DataType="int" Checked="False" />
+        <Member Name="Description" DataType="string" Checked="True" />
+        <Member Name="Category" DataType="Domain.Category" Checked="False" />
+        <Member Name="BaseUnits" DataType="Collection[Domain.BaseUnit]" Checked="False" />
+      </Members>
+    </DataContract>
+    <DataContract Name="" Class="Domain.BaseUnit" BaseClass="">
+      <Members>
+        <Member Name="Id" DataType="int" Checked="False" />
+        <Member Name="Number" DataType="int" Checked="False" />
+        <Member Name="Description" DataType="string" Checked="True" />
+        <Member Name="SubCategory" DataType="Domain.SubCategory" Checked="False" />
+      </Members>
+    </DataContract>
+  </DataContracts>
+</ExposedApi>

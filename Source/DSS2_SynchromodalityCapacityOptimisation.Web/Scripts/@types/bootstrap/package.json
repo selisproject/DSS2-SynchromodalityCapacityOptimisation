@@ -1,0 +1,74 @@
+{
+  "_args": [
+    [
+      "@types/bootstrap@^3.3.33",
+      "C:\\Users\\user\\Documents\\Projects\\Joove.Framework"
+    ]
+  ],
+  "_from": "@types/bootstrap@>=3.3.33 <4.0.0",
+  "_id": "@types/bootstrap@3.3.33",
+  "_inCache": true,
+  "_installable": true,
+  "_location": "/@types/bootstrap",
+  "_npmOperationalInternal": {
+    "host": "packages-18-east.internal.npmjs.com",
+    "tmp": "tmp/bootstrap-3.3.33.tgz_1492451631825_0.5588487426284701"
+  },
+  "_npmUser": {
+    "email": "ts-npm-types@microsoft.com",
+    "name": "types"
+  },
+  "_phantomChildren": {},
+  "_requested": {
+    "name": "@types/bootstrap",
+    "raw": "@types/bootstrap@^3.3.33",
+    "rawSpec": "^3.3.33",
+    "scope": "@types",
+    "spec": ">=3.3.33 <4.0.0",
+    "type": "range"
+  },
+  "_requiredBy": [
+    "#DEV:/"
+  ],
+  "_resolved": "https://registry.npmjs.org/@types/bootstrap/-/bootstrap-3.3.33.tgz",
+  "_shasum": "448220edb42add0a0b702f71225d35905f0cb948",
+  "_shrinkwrap": null,
+  "_spec": "@types/bootstrap@^3.3.33",
+  "_where": "C:\\Users\\user\\Documents\\Projects\\Joove.Framework",
+  "contributors": [
+    {
+      "name": "Boris Yankov",
+      "url": "https://github.com/borisyankov/"
+    }
+  ],
+  "dependencies": {
+    "@types/jquery": "*"
+  },
+  "description": "TypeScript definitions for Bootstrap",
+  "devDependencies": {},
+  "directories": {},
+  "dist": {
+    "shasum": "448220edb42add0a0b702f71225d35905f0cb948",
+    "tarball": "https://registry.npmjs.org/@types/bootstrap/-/bootstrap-3.3.33.tgz"
+  },
+  "license": "MIT",
+  "main": "",
+  "maintainers": [
+    {
+      "email": "ryan.cavanaugh@microsoft.com",
+      "name": "types"
+    }
+  ],
+  "name": "@types/bootstrap",
+  "optionalDependencies": {},
+  "peerDependencies": {},
+  "readme": "ERROR: No README data found!",
+  "repository": {
+    "type": "git",
+    "url": "https://www.github.com/DefinitelyTyped/DefinitelyTyped.git"
+  },
+  "scripts": {},
+  "typeScriptVersion": "2.0",
+  "typesPublisherContentHash": "56289a651bfeb38fbfbc377feb9179aba266e9224e055b6ba9d9c4f77b509625",
+  "version": "3.3.33"
+}

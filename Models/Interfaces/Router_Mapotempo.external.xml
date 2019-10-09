@@ -1,0 +1,72 @@
+<!--
+Copyright (c) CLMS. All rights reserved.
+Licensed under the AGPL-3.0 license. See LICENSE file in the project root for full license information.-->
+
+<ExternalApi DateCreated="" Model_Name="Router_Mapotempo" Model_Description="" Version="">
+  <Endpoint TransportType="HTTP" ProtocolType="REST">
+    <Security SecurityType="None" />
+    <Class Name="Router_MapotempoRoot" OriginalName="Router_MapotempoRoot" Description="" Namespace="" BaseClass="" IsEnum="false">
+      <Attribute Name="type" OriginalName="" Description="" Datatype="string" Length="0" IsPrimary="false" OriginalDataType="" />
+      <Attribute Name="router" OriginalName="" Description="" Datatype="Interfaces.Router_Mapotempo.router" Length="0" IsPrimary="false" OriginalDataType="" />
+      <Attribute Name="features" OriginalName="" Description="" Datatype="Array[Interfaces.Router_Mapotempo.features]" Length="0" IsPrimary="false" OriginalDataType="" />
+    </Class>
+    <Class Name="router" OriginalName="router" Description="" Namespace="" BaseClass="" IsEnum="false">
+      <Attribute Name="version" OriginalName="" Description="" Datatype="string" Length="0" IsPrimary="false" OriginalDataType="" />
+      <Attribute Name="licence" OriginalName="" Description="" Datatype="string" Length="0" IsPrimary="false" OriginalDataType="" />
+      <Attribute Name="attribution" OriginalName="" Description="" Datatype="string" Length="0" IsPrimary="false" OriginalDataType="" />
+    </Class>
+    <Class Name="features" OriginalName="features" Description="" Namespace="" BaseClass="" IsEnum="false">
+      <Attribute Name="properties" OriginalName="" Description="" Datatype="Interfaces.Router_Mapotempo.properties" Length="0" IsPrimary="false" OriginalDataType="" />
+      <Attribute Name="type" OriginalName="" Description="" Datatype="string" Length="0" IsPrimary="false" OriginalDataType="" />
+      <Attribute Name="geometry" OriginalName="" Description="" Datatype="Interfaces.Router_Mapotempo.geometry" Length="0" IsPrimary="false" OriginalDataType="" />
+    </Class>
+    <Class Name="properties" OriginalName="properties" Description="" Namespace="" BaseClass="" IsEnum="false">
+      <Attribute Name="router" OriginalName="" Description="" Datatype="Interfaces.Router_Mapotempo.propertiesRouter" Length="0" IsPrimary="false" OriginalDataType="" />
+    </Class>
+    <Class Name="propertiesRouter" OriginalName="propertiesRouter" Description="" Namespace="" BaseClass="" IsEnum="false">
+      <Attribute Name="total_distance" OriginalName="" Description="" Datatype="decimal" Length="0" IsPrimary="false" OriginalDataType="" />
+      <Attribute Name="total_time" OriginalName="" Description="" Datatype="decimal" Length="0" IsPrimary="false" OriginalDataType="" />
+      <Attribute Name="start_point" OriginalName="" Description="" Datatype="Array[decimal]" Length="0" IsPrimary="false" OriginalDataType="" />
+      <Attribute Name="end_point" OriginalName="" Description="" Datatype="Array[decimal]" Length="0" IsPrimary="false" OriginalDataType="" />
+      <Attribute Name="total_toll_costs" OriginalName="" Description="" Datatype="decimal" Length="0" IsPrimary="false" OriginalDataType="" />
+    </Class>
+    <Class Name="geometry" OriginalName="geometry" Description="" Namespace="" BaseClass="" IsEnum="false">
+      <Attribute Name="coordinates" OriginalName="" Description="" Datatype="Array[int]" Length="0" IsPrimary="false" OriginalDataType="" />
+      <Attribute Name="polylines" OriginalName="" Description="" Datatype="string" Length="0" IsPrimary="false" OriginalDataType="" />
+      <Attribute Name="type" OriginalName="" Description="" Datatype="string" Length="0" IsPrimary="false" OriginalDataType="" />
+    </Class>
+    <Operation Name="route" Description="" Datatype="Interfaces.Router_Mapotempo.Router_MapotempoRoot" OriginalName="" ClientType="" IsStatic="false" AccessLog="false" Verb="GET" Text="" ContentType="JSON" Route="route" Notes="" UserDefinedUrlMethod="false">
+      <Parameters>
+        <Parameter Name="dimension" DataType="string" IsRef="False" IsOut="False" DefaultValue="" Notes="" Type="QueryParameter" Alias="" />
+        <Parameter Name="geometry" DataType="string" IsRef="False" IsOut="False" DefaultValue="" Notes="" Type="QueryParameter" Alias="" />
+        <Parameter Name="motorway" DataType="string" IsRef="False" IsOut="False" DefaultValue="" Notes="" Type="QueryParameter" Alias="" />
+        <Parameter Name="toll" DataType="string" IsRef="False" IsOut="False" DefaultValue="" Notes="" Type="QueryParameter" Alias="" />
+        <Parameter Name="max_walk_distance" DataType="string" IsRef="False" IsOut="False" DefaultValue="" Notes="" Type="QueryParameter" Alias="" />
+        <Parameter Name="currency" DataType="string" IsRef="False" IsOut="False" DefaultValue="" Notes="" Type="QueryParameter" Alias="" />
+        <Parameter Name="lang" DataType="string" IsRef="False" IsOut="False" DefaultValue="" Notes="" Type="QueryParameter" Alias="" />
+        <Parameter Name="loc" DataType="string" IsRef="False" IsOut="False" DefaultValue="" Notes="" Type="QueryParameter" Alias="" />
+        <Parameter Name="api_key" DataType="string" IsRef="False" IsOut="False" DefaultValue="" Notes="" Type="QueryParameter" Alias="" />
+      </Parameters>
+      <Headers>
+        <Header Name="Accept" Value="&quot;application/json&quot;" />
+      </Headers>
+      <GetUrlMethod>return "";</GetUrlMethod>
+      <CachingOptions CachePerUser="false" OperationIsCached="false" OverrideDefaultCachingSettings="false" UseCustomExpirationMethod="false" ExpirationDays="0" ExpirationHours="0" ExpirationMinutes="3" ExpirationSeconds="0" ExpirationMilliseconds="0" CacheMode="None">function TimeSpan Expiration(
+	string dimension,
+	string geometry,
+	string motorway,
+	string toll,
+	string max_walk_distance,
+	string currency,
+	string lang,
+	string loc,
+	string api_key,
+	Interfaces.Router_Mapotempo.Router_MapotempoRoot response
+)
+{ 
+	 return CommonLib.Utilities.CreateTimeSpan(0, 1, 0); 
+}</CachingOptions>
+    </Operation>
+  </Endpoint>
+  <RestEndpointDetails BaseUrl="https://router.mapotempo.com/0.1/" IgnoringNullFields="false" />
+</ExternalApi>

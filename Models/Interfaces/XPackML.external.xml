@@ -1,0 +1,111 @@
+<!--
+Copyright (c) CLMS. All rights reserved.
+Licensed under the AGPL-3.0 license. See LICENSE file in the project root for full license information.-->
+
+<ExternalApi DateCreated="" Model_Name="XPackML" Model_Description="" Version="">
+  <Endpoint TransportType="HTTP" ProtocolType="REST">
+    <Security SecurityType="Basic">
+      <BasicSecurityDetails Username="kview" Password="@2FwBe&amp;#uWER" />
+    </Security>
+    <Class Name="RecordRequest" OriginalName="RecordRequest" Description="" Namespace="" BaseClass="" IsEnum="false">
+      <Attribute Name="query" OriginalName="" Description="" Datatype="Interfaces.XPackML.QueryOperation" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+    </Class>
+    <Class Name="QueryOperation" OriginalName="query" Description="" Namespace="" BaseClass="" IsEnum="false">
+      <Attribute Name="Bool" OriginalName="bool" Description="" Datatype="Interfaces.XPackML.BoolOperation" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+    </Class>
+    <Class Name="BoolOperation" OriginalName="bool" Description="" Namespace="" BaseClass="" IsEnum="false">
+      <Attribute Name="must" OriginalName="" Description="" Datatype="Interfaces.XPackML.MustOperation" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="filter" OriginalName="" Description="" Datatype="Interfaces.XPackML.Filter" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+    </Class>
+    <Class Name="MustOperation" OriginalName="must" Description="" Namespace="" BaseClass="" IsEnum="false">
+      <Attribute Name="query_string" OriginalName="" Description="" Datatype="Interfaces.XPackML.QueryString" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+    </Class>
+    <Class Name="QueryString" OriginalName="query_string" Description="" Namespace="" BaseClass="" IsEnum="false">
+      <Attribute Name="analyze_wildcard" OriginalName="" Description="" Datatype="bool" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="query" OriginalName="" Description="" Datatype="string" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+    </Class>
+    <Class Name="Filter" OriginalName="filter" Description="" Namespace="" BaseClass="" IsEnum="false">
+      <Attribute Name="range" OriginalName="" Description="" Datatype="Interfaces.XPackML.Range" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+    </Class>
+    <Class Name="Range" OriginalName="range" Description="" Namespace="" BaseClass="" IsEnum="false">
+      <Attribute Name="timestamp" OriginalName="" Description="" Datatype="Interfaces.XPackML.Timestamp" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+    </Class>
+    <Class Name="Timestamp" OriginalName="timestamp" Description="" Namespace="" BaseClass="" IsEnum="false">
+      <Attribute Name="gte" OriginalName="" Description="" Datatype="string" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="lte" OriginalName="" Description="" Datatype="string" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+    </Class>
+    <Class Name="Results" OriginalName="Results" Description="" Namespace="" BaseClass="" IsEnum="false">
+      <Attribute Name="hits" OriginalName="hits" Description="" Datatype="Interfaces.XPackML.HitsContainer" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+    </Class>
+    <Class Name="XPackMLRoot" OriginalName="XPackMLRoot" Description="" Namespace="" BaseClass="" IsEnum="false">
+      <Attribute Name="_index" OriginalName="" Description="" Datatype="string" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="_type" OriginalName="" Description="" Datatype="string" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="_id" OriginalName="" Description="" Datatype="string" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="_score" OriginalName="" Description="" Datatype="float" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="source" OriginalName="_source" Description="" Datatype="Interfaces.XPackML.source" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+    </Class>
+    <Class Name="HitsContainer" OriginalName="" Description="" Namespace="" BaseClass="" IsEnum="false">
+      <Attribute Name="total" OriginalName="total" Description="" Datatype="int" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="hits" OriginalName="hits" Description="" Datatype="Collection[Interfaces.XPackML.XPackMLRoot]" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+    </Class>
+    <Class Name="source" OriginalName="_source" Description="" Namespace="" BaseClass="" IsEnum="false">
+      <Attribute Name="job_id" OriginalName="" Description="" Datatype="string" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="result_type" OriginalName="" Description="" Datatype="string" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="probability" OriginalName="" Description="" Datatype="float" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="record_score" OriginalName="" Description="" Datatype="float" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="initial_record_score" OriginalName="" Description="" Datatype="float" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="bucket_span" OriginalName="" Description="" Datatype="int" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="detector_index" OriginalName="" Description="" Datatype="int" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="sequence_num" OriginalName="" Description="" Datatype="int" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="is_interim" OriginalName="" Description="" Datatype="bool" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="timestamp" OriginalName="" Description="" Datatype="decimal" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="partition_field_name" OriginalName="" Description="" Datatype="string" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="partition_field_value" OriginalName="" Description="" Datatype="string" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="function" OriginalName="" Description="" Datatype="string" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="function_description" OriginalName="" Description="" Datatype="string" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="typical" OriginalName="" Description="" Datatype="Array[float]" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="actual" OriginalName="" Description="" Datatype="Array[float]" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="influencers" OriginalName="" Description="" Datatype="Array[Interfaces.XPackML.influencers]" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="keyword" OriginalName="Service.keyword" Description="" Datatype="Array[string]" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+    </Class>
+    <Class Name="influencers" OriginalName="influencers" Description="" Namespace="" BaseClass="" IsEnum="false">
+      <Attribute Name="influencer_field_name" OriginalName="" Description="" Datatype="string" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="influencer_field_values" OriginalName="" Description="" Datatype="Array[string]" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+    </Class>
+    <Operation Name="GetAnomaliesOnMaxElapseTime" Description="" Datatype="Interfaces.XPackML.Results" OriginalName="" ClientType="" IsStatic="false" AccessLog="false" Verb="POST" Text="" ContentType="JSON" Route="/.ml-anomalies-custom-obapi_hm_resp_hits_per_service/_search" Notes="" UserDefinedUrlMethod="true">
+      <Parameters>
+        <Parameter Name="hits" DataType="int" IsRef="False" IsOut="False" DefaultValue="10" Notes="" Type="QueryParameter" Alias="" />
+        <Parameter Name="q" DataType="Interfaces.XPackML.RecordRequest" IsRef="False" IsOut="False" DefaultValue="" Notes="" Type="RequestBody" Alias="" />
+      </Parameters>
+      <Headers />
+      <GetUrlMethod>return "/.ml-anomalies-custom-obapi_hm_resp_elapsed_time_per_service/_search?filter_path=hits.total,hits.max_score,hits.hits._id,hits.hits._source&amp;size=" + hits;</GetUrlMethod>
+      <CachingOptions CachePerUser="false" OperationIsCached="false" OverrideDefaultCachingSettings="false" UseCustomExpirationMethod="false" ExpirationDays="0" ExpirationHours="0" ExpirationMinutes="3" ExpirationSeconds="0" ExpirationMilliseconds="0" CacheMode="None">function TimeSpan Expiration(
+	int hits,
+	Interfaces.XPackML.RecordRequest q,
+	Interfaces.XPackML.Results response
+)
+{ 
+	 return CommonLib.Utilities.CreateTimeSpan(0, 1, 0); 
+}</CachingOptions>
+    </Operation>
+    <Operation Name="GetAnomaliesOnHits" Description="" Datatype="Interfaces.XPackML.Results" OriginalName="" ClientType="" IsStatic="false" AccessLog="false" Verb="POST" Text="" ContentType="JSON" Route="/.ml-anomalies-custom-obapi_hits/_search" Notes="" UserDefinedUrlMethod="true">
+      <Parameters>
+        <Parameter Name="hits" DataType="int" IsRef="False" IsOut="False" DefaultValue="10" Notes="" Type="QueryParameter" Alias="" />
+        <Parameter Name="q" DataType="Interfaces.XPackML.RecordRequest" IsRef="False" IsOut="False" DefaultValue="" Notes="" Type="RequestBody" Alias="" />
+      </Parameters>
+      <Headers />
+      <GetUrlMethod>
+return "/.ml-anomalies-custom-obapi_hm_resp_hits_per_service/_search?size=" + hits;
+</GetUrlMethod>
+      <CachingOptions CachePerUser="false" OperationIsCached="false" OverrideDefaultCachingSettings="false" UseCustomExpirationMethod="false" ExpirationDays="0" ExpirationHours="0" ExpirationMinutes="3" ExpirationSeconds="0" ExpirationMilliseconds="0" CacheMode="None">function TimeSpan Expiration(
+	int hits,
+	Interfaces.XPackML.RecordRequest q,
+	Interfaces.XPackML.Results response
+)
+{ 
+	 return CommonLib.Utilities.CreateTimeSpan(0, 1, 0); 
+}</CachingOptions>
+    </Operation>
+  </Endpoint>
+  <RestEndpointDetails BaseUrl="https://api-analytics.zappdev.com/q" IgnoringNullFields="false" />
+</ExternalApi>

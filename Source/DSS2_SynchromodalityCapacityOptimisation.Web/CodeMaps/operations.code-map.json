@@ -1,0 +1,572 @@
+{
+  "Entries": {
+    "OP|Shipment|Get_CurrentStatus": {
+      "GeneratedSymbol": "DSS2_SynchromodalityCapacityOptimisation.BO.ShipmentExtensions.Get_CurrentStatus",
+      "Lines": {}
+    },
+    "OP|Shipment|MaxVolume": {
+      "GeneratedSymbol": "DSS2_SynchromodalityCapacityOptimisation.BO.ShipmentExtensions.MaxVolume",
+      "Lines": {}
+    },
+    "OP|Shipment|Get_AverageVolume": {
+      "GeneratedSymbol": "DSS2_SynchromodalityCapacityOptimisation.BO.ShipmentExtensions.Get_AverageVolume",
+      "Lines": {}
+    },
+    "OP|Shipment|GetVolumeSpread": {
+      "GeneratedSymbol": "DSS2_SynchromodalityCapacityOptimisation.BO.ShipmentExtensions.GetVolumeSpread",
+      "Lines": {}
+    },
+    "OP|Shipment|OrderFits": {
+      "GeneratedSymbol": "DSS2_SynchromodalityCapacityOptimisation.BO.ShipmentExtensions.OrderFits",
+      "Lines": {}
+    },
+    "OP|Shipment|PrintPath": {
+      "GeneratedSymbol": "DSS2_SynchromodalityCapacityOptimisation.BO.ShipmentExtensions.PrintPath",
+      "Lines": {}
+    },
+    "OP|Shipment|GetCostSplit": {
+      "GeneratedSymbol": "DSS2_SynchromodalityCapacityOptimisation.BO.ShipmentExtensions.GetCostSplit",
+      "Lines": {}
+    },
+    "OP|Shipment|CalculatePathTime": {
+      "GeneratedSymbol": "DSS2_SynchromodalityCapacityOptimisation.BO.ShipmentExtensions.CalculatePathTime",
+      "Lines": {}
+    },
+    "OP|Shipment|CalculatePathDistance": {
+      "GeneratedSymbol": "DSS2_SynchromodalityCapacityOptimisation.BO.ShipmentExtensions.CalculatePathDistance",
+      "Lines": {}
+    },
+    "OP|Shipment|CalculatePathCost": {
+      "GeneratedSymbol": "DSS2_SynchromodalityCapacityOptimisation.BO.ShipmentExtensions.CalculatePathCost",
+      "Lines": {}
+    },
+    "OP|Point|GetLocation": {
+      "GeneratedSymbol": "DSS2_SynchromodalityCapacityOptimisation.BO.PointExtensions.GetLocation",
+      "Lines": {}
+    },
+    "OP|ShippingOrder|NewOperation": {
+      "GeneratedSymbol": "DSS2_SynchromodalityCapacityOptimisation.BO.ShippingOrderExtensions.NewOperation",
+      "Lines": {}
+    },
+    "OP|ShippingOrder|NewOperation1": {
+      "GeneratedSymbol": "DSS2_SynchromodalityCapacityOptimisation.BO.ShippingOrderExtensions.NewOperation1",
+      "Lines": {}
+    },
+    "OP|ShippingOrder|Get_CurrentStatus": {
+      "GeneratedSymbol": "DSS2_SynchromodalityCapacityOptimisation.BO.ShippingOrderExtensions.Get_CurrentStatus",
+      "Lines": {}
+    },
+    "OP|ShippingOrder|CalculateOrderCost": {
+      "GeneratedSymbol": "DSS2_SynchromodalityCapacityOptimisation.BO.ShippingOrderExtensions.CalculateOrderCost",
+      "Lines": {}
+    },
+    "OP|ShippingOrder|Get_AggregateLoad": {
+      "GeneratedSymbol": "DSS2_SynchromodalityCapacityOptimisation.BO.ShippingOrderExtensions.Get_AggregateLoad",
+      "Lines": {}
+    },
+    "OP|ShippingOrder|Get_AggregateVolume": {
+      "GeneratedSymbol": "DSS2_SynchromodalityCapacityOptimisation.BO.ShippingOrderExtensions.Get_AggregateVolume",
+      "Lines": {}
+    },
+    "OP|ShippingOrder|ChangeStatus": {
+      "GeneratedSymbol": "DSS2_SynchromodalityCapacityOptimisation.BO.ShippingOrderExtensions.ChangeStatus",
+      "Lines": {}
+    },
+    "OP|DistanceCosts|SetCost": {
+      "GeneratedSymbol": "DSS2_SynchromodalityCapacityOptimisation.BO.DistanceCostsExtensions.SetCost",
+      "Lines": {}
+    },
+    "OP|TimeCosts|SetCost": {
+      "GeneratedSymbol": "DSS2_SynchromodalityCapacityOptimisation.BO.TimeCostsExtensions.SetCost",
+      "Lines": {}
+    },
+    "OP|OwnershipCost|SetCost": {
+      "GeneratedSymbol": "DSS2_SynchromodalityCapacityOptimisation.BO.OwnershipCostExtensions.SetCost",
+      "Lines": {}
+    },
+    "OP|CustomVolume|Compare": {
+      "GeneratedSymbol": "DSS2_SynchromodalityCapacityOptimisation.BO.CustomVolumeExtensions.Compare",
+      "Lines": {}
+    },
+    "OP|CustomVolume|CustomCopy": {
+      "GeneratedSymbol": "DSS2_SynchromodalityCapacityOptimisation.BO.CustomVolumeExtensions.CustomCopy",
+      "Lines": {}
+    },
+    "OP|OrderStatistics|Initialize": {
+      "GeneratedSymbol": "DSS2_SynchromodalityCapacityOptimisation.BO.OrderStatisticsExtensions.Initialize",
+      "Lines": {}
+    },
+    "OP|OrderStatistics|GetStats": {
+      "GeneratedSymbol": "DSS2_SynchromodalityCapacityOptimisation.BO.OrderStatisticsExtensions.GetStats",
+      "Lines": {}
+    },
+    "OP|OrderWMS|GetOrders": {
+      "GeneratedSymbol": "DSS2_SynchromodalityCapacityOptimisation.BO.OrderWMSExtensions.GetOrders",
+      "Lines": {}
+    },
+    "OP|OrderWMS|GetTopRAs": {
+      "GeneratedSymbol": "DSS2_SynchromodalityCapacityOptimisation.BO.OrderWMSExtensions.GetTopRAs",
+      "Lines": {}
+    },
+    "OP|OrderWMS|GetTopDepositors": {
+      "GeneratedSymbol": "DSS2_SynchromodalityCapacityOptimisation.BO.OrderWMSExtensions.GetTopDepositors",
+      "Lines": {}
+    },
+    "OP|OrderWMS|AssignOrdersTrucks": {
+      "GeneratedSymbol": "DSS2_SynchromodalityCapacityOptimisation.BO.OrderWMSExtensions.AssignOrdersTrucks",
+      "Lines": {}
+    },
+    "OP|OrderWMS|Publish": {
+      "GeneratedSymbol": "DSS2_SynchromodalityCapacityOptimisation.BO.OrderWMSExtensions.Publish",
+      "Lines": {}
+    },
+    "OP|OrderWMS|CopyFields": {
+      "GeneratedSymbol": "DSS2_SynchromodalityCapacityOptimisation.BO.OrderWMSExtensions.CopyFields",
+      "Lines": {}
+    },
+    "OP|OrderWMS|GetOnTime": {
+      "GeneratedSymbol": "DSS2_SynchromodalityCapacityOptimisation.BO.OrderWMSExtensions.GetOnTime",
+      "Lines": {}
+    },
+    "OP|OrderWMS|NewOperation": {
+      "GeneratedSymbol": "DSS2_SynchromodalityCapacityOptimisation.BO.OrderWMSExtensions.NewOperation",
+      "Lines": {}
+    },
+    "OP|RegionalAgent|InitAddressGeocoordinates": {
+      "GeneratedSymbol": "DSS2_SynchromodalityCapacityOptimisation.BO.RegionalAgentExtensions.InitAddressGeocoordinates",
+      "Lines": {}
+    },
+    "OP|Truck|NewOperation": {
+      "GeneratedSymbol": "DSS2_SynchromodalityCapacityOptimisation.BO.TruckExtensions.NewOperation",
+      "Lines": {}
+    },
+    "OP|OrdersPerMonth|GroupOrders": {
+      "GeneratedSymbol": "DSS2_SynchromodalityCapacityOptimisation.BO.OrdersPerMonthExtensions.GroupOrders",
+      "Lines": {}
+    },
+    "OP|OrdersPerMonth|GroupRAOrders": {
+      "GeneratedSymbol": "DSS2_SynchromodalityCapacityOptimisation.BO.OrdersPerMonthExtensions.GroupRAOrders",
+      "Lines": {}
+    },
+    "OP|MapPoints|InitMapPoints": {
+      "GeneratedSymbol": "DSS2_SynchromodalityCapacityOptimisation.BO.MapPointsExtensions.InitMapPoints",
+      "Lines": {}
+    },
+    "OP|MapPoints|OrderDirections": {
+      "GeneratedSymbol": "DSS2_SynchromodalityCapacityOptimisation.BO.MapPointsExtensions.OrderDirections",
+      "Lines": {}
+    },
+    "OP|OrderGenerator|GenerateOrders": {
+      "GeneratedSymbol": "DSS2_SynchromodalityCapacityOptimisation.BO.OrderGeneratorExtensions.GenerateOrders",
+      "Lines": {}
+    },
+    "OP|PubSub|SubscribeOrders": {
+      "GeneratedSymbol": "DSS2_SynchromodalityCapacityOptimisation.BO.PubSubExtensions.SubscribeOrders",
+      "Lines": {}
+    },
+    "OP|PubSub|SubscribeGPS": {
+      "GeneratedSymbol": "DSS2_SynchromodalityCapacityOptimisation.BO.PubSubExtensions.SubscribeGPS",
+      "Lines": {}
+    },
+    "OP|PubSub|SubscribeRecommendation": {
+      "GeneratedSymbol": "DSS2_SynchromodalityCapacityOptimisation.BO.PubSubExtensions.SubscribeRecommendation",
+      "Lines": {}
+    },
+    "OP|PubSub|SubscribeAVGTime": {
+      "GeneratedSymbol": "DSS2_SynchromodalityCapacityOptimisation.BO.PubSubExtensions.SubscribeAVGTime",
+      "Lines": {}
+    },
+    "OP|PubSub|SubscribeETA": {
+      "GeneratedSymbol": "DSS2_SynchromodalityCapacityOptimisation.BO.PubSubExtensions.SubscribeETA",
+      "Lines": {}
+    },
+    "OP|PubSub|SubscribeNTUAETA": {
+      "GeneratedSymbol": "DSS2_SynchromodalityCapacityOptimisation.BO.PubSubExtensions.SubscribeNTUAETA",
+      "Lines": {}
+    },
+    "OP|PubSub|SubscribeNTUAAVGTime": {
+      "GeneratedSymbol": "DSS2_SynchromodalityCapacityOptimisation.BO.PubSubExtensions.SubscribeNTUAAVGTime",
+      "Lines": {}
+    },
+    "OP|PubSub|SubscribeCOE": {
+      "GeneratedSymbol": "DSS2_SynchromodalityCapacityOptimisation.BO.PubSubExtensions.SubscribeCOE",
+      "Lines": {}
+    },
+    "OP|Utils|InitPubMessage": {
+      "GeneratedSymbol": "DSS2_SynchromodalityCapacityOptimisation.BO.UtilsExtensions.InitPubMessage",
+      "Lines": {}
+    },
+    "OP|Utils|DesirializePubMessage": {
+      "GeneratedSymbol": "DSS2_SynchromodalityCapacityOptimisation.BO.UtilsExtensions.DesirializePubMessage",
+      "Lines": {}
+    },
+    "OP|Utils|InitOrderWMS": {
+      "GeneratedSymbol": "DSS2_SynchromodalityCapacityOptimisation.BO.UtilsExtensions.InitOrderWMS",
+      "Lines": {}
+    },
+    "OP|Utils|DeserializeMessage": {
+      "GeneratedSymbol": "DSS2_SynchromodalityCapacityOptimisation.BO.UtilsExtensions.DeserializeMessage",
+      "Lines": {}
+    },
+    "OP|Utils|InitTruckPositions": {
+      "GeneratedSymbol": "DSS2_SynchromodalityCapacityOptimisation.BO.UtilsExtensions.InitTruckPositions",
+      "Lines": {}
+    },
+    "OP|Utils|ConvertToTimestampFormat": {
+      "GeneratedSymbol": "DSS2_SynchromodalityCapacityOptimisation.BO.UtilsExtensions.ConvertToTimestampFormat",
+      "Lines": {}
+    },
+    "OP|GPSLocation|Publish": {
+      "GeneratedSymbol": "DSS2_SynchromodalityCapacityOptimisation.BO.GPSLocationExtensions.Publish",
+      "Lines": {}
+    },
+    "OP|DashboardStatistics|CalculatePoDStats": {
+      "GeneratedSymbol": "DSS2_SynchromodalityCapacityOptimisation.BO.DashboardStatisticsExtensions.CalculatePoDStats",
+      "Lines": {}
+    },
+    "OP|ScheduledRouteTemplate|GetTemplatesRA": {
+      "GeneratedSymbol": "DSS2_SynchromodalityCapacityOptimisation.BO.ScheduledRouteTemplateExtensions.GetTemplatesRA",
+      "Lines": {}
+    },
+    "OP|ScheduledRouteTemplate|GetAvailableRATemplates": {
+      "GeneratedSymbol": "DSS2_SynchromodalityCapacityOptimisation.BO.ScheduledRouteTemplateExtensions.GetAvailableRATemplates",
+      "Lines": {}
+    },
+    "OP|ScheduledRouteTemplate|GetTemplatesFromLSP": {
+      "GeneratedSymbol": "DSS2_SynchromodalityCapacityOptimisation.BO.ScheduledRouteTemplateExtensions.GetTemplatesFromLSP",
+      "Lines": {}
+    },
+    "OP|ScheduledRouteTemplate|GetAvailableLSPTemplates": {
+      "GeneratedSymbol": "DSS2_SynchromodalityCapacityOptimisation.BO.ScheduledRouteTemplateExtensions.GetAvailableLSPTemplates",
+      "Lines": {}
+    },
+    "OP|ScheduledRoute|GetHistoricalRoutes": {
+      "GeneratedSymbol": "DSS2_SynchromodalityCapacityOptimisation.BO.ScheduledRouteExtensions.GetHistoricalRoutes",
+      "Lines": {}
+    },
+    "OP|WorkContract|GetMyWorkContracts": {
+      "GeneratedSymbol": "DSS2_SynchromodalityCapacityOptimisation.BO.WorkContractExtensions.GetMyWorkContracts",
+      "Lines": {}
+    },
+    "OP|Response|GenerateResponse": {
+      "GeneratedSymbol": "DSS2_SynchromodalityCapacityOptimisation.BO.ResponseExtensions.GenerateResponse",
+      "Lines": {}
+    },
+    "OP|AppNotification|CreateAppNotification": {
+      "GeneratedSymbol": "DSS2_SynchromodalityCapacityOptimisation.BO.AppNotificationExtensions.CreateAppNotification",
+      "Lines": {}
+    },
+    "OP|Statistics|CalculateFullStatistics": {
+      "GeneratedSymbol": "DSS2_SynchromodalityCapacityOptimisation.BO.StatisticsExtensions.CalculateFullStatistics",
+      "Lines": {}
+    },
+    "OP|Statistics|FindTotalUnitsForSKU": {
+      "GeneratedSymbol": "DSS2_SynchromodalityCapacityOptimisation.BO.StatisticsExtensions.FindTotalUnitsForSKU",
+      "Lines": {}
+    },
+    "OP|Statistics|TotalForEachSKU": {
+      "GeneratedSymbol": "DSS2_SynchromodalityCapacityOptimisation.BO.StatisticsExtensions.TotalForEachSKU",
+      "Lines": {}
+    },
+    "OP|Statistics|GetForecastedStockLevel": {
+      "GeneratedSymbol": "DSS2_SynchromodalityCapacityOptimisation.BO.StatisticsExtensions.GetForecastedStockLevel",
+      "Lines": {}
+    },
+    "OP|Statistics|CurrentStockLevel": {
+      "GeneratedSymbol": "DSS2_SynchromodalityCapacityOptimisation.BO.StatisticsExtensions.CurrentStockLevel",
+      "Lines": {}
+    },
+    "OP|Statistics|LeadTimeWeekDay": {
+      "GeneratedSymbol": "DSS2_SynchromodalityCapacityOptimisation.BO.StatisticsExtensions.LeadTimeWeekDay",
+      "Lines": {}
+    },
+    "OP|Statistics|OrderForecastVsSupCapacityNew": {
+      "GeneratedSymbol": "DSS2_SynchromodalityCapacityOptimisation.BO.StatisticsExtensions.OrderForecastVsSupCapacityNew",
+      "Lines": {}
+    },
+    "OP|Statistics|OrderForecastVsSupCapacity": {
+      "GeneratedSymbol": "DSS2_SynchromodalityCapacityOptimisation.BO.StatisticsExtensions.OrderForecastVsSupCapacity",
+      "Lines": {}
+    },
+    "OP|Statistics|StockSKU": {
+      "GeneratedSymbol": "DSS2_SynchromodalityCapacityOptimisation.BO.StatisticsExtensions.StockSKU",
+      "Lines": {}
+    },
+    "OP|MakeRequest|Query": {
+      "GeneratedSymbol": "DSS2_SynchromodalityCapacityOptimisation.BO.MakeRequestExtensions.Query",
+      "Lines": {}
+    },
+    "OP|MakeRequest|Analytics": {
+      "GeneratedSymbol": "DSS2_SynchromodalityCapacityOptimisation.BO.MakeRequestExtensions.Analytics",
+      "Lines": {}
+    },
+    "OP|MakeRequest|GetTermQuery": {
+      "GeneratedSymbol": "DSS2_SynchromodalityCapacityOptimisation.BO.MakeRequestExtensions.GetTermQuery",
+      "Lines": {}
+    },
+    "OP|MakeRequest|GetStatQuery": {
+      "GeneratedSymbol": "DSS2_SynchromodalityCapacityOptimisation.BO.MakeRequestExtensions.GetStatQuery",
+      "Lines": {}
+    },
+    "OP|MakeRequest|GetQueryStringQuery": {
+      "GeneratedSymbol": "DSS2_SynchromodalityCapacityOptimisation.BO.MakeRequestExtensions.GetQueryStringQuery",
+      "Lines": {}
+    },
+    "OP|MakeRequest|GetHistogramQuery": {
+      "GeneratedSymbol": "DSS2_SynchromodalityCapacityOptimisation.BO.MakeRequestExtensions.GetHistogramQuery",
+      "Lines": {}
+    },
+    "OP|MakeRequest|GetBucketHistogramQuery": {
+      "GeneratedSymbol": "DSS2_SynchromodalityCapacityOptimisation.BO.MakeRequestExtensions.GetBucketHistogramQuery",
+      "Lines": {}
+    },
+    "OP|MakeRequest|GetFilterByTimePeriod": {
+      "GeneratedSymbol": "DSS2_SynchromodalityCapacityOptimisation.BO.MakeRequestExtensions.GetFilterByTimePeriod",
+      "Lines": {}
+    },
+    "OP|MakeRequest|SortByTimestamp": {
+      "GeneratedSymbol": "DSS2_SynchromodalityCapacityOptimisation.BO.MakeRequestExtensions.SortByTimestamp",
+      "Lines": {}
+    },
+    "OP|MakeRequest|GetQuery": {
+      "GeneratedSymbol": "DSS2_SynchromodalityCapacityOptimisation.BO.MakeRequestExtensions.GetQuery",
+      "Lines": {}
+    },
+    "OP|MakeRequest|GetAggregations": {
+      "GeneratedSymbol": "DSS2_SynchromodalityCapacityOptimisation.BO.MakeRequestExtensions.GetAggregations",
+      "Lines": {}
+    },
+    "OP|MakeRequest|GetErrorFilter": {
+      "GeneratedSymbol": "DSS2_SynchromodalityCapacityOptimisation.BO.MakeRequestExtensions.GetErrorFilter",
+      "Lines": {}
+    },
+    "OP|MakeRequest|GetInterval": {
+      "GeneratedSymbol": "DSS2_SynchromodalityCapacityOptimisation.BO.MakeRequestExtensions.GetInterval",
+      "Lines": {}
+    },
+    "OP|MakeRequest|GetDateFormat": {
+      "GeneratedSymbol": "DSS2_SynchromodalityCapacityOptimisation.BO.MakeRequestExtensions.GetDateFormat",
+      "Lines": {}
+    },
+    "OP|Convertor|ToBucket": {
+      "GeneratedSymbol": "DSS2_SynchromodalityCapacityOptimisation.BO.ConvertorExtensions.ToBucket",
+      "Lines": {}
+    },
+    "OP|Convertor|ToRequestLog": {
+      "GeneratedSymbol": "DSS2_SynchromodalityCapacityOptimisation.BO.ConvertorExtensions.ToRequestLog",
+      "Lines": {}
+    },
+    "OP|Convertor|ToDateHistBucket": {
+      "GeneratedSymbol": "DSS2_SynchromodalityCapacityOptimisation.BO.ConvertorExtensions.ToDateHistBucket",
+      "Lines": {}
+    },
+    "OP|Convertor|ToHistBucket": {
+      "GeneratedSymbol": "DSS2_SynchromodalityCapacityOptimisation.BO.ConvertorExtensions.ToHistBucket",
+      "Lines": {}
+    },
+    "OP|Convertor|ErrorRateToBucket": {
+      "GeneratedSymbol": "DSS2_SynchromodalityCapacityOptimisation.BO.ConvertorExtensions.ErrorRateToBucket",
+      "Lines": {}
+    },
+    "OP|QueryBuilder|GetClientToken": {
+      "GeneratedSymbol": "DSS2_SynchromodalityCapacityOptimisation.BO.QueryBuilderExtensions.GetClientToken",
+      "Lines": {}
+    },
+    "OP|QueryBuilder|GetQuery": {
+      "GeneratedSymbol": "DSS2_SynchromodalityCapacityOptimisation.BO.QueryBuilderExtensions.GetQuery",
+      "Lines": {}
+    },
+    "OP|Category|calcCompaniesOfBusinessUnit": {
+      "GeneratedSymbol": "DSS2_SynchromodalityCapacityOptimisation.BO.CategoryExtensions.calcCompaniesOfBusinessUnit",
+      "Lines": {}
+    },
+    "OP|Item|Exists": {
+      "GeneratedSymbol": "DSS2_SynchromodalityCapacityOptimisation.BO.ItemExtensions.Exists",
+      "Lines": {}
+    },
+    "OP|Item|GetUnitsOfStock": {
+      "GeneratedSymbol": "DSS2_SynchromodalityCapacityOptimisation.BO.ItemExtensions.GetUnitsOfStock",
+      "Lines": {}
+    },
+    "OP|Item|ItemsInSelectedForecast": {
+      "GeneratedSymbol": "DSS2_SynchromodalityCapacityOptimisation.BO.ItemExtensions.ItemsInSelectedForecast",
+      "Lines": {}
+    },
+    "OP|WasteOld|CreateWastePerSKU": {
+      "GeneratedSymbol": "DSS2_SynchromodalityCapacityOptimisation.BO.WasteOldExtensions.CreateWastePerSKU",
+      "Lines": {}
+    },
+    "OP|Notification|CreateNotifications": {
+      "GeneratedSymbol": "DSS2_SynchromodalityCapacityOptimisation.BO.NotificationExtensions.CreateNotifications",
+      "Lines": {}
+    },
+    "OP|Notification|GetNotifications": {
+      "GeneratedSymbol": "DSS2_SynchromodalityCapacityOptimisation.BO.NotificationExtensions.GetNotifications",
+      "Lines": {}
+    },
+    "OP|Notification|CreateNotificationsForAll": {
+      "GeneratedSymbol": "DSS2_SynchromodalityCapacityOptimisation.BO.NotificationExtensions.CreateNotificationsForAll",
+      "Lines": {}
+    },
+    "OP|OrderForecastStatistic|ShowOrderForecastStats": {
+      "GeneratedSymbol": "DSS2_SynchromodalityCapacityOptimisation.BO.OrderForecastStatisticExtensions.ShowOrderForecastStats",
+      "Lines": {}
+    },
+    "OP|OrderForecastStatistic|OrderForecastForSKU": {
+      "GeneratedSymbol": "DSS2_SynchromodalityCapacityOptimisation.BO.OrderForecastStatisticExtensions.OrderForecastForSKU",
+      "Lines": {}
+    },
+    "OP|OrderForecastDetails|CalculateReplenishmentCycle": {
+      "GeneratedSymbol": "DSS2_SynchromodalityCapacityOptimisation.BO.OrderForecastDetailsExtensions.CalculateReplenishmentCycle",
+      "Lines": {}
+    },
+    "OP|OrderForecastDetails|Get_OrderInventoryDays": {
+      "GeneratedSymbol": "DSS2_SynchromodalityCapacityOptimisation.BO.OrderForecastDetailsExtensions.Get_OrderInventoryDays",
+      "Lines": {}
+    },
+    "OP|OrderForecastDetails|Get_RoundQuantity": {
+      "GeneratedSymbol": "DSS2_SynchromodalityCapacityOptimisation.BO.OrderForecastDetailsExtensions.Get_RoundQuantity",
+      "Lines": {}
+    },
+    "OP|OrderForecastDetails|GetQuantity": {
+      "GeneratedSymbol": "DSS2_SynchromodalityCapacityOptimisation.BO.OrderForecastDetailsExtensions.GetQuantity",
+      "Lines": {}
+    },
+    "OP|OrderForecastDetails|CalculateRecommendedOrderDate": {
+      "GeneratedSymbol": "DSS2_SynchromodalityCapacityOptimisation.BO.OrderForecastDetailsExtensions.CalculateRecommendedOrderDate",
+      "Lines": {}
+    },
+    "OP|OrderForecastDetails|CalculateOrderProposal": {
+      "GeneratedSymbol": "DSS2_SynchromodalityCapacityOptimisation.BO.OrderForecastDetailsExtensions.CalculateOrderProposal",
+      "Lines": {}
+    },
+    "OP|OrderForecastDetails|ApplyCoverageDay": {
+      "GeneratedSymbol": "DSS2_SynchromodalityCapacityOptimisation.BO.OrderForecastDetailsExtensions.ApplyCoverageDay",
+      "Lines": {}
+    },
+    "OP|OrderForecastDetails|CalcItemsWarehouseSalesForecast": {
+      "GeneratedSymbol": "DSS2_SynchromodalityCapacityOptimisation.BO.OrderForecastDetailsExtensions.CalcItemsWarehouseSalesForecast",
+      "Lines": {}
+    },
+    "OP|OrderForecastDetails|GetStartingStock": {
+      "GeneratedSymbol": "DSS2_SynchromodalityCapacityOptimisation.BO.OrderForecastDetailsExtensions.GetStartingStock",
+      "Lines": {}
+    },
+    "OP|OrderForecastDetails|GetDictionaryKey": {
+      "GeneratedSymbol": "DSS2_SynchromodalityCapacityOptimisation.BO.OrderForecastDetailsExtensions.GetDictionaryKey",
+      "Lines": {}
+    },
+    "OP|OrderForecastDetails|MakeOrders": {
+      "GeneratedSymbol": "DSS2_SynchromodalityCapacityOptimisation.BO.OrderForecastDetailsExtensions.MakeOrders",
+      "Lines": {}
+    },
+    "OP|OrderForecastDetails|UnitsToPallets": {
+      "GeneratedSymbol": "DSS2_SynchromodalityCapacityOptimisation.BO.OrderForecastDetailsExtensions.UnitsToPallets",
+      "Lines": {}
+    },
+    "OP|OrderForecastDetails|PalletsToUnits": {
+      "GeneratedSymbol": "DSS2_SynchromodalityCapacityOptimisation.BO.OrderForecastDetailsExtensions.PalletsToUnits",
+      "Lines": {}
+    },
+    "OP|OrderForecastDetails|CheckNextDeliveryDay": {
+      "GeneratedSymbol": "DSS2_SynchromodalityCapacityOptimisation.BO.OrderForecastDetailsExtensions.CheckNextDeliveryDay",
+      "Lines": {}
+    },
+    "OP|OrderForecastDetails|FixOFDates": {
+      "GeneratedSymbol": "DSS2_SynchromodalityCapacityOptimisation.BO.OrderForecastDetailsExtensions.FixOFDates",
+      "Lines": {}
+    },
+    "OP|OrderForecast|CopyOrderForecastToNew": {
+      "GeneratedSymbol": "DSS2_SynchromodalityCapacityOptimisation.BO.OrderForecastExtensions.CopyOrderForecastToNew",
+      "Lines": {}
+    },
+    "OP|PastOrder|DiffDates": {
+      "GeneratedSymbol": "DSS2_SynchromodalityCapacityOptimisation.BO.PastOrderExtensions.DiffDates",
+      "Lines": {}
+    },
+    "OP|SalesForecastDetails|ComputeAllAvgDailyDemandForecastPerSKUPerWareHouse": {
+      "GeneratedSymbol": "DSS2_SynchromodalityCapacityOptimisation.BO.SalesForecastDetailsExtensions.ComputeAllAvgDailyDemandForecastPerSKUPerWareHouse",
+      "Lines": {}
+    },
+    "OP|SLALeadTime|ItemLeadTimePercentageWithCriteria": {
+      "GeneratedSymbol": "DSS2_SynchromodalityCapacityOptimisation.BO.SLALeadTimeExtensions.ItemLeadTimePercentageWithCriteria",
+      "Lines": {}
+    },
+    "OP|SLALeadTime|ItemLeadTimePercentage": {
+      "GeneratedSymbol": "DSS2_SynchromodalityCapacityOptimisation.BO.SLALeadTimeExtensions.ItemLeadTimePercentage",
+      "Lines": {}
+    },
+    "OP|SLADelivery|ItemDeliveryPercentageWithCriteria": {
+      "GeneratedSymbol": "DSS2_SynchromodalityCapacityOptimisation.BO.SLADeliveryExtensions.ItemDeliveryPercentageWithCriteria",
+      "Lines": {}
+    },
+    "OP|Platform|CalculateOrderForecastAccuracy": {
+      "GeneratedSymbol": "DSS2_SynchromodalityCapacityOptimisation.BO.PlatformExtensions.CalculateOrderForecastAccuracy",
+      "Lines": {}
+    },
+    "OP|Platform|CalculatePlatform": {
+      "GeneratedSymbol": "DSS2_SynchromodalityCapacityOptimisation.BO.PlatformExtensions.CalculatePlatform",
+      "Lines": {}
+    },
+    "OP|InventoryDaysKPI|InventoryDaysKPIWithCriteria": {
+      "GeneratedSymbol": "DSS2_SynchromodalityCapacityOptimisation.BO.InventoryDaysKPIExtensions.InventoryDaysKPIWithCriteria",
+      "Lines": {}
+    },
+    "OP|InventoryDaysKPI|InventoryDaysKPI": {
+      "GeneratedSymbol": "DSS2_SynchromodalityCapacityOptimisation.BO.InventoryDaysKPIExtensions.InventoryDaysKPI",
+      "Lines": {}
+    },
+    "OP|UnitsKPI|UnitsKPIWithCriteria": {
+      "GeneratedSymbol": "DSS2_SynchromodalityCapacityOptimisation.BO.UnitsKPIExtensions.UnitsKPIWithCriteria",
+      "Lines": {}
+    },
+    "OP|UnitsKPI|UnitsKPI": {
+      "GeneratedSymbol": "DSS2_SynchromodalityCapacityOptimisation.BO.UnitsKPIExtensions.UnitsKPI",
+      "Lines": {}
+    },
+    "OP|Stats|ItemSLADeiveryWithCriteria": {
+      "GeneratedSymbol": "DSS2_SynchromodalityCapacityOptimisation.BO.StatsExtensions.ItemSLADeiveryWithCriteria",
+      "Lines": {}
+    },
+    "OP|Stats|ItemSLADeivery": {
+      "GeneratedSymbol": "DSS2_SynchromodalityCapacityOptimisation.BO.StatsExtensions.ItemSLADeivery",
+      "Lines": {}
+    },
+    "OP|Stats|itemSLALeadTime": {
+      "GeneratedSymbol": "DSS2_SynchromodalityCapacityOptimisation.BO.StatsExtensions.itemSLALeadTime",
+      "Lines": {}
+    },
+    "OP|Stats|ItemWaste": {
+      "GeneratedSymbol": "DSS2_SynchromodalityCapacityOptimisation.BO.StatsExtensions.ItemWaste",
+      "Lines": {}
+    },
+    "OP|StockOnHand|DailyStock": {
+      "GeneratedSymbol": "DSS2_SynchromodalityCapacityOptimisation.BO.StockOnHandExtensions.DailyStock",
+      "Lines": {}
+    },
+    "OP|StockOnHand|CalculateCurrentInventoryDays": {
+      "GeneratedSymbol": "DSS2_SynchromodalityCapacityOptimisation.BO.StockOnHandExtensions.CalculateCurrentInventoryDays",
+      "Lines": {}
+    },
+    "OP|Warehouse|InitWarehouse": {
+      "GeneratedSymbol": "DSS2_SynchromodalityCapacityOptimisation.BO.WarehouseExtensions.InitWarehouse",
+      "Lines": {}
+    },
+    "OP|XPackLog|Transform": {
+      "GeneratedSymbol": "DSS2_SynchromodalityCapacityOptimisation.BO.XPackLogExtensions.Transform",
+      "Lines": {}
+    },
+    "OP|XPackLog|GetRecordRequest": {
+      "GeneratedSymbol": "DSS2_SynchromodalityCapacityOptimisation.BO.XPackLogExtensions.GetRecordRequest",
+      "Lines": {}
+    },
+    "OP|FileData|GetAbsolutePath": {
+      "GeneratedSymbol": "DSS2_SynchromodalityCapacityOptimisation.BO.FileDataExtensions.GetAbsolutePath",
+      "Lines": {}
+    },
+    "OP|FileData|GetThumbnail": {
+      "GeneratedSymbol": "DSS2_SynchromodalityCapacityOptimisation.BO.FileDataExtensions.GetThumbnail",
+      "Lines": {}
+    }
+  }
+}

@@ -1,0 +1,35 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+    <Copyright>Copyright © CLMS 2018</Copyright>
+    <Company>CLMS</Company>
+    <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
+    <AssemblyName>ExternalStructs</AssemblyName>
+    <RootNamespace>ExternalStructs</RootNamespace>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(TargetFramework)' == 'netcoreapp2.2'">
+    <DefineConstants>$(DefineConstants);NETSTANDARD</DefineConstants>
+  </PropertyGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Compile Include="DisruptionAPIStructs.cs" />
+    <Compile Include="ElasticsearchStructs.cs" />
+    <Compile Include="GoogleDirectionsStructs.cs" />
+    <Compile Include="GoogleDistanceMatrixAPIStructs.cs" />
+    <Compile Include="GoogleGeocodeStructs.cs" />
+    <Compile Include="LocalPubSubStructs.cs" />
+    <Compile Include="MapotempoStructs.cs" />
+    <Compile Include="Optimizer_MapotempoStructs.cs" />
+    <Compile Include="Router_MapotempoStructs.cs" />
+    <Compile Include="XPackMLStructs.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\LICENSE.txt" Pack="true" PackagePath="$(PackageLicenseFile)" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.2" />
+  </ItemGroup>
+  <ItemGroup />
+</Project>

@@ -1,0 +1,32 @@
+﻿<div class="dv-panel validation-panel" jb-type="ValidationPanel" ng-show="_showDvPanel && _validations.summary.length > 0" ng-init="_dvSummaryVisible = false;">
+    <div class="dv-header">        
+        <h2 ng-click="_dvSummaryVisible = !_dvSummaryVisible" class="dv-title">
+            <span ng-show="_validations.summary.length > 1">{{_validations.summary.length}} {{headingPlural}}</span>
+            <span ng-show="_validations.summary.length == 1">{{headingSingular}}</span>
+        </h2>
+
+        <div class="dv-tools pull-right">
+            <span ng-click="_dvSummaryVisible = !_dvSummaryVisible"
+                  ng-class="{'glyphicon-chevron-down': _dvSummaryVisible === true, 'glyphicon-chevron-up': _dvSummaryVisible === false }"
+                  class="glyphicon dv-collapse"></span>
+
+            <span ng-click="hide()"
+                  class="glyphicon glyphicon-remove dv-close"></span>
+        </div>
+    </div>
+
+    <div class="dv-summary" ng-show="_dvSummaryVisible">
+        <div class="dv-entry" 
+             ng-click="navigateToControl(i, $event)"
+             ng-class="{'dv-error': i.rule == null || i.rule.dataValidationMessageType == 3, 'dv-warning': i.rule.dataValidationMessageType == 2, 'dv-info': i.rule.dataValidationMessageType == 1}"
+             ng-repeat="i in _validations.summary">         
+
+            <i class="dv-icon glyphicon"
+               ng-class="{'glyphicon-remove-sign': i.rule == null || i.rule.dataValidationMessageType == 3, 'glyphicon-exclamation-sign': i.rule.dataValidationMessageType == 2, 'glyphicon-info-sign': i.rule.dataValidationMessageType == 1}"></i>
+
+            <span class="dv-message">{{i.message}}</span>
+
+            <span class="dv-goto glyphicon glyphicon-search" ng-click="navigateToControl(i, $event)"></span>
+        </div>
+    </div>
+</div>

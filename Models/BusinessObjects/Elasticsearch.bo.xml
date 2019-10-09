@@ -1,0 +1,419 @@
+<!--
+Copyright (c) CLMS. All rights reserved.
+Licensed under the AGPL-3.0 license. See LICENSE file in the project root for full license information.-->
+
+<BusinessObject Model_Name="Elasticsearch" Model_Description="" Model_Creator="">
+  <Associations />
+  <Classes>
+    <Class ModelName="Elasticsearch" Name="MakeRequest" ShadowModel="" ShadowClass="" Description="" Stereotype="Class" PK="" ConcurencyControl="false" AutoAssignPrimaryKey="false" IdGeneratorType="HiLoGenerator" IsPersisted="false" IsStatic="false" BaseClass="" BaseClasses="" BaseModel="">
+      <DiagramInfo IsExpanded="true" Width="196.734375" Height="180" Top="0" Left="174" />
+      <Attributes />
+      <Operations>
+        <Operation Name="Query" Description="" Syntax="" RuleType="Default" EventName="" ApplyToAttribute="" BaseInfo="" IsStatic="true" IsInherited="false" IsExternal="false">static function Interfaces.Elasticsearch.SearchRequest Query(string q, string fromDate, string toDate)
+{
+  Interfaces.Elasticsearch.SearchRequest searchObject;
+  
+  // Add sorting information  
+  Collection[Interfaces.Elasticsearch.Sort] sorts;
+  sorts.Add(Domain.MakeRequest.SortByTimestamp("desc"));
+  searchObject.sort = sorts;
+  
+  // Add search &amp; filter
+  searchObject.query = Domain.MakeRequest.GetQuery(q, fromDate, toDate);
+
+  // Add meta information
+  Interfaces.Elasticsearch.Meta meta;
+  meta.excludes = { "message" };
+  searchObject.source = meta;
+
+  return searchObject;
+}</Operation>
+        <Operation Name="Analytics" Description="" Syntax="" RuleType="Default" EventName="" ApplyToAttribute="" BaseInfo="" IsStatic="true" IsInherited="false" IsExternal="false">static function Interfaces.Elasticsearch.AnalyticsRequest Analytics(string q, string fromDate, string toDate)
+{
+    Interfaces.Elasticsearch.AnalyticsRequest analyticsObject;
+
+    analyticsObject.query = Domain.MakeRequest.GetQuery(q, fromDate, toDate);
+
+	var interval = Domain.MakeRequest.GetInterval(fromDate);
+	analyticsObject.aggs = Domain.MakeRequest.GetAggregations(interval);
+	// Add meta information
+	Interfaces.Elasticsearch.Meta meta;
+	meta.excludes = { "message" };
+	analyticsObject.source = meta;
+	
+	return analyticsObject;
+}</Operation>
+        <Operation Name="GetTermQuery" Description="" Syntax="" RuleType="Default" EventName="" ApplyToAttribute="" BaseInfo="" IsStatic="true" IsInherited="false" IsExternal="false">static function Interfaces.Elasticsearch.TermAggregatorRoot GetTermQuery(string field, int size, bool aggsEnable)
+{
+	Interfaces.Elasticsearch.TermAggregatorRoot q;
+	Interfaces.Elasticsearch.TermAggregator term;
+	q.terms = term;
+	term.field = field;
+
+	if (aggsEnable) {
+		Interfaces.Elasticsearch.TermsAggregationRequest aggs;
+		q.Aggs = aggs;
+		q.Aggs.ResposeStatus = Domain.MakeRequest.GetErrorFilter();
+		q.Aggs.ResponseTime = Domain.MakeRequest.GetStatQuery("ElapsedMsecs");
+	}
+
+	if (size &gt; 0) {
+		term.size = size;
+	} 
+	return q;
+}</Operation>
+        <Operation Name="GetStatQuery" Description="" Syntax="" RuleType="Default" EventName="" ApplyToAttribute="" BaseInfo="" IsStatic="true" IsInherited="false" IsExternal="false">static function Interfaces.Elasticsearch.StatsAggregatorRoot GetStatQuery(string field)
+{
+	Interfaces.Elasticsearch.StatsAggregatorRoot q;
+	Interfaces.Elasticsearch.StatsAggregator stats;
+	q.stats = stats;
+	stats.field = field;
+	return q;
+}</Operation>
+        <Operation Name="GetQueryStringQuery" Description="" Syntax="" RuleType="Default" EventName="" ApplyToAttribute="" BaseInfo="" IsStatic="true" IsInherited="false" IsExternal="false">static function Interfaces.Elasticsearch.Must GetQueryStringQuery(
+	string q
+)
+{
+	Interfaces.Elasticsearch.Must must;
+
+    if (string.IsNullOrEmpty(q)) {
+        CommonLib.Serializer[Interfaces.Elasticsearch.MatchAll] serializer;
+        must.match_all = serializer.FromJson("{\"must\": {\"match_all\": {}}");
+    } else {
+        Interfaces.Elasticsearch.QueryString queryString;
+        queryString.AnalyzeWildcard = true;
+        queryString.Query = q;
+	    must.QueryString = queryString;
+    }
+    return must;
+}</Operation>
+        <Operation Name="GetHistogramQuery" Description="" Syntax="" RuleType="Default" EventName="" ApplyToAttribute="" BaseInfo="" IsStatic="true" IsInherited="false" IsExternal="false">static function Interfaces.Elasticsearch.HistogramRoot GetHistogramQuery(string field, string interval)
+{
+	Interfaces.Elasticsearch.HistogramRoot q;
+	Interfaces.Elasticsearch.Histogram hist;
+	q.DateHistogram = hist;
+	hist.Field = field;
+	hist.Interval = interval;
+	hist.Format = Domain.MakeRequest.GetDateFormat(interval);
+	hist.Offset = "+0h";
+	
+	Interfaces.Elasticsearch.Statistics stats;
+	
+	stats.statistics = Domain.MakeRequest.GetStatQuery("ElapsedMsecs");
+	stats.errors = Domain.MakeRequest.GetErrorFilter();
+	
+	q.Aggregator = stats;
+	
+	return q;
+}</Operation>
+        <Operation Name="GetBucketHistogramQuery" Description="" Syntax="" RuleType="Default" EventName="" ApplyToAttribute="" BaseInfo="" IsStatic="true" IsInherited="false" IsExternal="false">static function Interfaces.Elasticsearch.BucketHistogramRoot GetBucketHistogramQuery(string field, int interval)
+{
+	Interfaces.Elasticsearch.BucketHistogramRoot q;
+	Interfaces.Elasticsearch.BucketHistogram hist;
+	q.Histogram = hist;
+	hist.Field = field;
+	hist.Interval = interval;
+	return q;
+}</Operation>
+        <Operation Name="GetFilterByTimePeriod" Description="" Syntax="" RuleType="Default" EventName="" ApplyToAttribute="" BaseInfo="" IsStatic="true" IsInherited="false" IsExternal="false">static function Interfaces.Elasticsearch.Range GetFilterByTimePeriod(string fromDate, string toDate)
+{
+	if (string.IsNullOrEmpty(fromDate)) {
+        fromDate = "now-1w";
+    }
+
+    if (string.IsNullOrEmpty(toDate)) {
+        toDate = "now";
+    }
+    
+    Interfaces.Elasticsearch.Range timeRange;
+    Interfaces.Elasticsearch.Timestamp timestamp;
+    
+    timestamp.gte = fromDate;
+    timestamp.lte = toDate;
+    
+	timeRange.timestamp = timestamp;
+	return timeRange;
+}</Operation>
+        <Operation Name="SortByTimestamp" Description="" Syntax="" RuleType="Default" EventName="" ApplyToAttribute="" BaseInfo="" IsStatic="true" IsInherited="false" IsExternal="false">static function Interfaces.Elasticsearch.Sort SortByTimestamp(string direction)
+{
+	if (string.IsNullOrEmpty(direction)) {
+        direction = "desc";
+    }
+    Interfaces.Elasticsearch.Sort sortObject;
+    Interfaces.Elasticsearch.Order orderObject;
+    orderObject.order = direction;
+    sortObject.Timestamp = orderObject;
+    return sortObject;
+}</Operation>
+        <Operation Name="GetQuery" Description="" Syntax="" RuleType="Default" EventName="" ApplyToAttribute="" BaseInfo="" IsStatic="true" IsInherited="false" IsExternal="false">static function Interfaces.Elasticsearch.Query GetQuery(string q, string fromDate, string toDate)
+{
+  if (string.IsNullOrEmpty(fromDate)) {
+    fromDate = "now-1w";
+  }
+  
+  if (string.IsNullOrEmpty(toDate)) {
+    toDate = "now";
+  }
+  
+  Interfaces.Elasticsearch.Query queryObject;
+
+  // Add search &amp; filter
+  Interfaces.Elasticsearch.Logic logic;
+  logic.must = Domain.MakeRequest.GetQueryStringQuery(q);
+  
+  Interfaces.Elasticsearch.Filter filter;
+  filter.range = Domain.MakeRequest.GetFilterByTimePeriod(fromDate, toDate);
+  logic.filter = filter;
+  queryObject.logic = logic;
+  return queryObject;
+}</Operation>
+        <Operation Name="GetAggregations" Description="" Syntax="" RuleType="Default" EventName="" ApplyToAttribute="" BaseInfo="" IsStatic="true" IsInherited="false" IsExternal="false">static function Interfaces.Elasticsearch.OBAggregatorRequest GetAggregations(string interval)
+{
+	Interfaces.Elasticsearch.OBAggregatorRequest aggs;
+    
+    var top_service = 	Domain.MakeRequest.GetTermQuery("Service.keyword", 5, true);
+    var top_operation = Domain.MakeRequest.GetTermQuery("Operation.keyword", 5, true);
+    var from_ip = 		Domain.MakeRequest.GetTermQuery("IP.keyword", 5, true);
+    var verb_type = 	Domain.MakeRequest.GetTermQuery("RequestMethod.keyword", 5, true);
+    var status = 		Domain.MakeRequest.GetTermQuery("StatusCode", 5, true);
+	var elapsed_msecs = Domain.MakeRequest.GetStatQuery("ElapsedMsecs");
+	
+	var req_over_time = Domain.MakeRequest.GetHistogramQuery("Timestamp", interval);
+	var req_latency = Domain.MakeRequest.GetBucketHistogramQuery("ElapsedMsecs", 2000);
+    
+    aggs.TopService = top_service;
+    aggs.TopOperation = top_operation;
+    aggs.FromIP = from_ip;
+    aggs.VerbType = verb_type;
+    aggs.Status = status;
+    aggs.ElapsedMsecs = elapsed_msecs;
+    aggs.RequestOverTime = req_over_time;
+    aggs.RequestLatency = req_latency;
+    
+    aggs.Errors = Domain.MakeRequest.GetErrorFilter();
+    
+    return aggs;
+}</Operation>
+        <Operation Name="GetErrorFilter" Description="" Syntax="" RuleType="Default" EventName="" ApplyToAttribute="" BaseInfo="" IsStatic="true" IsInherited="false" IsExternal="false">static function Interfaces.Elasticsearch.ErrorFilterAgg GetErrorFilter()
+{
+	Interfaces.Elasticsearch.ErrorFilterAgg errorFilter;
+	Interfaces.Elasticsearch.FiltersAggRoot filterRoot;
+	Interfaces.Elasticsearch.FiltersAgg filter;
+	
+	Interfaces.Elasticsearch.FiltersRangeRootAgg failureRoot;
+	Interfaces.Elasticsearch.FiltersRangeRootAgg successRoot;
+	
+	Interfaces.Elasticsearch.FiltersRangeAgg failure;
+	Interfaces.Elasticsearch.FiltersRangeAgg success;
+
+	Interfaces.Elasticsearch.Timestamp timestampFailure;
+	timestampFailure.gte = "400";
+	failure.StatusCode = timestampFailure; 	
+	failureRoot.Range = failure;
+	filter.Failure = failureRoot;
+	
+	Interfaces.Elasticsearch.Timestamp timestampSuccess;
+	timestampSuccess.lt = "400";
+	success.StatusCode = timestampSuccess; 
+	successRoot.Range = success;	
+	filter.Success = successRoot;
+	
+	filterRoot.Filters = filter;
+	errorFilter.Filters = filterRoot;
+	return errorFilter;
+}</Operation>
+        <Operation Name="GetInterval" Description="" Syntax="" RuleType="Default" EventName="" ApplyToAttribute="" BaseInfo="" IsStatic="true" IsInherited="false" IsExternal="false">static function string GetInterval(string fromDate)
+{
+	if (fromDate == "now-1y") { 
+		return "month"; //leave unchanged 
+	}
+	elseif (fromDate == "now-1M") {
+		return "day";
+	}
+	elseif (fromDate == "now-1w") {
+		return "6h";
+	}
+	elseif (fromDate == "now-1d") {
+		return "hour";
+	}
+	else { 
+		return "day"; //leave unchanged 
+	}
+}</Operation>
+        <Operation Name="GetDateFormat" Description="" Syntax="" RuleType="Default" EventName="" ApplyToAttribute="" BaseInfo="" IsStatic="true" IsInherited="false" IsExternal="false">static function string GetDateFormat(string interval)
+{
+	if (interval == "month") { 
+		return "yyyy-MM"; //leave unchanged 
+	}
+	elseif (interval == "day") {
+		return "yyyy-MM-dd";
+	}
+	elseif (interval == "6h") {
+		return "yyyy-MM-dd HH:mm";
+	}
+	elseif (interval == "h") {
+		return "yyyy-MM-dd HH:mm";
+	}
+	else { 
+		return "yyyy-MM-dd HH:mm"; //leave unchanged 
+	}
+}</Operation>
+      </Operations>
+    </Class>
+    <Class ModelName="Elasticsearch" Name="RequestLog" ShadowModel="" ShadowClass="" Description="" Stereotype="Class" PK="" ConcurencyControl="false" AutoAssignPrimaryKey="false" IdGeneratorType="HiLoGenerator" IsPersisted="false" IsStatic="false" BaseClass="" BaseClasses="" BaseModel="">
+      <DiagramInfo IsExpanded="true" Width="209.859375" Height="430" Top="298" Left="160" />
+      <Attributes>
+        <Attribute Name="RequestPath" IsValueClass="false" Description="" DataType="string" BaseInfo="" Length="100" Precision="8" Scale="2" InitValue="" IsRequired="false" IsInherited="false" Persisted="false" IsEncrypted="false" IsStatic="false" ReadOnly="false" IsExternal="false" CustomValidation="" IsCreditCard="false" IsURL="false" IsEmail="false" MinLength="0" MaxLength="100" MinValue="" MaxValue="" Getter="" Setter="" />
+        <Attribute Name="Message" IsValueClass="false" Description="" DataType="string" BaseInfo="" Length="100" Precision="8" Scale="2" InitValue="" IsRequired="false" IsInherited="false" Persisted="false" IsEncrypted="false" IsStatic="false" ReadOnly="false" IsExternal="false" CustomValidation="" IsCreditCard="false" IsURL="false" IsEmail="false" MinLength="0" MaxLength="100" MinValue="" MaxValue="" Getter="" Setter="" />
+        <Attribute Name="RequestId" IsValueClass="false" Description="" DataType="string" BaseInfo="" Length="100" Precision="8" Scale="2" InitValue="" IsRequired="false" IsInherited="false" Persisted="false" IsEncrypted="false" IsStatic="false" ReadOnly="false" IsExternal="false" CustomValidation="" IsCreditCard="false" IsURL="false" IsEmail="false" MinLength="0" MaxLength="100" MinValue="" MaxValue="" Getter="" Setter="" />
+        <Attribute Name="RequestMethod" IsValueClass="false" Description="" DataType="string" BaseInfo="" Length="100" Precision="8" Scale="2" InitValue="" IsRequired="false" IsInherited="false" Persisted="false" IsEncrypted="false" IsStatic="false" ReadOnly="false" IsExternal="false" CustomValidation="" IsCreditCard="false" IsURL="false" IsEmail="false" MinLength="0" MaxLength="100" MinValue="" MaxValue="" Getter="" Setter="" />
+        <Attribute Name="ElapsedMsecs" IsValueClass="false" Description="" DataType="double" BaseInfo="" Length="100" Precision="8" Scale="2" InitValue="" IsRequired="false" IsInherited="false" Persisted="false" IsEncrypted="false" IsStatic="false" ReadOnly="false" IsExternal="false" CustomValidation="" IsCreditCard="false" IsURL="false" IsEmail="false" MinLength="0" MaxLength="100" MinValue="" MaxValue="" Getter="" Setter="" />
+        <Attribute Name="IP" IsValueClass="false" Description="" DataType="string" BaseInfo="" Length="100" Precision="8" Scale="2" InitValue="" IsRequired="false" IsInherited="false" Persisted="false" IsEncrypted="false" IsStatic="false" ReadOnly="false" IsExternal="false" CustomValidation="" IsCreditCard="false" IsURL="false" IsEmail="false" MinLength="0" MaxLength="100" MinValue="" MaxValue="" Getter="" Setter="" />
+        <Attribute Name="Service" IsValueClass="false" Description="" DataType="string" BaseInfo="" Length="100" Precision="8" Scale="2" InitValue="" IsRequired="false" IsInherited="false" Persisted="false" IsEncrypted="false" IsStatic="false" ReadOnly="false" IsExternal="false" CustomValidation="" IsCreditCard="false" IsURL="false" IsEmail="false" MinLength="0" MaxLength="100" MinValue="" MaxValue="" Getter="" Setter="" />
+        <Attribute Name="Operation" IsValueClass="false" Description="" DataType="string" BaseInfo="" Length="100" Precision="8" Scale="2" InitValue="" IsRequired="false" IsInherited="false" Persisted="false" IsEncrypted="false" IsStatic="false" ReadOnly="false" IsExternal="false" CustomValidation="" IsCreditCard="false" IsURL="false" IsEmail="false" MinLength="0" MaxLength="100" MinValue="" MaxValue="" Getter="" Setter="" />
+        <Attribute Name="StatusCode" IsValueClass="false" Description="" DataType="string" BaseInfo="" Length="100" Precision="8" Scale="2" InitValue="" IsRequired="false" IsInherited="false" Persisted="false" IsEncrypted="false" IsStatic="false" ReadOnly="false" IsExternal="false" CustomValidation="" IsCreditCard="false" IsURL="false" IsEmail="false" MinLength="0" MaxLength="100" MinValue="" MaxValue="" Getter="" Setter="" />
+        <Attribute Name="Timestamp" IsValueClass="false" Description="" DataType="string" BaseInfo="" Length="100" Precision="8" Scale="2" InitValue="" IsRequired="false" IsInherited="false" Persisted="false" IsEncrypted="false" IsStatic="false" ReadOnly="false" IsExternal="false" CustomValidation="" IsCreditCard="false" IsURL="false" IsEmail="false" MinLength="0" MaxLength="100" MinValue="" MaxValue="" Getter="" Setter="" />
+        <Attribute Name="Username" IsValueClass="false" Description="" DataType="string" BaseInfo="" Length="100" Precision="8" Scale="2" InitValue="" IsRequired="false" IsInherited="false" Persisted="false" IsEncrypted="false" IsStatic="false" ReadOnly="false" IsExternal="false" CustomValidation="" IsCreditCard="false" IsURL="false" IsEmail="false" MinLength="0" MaxLength="100" MinValue="" MaxValue="" Getter="" Setter="" />
+        <Attribute Name="RequestUri" IsValueClass="false" Description="" DataType="string" BaseInfo="" Length="100" Precision="8" Scale="2" InitValue="" IsRequired="false" IsInherited="false" Persisted="false" IsEncrypted="false" IsStatic="false" ReadOnly="false" IsExternal="false" CustomValidation="" IsCreditCard="false" IsURL="false" IsEmail="false" MinLength="0" MaxLength="100" MinValue="" MaxValue="" Getter="" Setter="" />
+        <Attribute Name="ClientId" IsValueClass="false" Description="" DataType="string" BaseInfo="" Length="100" Precision="8" Scale="2" InitValue="" IsRequired="false" IsInherited="false" Persisted="false" IsEncrypted="false" IsStatic="false" ReadOnly="false" IsExternal="false" CustomValidation="" IsCreditCard="false" IsURL="false" IsEmail="false" MinLength="0" MaxLength="100" MinValue="" MaxValue="" Getter="" Setter="" />
+        <Attribute Name="ClientName" IsValueClass="false" Description="" DataType="string" BaseInfo="" Length="100" Precision="8" Scale="2" InitValue="" IsRequired="false" IsInherited="false" Persisted="false" IsEncrypted="false" IsStatic="false" ReadOnly="false" IsExternal="false" CustomValidation="" IsCreditCard="false" IsURL="false" IsEmail="false" MinLength="0" MaxLength="100" MinValue="" MaxValue="" Getter="" Setter="" />
+        <Attribute Name="ProductName" IsValueClass="false" Description="" DataType="string" BaseInfo="" Length="100" Precision="8" Scale="2" InitValue="" IsRequired="false" IsInherited="false" Persisted="false" IsEncrypted="false" IsStatic="false" ReadOnly="false" IsExternal="false" CustomValidation="" IsCreditCard="false" IsURL="false" IsEmail="false" MinLength="0" MaxLength="100" MinValue="" MaxValue="" Getter="" Setter="" />
+      </Attributes>
+      <Operations />
+    </Class>
+    <Class ModelName="Elasticsearch" Name="Buckets" ShadowModel="" ShadowClass="" Description="" Stereotype="Class" PK="key" ConcurencyControl="false" AutoAssignPrimaryKey="false" IdGeneratorType="HiLoGenerator" IsPersisted="false" IsStatic="false" BaseClass="" BaseClasses="" BaseModel="">
+      <DiagramInfo IsExpanded="true" Width="180" Height="180" Top="299" Left="408" />
+      <Attributes>
+        <Attribute Name="key" IsValueClass="false" Description="" DataType="string" BaseInfo="" Length="100" Precision="8" Scale="2" InitValue="" IsRequired="false" IsInherited="false" Persisted="false" IsEncrypted="false" IsStatic="false" ReadOnly="false" IsExternal="false" CustomValidation="" IsCreditCard="false" IsURL="false" IsEmail="false" MinLength="0" MaxLength="100" MinValue="" MaxValue="" Getter="" Setter="" />
+        <Attribute Name="doc_count" IsValueClass="false" Description="" DataType="int" BaseInfo="" Length="100" Precision="8" Scale="2" InitValue="" IsRequired="false" IsInherited="false" Persisted="false" IsEncrypted="false" IsStatic="false" ReadOnly="false" IsExternal="false" CustomValidation="" IsCreditCard="false" IsURL="false" IsEmail="false" MinLength="0" MaxLength="100" MinValue="" MaxValue="" Getter="" Setter="" />
+      </Attributes>
+      <Operations />
+    </Class>
+    <Class ModelName="Elasticsearch" Name="Convertor" ShadowModel="" ShadowClass="" Description="" Stereotype="Class" PK="" ConcurencyControl="false" AutoAssignPrimaryKey="false" IdGeneratorType="HiLoGenerator" IsPersisted="false" IsStatic="false" BaseClass="" BaseClasses="" BaseModel="">
+      <DiagramInfo IsExpanded="true" Width="180" Height="180" Top="0" Left="408" />
+      <Attributes />
+      <Operations>
+        <Operation Name="ToBucket" Description="" Syntax="" RuleType="Default" EventName="" ApplyToAttribute="" BaseInfo="" IsStatic="true" IsInherited="false" IsExternal="false">static function Collection[Domain.Buckets] ToBucket(Array[Interfaces.Elasticsearch.Bucket] items)
+{
+	Collection[Domain.Buckets] buckets;
+    foreach (Interfaces.Elasticsearch.Bucket: bucket in items) {
+    	buckets.Add(DataTransformations.Elasticsearch.ELKBucket_To_Bucket(bucket));
+    }
+    
+    return buckets;
+}</Operation>
+        <Operation Name="ToRequestLog" Description="" Syntax="" RuleType="Default" EventName="" ApplyToAttribute="" BaseInfo="" IsStatic="true" IsInherited="false" IsExternal="false">static function Collection[Domain.RequestLog] ToRequestLog(
+	Interfaces.Elasticsearch.SearchResponse queryResponse
+)
+{
+	Collection[Domain.RequestLog] logs;
+    foreach (Interfaces.Elasticsearch.HitRoot: hit in queryResponse.HitResponce.Hits) {
+    	logs.Add(DataTransformations.Elasticsearch.Hit_To_RequestLog(hit.Source));
+    }
+    
+    return logs;
+}</Operation>
+        <Operation Name="ToDateHistBucket" Description="" Syntax="" RuleType="Default" EventName="" ApplyToAttribute="" BaseInfo="" IsStatic="true" IsInherited="false" IsExternal="false">static function Collection[Domain.HIstogramBucket] ToDateHistBucket(
+	Collection[Interfaces.Elasticsearch.HistogramBucket] items
+)
+{
+    Domain.HIstogramBucket tmp;
+	Collection[Domain.HIstogramBucket] buckets;
+    foreach (Interfaces.Elasticsearch.HistogramBucket: bucket in items) {
+		tmp = DataTransformations.Elasticsearch.HistogramBucket_To_HIstogramBucket(bucket);
+
+		tmp.max = bucket.Statistics.max;
+		tmp.min = bucket.Statistics.min;
+		tmp.avg = bucket.Statistics.avg;
+		tmp.sum = bucket.Statistics.sum;
+		
+		tmp.failure = bucket.Errors.Buckets.Failure.doc_count;
+		tmp.success = bucket.Errors.Buckets.Success.doc_count;
+		
+		if (tmp.doc_count == 0) {
+			tmp.error_rate = (0 ) as float ;		    
+		} else {
+			tmp.error_rate = (tmp.failure as float) / (tmp.doc_count as float) * 100;
+		}
+		
+		buckets.Add(tmp);
+    }
+    return buckets;
+}</Operation>
+        <Operation Name="ToHistBucket" Description="" Syntax="" RuleType="Default" EventName="" ApplyToAttribute="" BaseInfo="" IsStatic="true" IsInherited="false" IsExternal="false">static function Collection[Domain.HIstogramBucket] ToHistBucket(Collection[Interfaces.Elasticsearch.HistogramBucket] items)
+{
+	Collection[Domain.HIstogramBucket] buckets;
+    foreach (Interfaces.Elasticsearch.HistogramBucket: bucket in items) {
+    	buckets.Add(DataTransformations.Elasticsearch.HistogramBucket_To_HIstogramBucket_2(bucket));
+    }
+    return buckets;
+}</Operation>
+        <Operation Name="ErrorRateToBucket" Description="" Syntax="" RuleType="Default" EventName="" ApplyToAttribute="" BaseInfo="" IsStatic="true" IsInherited="false" IsExternal="false">static function Collection[Domain.Buckets] ErrorRateToBucket(Interfaces.Elasticsearch.ErrorFilterAggResponse error)
+{
+	Domain.Buckets fail;
+	fail.key = "Failure";
+	fail.doc_count = error.Buckets.Failure.doc_count;
+	
+	Domain.Buckets success;
+	success.key = "Success";
+	success.doc_count = error.Buckets.Success.doc_count;
+	
+	Collection[Domain.Buckets] buckets;
+	buckets.Add(fail);
+	buckets.Add(success);
+	
+	return buckets;
+}</Operation>
+      </Operations>
+    </Class>
+    <Class ModelName="Elasticsearch" Name="HIstogramBucket" ShadowModel="" ShadowClass="" Description="" Stereotype="Class" PK="key" ConcurencyControl="false" AutoAssignPrimaryKey="false" IdGeneratorType="HiLoGenerator" IsPersisted="false" IsStatic="false" BaseClass="" BaseClasses="" BaseModel="">
+      <DiagramInfo IsExpanded="true" Width="235.109375" Height="310" Top="7" Left="648" />
+      <Attributes>
+        <Attribute Name="key" IsValueClass="false" Description="" DataType="decimal" BaseInfo="" Length="100" Precision="8" Scale="2" InitValue="" IsRequired="false" IsInherited="false" Persisted="false" IsEncrypted="false" IsStatic="false" ReadOnly="false" IsExternal="false" CustomValidation="" IsCreditCard="false" IsURL="false" IsEmail="false" MinLength="0" MaxLength="100" MinValue="" MaxValue="" Getter="" Setter="" />
+        <Attribute Name="keyAsString" IsValueClass="false" Description="" DataType="string" BaseInfo="" Length="100" Precision="8" Scale="2" InitValue="" IsRequired="false" IsInherited="false" Persisted="false" IsEncrypted="false" IsStatic="false" ReadOnly="false" IsExternal="false" CustomValidation="" IsCreditCard="false" IsURL="false" IsEmail="false" MinLength="0" MaxLength="100" MinValue="" MaxValue="" Getter="" Setter="" />
+        <Attribute Name="doc_count" IsValueClass="false" Description="" DataType="int" BaseInfo="" Length="100" Precision="8" Scale="2" InitValue="" IsRequired="false" IsInherited="false" Persisted="false" IsEncrypted="false" IsStatic="false" ReadOnly="false" IsExternal="false" CustomValidation="" IsCreditCard="false" IsURL="false" IsEmail="false" MinLength="0" MaxLength="100" MinValue="" MaxValue="" Getter="" Setter="" />
+        <Attribute Name="avg" IsValueClass="false" Description="" DataType="double" BaseInfo="" Length="100" Precision="8" Scale="2" InitValue="" IsRequired="false" IsInherited="false" Persisted="false" IsEncrypted="false" IsStatic="false" ReadOnly="false" IsExternal="false" CustomValidation="" IsCreditCard="false" IsURL="false" IsEmail="false" MinLength="0" MaxLength="100" MinValue="" MaxValue="" Getter="" Setter="" />
+        <Attribute Name="sum" IsValueClass="false" Description="" DataType="double" BaseInfo="" Length="100" Precision="8" Scale="2" InitValue="" IsRequired="false" IsInherited="false" Persisted="false" IsEncrypted="false" IsStatic="false" ReadOnly="false" IsExternal="false" CustomValidation="" IsCreditCard="false" IsURL="false" IsEmail="false" MinLength="0" MaxLength="100" MinValue="" MaxValue="" Getter="" Setter="" />
+        <Attribute Name="max" IsValueClass="false" Description="" DataType="double" BaseInfo="" Length="100" Precision="8" Scale="2" InitValue="" IsRequired="false" IsInherited="false" Persisted="false" IsEncrypted="false" IsStatic="false" ReadOnly="false" IsExternal="false" CustomValidation="" IsCreditCard="false" IsURL="false" IsEmail="false" MinLength="0" MaxLength="100" MinValue="" MaxValue="" Getter="" Setter="" />
+        <Attribute Name="min" IsValueClass="false" Description="" DataType="double" BaseInfo="" Length="100" Precision="8" Scale="2" InitValue="" IsRequired="false" IsInherited="false" Persisted="false" IsEncrypted="false" IsStatic="false" ReadOnly="false" IsExternal="false" CustomValidation="" IsCreditCard="false" IsURL="false" IsEmail="false" MinLength="0" MaxLength="100" MinValue="" MaxValue="" Getter="" Setter="" />
+        <Attribute Name="failure" IsValueClass="false" Description="" DataType="int" BaseInfo="" Length="100" Precision="8" Scale="2" InitValue="" IsRequired="false" IsInherited="false" Persisted="false" IsEncrypted="false" IsStatic="false" ReadOnly="false" IsExternal="false" CustomValidation="" IsCreditCard="false" IsURL="false" IsEmail="false" MinLength="0" MaxLength="100" MinValue="" MaxValue="" Getter="" Setter="" />
+        <Attribute Name="success" IsValueClass="false" Description="" DataType="int" BaseInfo="" Length="100" Precision="8" Scale="2" InitValue="" IsRequired="false" IsInherited="false" Persisted="false" IsEncrypted="false" IsStatic="false" ReadOnly="false" IsExternal="false" CustomValidation="" IsCreditCard="false" IsURL="false" IsEmail="false" MinLength="0" MaxLength="100" MinValue="" MaxValue="" Getter="" Setter="" />
+        <Attribute Name="error_rate" IsValueClass="false" Description="" DataType="float" BaseInfo="" Length="100" Precision="8" Scale="2" InitValue="" IsRequired="false" IsInherited="false" Persisted="false" IsEncrypted="false" IsStatic="false" ReadOnly="false" IsExternal="false" CustomValidation="" IsCreditCard="false" IsURL="false" IsEmail="false" MinLength="0" MaxLength="100" MinValue="" MaxValue="" Getter="" Setter="" />
+      </Attributes>
+      <Operations />
+    </Class>
+    <Class ModelName="Elasticsearch" Name="Error" ShadowModel="" ShadowClass="" Description="" Stereotype="Class" PK="" ConcurencyControl="false" AutoAssignPrimaryKey="false" IdGeneratorType="HiLoGenerator" IsPersisted="false" IsStatic="false" BaseClass="" BaseClasses="" BaseModel="">
+      <DiagramInfo IsExpanded="true" Width="180" Height="180" Top="401" Left="650" />
+      <Attributes />
+      <Operations />
+    </Class>
+    <Class ModelName="Elasticsearch" Name="QueryBuilder" ShadowModel="" ShadowClass="" Description="" Stereotype="Class" PK="" ConcurencyControl="false" AutoAssignPrimaryKey="false" IdGeneratorType="HiLoGenerator" IsPersisted="false" IsStatic="false" BaseClass="" BaseClasses="" BaseModel="">
+      <DiagramInfo IsExpanded="true" Width="193.671875" Height="180" Top="152" Left="902" />
+      <Attributes />
+      <Operations>
+        <Operation Name="GetClientToken" Description="" Syntax="" RuleType="Default" EventName="" ApplyToAttribute="" BaseInfo="" IsStatic="true" IsInherited="false" IsExternal="false">static function string GetClientToken(string username)
+{
+    var q = "+ClientId";
+    
+	return q;
+}</Operation>
+        <Operation Name="GetQuery" Description="" Syntax="" RuleType="Default" EventName="" ApplyToAttribute="" BaseInfo="" IsStatic="true" IsInherited="false" IsExternal="false">static function string GetQuery(string username, string product, string service)
+{
+	var clientKeys = Domain.QueryBuilder.GetClientToken(username);
+	string q = "+tags:exposed " + clientKeys;
+
+	if (!string.IsNullOrWhiteSpace(product)) {
+		q = q + " +Product:" + product; 
+	}
+	
+	if (!string.IsNullOrWhiteSpace(service)) {
+		q = q + " +Service:" + service; 
+	}
+	
+	return q;
+}</Operation>
+      </Operations>
+    </Class>
+  </Classes>
+  <Resources />
+</BusinessObject>

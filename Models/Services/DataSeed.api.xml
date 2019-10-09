@@ -1,0 +1,204 @@
+<!--
+Copyright (c) CLMS. All rights reserved.
+Licensed under the AGPL-3.0 license. See LICENSE file in the project root for full license information.-->
+
+<ExposedApi DateCreated="" Model_Name="DataSeed" Model_Description="" Version="0.1.0">
+  <Operations>
+    <Operation Verb="Post" Path="Orders" ReturnDataType="void" Name="Orders" Description="test notes" AllowAnonymousUsers="True" AllowAllAuthenticated="True" EnableAccessLog="True" ResponseSample="test response sample notes" RequestSample="test request sample notes" AllowPermisssions="" ApplicationTags="">
+      <Parameters>
+        <Parameter DataType="Array[Domain.OrderWMS]" Required="True" Name="orders" Description="" />
+      </Parameters>
+      <Code>function void Orders(Array[Domain.OrderWMS] orders)
+{
+	DebugLib.Logger.WriteInfoLine("Communication started ");
+//	CommonLib.Serializer[Collection[Domain.OrderWMS]] ser;
+//	Collection[Domain.OrderWMS] orders = ser.FromJson(ord);
+DebugLib.Logger.WriteInfoLine("Started insertion of "+orders.Length.ToString()+" on "+DateTime.Now().ToString());
+Services.RA.API.GetRA("test");
+	try 
+	{
+		foreach Domain.OrderWMS: order in orders 
+		{
+			order.Id = 0;
+			order.Save();
+		}	
+	}
+	catch Exception x 
+	{
+		DebugLib.Logger.WriteErrorLine(x);
+		
+	}
+}</Code>
+      <CachingOptions CachePerUser="false" OperationIsCached="false" OverrideDefaultCachingSettings="false" UseCustomExpirationMethod="false" ExpirationDays="0" ExpirationHours="0" ExpirationMinutes="3" ExpirationSeconds="0" ExpirationMilliseconds="0" CacheMode="None">function TimeSpan Expiration(
+	Array[Domain.OrderWMS] orders
+)
+{ 
+	 return CommonLib.Utilities.CreateTimeSpan(0, 1, 0); 
+}</CachingOptions>
+    </Operation>
+    <Operation Verb="Get" Path="InitRegionalAgents" ReturnDataType="void" Name="InitRegionalAgents" Description="" AllowAnonymousUsers="True" AllowAllAuthenticated="True" EnableAccessLog="True" ResponseSample="" RequestSample="" AllowPermisssions="" ApplicationTags="">
+      <Parameters />
+      <Code>function void ExposedOperation() {
+	
+	try {
+		foreach Domain.OrderWMS: order in Domain.OrderWMS.GetAll()
+		{
+			string racode = order.OrdAgencyCode;
+			Domain.RegionalAgent ra = Domain.RegionalAgent.Find(r =&gt; r.AgencyCode == racode).First();
+			if(ra == null)
+			{
+			    ra = Domain.RegionalAgent.Create();
+			    ra.AgencyCode = racode;
+			    ra.AgencyAddress = order.OrdAgencyAddress;
+			    ra.AgencyDescription = order.OrdAgencyDescr;
+			    ra.Save();
+			}
+		    
+		}	
+	}
+	catch Exception x {
+		throw x;
+		DebugLib.Logger.WriteErrorLine(x);
+	}
+}</Code>
+      <CachingOptions CachePerUser="false" OperationIsCached="false" OverrideDefaultCachingSettings="false" UseCustomExpirationMethod="false" ExpirationDays="0" ExpirationHours="0" ExpirationMinutes="3" ExpirationSeconds="0" ExpirationMilliseconds="0" CacheMode="None">
+      </CachingOptions>
+    </Operation>
+    <Operation Verb="Get" Path="change" ReturnDataType="void" Name="Change" Description="" AllowAnonymousUsers="True" AllowAllAuthenticated="True" EnableAccessLog="True" ResponseSample="" RequestSample="" AllowPermisssions="" ApplicationTags="">
+      <Parameters />
+      <Code>function void ExposedOperation() {
+try {
+	foreach Domain.OrderWMS: order in Domain.OrderWMS.GetAll()
+	{
+		int r = int.GetRandom(1, 100);
+		order.OrdDeliveryValue = float.Parse(r.ToString());
+		order.Update();
+	}	
+}
+catch Exception x {
+	throw x;
+	DebugLib.Logger.WriteErrorLine(x);
+}
+}</Code>
+      <CachingOptions CachePerUser="false" OperationIsCached="false" OverrideDefaultCachingSettings="false" UseCustomExpirationMethod="false" ExpirationDays="0" ExpirationHours="0" ExpirationMinutes="3" ExpirationSeconds="0" ExpirationMilliseconds="0" CacheMode="None">
+      </CachingOptions>
+    </Operation>
+    <Operation Verb="Get" Path="googleAPI" ReturnDataType="void" Name="TestGoogleAPI" Description="" AllowAnonymousUsers="True" AllowAllAuthenticated="True" EnableAccessLog="True" ResponseSample="" RequestSample="" AllowPermisssions="" ApplicationTags="">
+      <Parameters />
+      <Code>function void ExposedOperation() {
+	Domain.RegionalAgent.InitAddressGeocoordinates();
+}</Code>
+      <CachingOptions CachePerUser="false" OperationIsCached="false" OverrideDefaultCachingSettings="false" UseCustomExpirationMethod="false" ExpirationDays="0" ExpirationHours="0" ExpirationMinutes="3" ExpirationSeconds="0" ExpirationMilliseconds="0" CacheMode="None">
+      </CachingOptions>
+    </Operation>
+    <Operation Verb="Get" Path="warehouse" ReturnDataType="void" Name="initWarehouse" Description="" AllowAnonymousUsers="True" AllowAllAuthenticated="True" EnableAccessLog="True" ResponseSample="" RequestSample="" AllowPermisssions="" ApplicationTags="">
+      <Parameters />
+      <Code>function void ExposedOperation() {
+	Domain.Warehouse.InitWarehouse();
+}</Code>
+      <CachingOptions CachePerUser="false" OperationIsCached="false" OverrideDefaultCachingSettings="false" UseCustomExpirationMethod="false" ExpirationDays="0" ExpirationHours="0" ExpirationMinutes="3" ExpirationSeconds="0" ExpirationMilliseconds="0" CacheMode="None">
+      </CachingOptions>
+    </Operation>
+    <Operation Verb="Get" Path="testordergenerator" ReturnDataType="Collection[Domain.OrderWMS]" Name="testOrderGenerator" Description="" AllowAnonymousUsers="True" AllowAllAuthenticated="True" EnableAccessLog="True" ResponseSample="" RequestSample="" AllowPermisssions="" ApplicationTags="">
+      <Parameters />
+      <Code>function Collection[Domain.OrderWMS] ExposedOperation() {
+	return Domain.OrderGenerator.GenerateOrders(10);
+}</Code>
+      <CachingOptions CachePerUser="false" OperationIsCached="false" OverrideDefaultCachingSettings="false" UseCustomExpirationMethod="false" ExpirationDays="0" ExpirationHours="0" ExpirationMinutes="3" ExpirationSeconds="0" ExpirationMilliseconds="0" CacheMode="None">
+      </CachingOptions>
+    </Operation>
+    <Operation Verb="Get" Path="testreflection" ReturnDataType="Collection[Domain.PubMessage]" Name="testReflection" Description="" AllowAnonymousUsers="True" AllowAllAuthenticated="True" EnableAccessLog="True" ResponseSample="" RequestSample="" AllowPermisssions="" ApplicationTags="">
+      <Parameters />
+      <Code>function Collection[Domain.PubMessage] ExposedOperation() {
+	Domain.OrderWMS order = Domain.OrderWMS.GetAll(01, 10).Get(3);
+	return Domain.Utils.InitPubMessage(order);
+}</Code>
+      <CachingOptions CachePerUser="false" OperationIsCached="false" OverrideDefaultCachingSettings="false" UseCustomExpirationMethod="false" ExpirationDays="0" ExpirationHours="0" ExpirationMinutes="3" ExpirationSeconds="0" ExpirationMilliseconds="0" CacheMode="None">
+      </CachingOptions>
+    </Operation>
+    <Operation Verb="Get" Path="TruckPosistions" ReturnDataType="void" Name="TruckPosistions" Description="" AllowAnonymousUsers="True" AllowAllAuthenticated="True" EnableAccessLog="True" ResponseSample="" RequestSample="" AllowPermisssions="" ApplicationTags="">
+      <Parameters />
+      <Code>function void ExposedOperation() {
+	Domain.Utils.InitTruckPositions();
+}</Code>
+      <CachingOptions CachePerUser="false" OperationIsCached="false" OverrideDefaultCachingSettings="false" UseCustomExpirationMethod="false" ExpirationDays="0" ExpirationHours="0" ExpirationMinutes="3" ExpirationSeconds="0" ExpirationMilliseconds="0" CacheMode="None">
+      </CachingOptions>
+    </Operation>
+  </Operations>
+  <DataContracts>
+    <DataContract Name="" Class="Domain.OrderWMS" BaseClass="">
+      <Members>
+        <Member Name="Id" DataType="int" Checked="False" />
+        <Member Name="OrdID" DataType="int" Checked="True" />
+        <Member Name="OrdOrderID_Remote" DataType="int" Checked="True" />
+        <Member Name="OrdOrderExternalCode" DataType="string" Checked="True" />
+        <Member Name="OrdOrderDescr" DataType="string" Checked="True" />
+        <Member Name="OrdRegDateTime" DataType="DateTime" Checked="True" />
+        <Member Name="OrdDateTime" DataType="DateTime" Checked="True" />
+        <Member Name="OrdDeliveryDateTime" DataType="DateTime" Checked="True" />
+        <Member Name="OrdDepositorCode" DataType="string" Checked="True" />
+        <Member Name="OrdDepositorFullName" DataType="string" Checked="True" />
+        <Member Name="OrdCustomerCode" DataType="string" Checked="True" />
+        <Member Name="OrdCustomerFullName" DataType="string" Checked="True" />
+        <Member Name="OrdStatus" DataType="int" Checked="True" />
+        <Member Name="OrdMemo" DataType="string" Checked="True" />
+        <Member Name="OrdPurpose" DataType="string" Checked="True" />
+        <Member Name="OrdDeliveryValue" DataType="float" Checked="True" />
+        <Member Name="OrdDeliveryNotes" DataType="string" Checked="True" />
+        <Member Name="OrdIsReturn" DataType="int" Checked="True" />
+        <Member Name="OrdPrdTypeDescr" DataType="string" Checked="True" />
+        <Member Name="OrdWrhRoutingCode" DataType="string" Checked="True" />
+        <Member Name="OrdDlsId" DataType="int" Checked="True" />
+        <Member Name="OrdDlsDescr" DataType="string" Checked="True" />
+        <Member Name="OrdDlsAddress" DataType="string" Checked="True" />
+        <Member Name="OrdDlsZipCode" DataType="string" Checked="True" />
+        <Member Name="OrdDlsCity" DataType="string" Checked="True" />
+        <Member Name="OrdDlsArea" DataType="string" Checked="True" />
+        <Member Name="OrdRoutingStatus" DataType="int" Checked="True" />
+        <Member Name="OrdLfdWeight" DataType="float" Checked="True" />
+        <Member Name="OrdLfdVol" DataType="float" Checked="True" />
+        <Member Name="OrdLfdCtn" DataType="int" Checked="True" />
+        <Member Name="OrdLfdBar" DataType="int" Checked="True" />
+        <Member Name="OrdLfdPalEuro" DataType="int" Checked="True" />
+        <Member Name="OrdLfdPalInd" DataType="int" Checked="True" />
+        <Member Name="OrdLfdPalElsa" DataType="int" Checked="True" />
+        <Member Name="OrdLfdParOU" DataType="int" Checked="True" />
+        <Member Name="OrdLfdVar" DataType="int" Checked="True" />
+        <Member Name="OrdVoucherDateTime" DataType="DateTime" Checked="True" />
+        <Member Name="OrdVoucherNumber" DataType="string" Checked="True" />
+        <Member Name="OrdVoucherSeries" DataType="string" Checked="True" />
+        <Member Name="OrdVoucherId" DataType="int" Checked="True" />
+        <Member Name="OrdAgencyCode" DataType="string" Checked="True" />
+        <Member Name="OrdAgencyDescr" DataType="string" Checked="True" />
+        <Member Name="OrdAgencyAddress" DataType="string" Checked="True" />
+        <Member Name="OrdTelRouteId" DataType="long" Checked="True" />
+        <Member Name="OrdVchPlateNr" DataType="string" Checked="True" />
+        <Member Name="OrdVchRouteNr" DataType="int" Checked="True" />
+        <Member Name="OrdVhrDate" DataType="DateTime" Checked="True" />
+        <Member Name="OrdVhrID" DataType="long" Checked="True" />
+        <Member Name="OrdLastUpdateDateTime" DataType="DateTime" Checked="True" />
+        <Member Name="OrdReadyForLoading" DataType="int" Checked="True" />
+        <Member Name="OrdStatusString" DataType="string" Checked="True" />
+        <Member Name="Polyline" DataType="string" Checked="True" />
+        <Member Name="Warehouse" DataType="string" Checked="False" />
+      </Members>
+    </DataContract>
+    <DataContract Name="" Class="Domain.PubMessage" BaseClass="">
+      <Members>
+        <Member Name="Id" DataType="int" Checked="False" />
+        <Member Name="key" DataType="string" Checked="True" />
+        <Member Name="val" DataType="string" Checked="True" />
+        <Member Name="type" DataType="string" Checked="True" />
+      </Members>
+    </DataContract>
+    <DataContract Name="" Class="Domain.Truck" BaseClass="">
+      <Members>
+        <Member Name="Id" DataType="int" Checked="False" />
+        <Member Name="PlateNumber" DataType="string" Checked="True" />
+        <Member Name="Type" DataType="string" Checked="False" />
+        <Member Name="RegionalAgent" DataType="Domain.RegionalAgent" Checked="False" />
+        <Member Name="CurrentLocation" DataType="Domain.GeoCoordinates" Checked="False" />
+      </Members>
+    </DataContract>
+  </DataContracts>
+</ExposedApi>

@@ -1,0 +1,24 @@
+{
+    "authors": "Boris Yankov <https://github.com/borisyankov/>, T. Michael Keesey <https://github.com/keesey/>, Giedrius Grabauskas <https://github.com/GiedriusGrabauskas>",
+    "libraryDependencies": [
+        "jquery"
+    ],
+    "moduleDependencies": [],
+    "libraryMajorVersion": 2,
+    "libraryMinorVersion": 2,
+    "typeScriptVersion": "2.0",
+    "libraryName": "SignalR",
+    "typingsPackageName": "signalr",
+    "projectName": "http://www.asp.net/signalr",
+    "sourceRepoURL": "https://www.github.com/DefinitelyTyped/DefinitelyTyped",
+    "sourceBranch": "master",
+    "globals": [
+        "SignalR"
+    ],
+    "declaredModules": [],
+    "files": [
+        "index.d.ts"
+    ],
+    "hasPackageJson": false,
+    "contentHash": "a3f985f2fee8b342a55b625b7dd20d90270e6246430d95b7f958d4a343f3154b"
+}

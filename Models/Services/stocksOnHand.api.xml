@@ -1,0 +1,114 @@
+<!--
+Copyright (c) CLMS. All rights reserved.
+Licensed under the AGPL-3.0 license. See LICENSE file in the project root for full license information.-->
+
+<ExposedApi DateCreated="" Model_Name="stocksOnHand" Model_Description="Receives a Collection of Stock on Hand regarding the Items. If all entries are imported successfully, returns a success message. If not, returns a failure message." Version="0.1.0">
+  <Operations>
+    <Operation Verb="Post" Path="import" ReturnDataType="Domain.Response" Name="Import" Description="Import Stock on Hand" AllowAnonymousUsers="False" AllowAllAuthenticated="True" EnableAccessLog="True" ResponseSample="" RequestSample="" AllowPermisssions="" ApplicationTags="">
+      <Parameters>
+        <Parameter DataType="Collection[Domain.StockOnHand]" Required="True" Name="stocks" Description="" />
+      </Parameters>
+      <Code>function Domain.Response Import(Collection[Domain.StockOnHand] stocks)
+{
+	string message;
+	
+	foreach Domain.StockOnHand: stock in stocks {
+//	    DebugLib.Logger.WriteInfoLine("Warehouse: " + stock.Warehouse.Code);
+		if (stock.Item == null || stock.Warehouse == null) {
+			message = message + stock.Id + " ,"	;
+		    continue;
+		}
+		Domain.Item existingItem = Domain.Item.Find(s=&gt; s.SKU == stock.Item.SKU).First();
+		Domain.Warehouse existingWarehouse = Domain.Warehouse.Find(w=&gt; w.Code == stock.Warehouse.Code).First();
+		if (existingItem == null || existingWarehouse == null) {
+		    message = message + stock.Id + " ,"	;
+		    continue;
+		}
+		Domain.StockOnHand newStock;
+		newStock.Warehouse = existingWarehouse;
+		newStock.Item = existingItem;
+		newStock.Units = stock.Units;
+		newStock.StockOnHandDate = stock.StockOnHandDate;
+		newStock.Save();
+	}
+	if (!string.IsNullOrEmpty(message)) {
+	    DebugLib.Logger.WriteWarnLine("Error message: " + message);
+	    return Domain.Response.GenerateResponse("Failed", "Failed to import the entries with Ids " + message, "", "-1");
+	}
+	return Domain.Response.GenerateResponse("Succeed", "All entries imported successfully.", "", "1");
+}</Code>
+      <CachingOptions CachePerUser="false" OperationIsCached="false" OverrideDefaultCachingSettings="false" UseCustomExpirationMethod="false" ExpirationDays="0" ExpirationHours="0" ExpirationMinutes="3" ExpirationSeconds="0" ExpirationMilliseconds="0" CacheMode="None">function TimeSpan Expiration(
+	Collection[Domain.StockOnHand] stocks,
+	Domain.Response response
+)
+{ 
+	 return CommonLib.Utilities.CreateTimeSpan(0, 1, 0); 
+}</CachingOptions>
+    </Operation>
+  </Operations>
+  <DataContracts>
+    <DataContract Name="" Class="Domain.Item" BaseClass="">
+      <Members>
+        <Member Name="SKU" DataType="string" Checked="True" />
+        <Member Name="Description" DataType="string" Checked="True" />
+        <Member Name="UPC" DataType="string" Checked="True" />
+        <Member Name="ItemsForecast" DataType="Collection[Domain.Sales]" Checked="False" />
+        <Member Name="StocksOnHand" DataType="Collection[Domain.StockOnHand]" Checked="False" />
+        <Member Name="MinimumQuantity" DataType="Domain.MinimumQuantity" Checked="False" />
+        <Member Name="AvgDailyDemand" DataType="decimal" Checked="False" />
+        <Member Name="CoverageDays" DataType="int" Checked="False" />
+        <Member Name="PalletSize" DataType="int" Checked="False" />
+        <Member Name="SupplierPackSize" DataType="int" Checked="False" />
+        <Member Name="InnerPackSize" DataType="int" Checked="False" />
+        <Member Name="PalletType" DataType="string" Checked="False" />
+        <Member Name="PalTI" DataType="int" Checked="False" />
+        <Member Name="PalHI" DataType="int" Checked="False" />
+        <Member Name="UOM" DataType="string" Checked="False" />
+        <Member Name="SupplierCapacities" DataType="Collection[Domain.SupplierCapacity]" Checked="False" />
+        <Member Name="Supplier" DataType="Domain.Supplier" Checked="False" />
+        <Member Name="BusinessUnit" DataType="Domain.BusinessUnit" Checked="False" />
+        <Member Name="Category" DataType="Domain.Category" Checked="False" />
+        <Member Name="SubCategory" DataType="Domain.SubCategory" Checked="False" />
+        <Member Name="BaseUnit" DataType="Domain.BaseUnit" Checked="False" />
+        <Member Name="DeliverySchedules" DataType="Collection[Domain.DeliverySchedule]" Checked="False" />
+        <Member Name="Agreements" DataType="Collection[Domain.Agreement]" Checked="False" />
+        <Member Name="Notifications" DataType="Collection[Domain.Notification]" Checked="False" />
+        <Member Name="SLALeadTimes" DataType="Collection[Domain.SLALeadTime]" Checked="False" />
+        <Member Name="SLADeliveries" DataType="Collection[Domain.SLADelivery]" Checked="False" />
+        <Member Name="PastOrders" DataType="Collection[Domain.PastOrder]" Checked="False" />
+      </Members>
+    </DataContract>
+    <DataContract Name="" Class="Domain.Response" BaseClass="">
+      <Members>
+        <Member Name="Id" DataType="int" Checked="False" />
+        <Member Name="Status" DataType="string" Checked="True" />
+        <Member Name="Message" DataType="string" Checked="True" />
+        <Member Name="Details" DataType="string" Checked="True" />
+        <Member Name="Code" DataType="string" Checked="True" />
+      </Members>
+    </DataContract>
+    <DataContract Name="" Class="Domain.StockOnHand" BaseClass="">
+      <Members>
+        <Member Name="Id" DataType="int" Checked="False" />
+        <Member Name="Units" DataType="int" Checked="True" />
+        <Member Name="Warehouse" DataType="Domain.Warehouse" Checked="True" />
+        <Member Name="Item" DataType="Domain.Item" Checked="True" />
+        <Member Name="CurrentInventoryDays" DataType="decimal" Checked="False" />
+        <Member Name="StockOnHandDate" DataType="DateTime" Checked="True" />
+        <Member Name="LeadTime" DataType="string" Checked="False" />
+        <Member Name="TargetInventoryDays" DataType="decimal" Checked="False" />
+        <Member Name="FullTrackLoad" DataType="bool" Checked="False" />
+        <Member Name="WDDays" DataType="bool" Checked="False" />
+        <Member Name="Agreement" DataType="Domain.Agreement" Checked="False" />
+      </Members>
+    </DataContract>
+    <DataContract Name="" Class="Domain.Warehouse" BaseClass="">
+      <Members>
+        <Member Name="Id" DataType="int" Checked="True" />
+        <Member Name="Code" DataType="string" Checked="True" />
+        <Member Name="Description" DataType="string" Checked="True" />
+        <Member Name="PastOrders" DataType="Collection[Domain.PastOrder]" Checked="False" />
+      </Members>
+    </DataContract>
+  </DataContracts>
+</ExposedApi>

@@ -1,0 +1,242 @@
+<!--
+Copyright (c) CLMS. All rights reserved.
+Licensed under the AGPL-3.0 license. See LICENSE file in the project root for full license information.-->
+
+<ExternalApi DateCreated="" Model_Name="Optimizer_Mapotempo" Model_Description="" Version="">
+  <Endpoint TransportType="HTTP" ProtocolType="REST">
+    <Security SecurityType="None" />
+    <Class Name="Optimizer_MapotempoRoot" OriginalName="Optimizer_MapotempoRoot" Description="" Namespace="" BaseClass="" IsEnum="false">
+      <Attribute Name="solutions" OriginalName="" Description="" Datatype="Array[Interfaces.Optimizer_Mapotempo.solutions]" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="job" OriginalName="" Description="" Datatype="Interfaces.Optimizer_Mapotempo.job" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+    </Class>
+    <Class Name="solutions" OriginalName="solutions" Description="" Namespace="" BaseClass="" IsEnum="false">
+      <Attribute Name="cost" OriginalName="" Description="" Datatype="float" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="total_distance" OriginalName="" Description="" Datatype="float" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="total_time" OriginalName="" Description="" Datatype="int" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="start_time" OriginalName="" Description="" Datatype="int" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="end_time" OriginalName="" Description="" Datatype="int" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="routes" OriginalName="" Description="" Datatype="Array[Interfaces.Optimizer_Mapotempo.routes]" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="unassigned" OriginalName="" Description="" Datatype="Array[Interfaces.Optimizer_Mapotempo.activities]" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+    </Class>
+    <Class Name="routes" OriginalName="routes" Description="" Namespace="" BaseClass="" IsEnum="false">
+      <Attribute Name="vehicle_id" OriginalName="" Description="" Datatype="string" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="activities" OriginalName="" Description="" Datatype="Array[Interfaces.Optimizer_Mapotempo.activities]" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="total_distance" OriginalName="" Description="" Datatype="float" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="total_travel_time" OriginalName="" Description="" Datatype="int" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="start_time" OriginalName="" Description="" Datatype="int" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="end_time" OriginalName="" Description="" Datatype="int" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="geometry" OriginalName="" Description="" Datatype="string" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+    </Class>
+    <Class Name="activities" OriginalName="activities" Description="" Namespace="" BaseClass="" IsEnum="false">
+      <Attribute Name="point_id" OriginalName="" Description="" Datatype="string" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="travel_distance" OriginalName="" Description="" Datatype="float" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="travel_time" OriginalName="" Description="" Datatype="int" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="waiting_duration" OriginalName="" Description="" Datatype="int" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="departure_time" OriginalName="" Description="" Datatype="int" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="begin_time" OriginalName="" Description="" Datatype="int" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="service_id" OriginalName="" Description="" Datatype="string" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="pickup_shipment_id" OriginalName="" Description="" Datatype="string" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="delivery_shipment_id" OriginalName="" Description="" Datatype="string" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="detail" OriginalName="" Description="" Datatype="Interfaces.Optimizer_Mapotempo.detail" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="shipment_id" OriginalName="" Description="" Datatype="string" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+    </Class>
+    <Class Name="job" OriginalName="job" Description="" Namespace="" BaseClass="" IsEnum="false">
+      <Attribute Name="id" OriginalName="" Description="" Datatype="string" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="status" OriginalName="" Description="" Datatype="string" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="avancement" OriginalName="" Description="" Datatype="string" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="graph" OriginalName="" Description="" Datatype="Array[Interfaces.Optimizer_Mapotempo.graph]" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+    </Class>
+    <Class Name="graph" OriginalName="graph" Description="" Namespace="" BaseClass="" IsEnum="false">
+      <Attribute Name="iteration" OriginalName="" Description="" Datatype="int" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="time" OriginalName="" Description="" Datatype="float" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="cost" OriginalName="" Description="" Datatype="float" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+    </Class>
+    <Class Name="VrpProblem" OriginalName="Optimizer_MapotempoRoot1" Description="" Namespace="" BaseClass="" IsEnum="false">
+      <Attribute Name="vrp" OriginalName="" Description="" Datatype="Interfaces.Optimizer_Mapotempo.vrp" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+    </Class>
+    <Class Name="vrp" OriginalName="vrp" Description="" Namespace="" BaseClass="" IsEnum="false">
+      <Attribute Name="points" OriginalName="" Description="" Datatype="Array[Interfaces.Optimizer_Mapotempo.points]" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="vehicles" OriginalName="" Description="" Datatype="Array[Interfaces.Optimizer_Mapotempo.vehicles]" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="services" OriginalName="" Description="" Datatype="Array[Interfaces.Optimizer_Mapotempo.services]" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="configuration" OriginalName="" Description="" Datatype="Interfaces.Optimizer_Mapotempo.configuration" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="rests" OriginalName="" Description="" Datatype="Array[Interfaces.Optimizer_Mapotempo.rests]" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="shipments" OriginalName="" Description="" Datatype="Array[Interfaces.Optimizer_Mapotempo.shipments]" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="units" OriginalName="" Description="" Datatype="Array[Interfaces.Optimizer_Mapotempo.units]" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+    </Class>
+    <Class Name="points" OriginalName="points" Description="" Namespace="" BaseClass="" IsEnum="false">
+      <Attribute Name="id" OriginalName="" Description="" Datatype="string" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="location" OriginalName="" Description="" Datatype="Interfaces.Optimizer_Mapotempo.location" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+    </Class>
+    <Class Name="location" OriginalName="location" Description="" Namespace="" BaseClass="" IsEnum="false">
+      <Attribute Name="lat" OriginalName="" Description="" Datatype="float" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="lon" OriginalName="" Description="" Datatype="float" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+    </Class>
+    <Class Name="vehicles" OriginalName="vehicles" Description="" Namespace="" BaseClass="" IsEnum="false">
+      <Attribute Name="id" OriginalName="" Description="" Datatype="string" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="router_mode" OriginalName="" Description="" Datatype="string" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="router_dimension" OriginalName="" Description="" Datatype="string" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="speed_multiplier" OriginalName="" Description="" Datatype="int" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="timewindow" OriginalName="" Description="" Datatype="Interfaces.Optimizer_Mapotempo.timewindow" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="start_point_id" OriginalName="" Description="" Datatype="string" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="end_point_id" OriginalName="" Description="" Datatype="string" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="cost_fixed" OriginalName="" Description="" Datatype="int" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="cost_distance_multiplier" OriginalName="" Description="" Datatype="float" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="cost_time_multiplier" OriginalName="" Description="" Datatype="int" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="cost_waiting_time_multiplier" OriginalName="" Description="" Datatype="int" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="cost_late_multiplier" OriginalName="" Description="" Datatype="int" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="rest_ids" OriginalName="" Description="" Datatype="Array[string]" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="capacities" OriginalName="" Description="" Datatype="Array[Interfaces.Optimizer_Mapotempo.capacity]" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+    </Class>
+    <Class Name="timewindow" OriginalName="timewindow" Description="" Namespace="" BaseClass="" IsEnum="false">
+      <Attribute Name="start" OriginalName="" Description="" Datatype="int" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="end" OriginalName="" Description="" Datatype="int" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+    </Class>
+    <Class Name="services" OriginalName="services" Description="" Namespace="" BaseClass="" IsEnum="false">
+      <Attribute Name="id" OriginalName="" Description="" Datatype="string" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="type" OriginalName="" Description="" Datatype="string" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="activity" OriginalName="" Description="" Datatype="Interfaces.Optimizer_Mapotempo.activity" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+    </Class>
+    <Class Name="activity" OriginalName="activity" Description="" Namespace="" BaseClass="" IsEnum="false">
+      <Attribute Name="point_id" OriginalName="" Description="" Datatype="string" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="timewindows" OriginalName="" Description="" Datatype="Array[Interfaces.Optimizer_Mapotempo.timewindows]" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="duration" OriginalName="" Description="" Datatype="int" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+    </Class>
+    <Class Name="timewindows" OriginalName="timewindows" Description="" Namespace="" BaseClass="" IsEnum="false">
+      <Attribute Name="start" OriginalName="" Description="" Datatype="int" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="end" OriginalName="" Description="" Datatype="int" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="day_index" OriginalName="day_index" Description="" Datatype="int" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+    </Class>
+    <Class Name="configuration" OriginalName="configuration" Description="" Namespace="" BaseClass="" IsEnum="false">
+      <Attribute Name="preprocessing" OriginalName="" Description="" Datatype="Interfaces.Optimizer_Mapotempo.preprocessing" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="resolution" OriginalName="" Description="" Datatype="Interfaces.Optimizer_Mapotempo.resolution" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+    </Class>
+    <Class Name="preprocessing" OriginalName="preprocessing" Description="" Namespace="" BaseClass="" IsEnum="false">
+      <Attribute Name="prefer_short_segment" OriginalName="" Description="" Datatype="bool" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+    </Class>
+    <Class Name="resolution" OriginalName="resolution" Description="" Namespace="" BaseClass="" IsEnum="false">
+      <Attribute Name="duration" OriginalName="" Description="" Datatype="int" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="iterations_without_improvment" OriginalName="" Description="" Datatype="int" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="initial_time_out" OriginalName="" Description="" Datatype="int" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="time_out_multiplier" OriginalName="" Description="" Datatype="int" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+    </Class>
+    <Class Name="rests" OriginalName="rests" Description="" Namespace="" BaseClass="" IsEnum="false">
+      <Attribute Name="id" OriginalName="" Description="" Datatype="string" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="timewindows" OriginalName="" Description="" Datatype="Array[Interfaces.Optimizer_Mapotempo.restsTimewindows]" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="duration" OriginalName="" Description="" Datatype="int" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+    </Class>
+    <Class Name="restsTimewindows" OriginalName="restsTimewindows" Description="" Namespace="" BaseClass="" IsEnum="false">
+      <Attribute Name="start" OriginalName="" Description="" Datatype="int" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="end" OriginalName="" Description="" Datatype="int" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+    </Class>
+    <Class Name="Optimizer_MapotempoRoot1" OriginalName="Optimizer_MapotempoRoot1" Description="" Namespace="" BaseClass="" IsEnum="false">
+      <Attribute Name="shipments" OriginalName="" Description="" Datatype="Interfaces.Optimizer_Mapotempo.shipments" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+    </Class>
+    <Class Name="shipments" OriginalName="shipments" Description="" Namespace="" BaseClass="" IsEnum="false">
+      <Attribute Name="id" OriginalName="" Description="" Datatype="string" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="priority" OriginalName="" Description="" Datatype="int" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="sticky_vehicle_ids" OriginalName="" Description="" Datatype="string" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="skills" OriginalName="" Description="" Datatype="string" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="pickup" OriginalName="" Description="" Datatype="Interfaces.Optimizer_Mapotempo.pickup" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="delivery" OriginalName="" Description="" Datatype="Interfaces.Optimizer_Mapotempo.delivery" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="quantities" OriginalName="" Description="" Datatype="Array[Interfaces.Optimizer_Mapotempo.quantities]" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+    </Class>
+    <Class Name="pickup" OriginalName="pickup" Description="" Namespace="" BaseClass="" IsEnum="false">
+      <Attribute Name="duration" OriginalName="" Description="" Datatype="int" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="additional_value" OriginalName="" Description="" Datatype="int" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="setup_duration" OriginalName="" Description="" Datatype="int" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="late_multiplier" OriginalName="" Description="" Datatype="int" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="timewindow_start_day_shift_number" OriginalName="" Description="" Datatype="int" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="point_id" OriginalName="" Description="" Datatype="string" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="value_matrix_index" OriginalName="" Description="" Datatype="int" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="timewindows" OriginalName="" Description="" Datatype="Array[Interfaces.Optimizer_Mapotempo.timewindows]" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+    </Class>
+    <Class Name="delivery" OriginalName="delivery" Description="" Namespace="" BaseClass="" IsEnum="false">
+      <Attribute Name="duration" OriginalName="" Description="" Datatype="int" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="additional_value" OriginalName="" Description="" Datatype="int" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="setup_duration" OriginalName="" Description="" Datatype="int" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="late_multiplier" OriginalName="" Description="" Datatype="int" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="timewindow_start_day_shift_number" OriginalName="" Description="" Datatype="int" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="point_id" OriginalName="" Description="" Datatype="string" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="value_matrix_index" OriginalName="" Description="" Datatype="int" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="timewindows" OriginalName="" Description="" Datatype="Array[Interfaces.Optimizer_Mapotempo.deliveryTimewindows]" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+    </Class>
+    <Class Name="deliveryTimewindows" OriginalName="deliveryTimewindows" Description="" Namespace="" BaseClass="" IsEnum="false">
+      <Attribute Name="start" OriginalName="" Description="" Datatype="int" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="end" OriginalName="" Description="" Datatype="int" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="day_index" OriginalName="" Description="" Datatype="int" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+    </Class>
+    <Class Name="quantities" OriginalName="quantities" Description="" Namespace="" BaseClass="" IsEnum="false">
+      <Attribute Name="unit_id" OriginalName="" Description="" Datatype="string" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="value" OriginalName="" Description="" Datatype="float" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="unit" OriginalName="unit" Description="" Datatype="Interfaces.Optimizer_Mapotempo.unit" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="current_load" OriginalName="current_load" Description="" Datatype="decimal" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+    </Class>
+    <Class Name="capacity" OriginalName="" Description="" Namespace="" BaseClass="" IsEnum="false">
+      <Attribute Name="unit_id" OriginalName="" Description="" Datatype="string" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="limit" OriginalName="" Description="" Datatype="int" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="overload_multiplier" OriginalName="" Description="" Datatype="int" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+    </Class>
+    <Class Name="units" OriginalName="" Description="" Namespace="" BaseClass="" IsEnum="false">
+      <Attribute Name="id" OriginalName="" Description="" Datatype="string" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="label" OriginalName="" Description="" Datatype="string" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="counting" OriginalName="" Description="" Datatype="bool" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+    </Class>
+    <Class Name="Optimizer_MapotempoRoot2" OriginalName="Optimizer_MapotempoRoot2" Description="" Namespace="" BaseClass="" IsEnum="false">
+      <Attribute Name="detail" OriginalName="" Description="" Datatype="Interfaces.Optimizer_Mapotempo.detail" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+    </Class>
+    <Class Name="detail" OriginalName="detail" Description="" Namespace="" BaseClass="" IsEnum="false">
+      <Attribute Name="lat" OriginalName="" Description="" Datatype="float" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="lon" OriginalName="" Description="" Datatype="float" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="skills" OriginalName="" Description="" Datatype="Array[Object]" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="setup_duration" OriginalName="" Description="" Datatype="int" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="duration" OriginalName="" Description="" Datatype="int" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="additional_value" OriginalName="" Description="" Datatype="int" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="timewindows" OriginalName="" Description="" Datatype="Array[Object]" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="quantities" OriginalName="" Description="" Datatype="Array[Interfaces.Optimizer_Mapotempo.quantities]" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+    </Class>
+    <Class Name="unit" OriginalName="unit" Description="" Namespace="" BaseClass="" IsEnum="false">
+      <Attribute Name="attributes" OriginalName="" Description="" Datatype="Interfaces.Optimizer_Mapotempo.attributes" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+    </Class>
+    <Class Name="attributes" OriginalName="attributes" Description="" Namespace="" BaseClass="" IsEnum="false">
+      <Attribute Name="id" OriginalName="" Description="" Datatype="string" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+      <Attribute Name="counting" OriginalName="" Description="" Datatype="bool" Length="0" IsPrimary="false" IsEncrypted="false" OriginalDataType="" />
+    </Class>
+    <Operation Name="job" Description="" Datatype="Interfaces.Optimizer_Mapotempo.Optimizer_MapotempoRoot" OriginalName="" ClientType="" IsStatic="false" AccessLog="false" Verb="GET" Text="" ContentType="JSON" Route="vrp/jobs" Notes="" UserDefinedUrlMethod="false">
+      <Parameters>
+        <Parameter Name="id" DataType="string" IsRef="False" IsOut="False" DefaultValue="" Notes="" Type="UriPart" Alias="" />
+        <Parameter Name="api_key" DataType="string" IsRef="False" IsOut="False" DefaultValue="" Notes="" Type="QueryParameter" Alias="" />
+      </Parameters>
+      <Headers>
+        <Header Name="Accept" Value="&quot;application/json&quot;" />
+      </Headers>
+      <GetUrlMethod>return "";</GetUrlMethod>
+      <CachingOptions CachePerUser="false" OperationIsCached="false" OverrideDefaultCachingSettings="false" UseCustomExpirationMethod="false" ExpirationDays="0" ExpirationHours="0" ExpirationMinutes="3" ExpirationSeconds="0" ExpirationMilliseconds="0" CacheMode="None">function TimeSpan Expiration(
+	string id,
+	string api_key,
+	Interfaces.Optimizer_Mapotempo.Optimizer_MapotempoRoot response
+)
+{ 
+	 return CommonLib.Utilities.CreateTimeSpan(0, 1, 0); 
+}</CachingOptions>
+    </Operation>
+    <Operation Name="submit" Description="" Datatype="Interfaces.Optimizer_Mapotempo.Optimizer_MapotempoRoot" OriginalName="" ClientType="" IsStatic="false" AccessLog="false" Verb="POST" Text="" ContentType="JSON" Route="vrp/submit" Notes="" UserDefinedUrlMethod="false">
+      <Parameters>
+        <Parameter Name="a01VrpSubmit" DataType="Interfaces.Optimizer_Mapotempo.VrpProblem" IsRef="False" IsOut="False" DefaultValue="" Notes="" Type="RequestBody" Alias="" />
+        <Parameter Name="api_key" DataType="string" IsRef="False" IsOut="False" DefaultValue="" Notes="" Type="QueryParameter" Alias="" />
+      </Parameters>
+      <Headers>
+        <Header Name="Accept" Value="&quot;application/json&quot;" />
+      </Headers>
+      <GetUrlMethod>return "";</GetUrlMethod>
+      <CachingOptions CachePerUser="false" OperationIsCached="false" OverrideDefaultCachingSettings="false" UseCustomExpirationMethod="false" ExpirationDays="0" ExpirationHours="0" ExpirationMinutes="3" ExpirationSeconds="0" ExpirationMilliseconds="0" CacheMode="None">function TimeSpan Expiration(
+	Interfaces.Optimizer_Mapotempo.VrpProblem a01VrpSubmit,
+	string api_key,
+	Interfaces.Optimizer_Mapotempo.Optimizer_MapotempoRoot response
+)
+{ 
+	 return CommonLib.Utilities.CreateTimeSpan(0, 1, 0); 
+}</CachingOptions>
+    </Operation>
+  </Endpoint>
+  <RestEndpointDetails BaseUrl="http://optimizer.mapotempo.com/0.1/" IgnoringNullFields="false" />
+</ExternalApi>

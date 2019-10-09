@@ -1,0 +1,69 @@
+{
+  "_args": [
+    [
+      "@types/ace@0.0.32",
+      "C:\\Users\\user\\Documents\\Projects\\Joove.Framework"
+    ]
+  ],
+  "_from": "@types/ace@0.0.32",
+  "_id": "@types/ace@0.0.32",
+  "_inCache": true,
+  "_installable": true,
+  "_location": "/@types/ace",
+  "_npmOperationalInternal": {
+    "host": "packages-16-east.internal.npmjs.com",
+    "tmp": "tmp/ace-0.0.32.tgz_1474301989236_0.0090580303221941"
+  },
+  "_npmUser": {
+    "email": "ts-npm-types@microsoft.com",
+    "name": "types"
+  },
+  "_phantomChildren": {},
+  "_requested": {
+    "name": "@types/ace",
+    "raw": "@types/ace@0.0.32",
+    "rawSpec": "0.0.32",
+    "scope": "@types",
+    "spec": "0.0.32",
+    "type": "version"
+  },
+  "_requiredBy": [
+    "#DEV:/"
+  ],
+  "_resolved": "https://registry.npmjs.org/@types/ace/-/ace-0.0.32.tgz",
+  "_shasum": "d584813960607540ddb202de8b3e229504d45cff",
+  "_shrinkwrap": null,
+  "_spec": "@types/ace@0.0.32",
+  "_where": "C:\\Users\\user\\Documents\\Projects\\Joove.Framework",
+  "author": {
+    "email": "https://github.com/Diullei",
+    "name": "Diullei Gomes"
+  },
+  "dependencies": {},
+  "description": "TypeScript definitions for Ace Ajax.org Cloud9 Editor",
+  "devDependencies": {},
+  "directories": {},
+  "dist": {
+    "shasum": "d584813960607540ddb202de8b3e229504d45cff",
+    "tarball": "https://registry.npmjs.org/@types/ace/-/ace-0.0.32.tgz"
+  },
+  "license": "MIT",
+  "main": "",
+  "maintainers": [
+    {
+      "email": "ryan.cavanaugh@microsoft.com",
+      "name": "types"
+    }
+  ],
+  "name": "@types/ace",
+  "optionalDependencies": {},
+  "readme": "ERROR: No README data found!",
+  "repository": {
+    "type": "git",
+    "url": "https://www.github.com/DefinitelyTyped/DefinitelyTyped.git"
+  },
+  "scripts": {},
+  "typesPublisherContentHash": "ed377c3aa50453ab6249200c043ec41177ed896ee9e783b02724a7398b49a627",
+  "typings": "index.d.ts",
+  "version": "0.0.32"
+}

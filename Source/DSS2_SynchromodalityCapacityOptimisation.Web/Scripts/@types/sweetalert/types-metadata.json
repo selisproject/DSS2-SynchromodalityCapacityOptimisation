@@ -1,0 +1,26 @@
+{
+    "authors": "Markus Peloso <https://github.com/ToastHawaii/>",
+    "definitionFilename": "index.d.ts",
+    "libraryDependencies": [],
+    "moduleDependencies": [],
+    "libraryMajorVersion": "1",
+    "libraryMinorVersion": "1",
+    "libraryName": "SweetAlert 1.1.3",
+    "typingsPackageName": "sweetalert",
+    "projectName": "https://github.com/t4t5/sweetalert/",
+    "sourceRepoURL": "https://www.github.com/DefinitelyTyped/DefinitelyTyped",
+    "sourceBranch": "types-2.0",
+    "kind": "Mixed",
+    "globals": [
+        "swal",
+        "sweetAlert"
+    ],
+    "declaredModules": [
+        "sweetalert"
+    ],
+    "files": [
+        "index.d.ts"
+    ],
+    "hasPackageJson": false,
+    "contentHash": "7e9a14a9740a10d2686d85593d78a9809d6536ea7ba349ce627048e8b092f1f0"
+}
