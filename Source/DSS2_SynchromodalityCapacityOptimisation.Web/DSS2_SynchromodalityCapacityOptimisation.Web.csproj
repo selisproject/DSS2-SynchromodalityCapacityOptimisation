@@ -772,7 +772,7 @@
     <PackageReference Include="PDFsharp" Version="1.50.5147" />
     <PackageReference Include="PDFsharp-MigraDoc" Version="1.50.5147" />
     <PackageReference Include="RabbitMQ.Client" Version="5.1.0" />
-    <PackageReference Include="SSH.NET" Version="2016.1.0" />
+    <PackageReference Include="SSH.NET" Version="2020.0.2" />
     <PackageReference Include="StackExchange.Redis.StrongName" Version="1.2.6" />
     <PackageReference Include="Swashbuckle.Core" Version="5.2.2" />
     <PackageReference Include="System.Configuration.ConfigurationManager" Version="4.5.0" />
